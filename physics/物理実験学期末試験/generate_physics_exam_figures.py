@@ -340,66 +340,128 @@ def plot_oscilloscope():
 # ============================================
 
 def plot_logic_circuit():
-    """論理回路図（NANDとNOT）"""
+    """論理回路図（NORとNOT）"""
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(14, 6))
     
-    # 左：NANDゲート
+    # 左：NORゲート
     # 電源
-    ax1.plot([0, 2], [4, 4], 'r-', linewidth=2)
-    ax1.text(1, 4.2, 'Vcc (+5V)', ha='center', fontsize=10)
+    ax1.plot([0, 3], [4.5, 4.5], 'r-', linewidth=3)
+    ax1.text(1.5, 4.7, 'Vcc (+5V)', ha='center', fontsize=11, fontweight='bold', color='red')
     
-    # 抵抗
-    ax1.plot([2, 2], [4, 3], 'k-', linewidth=3)
-    ax1.text(2.3, 3.5, '470Ω', ha='left', fontsize=9)
+    # プルアップ抵抗（470Ω）
+    ax1.plot([3, 3], [4.5, 3.5], 'k-', linewidth=3)
+    # 抵抗の波線パターン
+    for y in np.linspace(3.7, 4.3, 5):
+        ax1.plot([2.7, 3.3], [y, y], 'k-', linewidth=1)
+    ax1.text(3.4, 4.0, '470Ω', ha='left', fontsize=10, fontweight='bold')
     
-    # トランジスタ（簡略化）
-    ax1.plot([2, 2], [3, 1], 'k-', linewidth=2)
-    ax1.plot([1.5, 2.5], [1, 1], 'k-', linewidth=2)
-    ax1.plot([2, 2], [1, 0], 'k-', linewidth=2)
+    # 出力線
+    ax1.plot([3, 5], [3.5, 3.5], 'g-', linewidth=2.5)
+    ax1.text(5.2, 3.5, 'Out 1', ha='left', fontsize=11, fontweight='bold', color='green')
     
-    # 入力
-    ax1.plot([0, 1.5], [2.5, 2.5], 'b-', linewidth=2)
-    ax1.text(-0.3, 2.5, 'In 1', ha='right', fontsize=10)
-    ax1.plot([0, 1.5], [1.5, 1.5], 'b-', linewidth=2)
-    ax1.text(-0.3, 1.5, 'In 2', ha='right', fontsize=10)
+    # トランジスタ（NPN）
+    # コレクタ
+    ax1.plot([3, 3], [3.5, 2.5], 'k-', linewidth=2)
+    # ベース
+    ax1.plot([2.5, 3.5], [2.5, 2.5], 'k-', linewidth=2)
+    # エミッタ
+    ax1.plot([3, 3], [2.5, 1.5], 'k-', linewidth=2)
+    # ベースエミッタ接続
+    ax1.plot([2.5, 2.5], [2.5, 2.0], 'k-', linewidth=1.5)
+    ax1.plot([3.5, 3.5], [2.5, 2.0], 'k-', linewidth=1.5)
+    # トランジスタ記号（矢印）
+    ax1.annotate('', xy=(3, 1.5), xytext=(3, 2.0),
+                arrowprops=dict(arrowstyle='->', lw=2, color='black'))
+    ax1.text(3.4, 2.5, 'NPN', ha='left', fontsize=9, style='italic')
     
-    # 出力
-    ax1.plot([2, 4], [3, 3], 'g-', linewidth=2)
-    ax1.text(4.2, 3, 'Out 1', ha='left', fontsize=10)
+    # 入力1（680Ω抵抗経由でベースに接続）
+    ax1.plot([0, 1.5], [3.0, 2.7], 'b-', linewidth=2.5)
+    ax1.text(-0.3, 3.0, 'In 1', ha='right', fontsize=11, fontweight='bold', color='blue')
+    # ベース抵抗1（680Ω）- 垂直に描画
+    ax1.plot([1.5, 1.5], [2.5, 2.7], 'k-', linewidth=2)
+    # 抵抗の波線パターン
+    for y in np.linspace(2.52, 2.68, 3):
+        ax1.plot([1.4, 1.6], [y, y], 'k-', linewidth=1)
+    # ベースへの接続線
+    ax1.plot([1.5, 2.5], [2.5, 2.5], 'k-', linewidth=2)
+    ax1.text(1.5, 2.4, '680Ω', ha='center', fontsize=9)
     
-    ax1.set_xlim(-1, 5)
-    ax1.set_ylim(-0.5, 5)
+    # 入力2（680Ω抵抗経由でベースに接続）
+    ax1.plot([0, 1.5], [2.0, 2.3], 'b-', linewidth=2.5)
+    ax1.text(-0.3, 2.0, 'In 2', ha='right', fontsize=11, fontweight='bold', color='blue')
+    # ベース抵抗2（680Ω）- 垂直に描画
+    ax1.plot([1.5, 1.5], [2.3, 2.5], 'k-', linewidth=2)
+    # 抵抗の波線パターン
+    for y in np.linspace(2.32, 2.48, 3):
+        ax1.plot([1.4, 1.6], [y, y], 'k-', linewidth=1)
+    # ベースへの接続線（既に描画済みの線と接続）
+    ax1.text(1.5, 2.6, '680Ω', ha='center', fontsize=9)
+    
+    # グラウンド
+    ax1.plot([3, 3], [1.5, 1.0], 'k-', linewidth=2)
+    ax1.plot([2.5, 3.5], [1.0, 1.0], 'k-', linewidth=3)
+    ax1.plot([2.7, 3.3], [0.8, 0.8], 'k-', linewidth=2)
+    ax1.plot([2.9, 3.1], [0.6, 0.6], 'k-', linewidth=2)
+    ax1.text(3.4, 1.0, 'GND', ha='left', fontsize=9)
+    
+    ax1.set_xlim(-0.8, 6)
+    ax1.set_ylim(0.5, 5.2)
     ax1.set_aspect('equal')
     ax1.axis('off')
-    ax1.set_title('NANDゲート', fontsize=14, fontweight='bold')
+    ax1.set_title('NORゲート', fontsize=15, fontweight='bold', pad=15)
     
     # 右：NOTゲート
     # 電源
-    ax2.plot([0, 2], [4, 4], 'r-', linewidth=2)
-    ax2.text(1, 4.2, 'Vcc (+5V)', ha='center', fontsize=10)
+    ax2.plot([0, 3], [4.5, 4.5], 'r-', linewidth=3)
+    ax2.text(1.5, 4.7, 'Vcc (+5V)', ha='center', fontsize=11, fontweight='bold', color='red')
     
-    # 抵抗
-    ax2.plot([2, 2], [4, 3], 'k-', linewidth=3)
-    ax2.text(2.3, 3.5, '470Ω', ha='left', fontsize=9)
+    # プルアップ抵抗
+    ax2.plot([3, 3], [4.5, 3.5], 'k-', linewidth=3)
+    # 抵抗の波線パターン
+    for y in np.linspace(3.7, 4.3, 5):
+        ax2.plot([2.7, 3.3], [y, y], 'k-', linewidth=1)
+    ax2.text(3.4, 4.0, '470Ω', ha='left', fontsize=10, fontweight='bold')
     
-    # トランジスタ
-    ax2.plot([2, 2], [3, 1], 'k-', linewidth=2)
-    ax2.plot([1.5, 2.5], [1, 1], 'k-', linewidth=2)
-    ax2.plot([2, 2], [1, 0], 'k-', linewidth=2)
+    # 出力線
+    ax2.plot([3, 5], [3.5, 3.5], 'g-', linewidth=2.5)
+    ax2.text(5.2, 3.5, 'Out 2', ha='left', fontsize=11, fontweight='bold', color='green')
     
-    # 入力
-    ax2.plot([0, 1.5], [2, 2], 'b-', linewidth=2)
-    ax2.text(-0.3, 2, 'In 3', ha='right', fontsize=10)
+    # トランジスタ（NPN）
+    # コレクタ
+    ax2.plot([3, 3], [3.5, 2.5], 'k-', linewidth=2)
+    # ベース
+    ax2.plot([2.5, 3.5], [2.5, 2.5], 'k-', linewidth=2)
+    # エミッタ
+    ax2.plot([3, 3], [2.5, 1.5], 'k-', linewidth=2)
+    # ベースエミッタ接続
+    ax2.plot([2.5, 2.5], [2.5, 2.0], 'k-', linewidth=1.5)
+    ax2.plot([3.5, 3.5], [2.5, 2.0], 'k-', linewidth=1.5)
+    # トランジスタ記号（矢印）
+    ax2.annotate('', xy=(3, 1.5), xytext=(3, 2.0),
+                arrowprops=dict(arrowstyle='->', lw=2, color='black'))
+    ax2.text(3.4, 2.5, 'NPN', ha='left', fontsize=9, style='italic')
     
-    # 出力
-    ax2.plot([2, 4], [3, 3], 'g-', linewidth=2)
-    ax2.text(4.2, 3, 'Out 2', ha='left', fontsize=10)
+    # 入力（ベース抵抗経由）
+    ax2.plot([0, 2.5], [2.5, 2.5], 'b-', linewidth=2.5)
+    ax2.text(-0.3, 2.5, 'In 3', ha='right', fontsize=11, fontweight='bold', color='blue')
+    # ベース抵抗（680Ω）
+    ax2.plot([2.5, 2.5], [2.3, 2.7], 'k-', linewidth=2)
+    for x in np.linspace(2.3, 2.7, 3):
+        ax2.plot([x, x], [2.3, 2.7], 'k-', linewidth=1)
+    ax2.text(2.5, 2.1, '680Ω', ha='center', fontsize=9)
     
-    ax2.set_xlim(-1, 5)
-    ax2.set_ylim(-0.5, 5)
+    # グラウンド
+    ax2.plot([3, 3], [1.5, 1.0], 'k-', linewidth=2)
+    ax2.plot([2.5, 3.5], [1.0, 1.0], 'k-', linewidth=3)
+    ax2.plot([2.7, 3.3], [0.8, 0.8], 'k-', linewidth=2)
+    ax2.plot([2.9, 3.1], [0.6, 0.6], 'k-', linewidth=2)
+    ax2.text(3.4, 1.0, 'GND', ha='left', fontsize=9)
+    
+    ax2.set_xlim(-0.8, 6)
+    ax2.set_ylim(0.5, 5.2)
     ax2.set_aspect('equal')
     ax2.axis('off')
-    ax2.set_title('NOTゲート', fontsize=14, fontweight='bold')
+    ax2.set_title('NOTゲート', fontsize=15, fontweight='bold', pad=15)
     
     plt.tight_layout()
     plt.savefig('figures/fig4_logic_circuit.png', dpi=300, bbox_inches='tight')
@@ -407,49 +469,108 @@ def plot_logic_circuit():
     plt.close()
 
 def plot_counter_waveform():
-    """4ビットカウンタの波形"""
-    fig, axes = plt.subplots(5, 1, figsize=(12, 8), sharex=True)
+    """4ビットカウンタの波形（1111から0000までカウントダウン）"""
+    fig, axes = plt.subplots(5, 1, figsize=(14, 10), sharex=True)
     
-    t = np.array([0, 1, 2, 3, 4, 5])
+    # より細かい時間軸で波形を生成（16クロック周期分）
+    t = np.linspace(0, 16, 16000)  # 16クロック周期、高解像度
     
-    # 入力 A
-    input_wave = [0, 5, 0, 5, 0, 5]
-    axes[0].plot(t, input_wave, 'b-', linewidth=2, drawstyle='steps-post')
+    # 入力 A: 0.5で立ち上がり、1.0で立ち下がり、1.5で立ち上がり、2.0で立ち下がり...
+    input_wave = np.zeros_like(t)
+    for i in range(len(t)):
+        cycle = int(t[i])
+        phase = t[i] - cycle
+        if phase < 0.5:
+            input_wave[i] = 0
+        else:
+            input_wave[i] = 5
+    
+    axes[0].plot(t, input_wave, 'b-', linewidth=2)
     axes[0].set_ylabel('入力 A\n(V)', fontsize=10)
     axes[0].set_ylim(-1, 6)
     axes[0].grid(True, alpha=0.3)
     
-    # 1ビット目
-    bit1 = [5, 0, 5, 0, 5, 0]
-    axes[1].plot(t, bit1, 'r-', linewidth=2, drawstyle='steps-post')
-    axes[1].set_ylabel('1ビット目 Q\n(V)', fontsize=10)
+    # 各ビットの状態を計算
+    # Q0 (LSB): 入力Aの立ち上がりエッジでトグル
+    # Q1: Q0の立ち下がりエッジ（1→0）でトグル（Q0のQ-barの立ち上がりエッジ）
+    # Q2: Q1の立ち下がりエッジ（1→0）でトグル（Q1のQ-barの立ち上がりエッジ）
+    # Q3 (MSB): Q2の立ち下がりエッジ（1→0）でトグル（Q2のQ-barの立ち上がりエッジ）
+    
+    bit0 = np.zeros(len(t))
+    bit1 = np.zeros(len(t))
+    bit2 = np.zeros(len(t))
+    bit3 = np.zeros(len(t))
+    
+    # 初期状態: すべて1 (1111) - 問題文の指定通り
+    q0_state = 1
+    q1_state = 1
+    q2_state = 1
+    q3_state = 1
+    
+    prev_input = 0
+    prev_q0_val = 5  # 初期値5V
+    prev_q1_val = 5  # 初期値5V
+    prev_q2_val = 5  # 初期値5V
+    
+    for i in range(len(t)):
+        current_input = input_wave[i]
+        
+        # Q0: 入力Aの立ち上がりエッジ（0→1）でトグル
+        if prev_input == 0 and current_input == 5:
+            q0_state = 1 - q0_state  # トグル
+        
+        # 電圧値に変換（0→0V, 1→5V）
+        bit0[i] = q0_state * 5
+        
+        # Q1: Q0の立ち下がりエッジ（1→0）でトグル
+        # Q0が1→0になると、Q0-barが0→1に変化（立ち上がりエッジ）→ Q1のCLK
+        if prev_q0_val == 5 and bit0[i] == 0:
+            q1_state = 1 - q1_state  # トグル
+        
+        bit1[i] = q1_state * 5
+        
+        # Q2: Q1の立ち下がりエッジ（1→0）でトグル
+        # Q1が1→0になると、Q1-barが0→1に変化（立ち上がりエッジ）→ Q2のCLK
+        if prev_q1_val == 5 and bit1[i] == 0:
+            q2_state = 1 - q2_state  # トグル
+        
+        bit2[i] = q2_state * 5
+        
+        # Q3: Q2の立ち下がりエッジ（1→0）でトグル
+        # Q2が1→0になると、Q2-barが0→1に変化（立ち上がりエッジ）→ Q3のCLK
+        if prev_q2_val == 5 and bit2[i] == 0:
+            q3_state = 1 - q3_state  # トグル
+        
+        bit3[i] = q3_state * 5
+        
+        prev_input = current_input
+        prev_q0_val = bit0[i]
+        prev_q1_val = bit1[i]
+        prev_q2_val = bit2[i]
+    
+    axes[1].plot(t, bit0, 'r-', linewidth=2)
+    axes[1].set_ylabel('1ビット目 Q₀\n(LSB) (V)', fontsize=10)
     axes[1].set_ylim(-1, 6)
     axes[1].grid(True, alpha=0.3)
     
-    # 2ビット目
-    bit2 = [5, 0, 0, 5, 5, 0]
-    axes[2].plot(t, bit2, 'g-', linewidth=2, drawstyle='steps-post')
-    axes[2].set_ylabel('2ビット目 Q\n(V)', fontsize=10)
+    axes[2].plot(t, bit1, 'g-', linewidth=2)
+    axes[2].set_ylabel('2ビット目 Q₁\n(V)', fontsize=10)
     axes[2].set_ylim(-1, 6)
     axes[2].grid(True, alpha=0.3)
     
-    # 3ビット目
-    bit3 = [5, 5, 5, 0, 0, 0]
-    axes[3].plot(t, bit3, 'm-', linewidth=2, drawstyle='steps-post')
-    axes[3].set_ylabel('3ビット目 Q\n(V)', fontsize=10)
+    axes[3].plot(t, bit2, 'm-', linewidth=2)
+    axes[3].set_ylabel('3ビット目 Q₂\n(V)', fontsize=10)
     axes[3].set_ylim(-1, 6)
     axes[3].grid(True, alpha=0.3)
     
-    # 4ビット目
-    bit4 = [5, 5, 5, 0, 0, 0]
-    axes[4].plot(t, bit4, 'c-', linewidth=2, drawstyle='steps-post')
-    axes[4].set_ylabel('4ビット目 Q\n(V)', fontsize=10)
+    axes[4].plot(t, bit3, 'c-', linewidth=2)
+    axes[4].set_ylabel('4ビット目 Q₃\n(MSB) (V)', fontsize=10)
     axes[4].set_xlabel('時間 (クロック周期)', fontsize=12)
     axes[4].set_ylim(-1, 6)
     axes[4].grid(True, alpha=0.3)
-    axes[4].set_xticks(t)
+    axes[4].set_xticks(range(0, 17))
     
-    fig.suptitle('4ビットカウンタの波形', fontsize=16, fontweight='bold')
+    fig.suptitle('4ビットカウンタの波形（1111 → 0000 → 1111）', fontsize=16, fontweight='bold')
     plt.tight_layout()
     plt.savefig('figures/fig4_counter_waveform.png', dpi=300, bbox_inches='tight')
     print("4ビットカウンタの波形を保存しました: figures/fig4_counter_waveform.png")
