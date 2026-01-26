@@ -162,44 +162,53 @@ def plot_pipe_section():
 
 def plot_vernier():
     """ノギスの読み取り方法"""
-    fig, ax = plt.subplots(figsize=(10, 4))
+    fig, ax = plt.subplots(figsize=(12, 5))
     
-    # 主尺
+    # 主尺（1mm刻み、10mmごとに長い目盛り）
     main_scale_x = np.arange(0, 25)
     for x in main_scale_x:
         if x % 10 == 0:
-            ax.plot([x, x], [0, 0.6], 'k-', linewidth=2)
-            ax.text(x, -0.3, str(x), ha='center', fontsize=10)
+            ax.plot([x, x], [0, 0.8], 'k-', linewidth=2.5)
+            ax.text(x, -0.4, str(x), ha='center', fontsize=11, fontweight='bold')
         elif x % 5 == 0:
-            ax.plot([x, x], [0, 0.4], 'k-', linewidth=1.5)
+            ax.plot([x, x], [0, 0.6], 'k-', linewidth=2)
         else:
-            ax.plot([x, x], [0, 0.2], 'k-', linewidth=1)
+            ax.plot([x, x], [0, 0.3], 'k-', linewidth=1.2)
     
-    # バーニア尺（18.4 mm の位置に合わせる）
+    # バーニア尺（0.05mm刻み、10目盛りで0.5mm）
+    # 18.40mmの読み取りを例に
     vernier_base = 18.4
     vernier_scale_x = np.arange(0, 10) * 0.95 + vernier_base - 0.4  # 0.05 mm 刻み
     for i, x in enumerate(vernier_scale_x):
         if i == 0:
-            ax.plot([x, x], [1, 1.6], 'r-', linewidth=2, label='バーニア尺のゼロ線')
+            ax.plot([x, x], [1.2, 1.9], 'r-', linewidth=3, label='バーニア尺のゼロ線', zorder=5)
         if i == 8:
-            ax.plot([x, x], [1, 1.6], 'g-', linewidth=2, label='一致する目盛（8）')
+            ax.plot([x, x], [1.2, 1.9], 'g-', linewidth=3, label='一致する目盛（8）', zorder=5)
         elif i % 5 == 0:
-            ax.plot([x, x], [1, 1.4], 'b-', linewidth=1.5)
+            ax.plot([x, x], [1.2, 1.7], 'b-', linewidth=2)
         else:
-            ax.plot([x, x], [1, 1.2], 'b-', linewidth=1)
+            ax.plot([x, x], [1.2, 1.5], 'b-', linewidth=1.5)
         if i < 10:
-            ax.text(x, 1.7, str(i), ha='center', fontsize=8, color='blue')
+            ax.text(x, 2.0, str(i), ha='center', fontsize=9, color='blue', fontweight='bold')
     
-    ax.axvline(18, color='gray', linestyle='--', linewidth=1, alpha=0.5)
-    ax.axvline(19, color='gray', linestyle='--', linewidth=1, alpha=0.5)
-    ax.axvline(18.4, color='green', linestyle='--', linewidth=1, alpha=0.5)
+    # 主尺とバーニア尺の背景を区別
+    ax.axhspan(0, 0.8, alpha=0.1, color='gray', zorder=0)
+    ax.axhspan(1.2, 1.9, alpha=0.1, color='lightblue', zorder=0)
+    
+    # 補助線
+    ax.axvline(18, color='gray', linestyle='--', linewidth=1.5, alpha=0.6, zorder=1)
+    ax.axvline(19, color='gray', linestyle='--', linewidth=1.5, alpha=0.6, zorder=1)
+    ax.axvline(18.4, color='green', linestyle=':', linewidth=2, alpha=0.7, zorder=2, label='読み取り位置 (18.40 mm)')
+    
+    # 読み取り値の説明
+    ax.text(18.4, 2.4, '読み取り値: 18.40 mm', ha='center', fontsize=12, 
+            fontweight='bold', bbox=dict(boxstyle='round', facecolor='yellow', alpha=0.7))
     
     ax.set_xlim(15, 22)
-    ax.set_ylim(-0.5, 2)
-    ax.set_xlabel('主尺の読み取り (mm)', fontsize=12)
-    ax.set_ylabel('', fontsize=12)
-    ax.set_title('ノギスの読み取り方法（18.40 mm の例）', fontsize=14, fontweight='bold')
-    ax.legend(loc='upper right')
+    ax.set_ylim(-0.6, 2.8)
+    ax.set_xlabel('主尺の読み取り (mm)', fontsize=13, fontweight='bold')
+    ax.set_title('ノギスの読み取り方法（18.40 mm の例）', fontsize=15, fontweight='bold', pad=20)
+    ax.legend(loc='upper right', fontsize=10)
     ax.axis('off')
     
     plt.tight_layout()
@@ -209,42 +218,72 @@ def plot_vernier():
 
 def plot_multimeter():
     """アナログテスターのスケール"""
-    fig, ax = plt.subplots(figsize=(8, 8))
+    fig, ax = plt.subplots(figsize=(10, 10))
     
-    # 円形のスケールを模擬
-    theta = np.linspace(0, np.pi, 100)
-    radius = 3
-    ax.plot(radius * np.cos(theta), radius * np.sin(theta), 'k-', linewidth=2)
+    # 円形のスケールを模擬（半円）
+    theta = np.linspace(0, np.pi, 200)
+    radius = 4
+    ax.plot(radius * np.cos(theta), radius * np.sin(theta), 'k-', linewidth=3)
     
-    # OHMSスケール（緑色）
+    # OHMSスケール（緑色、右端が0、左端が∞）
+    # 非線形スケールを模擬（実際のOHMSスケールは対数的）
+    ohms_values = [0, 0.5, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    for i, val in enumerate(ohms_values):
+        # 非線形配置（右端から左端へ）
+        if val == 0:
+            angle = np.pi  # 右端
+        elif val == 10:
+            angle = 0  # 左端
+        else:
+            # 対数的に配置
+            angle = np.pi * (1 - np.log10(val + 0.1) / np.log10(10.1))
+        
+        if val in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
+            ax.plot([0, radius*0.85*np.cos(angle)], [0, radius*0.85*np.sin(angle)], 
+                   'g-', linewidth=2, alpha=0.8)
+            if val <= 10:
+                ax.text(radius*1.15*np.cos(angle), radius*1.15*np.sin(angle), str(val), 
+                       ha='center', va='center', fontsize=9, color='green', fontweight='bold')
+    
+    # 針の位置（抵抗計: 0.49Ω、R×10レンジなので読み取り値は約0.49）
+    # OHMSスケールで0.49の位置
+    angle_resistance = np.pi * (1 - np.log10(0.49 + 0.1) / np.log10(10.1))
+    ax.plot([0, radius*1.0*np.cos(angle_resistance)], [0, radius*1.0*np.sin(angle_resistance)], 
+           'r-', linewidth=4, label='針の位置（抵抗計: 0.49Ω）', zorder=10)
+    
+    # DCV/mAスケール（0-50、青色）
     for i in range(0, 11):
-        angle = np.pi * (1 - i/10)
-        if i % 5 == 0:
-            ax.plot([0, radius*0.9*np.cos(angle)], [0, radius*0.9*np.sin(angle)], 
-                   'g-', linewidth=2)
-            ax.text(radius*1.1*np.cos(angle), radius*1.1*np.sin(angle), str(i), 
-                   ha='center', va='center', fontsize=10, color='green')
-    
-    # DCV/mAスケール（0-50）
-    for i in range(0, 6):
-        angle = np.pi * (1 - i*10/50)
+        angle = np.pi * (1 - i*5/50)
         if i % 2 == 0:
-            ax.plot([0, radius*0.8*np.cos(angle)], [0, radius*0.8*np.sin(angle)], 
-                   'b-', linewidth=1.5, alpha=0.7)
-            ax.text(radius*0.95*np.cos(angle), radius*0.95*np.sin(angle), str(i*10), 
-                   ha='center', va='center', fontsize=9, color='blue')
+            ax.plot([0, radius*0.75*np.cos(angle)], [0, radius*0.75*np.sin(angle)], 
+                   'b-', linewidth=2, alpha=0.8)
+            ax.text(radius*0.9*np.cos(angle), radius*0.9*np.sin(angle), str(i*5), 
+                   ha='center', va='center', fontsize=9, color='blue', fontweight='bold')
+        else:
+            ax.plot([0, radius*0.7*np.cos(angle)], [0, radius*0.7*np.sin(angle)], 
+                   'b-', linewidth=1, alpha=0.6)
     
-    # 針の位置（14.4 V の例）
-    angle_needle = np.pi * (1 - 14.4/50)
-    ax.plot([0, radius*0.95*np.cos(angle_needle)], [0, radius*0.95*np.sin(angle_needle)], 
-           'r-', linewidth=3, label='針の位置')
+    # 針の位置（電圧計: 6.72V）
+    angle_voltage = np.pi * (1 - 6.72/50)
+    ax.plot([0, radius*0.98*np.cos(angle_voltage)], [0, radius*0.98*np.sin(angle_voltage)], 
+           'orange', linewidth=4, linestyle='--', label='針の位置（電圧計: 6.72V）', zorder=10)
     
-    ax.set_xlim(-4, 4)
-    ax.set_ylim(-0.5, 4)
+    # 針の位置（電流計: 137.0mA、250mAレンジなので6.72V相当）
+    # 137.0mA / 250mA * 50 = 27.4 → 実際は6.72Vスケールを使用
+    angle_current = np.pi * (1 - 6.72/50)  # 電圧計と同じ位置
+    ax.plot([0, radius*0.96*np.cos(angle_current)], [0, radius*0.96*np.sin(angle_current)], 
+           'purple', linewidth=4, linestyle=':', label='針の位置（電流計: 137.0mA）', zorder=10)
+    
+    # スケールの説明
+    ax.text(0, -0.8, 'OHMSスケール（緑）', ha='center', fontsize=11, color='green', fontweight='bold')
+    ax.text(0, -1.2, 'DCV/mAスケール（青、0-50）', ha='center', fontsize=11, color='blue', fontweight='bold')
+    
+    ax.set_xlim(-5, 5)
+    ax.set_ylim(-1.5, 5)
     ax.set_aspect('equal')
     ax.axis('off')
-    ax.set_title('アナログテスターのスケール（概念図）', fontsize=14, fontweight='bold')
-    ax.legend(loc='lower center')
+    ax.set_title('アナログテスターのスケール', fontsize=16, fontweight='bold', pad=20)
+    ax.legend(loc='lower center', fontsize=9, ncol=1, framealpha=0.9)
     
     plt.tight_layout()
     plt.savefig('figures/fig3_multimeter.png', dpi=300, bbox_inches='tight')

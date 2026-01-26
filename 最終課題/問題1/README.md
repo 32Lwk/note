@@ -509,3 +509,45 @@ python3 analyze_energy.py
 ```
 
 このスクリプトは温度Tを3通り（0.5, 1.0, 2.0）変化させて、粒子の運動エネルギー分布関数をヒストグラムとして表示します。
+
+### 物理的・統計的考察用（レポート追加節向け）
+
+```bash
+make physics_stats
+# または
+python3 analyze_velocity_autocorrelation.py   # 速度自己相関・Green-Kubo
+python3 analyze_statistics.py                 # K-S検定、速度成分ガウス性、拡散係数誤差棒
+```
+
+- `analyze_velocity_autocorrelation.py`: 速度自己相関関数 $C(t)$ の計算、理論 $\exp(-\gamma t/m)$ との比較、Green-Kubo による $D$ の推定。
+- `analyze_statistics.py`: 正規分布・運動エネルギー分布の K-S 検定、$v_x$・$v_y$ のガウス性、拡散係数 $D$ の試行間誤差棒付きプロット。
+
+生成図: `figures/velocity_autocorrelation.png`, `normal_rand_ks_test.png`, `energy_distribution_ks_test.png`, `velocity_components_gaussian.png`, `diffusion_coefficient_error_bars.png`
+
+### 発展的なシミュレーション（レポート「発展的なシミュレーションと考察」向け）
+
+```bash
+make physics_extras
+# または
+python3 analyze_velocity_relaxation.py   # <v²>(t) の緩和
+python3 analyze_drift_diffusion.py       # 外力下のドリフト+拡散
+python3 analyze_first_passage.py         # 初到達時間の分布
+python3 plot_qq.py                       # 正規・指数の Q-Q プロット
+```
+
+生成図: `velocity_relaxation.png`, `drift_diffusion.png`, `first_passage_time.png`, `qq_plots.png`
+
+### 今後の発展・追加課題の実装（レポート「今後の発展・追加で検討できる課題の実装」向け）
+
+```bash
+make future_tasks
+# または
+python3 analyze_power_spectrum.py      # 速度パワースペクトル（Lorentz）
+python3 analyze_dt_convergence.py      # Δt 収束性
+python3 analyze_boundary_conditions.py # 反射壁・周期境界
+python3 analyze_stokes_einstein.py     # Stokes-Einstein
+python3 analyze_bootstrap_ci.py        # ブートストラップ信頼区間
+python3 analyze_multiparticle.py       # 複数粒子・排除体積
+```
+
+生成図: `power_spectrum.png`, `dt_convergence.png`, `boundary_conditions.png`, `stokes_einstein.png`, `bootstrap_ci.png`, `multiparticle.png`

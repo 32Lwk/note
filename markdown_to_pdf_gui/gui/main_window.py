@@ -6,6 +6,7 @@ from PyQt6.QtWidgets import (
     QMessageBox, QFileDialog, QMenuBar, QMenu
 )
 from PyQt6.QtCore import Qt, pyqtSignal
+from PyQt6.QtGui import QShortcut, QKeySequence, QAction
 from PyQt6.QtGui import QDragEnterEvent, QDropEvent
 from pathlib import Path
 from typing import List, Optional
@@ -16,6 +17,10 @@ from ..core.config_manager import ConfigManager
 from ..core.template_manager import TemplateManager
 from ..utils.logger import StructuredLogger
 from .settings_dialog import SettingsDialog
+from .profile_dialog import ProfileDialog
+from .history_dialog import HistoryDialog
+from .log_viewer import LogViewer
+from ..core.history_manager import HistoryManager
 
 
 class MainWindow(QMainWindow):
@@ -31,6 +36,7 @@ class MainWindow(QMainWindow):
         self.error_handler = ErrorHandler()
         self.config_manager = ConfigManager()
         self.template_manager = TemplateManager()
+        self.history_manager = HistoryManager()
         self.converter_thread: Optional[ConverterThread] = None
         self.selected_files: List[Path] = []
         
@@ -45,6 +51,23 @@ class MainWindow(QMainWindow):
         
         # メニューバーの設定
         self.setup_menu()
+        
+        # キーボードショートカットの設定
+        self.setup_shortcuts()
+    
+    def setup_shortcuts(self) -> None:
+        """キーボードショートカットを設定"""
+        # Cmd+O: ファイルを開く
+        QShortcut(QKeySequence("Ctrl+O"), self, self.select_files)
+        
+        # Cmd+,: 設定ダイアログ
+        QShortcut(QKeySequence("Ctrl+,"), self, self.show_settings)
+        
+        # Cmd+R: 変換開始
+        QShortcut(QKeySequence("Ctrl+R"), self, self.start_conversion)
+        
+        # Cmd+H: 履歴
+        QShortcut(QKeySequence("Ctrl+H"), self, self.show_history)
     
     def check_environment(self) -> None:
         """環境チェックを実行"""
@@ -64,7 +87,50 @@ class MainWindow(QMainWindow):
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
         
+        # スタイルシートでUIを改善
+        self.setStyleSheet("""
+            QMainWindow {
+                background-color: #f5f5f5;
+            }
+            QPushButton {
+                background-color: #007AFF;
+                color: white;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 4px;
+                font-weight: bold;
+            }
+            QPushButton:hover {
+                background-color: #0051D5;
+            }
+            QPushButton:disabled {
+                background-color: #cccccc;
+            }
+            QListWidget {
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                background-color: white;
+            }
+            QTextEdit {
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                background-color: white;
+                font-family: 'Monaco', 'Menlo', monospace;
+            }
+            QProgressBar {
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                text-align: center;
+            }
+            QProgressBar::chunk {
+                background-color: #007AFF;
+                border-radius: 3px;
+            }
+        """)
+        
         layout = QVBoxLayout(central_widget)
+        layout.setSpacing(10)
+        layout.setContentsMargins(15, 15, 15, 15)
         
         # ファイル選択エリア
         file_area = self.create_file_selection_area()
@@ -122,6 +188,10 @@ class MainWindow(QMainWindow):
         self.settings_button.clicked.connect(self.show_settings)
         layout.addWidget(self.settings_button)
         
+        self.history_button = QPushButton("履歴")
+        self.history_button.clicked.connect(self.show_history)
+        layout.addWidget(self.history_button)
+        
         self.convert_button = QPushButton("変換開始")
         self.convert_button.clicked.connect(self.start_conversion)
         self.convert_button.setEnabled(False)
@@ -142,18 +212,40 @@ class MainWindow(QMainWindow):
         
         # ファイルメニュー
         file_menu = menubar.addMenu("ファイル")
-        file_menu.addAction("ファイルを開く", self.select_files, "Ctrl+O")
+        
+        # PyQt6では、QActionを作成してから追加する必要がある
+        open_action = QAction("ファイルを開く", self)
+        open_action.setShortcut(QKeySequence("Ctrl+O"))
+        open_action.triggered.connect(self.select_files)
+        file_menu.addAction(open_action)
+        
         file_menu.addSeparator()
-        file_menu.addAction("終了", self.close, "Ctrl+Q")
+        
+        exit_action = QAction("終了", self)
+        exit_action.setShortcut(QKeySequence("Ctrl+Q"))
+        exit_action.triggered.connect(self.close)
+        file_menu.addAction(exit_action)
         
         # 設定メニュー
         settings_menu = menubar.addMenu("設定")
-        settings_menu.addAction("設定...", self.show_settings, "Ctrl+,")
+        settings_action = QAction("設定...", self)
+        settings_action.setShortcut(QKeySequence("Ctrl+,"))
+        settings_action.triggered.connect(self.show_settings)
+        settings_menu.addAction(settings_action)
+        settings_menu.addAction("プロファイル管理...", self.show_profile_dialog)
+        
+        # 履歴メニュー
+        history_menu = menubar.addMenu("履歴")
+        history_action = QAction("変換履歴...", self)
+        history_action.setShortcut(QKeySequence("Ctrl+H"))
+        history_action.triggered.connect(self.show_history)
+        history_menu.addAction(history_action)
         
         # ヘルプメニュー
         help_menu = menubar.addMenu("ヘルプ")
         help_menu.addAction("バージョン情報", self.show_version)
         help_menu.addAction("環境チェック", self.check_environment)
+        help_menu.addAction("ログビューアー", self.show_log_viewer)
     
     def drag_enter_event(self, event: QDragEnterEvent) -> None:
         """ドラッグエンターイベント"""
@@ -257,6 +349,25 @@ class MainWindow(QMainWindow):
         """ファイル変換完了"""
         status = "✓" if success else "✗"
         self.log_message(f"{status} {Path(file_path).name}: {message}")
+        
+        # 履歴に記録（変換時間はメッセージから抽出を試みる）
+        md_file = Path(file_path)
+        pdf_file = md_file.parent / f"{md_file.stem}.pdf"
+        
+        # メッセージから時間を抽出（例: "完了: file.pdf (5.2秒)"）
+        import re
+        duration_match = re.search(r'\(([\d.]+)秒\)', message)
+        duration = float(duration_match.group(1)) if duration_match else 0.0
+        
+        config = self.config_manager.get_config()
+        profile_name = config.get('profile_name')
+        error_type = None if success else "CONVERSION_ERROR"
+        error_message = None if success else message
+        
+        self.history_manager.add_history(
+            md_file, pdf_file, success, duration,
+            profile_name, error_type, error_message
+        )
     
     def on_error_occurred(self, error_type: str, category: str, message: str) -> None:
         """エラー発生"""
@@ -285,6 +396,23 @@ class MainWindow(QMainWindow):
         if dialog.exec():
             # 設定が保存された場合、再読み込み
             self.config_manager.load_config()
+    
+    def show_profile_dialog(self) -> None:
+        """プロファイル管理ダイアログを表示"""
+        dialog = ProfileDialog(self.config_manager, self)
+        dialog.exec()
+    
+    def show_history(self) -> None:
+        """変換履歴ダイアログを表示"""
+        dialog = HistoryDialog(self.history_manager, self)
+        dialog.exec()
+    
+    def show_log_viewer(self) -> None:
+        """ログビューアーを表示"""
+        log_dir = Path.home() / "Library" / "Application Support" / "MarkdownToPDF" / "logs"
+        log_dir.mkdir(parents=True, exist_ok=True)
+        dialog = LogViewer(log_dir, self)
+        dialog.exec()
     
     def show_version(self) -> None:
         """バージョン情報を表示"""

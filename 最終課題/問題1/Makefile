@@ -59,6 +59,31 @@ task6: brownian_motion $(DATA_DIR) $(FIGURES_DIR)
 	@echo "エネルギー分布関数を解析中..."
 	$(PYTHON) analyze_energy.py
 
+# 物理的・統計的考察用（速度自己相関、K-S検定、拡散係数誤差）
+physics_stats: $(FIGURES_DIR)
+	@echo "速度自己相関を解析中..."
+	$(PYTHON) analyze_velocity_autocorrelation.py
+	@echo "統計検定・拡散係数誤差を解析中..."
+	$(PYTHON) analyze_statistics.py
+
+# 発展的なシミュレーション（緩和・ドリフト拡散・初到達・Q-Q）
+physics_extras: $(FIGURES_DIR)
+	@echo "発展解析を実行中..."
+	$(PYTHON) analyze_velocity_relaxation.py
+	$(PYTHON) analyze_drift_diffusion.py
+	$(PYTHON) analyze_first_passage.py
+	$(PYTHON) plot_qq.py
+
+# 今後の発展・追加課題の実装（パワースペクトル、Δt収束、境界条件、Stokes-Einstein、ブートストラップ、複数粒子）
+future_tasks: $(FIGURES_DIR)
+	@echo "今後の発展課題を実行中..."
+	$(PYTHON) analyze_power_spectrum.py
+	$(PYTHON) analyze_dt_convergence.py
+	$(PYTHON) analyze_boundary_conditions.py
+	$(PYTHON) analyze_stokes_einstein.py
+	$(PYTHON) analyze_bootstrap_ci.py
+	$(PYTHON) analyze_multiparticle.py
+
 # すべての課題を実行
 all_tasks: task1 task2 task3 task4 task5 task6
 	@echo "すべての課題が完了しました！"
@@ -76,4 +101,4 @@ clean:
 	rm -rf $(DATA_DIR) $(FIGURES_DIR)
 	rm -f report.pdf report.aux report.log report.out report.dvi report.map
 
-.PHONY: all task1 task2 task3 task4 task5 task6 all_tasks clean report
+.PHONY: all task1 task2 task3 task4 task5 task6 physics_stats physics_extras future_tasks all_tasks clean report

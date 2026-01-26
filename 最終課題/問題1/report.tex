@@ -1,7 +1,17 @@
 \documentclass[11pt,a4paper]{ltjsarticle}
 \usepackage[no-math]{luatexja-fontspec}
-\setmainjfont{Hiragino Mincho ProN}
-\setsansjfont{Hiragino Kaku Gothic ProN}
+\setmainjfont{Hiragino Mincho ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\setsansjfont{Hiragino Kaku Gothic ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{listings}
@@ -180,6 +190,20 @@ P(E) = \frac{1}{k_B T} \exp\left(-\frac{E}{k_B T}\right)
 \end{equation}
 
 これは指数分布であり、ボルツマン因子$\exp(-E/(k_B T))$を含む。温度が高いほど、高いエネルギーを持つ粒子の確率が増加する。
+
+\subsection{速度自己相関関数とGreen-Kubo関係}
+
+速度自己相関関数（Velocity Autocorrelation Function, VAC）は$C(t) = \langle \mathbf{v}(0) \cdot \mathbf{v}(t) \rangle$で定義される。ランジュバン方程式より、$C(t)$は緩和時間$\tau = m/\gamma$で指数減衰する：
+\begin{equation}
+C(t) = C(0)\, e^{-\gamma t / m}, \qquad C(0) = \frac{2 k_B T}{m}
+\label{eq:vac}
+\end{equation}
+（2次元等分配$\langle v^2 \rangle = 2k_B T/m$を用いた。）拡散係数はGreen-Kubo関係
+\begin{equation}
+D = \frac{1}{2} \int_0^\infty \langle \mathbf{v}(0) \cdot \mathbf{v}(t) \rangle \, dt
+\label{eq:greenkubo}
+\end{equation}
+により、$C(t)$の時間積分からも得られる。式(\ref{eq:vac})を代入すると$D = k_B T/\gamma$となり、アインシュタインの関係式と一致する。
 
 \section{実装方法}
 
@@ -380,6 +404,180 @@ D = \frac{k_B T}{\gamma}
 \end{enumerate}
 
 この結果は、統計力学における等分配定理やマクスウェル分布と一致しており、数値シミュレーションが正しく熱平衡状態を再現していることを示している。また、ランジュバン方程式によるブラウン運動のシミュレーションが、熱平衡状態における粒子の統計的性質を適切に記述していることが確認された。
+
+\subsection{物理的な考察の補足：速度自己相関とGreen-Kubo関係}
+
+式(\ref{eq:vac})および(\ref{eq:greenkubo})に基づき、シミュレーションから速度自己相関$C(t)$を計算し、理論$C(t)/C(0) = \exp(-\gamma t/m)$と比較した。$T=m=\gamma=1$、$n_{\mathrm{steps}}=1000$、$\Delta t=0.01$、30回の試行で軌道を生成し、各軌道内で$C(\tau) = \langle \mathbf{v}(t) \cdot \mathbf{v}(t+\tau) \rangle_t$を算出して試行平均した。
+
+図\ref{fig:vac}に、規格化した$C(t)/C(0)$の時間発展と理論曲線を示す。シミュレーション結果は理論的な指数減衰$\exp(-\gamma t/m)$とよく一致している。緩和時間$\tau = m/\gamma = 1$付近で$C(t)/C(0)$が約$1/e$に減衰しており、ランジュバン方程式が速度の「記憶」の減衰を正しく再現していることが分かる。また、$C(t)$の時間積分からGreen-Kubo関係により拡散係数$D$を推定すると、アインシュタインの関係$D = k_B T/\gamma$と定量的にも近い値が得られる。以上より、MSDから求めた拡散係数と、速度相関から得た拡散係数が両立しており、シミュレーションの一貫性が裏づけられる。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/velocity_autocorrelation.png}
+\caption{速度自己相関関数$C(t)/C(0)$の時間発展と理論$\exp(-\gamma t/m)$との比較。縦破線は緩和時間$\tau = m/\gamma$。}
+\label{fig:vac}
+\end{figure}
+
+\subsection{統計上の考察}
+
+\subsubsection{分布の検定}
+
+正規分布乱数（Box-Muller、$n=2000$）および運動エネルギー分布（$T=1$、20試行）について、Kolmogorov--Smirnov（K-S）検定により理論分布との一致を検証した。
+
+正規分布については、帰無仮説を「母集団が$N(0,1)$に従う」とし、K-S検定を実施した。シミュレーションで得た$p$値は$p \approx 0.38$程度となり、有意水準0.05では帰無仮説は棄却されない。したがって、Box-Muller法により生成した乱数は統計的に標準正規分布と矛盾しないと判断できる。ヒストグラムと理論曲線の比較を図\ref{fig:normal_ks}に示す。
+
+運動エネルギー$E$の分布については、帰無仮説を「$P(E) \propto \exp(-E/(k_B T))$（指数分布）」とし、同様にK-S検定を行った。得られた$p$値は$p \approx 0.16$程度で、やはり有意水準0.05では帰無仮説は棄却されない。シミュレーションのエネルギー分布は、熱平衡での指数分布と統計的に矛盾しない。ヒストグラムと理論の比較を図\ref{fig:energy_ks}に示す。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/normal_rand_ks_test.png}
+\caption{正規分布乱数のヒストグラムと理論$N(0,1)$。K-S検定の$p$値をタイトルに示した。}
+\label{fig:normal_ks}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/energy_distribution_ks_test.png}
+\caption{運動エネルギー分布のヒストグラムと理論$\propto \exp(-E/(k_B T))$。K-S検定の$p$値をタイトルに示した。}
+\label{fig:energy_ks}
+\end{figure}
+
+\subsubsection{速度成分のガウス性}
+
+2次元マクスウェル分布では、各速度成分$v_x$，$v_y$は独立に$N(0, k_B T/m)$に従う。シミュレーションで得た$v_x$，$v_y$のヒストグラムを理論のガウス分布と重ねて示したものを図\ref{fig:velocity_components}に示す。両成分とも理論曲線とよく一致しており、速度分布のガウス性が数値的に確認できる。これは熱平衡における等分配則と整合的である。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/velocity_components_gaussian.png}
+\caption{速度成分$v_x$，$v_y$の分布と理論$N(0, k_B T/m)$との比較。}
+\label{fig:velocity_components}
+\end{figure}
+
+\subsubsection{拡散係数の誤差評価}
+
+拡散係数$D$のパラメータ依存性を、試行ごとのばらつきを考慮して再評価した。各パラメータセットについて40回ずつシミュレーションを実行し、各試行のMSDから$D$をフィッティングで推定した。平均をプロットし、試行間の標準偏差を誤差棒として付した結果を図\ref{fig:diffusion_errors}に示す。
+
+温度・質量・摩擦係数のいずれを変化させた場合も、理論曲線$D = k_B T/\gamma$は誤差棒の範囲内に収まっている。とくに、質量依存性では理論どおり$D$が質量に依存しないことが、誤差を考慮した上でも確認できる。拡散係数の理論値とシミュレーション値の差は、主に有限時間・有限試行数に起因する統計誤差の範囲内であると解釈できる。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/diffusion_coefficient_error_bars.png}
+\caption{拡散係数$D$のパラメータ依存性。誤差棒は40試行に対する標準偏差。理論$D = k_B T/\gamma$と比較。}
+\label{fig:diffusion_errors}
+\end{figure}
+
+\subsection{発展的なシミュレーションと考察}
+
+\subsubsection{平均二乗速度の緩和}
+
+初期速度$\mathbf{v}(0)=\mathbf{0}$から出発すると、ランジュバン方程式により$\langle v^2 \rangle$は熱平衡値$2k_B T/m$（等分配則）へ緩和する。理論的には
+$\langle v^2 \rangle(t) = \frac{2k_B T}{m}\left[1 - e^{-2\gamma t/m}\right]$となる。図\ref{fig:velocity_relaxation}に、100試行の平均と理論曲線を示す。シミュレーションは理論とよく一致し、緩和時間$m/(2\gamma)$程度で熱平衡に達することが確認できる。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/velocity_relaxation.png}
+\caption{平均二乗速度$\langle v^2 \rangle(t)$の緩和。初期$v=0$から熱平衡$2k_B T/m$へ。}
+\label{fig:velocity_relaxation}
+\end{figure}
+
+\subsubsection{外力下のブラウン運動（ドリフト＋拡散）}
+
+$x$方向に一定の外力$F$を加えたランジュバン方程式$m d\mathbf{v}/dt = -\gamma \mathbf{v} + F\mathbf{e}_x + \boldsymbol{\xi}(t)$を数値的に解いた。定常ドリフト速度は$v_{\mathrm{drift}} = F/\gamma$であり、平均変位は$\langle x \rangle = (F/\gamma)t$となる。変動は拡散と同様に$\mathrm{Var}(x),\,\mathrm{Var}(y) \approx 2Dt$で成長する。図\ref{fig:drift_diffusion}に、軌道の例および$\langle x \rangle$・分散の時間発展を示す。理論的なドリフトと分散の増大とよく一致している。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/drift_diffusion.png}
+\caption{外力$F_x=F$下のブラウン運動。左：軌道例と平均軌道。右：$\langle x \rangle$と$\mathrm{Var}(x),\mathrm{Var}(y)$の時間発展。}
+\label{fig:drift_diffusion}
+\end{figure}
+
+\subsubsection{初到達時間の分布}
+
+原点から出発し、半径$R$の円に初めて到達するまでの時間（初到達時間）を多数回の試行で記録し、分布を調べた。過減衰拡散の理論では平均初到達時間は$\langle \tau \rangle \approx R^2/(4D)$で与えられる。慣性を持つランジュバン粒子では、慣性のため平均到達時間はこれより長くなり得る。図\ref{fig:first_passage}に、$R=2$のときの初到達時間のヒストグラムおよび、目標円に到達するまでのかかる軌道の例を示す。応用として、反応到達時間、検出閾値への到達などが関連する。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/first_passage_time.png}
+\caption{初到達時間の分布（左）と、目標円$r=R$へ到達する軌道の例（右）。}
+\label{fig:first_passage}
+\end{figure}
+
+\subsubsection{Q-Qプロットによる分布の視覚的検定}
+
+正規分布乱数および運動エネルギー分布について、理論分位点とサンプル分位点を比較するQ-Qプロットを作成した（図\ref{fig:qq}）。点が直線に乗れば、仮定した理論分布と整合的である。K-S検定とあわせて、分布の一致を定性的に確認できる。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/qq_plots.png}
+\caption{左：正規分布のQ-Qプロット。右：運動エネルギー（指数分布）のQ-Qプロット。}
+\label{fig:qq}
+\end{figure}
+
+\subsubsection{速度のパワースペクトル（Lorentz型・揺動散逸）}
+
+速度自己相関$C(t)$のフーリエ変換はパワースペクトル$S(\omega)$を与え、オルンシュタイン・ウーレンベック過程ではLorentz型$S(\omega) \propto 1/(\omega^2 + (\gamma/m)^2)$となる。揺動散逸定理と結びつく。シミュレーションで得たVACをFFTし、理論曲線と比較した（図\ref{fig:power_spectrum}）。減衰幅$\gamma/m$付近で$S(\omega)$が立ち下がっており、Lorentz型の振る舞いが確認できる。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/power_spectrum.png}
+\caption{左：速度自己相関$C(t)$。右：パワースペクトル$S(\omega)$と理論Lorentz曲線。}
+\label{fig:power_spectrum}
+\end{figure}
+
+\subsubsection{時間刻み$\Delta t$の収束性}
+
+オイラー・マルヤマ法において、総時間を固定したまま$\Delta t$を変え、MSDの傾きから拡散係数$D$を推定した。図\ref{fig:dt_convergence}に、$\Delta t$に対する$D$の依存性を示す。$\Delta t$を小さくすると$D$は理論値$k_B T/\gamma$に収束し、数値スキームの妥当性が確認できる。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/dt_convergence.png}
+\caption{拡散係数$D$の$\Delta t$依存性。理論値への収束。}
+\label{fig:dt_convergence}
+\end{figure}
+
+\subsubsection{反射壁・周期的境界条件}
+
+有限領域$[-L,L]^2$で、反射壁および周期境界条件を課した場合の平均二乗変位を計算した（図\ref{fig:boundary}）。自由空間では$\langle r^2 \rangle \approx 4Dt$で増加するが、有限領域では反復的な衝突・周期折り返しにより$\langle r^2 \rangle$は飽和する。飽和の目安は$L^2$程度である。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/boundary_conditions.png}
+\caption{反射壁（左）と周期境界（右）における$\langle r^2 \rangle$の時間発展。}
+\label{fig:boundary}
+\end{figure}
+
+\subsubsection{Stokes-Einstein関係}
+
+拡散係数は$D = k_B T/\gamma$であり、摩擦係数$\gamma$に反比例する。球形粒子では$\gamma = 6\pi\eta a$（$\eta$：粘度、$a$：半径）なので、$D = k_B T/(6\pi\eta a)$となる（Stokes-Einstein関係）。$\gamma$を様々に変えて$D$を推定し、$D$と$1/\gamma$の線形関係を確認した（図\ref{fig:stokes}）。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/stokes_einstein.png}
+\caption{$D$と$1/\gamma$の関係。Stokes-Einstein型$D = k_B T/\gamma$。}
+\label{fig:stokes}
+\end{figure}
+
+\subsubsection{ブートストラップ信頼区間}
+
+拡散係数$D$の推定値について、試行ごとの$D$のリストをブートストラップリサンプリングし、平均の分布から95\%信頼区間を求めた（図\ref{fig:bootstrap}）。理論値$D = k_B T/\gamma$が信頼区間内に含まれることが確認でき、誤差評価の強化として有効である。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{figures/bootstrap_ci.png}
+\caption{左：ブートストラップによる$D$の分布。右：点推定と95\%信頼区間。}
+\label{fig:bootstrap}
+\end{figure}
+
+\subsubsection{複数粒子・排除体積}
+
+周期ボックス内に$N$個の粒子を置き、剛体球的な排除体積（直径$\sigma$）で衝突すると反発する簡易モデルを実装した。各粒子はランジュバン方程式に従い、粒子間で重なると弾性衝突を行う。粒子平均のMSDを計算した結果を図\ref{fig:multiparticle}に示す。自由空間の$4Dt$に近い増加ののち、周期境界により飽和する。排除体積により粒子の拡散が抑制される効果も、密度・$\sigma$を大きくすればさらに顕著になる。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/multiparticle.png}
+\caption{複数粒子・排除体積（周期境界）における$\langle r^2 \rangle$。}
+\label{fig:multiparticle}
+\end{figure}
 
 \end{document}
 
