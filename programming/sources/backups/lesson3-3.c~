@@ -1,0 +1,33 @@
+/* 課題3-3 平均と分散を関数で求める */
+#include <stdio.h>
+#include <math.h>
+
+// 平均を求める関数
+double average(double x1, double x2, double x3, double x4, double x5) {
+    return (x1 + x2 + x3 + x4 + x5) / 5.0;
+}
+
+// 分散を求める関数
+double variance(double x1, double x2, double x3, double x4, double x5) {
+    double mu = average(x1, x2, x3, x4, x5);
+    return ((x1*x1 + x2*x2 + x3*x3 + x4*x4 + x5*x5) / 5.0) - (mu * mu);
+}
+
+int main(void)
+{
+    double x1, x2, x3, x4, x5;
+    double mu, sigma2, sigma;
+
+    printf("5個の実数を入力してください: ");
+    scanf("%lf %lf %lf %lf %lf", &x1, &x2, &x3, &x4, &x5);
+
+    mu = average(x1, x2, x3, x4, x5);
+    sigma2 = variance(x1, x2, x3, x4, x5);
+    sigma = sqrt(sigma2);
+
+    printf("平均 (μ) = %.4f\n", mu);
+    printf("分散 (σ^2) = %.4f\n", sigma2);
+    printf("標準偏差 (σ) = %.4f\n", sigma);
+
+    return 0;
+}

@@ -1,0 +1,83 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xeCJK}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{xcolor}
+
+% 日本語フォント設定
+\setCJKmainfont{Hiragino Mincho Pro}
+
+% 日付を2026年1月20日に設定（青文字）
+\date{\textcolor{blue}{2026年1月20日}}
+
+% タイトルと著者
+\title{マックスウェル方程式}
+\author{\textcolor{blue}{川嶋宥翔}}
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\section*{概要}
+
+真空中のマックスウェル方程式を $\mathrm{LATEX}$ で表示する。
+\end{center}
+
+\section{ベクトル表示}
+
+電場を $E$、磁場を $B$、電荷密度を $\rho_q$、電流密度を $j$ とすると、真空中のマックスウェル方程式は以下のようになる。
+
+\begin{equation}
+\nabla \cdot \boldsymbol{E} = \frac{\rho_q}{\epsilon_0} \tag{1}
+\end{equation}
+
+\begin{equation}
+\nabla \times \boldsymbol{E} = -\frac{\partial \boldsymbol{B}}{\partial t} \tag{2}
+\end{equation}
+
+\begin{equation}
+\nabla \cdot \boldsymbol{B} = 0 \tag{3}
+\end{equation}
+
+\begin{equation}
+\nabla \times \boldsymbol{B} = \mu_0 \boldsymbol{j} + c^{-2} \frac{\partial \boldsymbol{E}}{\partial t} \tag{4}
+\end{equation}
+
+ここで $\epsilon_0$ は誘電率、$\mu_0$ は透磁率、$c$ は光速である。
+
+\section{成分表示}
+
+式 (1) と (2) を $x, y, z$ のデカルト座標表示を用いて成分表示すると以下のようになる。
+
+\subsection*{式 (1) の成分表示}
+
+$\nabla = \left( \frac{\partial}{\partial x}, \frac{\partial}{\partial y}, \frac{\partial}{\partial z} \right)$、$\boldsymbol{E} = (E_x, E_y, E_z)$ とすると、
+
+\begin{align}
+\nabla \cdot \boldsymbol{E} &= \frac{\partial E_x}{\partial x} + \frac{\partial E_y}{\partial y} + \frac{\partial E_z}{\partial z} = \frac{\rho_q}{\epsilon_0} \tag{1'}
+\end{align}
+
+\subsection*{式 (2) の成分表示}
+
+$\nabla \times \boldsymbol{E}$ の各成分は以下のようになる。
+
+$x$ 成分：
+\begin{equation}
+\frac{\partial E_z}{\partial y} - \frac{\partial E_y}{\partial z} = -\frac{\partial B_x}{\partial t} \tag{2a}
+\end{equation}
+
+$y$ 成分：
+\begin{equation}
+\frac{\partial E_x}{\partial z} - \frac{\partial E_z}{\partial x} = -\frac{\partial B_y}{\partial t} \tag{2b}
+\end{equation}
+
+$z$ 成分：
+\begin{equation}
+\frac{\partial E_y}{\partial x} - \frac{\partial E_x}{\partial y} = -\frac{\partial B_z}{\partial t} \tag{2c}
+\end{equation}
+
+\end{document}

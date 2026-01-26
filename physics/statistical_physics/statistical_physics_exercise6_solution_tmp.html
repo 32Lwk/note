@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>statistical_physics_exercise6_solution.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="%E7%B5%B1%E8%A8%88%E7%89%A9%E7%90%86%E5%AD%A6%E2%85%B0%E3%83%BB%E6%BC%94%E7%BF%926-%E8%A7%A3%E7%AD%94">統計物理学Ⅰ・演習6 解答</h1>
+<h2 id="%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3i-%E5%81%8F%E5%BE%AE%E5%88%86%E3%81%A8%E7%86%B1%E5%8A%9B%E5%AD%A6%E9%96%A2%E6%95%B0">セクションI: 偏微分と熱力学関数</h2>
+<h3 id="%E5%95%8F1-%E5%86%85%E9%83%A8%E3%82%A8%E3%83%8D%E3%83%AB%E3%82%AE%E3%83%BC%E3%81%AE%E6%96%B9%E7%A8%8B%E5%BC%8F">問1. 内部エネルギーの方程式</h3>
+<p><strong>問題:</strong> 以下の関係式を導け。
+$$(1) \quad \left(\frac{\partial U}{\partial V}\right)_T = T^2 \left{\frac{\partial(p/T)}{\partial T}\right}_V$$</p>
+<p><strong>解答:</strong></p>
+<p>基本関係式:
+$$TdS = dU + pdV \quad \text{(第一法則と第二法則の結合)}$$
+$$dF = -SdT - pdV \quad \text{(ヘルムホルツ自由エネルギー)}$$</p>
+<p><strong>方法1: エントロピーを用いた導出</strong></p>
+<p>$TdS = dU + pdV$より、$dU = TdS - pdV$。</p>
+<p>$U$を$T$と$V$の関数として考えると:
+$$dU = \left(\frac{\partial U}{\partial T}\right)_V dT + \left(\frac{\partial U}{\partial V}\right)_T dV$$</p>
+<p>一方、$S$を$T$と$V$の関数として:
+$$dS = \left(\frac{\partial S}{\partial T}\right)_V dT + \left(\frac{\partial S}{\partial V}\right)_T dV$$</p>
+<p>したがって:
+$$dU = T\left[\left(\frac{\partial S}{\partial T}\right)_V dT + \left(\frac{\partial S}{\partial V}\right)_T dV\right] - pdV$$</p>
+<p>$$= T\left(\frac{\partial S}{\partial T}\right)_V dT + \left[T\left(\frac{\partial S}{\partial V}\right)_T - p\right]dV$$</p>
+<p>係数を比較:
+$$\left(\frac{\partial U}{\partial V}\right)_T = T\left(\frac{\partial S}{\partial V}\right)_T - p$$</p>
+<p>マクスウェル関係式より、$dF = -SdT - pdV$から:
+$$\left(\frac{\partial S}{\partial V}\right)_T = \left(\frac{\partial p}{\partial T}\right)_V$$</p>
+<p>したがって:
+$$\left(\frac{\partial U}{\partial V}\right)_T = T\left(\frac{\partial p}{\partial T}\right)_V - p$$</p>
+<p>右辺を整理:
+$$T\left(\frac{\partial p}{\partial T}\right)_V - p = T^2 \left[\frac{1}{T}\left(\frac{\partial p}{\partial T}\right)_V - \frac{p}{T^2}\right]$$</p>
+<p>$$= T^2 \left[\frac{\partial}{\partial T}\left(\frac{p}{T}\right)\right]_V = T^2 \left{\frac{\partial(p/T)}{\partial T}\right}_V$$</p>
+<p><strong>答え:</strong>
+$$\left(\frac{\partial U}{\partial V}\right)_T = T^2 \left{\frac{\partial(p/T)}{\partial T}\right}_V$$</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>この式は、内部エネルギーが体積に依存する度合いを、圧力の温度依存性から計算できることを示している。</li>
+<li>理想気体では$p/T = nR/V$（$n$はモル数、$R$は気体定数）なので、右辺は0となり、内部エネルギーは体積に依存しない（ジュールの法則）。</li>
+<li>実在気体では、分子間相互作用により圧力が温度に依存するため、内部エネルギーも体積に依存する。</li>
+</ul>
+<hr>
+<h3 id="%E5%95%8F2-%E5%AE%9A%E5%9C%A7%E7%86%B1%E5%AE%B9%E9%87%8F%E3%81%A8%E5%AE%9A%E7%A9%8D%E7%86%B1%E5%AE%B9%E9%87%8F%E3%81%AE%E9%96%A2%E4%BF%82%E5%BC%8F">問2. 定圧熱容量と定積熱容量の関係式</h3>
+<p><strong>問題:</strong> 以下の関係式を導け。
+$$(2) \quad C_p = C_V + T\left(\frac{\partial V}{\partial T}\right)_p \left(\frac{\partial p}{\partial T}\right)_V$$</p>
+<p><strong>解答:</strong></p>
+<p>熱容量の定義:
+$$C_V = \left(\frac{\partial U}{\partial T}\right)_V = T\left(\frac{\partial S}{\partial T}\right)_V$$
+$$C_p = \left(\frac{\partial H}{\partial T}\right)_p = T\left(\frac{\partial S}{\partial T}\right)_p$$</p>
+<p>ここで、$H = U + pV$はエンタルピー。</p>
+<p><strong>方法1: エンタルピーを用いた導出</strong></p>
+<p>$H = U + pV$より:
+$$dH = dU + pdV + Vdp = TdS + Vdp$$</p>
+<p>$H$を$T$と$p$の関数として:
+$$dH = \left(\frac{\partial H}{\partial T}\right)_p dT + \left(\frac{\partial H}{\partial p}\right)_T dp$$</p>
+<p>一方、$S$を$T$と$p$の関数として:
+$$dS = \left(\frac{\partial S}{\partial T}\right)_p dT + \left(\frac{\partial S}{\partial p}\right)_T dp$$</p>
+<p>したがって:
+$$dH = T\left[\left(\frac{\partial S}{\partial T}\right)_p dT + \left(\frac{\partial S}{\partial p}\right)_T dp\right] + Vdp$$</p>
+<p>$$= T\left(\frac{\partial S}{\partial T}\right)_p dT + \left[T\left(\frac{\partial S}{\partial p}\right)_T + V\right]dp$$</p>
+<p>係数を比較:
+$$C_p = T\left(\frac{\partial S}{\partial T}\right)_p$$</p>
+<p>一方、$S$を$T$と$V$の関数として考えると:
+$$dS = \left(\frac{\partial S}{\partial T}\right)_V dT + \left(\frac{\partial S}{\partial V}\right)_T dV$$</p>
+<p>$p$を一定に保つと:
+$$\left(\frac{\partial S}{\partial T}\right)_p = \left(\frac{\partial S}{\partial T}\right)_V + \left(\frac{\partial S}{\partial V}\right)_T \left(\frac{\partial V}{\partial T}\right)_p$$</p>
+<p>したがって:
+$$C_p = T\left(\frac{\partial S}{\partial T}\right)_V + T\left(\frac{\partial S}{\partial V}\right)_T \left(\frac{\partial V}{\partial T}\right)_p$$</p>
+<p>$$= C_V + T\left(\frac{\partial S}{\partial V}\right)_T \left(\frac{\partial V}{\partial T}\right)_p$$</p>
+<p>マクスウェル関係式より:
+$$\left(\frac{\partial S}{\partial V}\right)_T = \left(\frac{\partial p}{\partial T}\right)_V$$</p>
+<p>したがって:
+$$C_p = C_V + T\left(\frac{\partial V}{\partial T}\right)_p \left(\frac{\partial p}{\partial T}\right)_V$$</p>
+<p><strong>答え:</strong>
+$$C_p = C_V + T\left(\frac{\partial V}{\partial T}\right)_p \left(\frac{\partial p}{\partial T}\right)_V$$</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>$C_p &gt; C_V$である理由を説明している。</li>
+<li>定圧過程では、温度を上げる際に体積が膨張するため、外部に対して仕事をする必要がある。その分だけ余分な熱が必要になる。</li>
+<li>右辺の第2項$T(\partial V/\partial T)_p (\partial p/\partial T)_V$は、この体積変化に伴う追加のエネルギーを表している。</li>
+<li>理想気体では、$(\partial V/\partial T)_p = nR/p$、$(\partial p/\partial T)_V = nR/V$より、$C_p - C_V = nR$（マイヤーの関係式）。</li>
+</ul>
+<hr>
+<h2 id="%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3ii-%E8%BC%AA%E3%82%B4%E3%83%A0%E3%81%AE%E7%86%B1%E5%8A%9B%E5%AD%A6">セクションII: 輪ゴムの熱力学</h2>
+<h3 id="%E5%95%8F1-%E3%83%90%E3%83%8D%E3%81%AE%E8%87%AA%E7%94%B1%E3%82%A8%E3%83%8D%E3%83%AB%E3%82%AE%E3%83%BC">問1. バネの自由エネルギー</h3>
+<p><strong>問題:</strong> バネの張力が$X = -k(T)x$（$k(T) = k_0 + k_1T$）で与えられ、比熱が$C = \text{定数}$のとき、自由エネルギーが
+$$F(T,x) = -CT\left[\ln\left(\frac{T}{T_0}\right) - 1\right] + \frac{1}{2}k(T)x^2$$
+と書けることを示せ。ただし、$F(T=0, x=0) = 0$とする。</p>
+<p><strong>解答:</strong></p>
+<p>基本関係式:
+$$dF = -SdT - Xdx$$</p>
+<p>ここで、$X = -k(T)x = -(k_0 + k_1T)x$である。</p>
+<p><strong>ステップ1: 張力からの条件</strong></p>
+<p>$$\left(\frac{\partial F}{\partial x}\right)_T = -X = k(T)x = (k_0 + k_1T)x$$</p>
+<p>これを$x$で積分:
+$$F(T,x) = \frac{1}{2}k(T)x^2 + f(T)$$</p>
+<p>ここで、$f(T)$は$x$に依存しない関数。</p>
+<p><strong>ステップ2: エントロピーからの条件</strong></p>
+<p>$$\left(\frac{\partial F}{\partial T}\right)_x = -S$$</p>
+<p>一方、$F(T,x) = \frac{1}{2}k(T)x^2 + f(T)$より:
+$$\left(\frac{\partial F}{\partial T}\right)_x = \frac{1}{2}k_1 x^2 + f'(T)$$</p>
+<p>したがって:
+$$S = -\frac{1}{2}k_1 x^2 - f'(T)$$</p>
+<p><strong>ステップ3: 比熱からの条件</strong></p>
+<p>比熱は、$x$を一定に保ったときの熱容量:
+$$C = T\left(\frac{\partial S}{\partial T}\right)_x = -Tf''(T)$$</p>
+<p>$C$が定数なので:
+$$f''(T) = -\frac{C}{T}$$</p>
+<p>これを積分:
+$$f'(T) = -C\ln T + A$$</p>
+<p>もう一度積分:
+$$f(T) = -C(T\ln T - T) + AT + B = -CT\left(\ln T - 1\right) + AT + B$$</p>
+<p><strong>ステップ4: 境界条件の適用</strong></p>
+<p>$F(T=0, x=0) = 0$より:
+$$f(0) = 0$$</p>
+<p>しかし、$T \to 0$で$\ln T \to -\infty$となるため、適切な基準温度$T_0$を導入:
+$$f(T) = -CT\left[\ln\left(\frac{T}{T_0}\right) - 1\right] + AT + B$$</p>
+<p>$F(T=0, x=0) = 0$より、$B = 0$。</p>
+<p>また、$A$は$T$の線形項であるが、$F(T=0, x=0) = 0$の条件から、$A = 0$とすることができる（または、$T_0$の選択で吸収できる）。</p>
+<p><strong>答え:</strong>
+$$F(T,x) = -CT\left[\ln\left(\frac{T}{T_0}\right) - 1\right] + \frac{1}{2}k(T)x^2$$</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>第1項は、温度依存性による自由エネルギー（エントロピー効果）。</li>
+<li>第2項は、バネの弾性エネルギー。温度が高いほど、バネ定数が大きくなり、同じ伸びに対してより大きなエネルギーが必要。</li>
+<li>輪ゴムが伸びるときに発熱する理由は、$k_1 &gt; 0$により、温度が高いほど張力が大きくなるため。</li>
+</ul>
+<hr>
+<h3 id="%E5%95%8F2-%E5%86%85%E9%83%A8%E3%82%A8%E3%83%8D%E3%83%AB%E3%82%AE%E3%83%BC%E3%81%AE%E8%A8%88%E7%AE%97">問2. 内部エネルギーの計算</h3>
+<p><strong>問題:</strong> 問1の結果と、内部エネルギーの関係式（問1の(2)式のバネ版）
+$$\left(\frac{\partial U}{\partial x}\right)_T = T^2 \left{\frac{\partial(X/T)}{\partial T}\right}_x$$
+を用いて、内部エネルギー$U(T,x)$を求めよ。ただし、$U(T=0, x=0) = 0$とする。</p>
+<p><strong>解答:</strong></p>
+<p><strong>ステップ1: 内部エネルギーの関係式の適用</strong></p>
+<p>$$X = -k(T)x = -(k_0 + k_1T)x$$</p>
+<p>したがって:
+$$\frac{X}{T} = -\frac{(k_0 + k_1T)x}{T} = -\frac{k_0 x}{T} - k_1 x$$</p>
+<p>$$\left(\frac{\partial(X/T)}{\partial T}\right)_x = \frac{k_0 x}{T^2}$$</p>
+<p>したがって:
+$$\left(\frac{\partial U}{\partial x}\right)_T = T^2 \cdot \frac{k_0 x}{T^2} = k_0 x$$</p>
+<p><strong>ステップ2: 内部エネルギーの積分</strong></p>
+<p>$$U(T,x) = \int_0^x k_0 x' dx' + g(T) = \frac{1}{2}k_0 x^2 + g(T)$$</p>
+<p>ここで、$g(T)$は$x$に依存しない関数。</p>
+<p><strong>ステップ3: 比熱からの条件</strong></p>
+<p>内部エネルギーとエントロピーの関係:
+$$U = F + TS$$</p>
+<p>問1より:
+$$F(T,x) = -CT\left[\ln\left(\frac{T}{T_0}\right) - 1\right] + \frac{1}{2}k(T)x^2$$</p>
+<p>$$S = -\left(\frac{\partial F}{\partial T}\right)_x = C\left[\ln\left(\frac{T}{T_0}\right) - 1\right] + CT \cdot \frac{1}{T} - \frac{1}{2}k_1 x^2$$</p>
+<p>$$= C\ln\left(\frac{T}{T_0}\right) - \frac{1}{2}k_1 x^2$$</p>
+<p>したがって:
+$$U = F + TS = -CT\left[\ln\left(\frac{T}{T_0}\right) - 1\right] + \frac{1}{2}k(T)x^2 + CT\ln\left(\frac{T}{T_0}\right) - \frac{1}{2}k_1 T x^2$$</p>
+<p>$$= CT + \frac{1}{2}k_0 x^2 + \frac{1}{2}k_1 T x^2 - \frac{1}{2}k_1 T x^2 = CT + \frac{1}{2}k_0 x^2$$</p>
+<p><strong>答え:</strong>
+$$U(T,x) = CT + \frac{1}{2}k_0 x^2$$</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>内部エネルギーは、温度に比例する項（比熱による）と、伸びの2乗に比例する項（弾性エネルギー）からなる。</li>
+<li>重要な点は、$k_1$（温度依存部分）は内部エネルギーには現れず、自由エネルギーにのみ現れること。</li>
+<li>これは、$k_1$の効果が主にエントロピー効果であることを示している。</li>
+<li>輪ゴムを素早く伸ばすと、断熱過程として$U$が一定に保たれるため、$\frac{1}{2}k_0 x^2$が増加すると$CT$が減少し、温度が下がるように見えるが、実際にはエントロピー効果により温度が上昇する。</li>
+</ul>
+<hr>
+<h2 id="%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3iii-1%E6%88%90%E5%88%86%E7%90%86%E6%83%B3%E6%B0%97%E4%BD%93">セクションIII: 1成分理想気体</h2>
+<h3 id="%E5%95%8F1-%E5%8C%96%E5%AD%A6%E3%83%9D%E3%83%86%E3%83%B3%E3%82%B7%E3%83%A3%E3%83%AB%E3%81%AE%E8%A8%88%E7%AE%97">問1. 化学ポテンシャルの計算</h3>
+<p><strong>問題:</strong> エントロピー$S = NR\ln(T^c V/N) + NS_0$と内部エネルギー$U = cNRT$から、化学ポテンシャル$\mu$を計算せよ。</p>
+<p><strong>解答:</strong></p>
+<p>基本関係式:
+$$TdS = dU + pdV - \mu dN$$</p>
+<p>$S$と$U$が与えられているので、$dS$と$dU$を計算:</p>
+<p>$$dS = NR \cdot \frac{c}{T} dT + NR \cdot \frac{1}{V} dV - NR \cdot \frac{1}{N} dN + R\ln(T^c V/N) dN + S_0 dN$$</p>
+<p>$$= \frac{cNR}{T} dT + \frac{NR}{V} dV + \left[R\ln(T^c V/N) + S_0 - R\right] dN$$</p>
+<p>$$dU = cRT dN + cNR dT$$</p>
+<p>したがって:
+$$TdS = cNR dT + \frac{NR T}{V} dV + T\left[R\ln(T^c V/N) + S_0 - R\right] dN$$</p>
+<p>$$dU + pdV = cRT dN + cNR dT + pdV$$</p>
+<p>比較すると:
+$$pdV = \frac{NR T}{V} dV \quad \Rightarrow \quad p = \frac{NR T}{V}$$</p>
+<p>また:
+$$-\mu dN = T\left[R\ln(T^c V/N) + S_0 - R\right] dN - cRT dN$$</p>
+<p>したがって:
+$$\mu = -RT\ln(T^c V/N) - TS_0 + RT + cRT$$</p>
+<p>$$= -RT\ln(T^c V/N) - TS_0 + (c+1)RT$$</p>
+<p><strong>答え:</strong>
+$$\mu = -RT\ln\left(\frac{T^c V}{N}\right) - TS_0 + (c+1)RT$$</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>化学ポテンシャルは、粒子を1個追加する際の自由エネルギーの変化を表す。</li>
+<li>温度が高いほど、体積が大きいほど、粒子数が少ないほど、化学ポテンシャルは低くなる（粒子を追加しやすくなる）。</li>
+</ul>
+<hr>
+<h3 id="%E5%95%8F2-%E3%83%98%E3%83%AB%E3%83%A0%E3%83%9B%E3%83%AB%E3%83%84%E8%87%AA%E7%94%B1%E3%82%A8%E3%83%8D%E3%83%AB%E3%82%AE%E3%83%BC">問2. ヘルムホルツ自由エネルギー</h3>
+<p><strong>問題:</strong> 内部エネルギーとエントロピーから、ヘルムホルツ自由エネルギー$F(T,V,N)$を求め、全微分形式を書け。また、各偏微分がどの熱力学変数に対応するか答えよ。</p>
+<p><strong>解答:</strong></p>
+<p><strong>ステップ1: 自由エネルギーの計算</strong></p>
+<p>$$F = U - TS = cNRT - T\left[NR\ln(T^c V/N) + NS_0\right]$$</p>
+<p>$$= cNRT - NRT\ln(T^c V/N) - NTS_0$$</p>
+<p>$$= NRT\left[c - \ln(T^c V/N)\right] - NTS_0$$</p>
+<p>$$= NRT\left[c - c\ln T - \ln(V/N)\right] - NTS_0$$</p>
+<p><strong>ステップ2: 全微分</strong></p>
+<p>$$dF = \left(\frac{\partial F}{\partial T}\right)<em>{V,N} dT + \left(\frac{\partial F}{\partial V}\right)</em>{T,N} dV + \left(\frac{\partial F}{\partial N}\right)_{T,V} dN$$</p>
+<p>各偏微分を計算:</p>
+<p>$$\left(\frac{\partial F}{\partial T}\right)_{V,N} = NR\left[c - \ln(T^c V/N)\right] - NRT \cdot \frac{c}{T} - NS_0$$</p>
+<p>$$= NR\left[c - \ln(T^c V/N) - c\right] - NS_0 = -NR\ln(T^c V/N) - NS_0 = -S$$</p>
+<p>$$\left(\frac{\partial F}{\partial V}\right)_{T,N} = -NRT \cdot \frac{1}{V} = -\frac{NRT}{V} = -p$$</p>
+<p>$$\left(\frac{\partial F}{\partial N}\right)_{T,V} = RT\left[c - \ln(T^c V/N)\right] - RTS_0 = \mu$$</p>
+<p>したがって:
+$$dF = -SdT - pdV + \mu dN$$</p>
+<p><strong>答え:</strong>
+$$F(T,V,N) = NRT\left[c - \ln(T^c V/N)\right] - NTS_0$$</p>
+<p>$$dF = -SdT - pdV + \mu dN$$</p>
+<p>各偏微分の対応:</p>
+<ul>
+<li>$\left(\frac{\partial F}{\partial T}\right)_{V,N} = -S$（エントロピー）</li>
+<li>$\left(\frac{\partial F}{\partial V}\right)_{T,N} = -p$（圧力）</li>
+<li>$\left(\frac{\partial F}{\partial N}\right)_{T,V} = \mu$（化学ポテンシャル）</li>
+</ul>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>自由エネルギーは、温度、体積、粒子数の関数として、系の平衡状態を完全に記述する。</li>
+<li>各偏微分は、対応する熱力学変数（共役変数）を与える。</li>
+</ul>
+<hr>
+<h3 id="%E5%95%8F3-%E5%8C%96%E5%AD%A6%E3%83%9D%E3%83%86%E3%83%B3%E3%82%B7%E3%83%A3%E3%83%AB%E3%81%AE%E6%A4%9C%E8%A8%BC">問3. 化学ポテンシャルの検証</h3>
+<p><strong>問題:</strong> 問2の結果から、化学ポテンシャルを直接計算し、問1の結果と一致することを確認せよ。</p>
+<p><strong>解答:</strong></p>
+<p>問2より:
+$$\mu = \left(\frac{\partial F}{\partial N}\right)_{T,V}$$</p>
+<p>$$F = NRT\left[c - \ln(T^c V/N)\right] - NTS_0$$</p>
+<p>$N$で偏微分する際、$T^c V/N$の中に$N$が含まれることに注意:</p>
+<p>$$\mu = RT\left[c - \ln(T^c V/N)\right] - NRT \cdot \frac{\partial}{\partial N}\ln(T^c V/N) - TS_0$$</p>
+<p>$$\frac{\partial}{\partial N}\ln(T^c V/N) = \frac{\partial}{\partial N}\left[\ln(T^c V) - \ln N\right] = -\frac{1}{N}$$</p>
+<p>したがって:
+$$\mu = RT\left[c - \ln(T^c V/N)\right] + RT - TS_0$$</p>
+<p>$$= RT\left[c + 1 - \ln(T^c V/N)\right] - TS_0$$</p>
+<p>$$= -RT\ln(T^c V/N) + (c+1)RT - TS_0$$</p>
+<p>これは問1の結果と一致する。</p>
+<p><strong>答え:</strong> 一致する。</p>
+<hr>
+<h3 id="%E5%95%8F4-%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AD%E3%83%94%E3%83%BC%E3%81%AE%E7%B7%9A%E5%BD%A2%E5%BD%A2%E5%BC%8F">問4. エントロピーの線形形式</h3>
+<p><strong>問題:</strong> エントロピー$S(U,V,N)$を、広延変数の線形和の形
+$$S(U,V,N) = a_U U + a_V V + a_N N$$
+で表し、式(8)を再現せよ。</p>
+<p><strong>解答:</strong></p>
+<p>基本関係式:
+$$TdS = dU + pdV - \mu dN$$</p>
+<p>したがって:
+$$dS = \frac{1}{T} dU + \frac{p}{T} dV - \frac{\mu}{T} dN$$</p>
+<p>係数を比較:
+$$a_U = \frac{1}{T}, \quad a_V = \frac{p}{T}, \quad a_N = -\frac{\mu}{T}$$</p>
+<p>理想気体の状態方程式と内部エネルギー:
+$$p = \frac{NR T}{V}, \quad U = cNRT$$</p>
+<p>したがって:
+$$a_U = \frac{1}{T}, \quad a_V = \frac{NR}{V}, \quad a_N = -\frac{\mu}{T}$$</p>
+<p>問1より:
+$$\mu = -RT\ln(T^c V/N) - TS_0 + (c+1)RT$$</p>
+<p>したがって:
+$$a_N = R\ln(T^c V/N) + S_0 - (c+1)R$$</p>
+<p>$T = U/(cNR)$、$V$と$N$を用いて:
+$$S = \frac{1}{T} U + \frac{NR}{V} V - \frac{\mu}{T} N$$</p>
+<p>$$= \frac{cNR}{T} \cdot \frac{T}{c} + NR - \left[R\ln(T^c V/N) + S_0 - (c+1)R\right] N$$</p>
+<p>$$= \frac{NR}{c} \cdot c + NR + NR\ln(T^c V/N) + NS_0 - (c+1)NR$$</p>
+<p>整理すると、$T = U/(cNR)$を代入:
+$$S = NR\ln(T^c V/N) + NS_0$$</p>
+<p>これは式(8)と一致する。</p>
+<p><strong>答え:</strong>
+$$S(U,V,N) = \frac{1}{T} U + \frac{p}{T} V - \frac{\mu}{T} N = NR\ln(T^c V/N) + NS_0$$</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>エントロピーは広延変数（$U$, $V$, $N$）の一次同次関数である。</li>
+<li>各係数（$a_U$, $a_V$, $a_N$）は、対応する強度変数（$1/T$, $p/T$, $-\mu/T$）である。</li>
+</ul>
+<hr>
+<h2 id="%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3iv-2%E6%88%90%E5%88%86%E7%90%86%E6%83%B3%E6%B0%97%E4%BD%93%E6%B7%B7%E5%90%88">セクションIV: 2成分理想気体混合</h2>
+<h3 id="%E5%95%8F1-%E5%88%9D%E6%9C%9F%E7%8A%B6%E6%85%8B%E3%81%AE%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AD%E3%83%94%E3%83%BC">問1. 初期状態のエントロピー</h3>
+<p><strong>問題:</strong> 体積$V$が仕切りで$V_1$と$V_2$に分けられ、それぞれに成分1（$N_1$モル）と成分2（$N_2$モル）が入っている平衡状態のエントロピーを、$(T, V, N_1, N_2)$の関数として表せ。</p>
+<p><strong>解答:</strong></p>
+<p>各成分のエントロピー:
+$$S_1(T, V_1, N_1) = N_1 R\ln(T^c V_1/N_1) + N_1 S_0$$
+$$S_2(T, V_2, N_2) = N_2 R\ln(T^c V_2/N_2) + N_2 S_0$$</p>
+<p>全エントロピー:
+$$S_{\text{tot}} = S_1 + S_2 = N_1 R\ln(T^c V_1/N_1) + N_2 R\ln(T^c V_2/N_2) + (N_1 + N_2) S_0$$</p>
+<p>$V_1 + V_2 = V$であるが、平衡状態では圧力が等しい:
+$$p_1 = \frac{N_1 RT}{V_1} = p_2 = \frac{N_2 RT}{V_2} = p$$</p>
+<p>したがって:
+$$\frac{N_1}{V_1} = \frac{N_2}{V_2} = \frac{N_1 + N_2}{V_1 + V_2} = \frac{N_1 + N_2}{V}$$</p>
+<p>$$V_1 = \frac{N_1}{N_1 + N_2} V, \quad V_2 = \frac{N_2}{N_1 + N_2} V$$</p>
+<p>したがって:
+$$S_{\text{tot}} = N_1 R\ln\left(\frac{T^c V_1}{N_1}\right) + N_2 R\ln\left(\frac{T^c V_2}{N_2}\right) + (N_1 + N_2) S_0$$</p>
+<p>$$= N_1 R\ln\left(\frac{T^c V}{N_1 + N_2}\right) + N_2 R\ln\left(\frac{T^c V}{N_1 + N_2}\right) + (N_1 + N_2) S_0$$</p>
+<p>$$= (N_1 + N_2) R\ln\left(\frac{T^c V}{N_1 + N_2}\right) + (N_1 + N_2) S_0$$</p>
+<p><strong>答え:</strong>
+$$S_{\text{tot}} = (N_1 + N_2) R\ln\left(\frac{T^c V}{N_1 + N_2}\right) + (N_1 + N_2) S_0$$</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>初期状態では、2つの気体は仕切りで分離されているが、圧力が平衡している。</li>
+<li>エントロピーは、各成分が独立に占有する体積に依存する。</li>
+</ul>
+<hr>
+<h3 id="%E5%95%8F2-%E6%B7%B7%E5%90%88%E5%BE%8C%E3%81%AE%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AD%E3%83%94%E3%83%BC">問2. 混合後のエントロピー</h3>
+<p><strong>問題:</strong> 仕切りを取り除いて混合した後の平衡状態のエントロピー$S(T, V, N_1, N_2)$を計算せよ。</p>
+<p><strong>解答:</strong></p>
+<p>混合後の状態では、各成分が全体積$V$を占有する。理想気体では、各成分は独立に振る舞う（ダルトンの法則）。</p>
+<p>成分1のエントロピー:
+$$S_1(T, V, N_1) = N_1 R\ln(T^c V/N_1) + N_1 S_0$$</p>
+<p>成分2のエントロピー:
+$$S_2(T, V, N_2) = N_2 R\ln(T^c V/N_2) + N_2 S_0$$</p>
+<p>全エントロピー:
+$$S(T, V, N_1, N_2) = S_1 + S_2 = N_1 R\ln(T^c V/N_1) + N_2 R\ln(T^c V/N_2) + (N_1 + N_2) S_0$$</p>
+<p><strong>答え:</strong>
+$$S(T, V, N_1, N_2) = N_1 R\ln\left(\frac{T^c V}{N_1}\right) + N_2 R\ln\left(\frac{T^c V}{N_2}\right) + (N_1 + N_2) S_0$$</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>混合後、各成分は全体積$V$を利用できるようになる。</li>
+<li>エントロピーは、各成分がより大きな体積を占有できることにより増加する。</li>
+</ul>
+<hr>
+<h3 id="%E5%95%8F3-%E3%82%A8%E3%83%B3%E3%83%88%E3%83%AD%E3%83%94%E3%83%BC%E5%A4%89%E5%8C%96">問3. エントロピー変化</h3>
+<p><strong>問題:</strong> エントロピー変化$\Delta S = S(T, V, N_1, N_2) - {S_1(T, V_1, N_1) + S_2(T, V_2, N_2)}$を計算し、正負を判定せよ。</p>
+<p><strong>解答:</strong></p>
+<p>問1より:
+$$S_1(T, V_1, N_1) + S_2(T, V_2, N_2) = (N_1 + N_2) R\ln\left(\frac{T^c V}{N_1 + N_2}\right) + (N_1 + N_2) S_0$$</p>
+<p>問2より:
+$$S(T, V, N_1, N_2) = N_1 R\ln\left(\frac{T^c V}{N_1}\right) + N_2 R\ln\left(\frac{T^c V}{N_2}\right) + (N_1 + N_2) S_0$$</p>
+<p>したがって:
+$$\Delta S = N_1 R\ln\left(\frac{T^c V}{N_1}\right) + N_2 R\ln\left(\frac{T^c V}{N_2}\right) - (N_1 + N_2) R\ln\left(\frac{T^c V}{N_1 + N_2}\right)$$</p>
+<p>$$= R\left[N_1\ln\left(\frac{V}{N_1}\right) + N_2\ln\left(\frac{V}{N_2}\right) - (N_1 + N_2)\ln\left(\frac{V}{N_1 + N_2}\right)\right]$$</p>
+<p>$$= R\left[N_1\ln\left(\frac{N_1 + N_2}{N_1}\right) + N_2\ln\left(\frac{N_1 + N_2}{N_2}\right)\right]$$</p>
+<p>$$= R\left[N_1\ln\left(1 + \frac{N_2}{N_1}\right) + N_2\ln\left(1 + \frac{N_1}{N_2}\right)\right]$$</p>
+<p>対数の性質より、$\ln(1+x) &gt; 0$（$x &gt; 0$のとき）なので、$\Delta S &gt; 0$。</p>
+<p><strong>答え:</strong>
+$$\Delta S = R\left[N_1\ln\left(1 + \frac{N_2}{N_1}\right) + N_2\ln\left(1 + \frac{N_1}{N_2}\right)\right] &gt; 0$$</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>エントロピーは混合により増加する（$\Delta S &gt; 0$）。</li>
+<li>これは、混合が自発的に起こることを示している（第二法則）。</li>
+<li>混合エントロピーは、各成分がより大きな体積を利用できることによる。</li>
+</ul>
+<hr>
+<h2 id="%E3%82%BB%E3%82%AF%E3%82%B7%E3%83%A7%E3%83%B3v-%E3%83%9D%E3%82%A2%E3%82%BD%E3%83%B3%E5%88%86%E5%B8%83%E3%81%AE%E5%B0%8E%E5%87%BA">セクションV: ポアソン分布の導出</h2>
+<h3 id="%E5%95%8F1-1%E5%80%8B%E3%81%AE%E5%88%86%E5%AD%90%E3%81%8C%E4%BD%93%E7%A9%8Dv%E3%81%AB%E5%90%AB%E3%81%BE%E3%82%8C%E3%82%8B%E7%A2%BA%E7%8E%87">問1. 1個の分子が体積$v$に含まれる確率</h3>
+<p><strong>問題:</strong> 体積$V$の容器に$N$個の分子がランダムに分布している。体積$v$の部分領域に1個の分子が含まれる確率$p$を求めよ。</p>
+<p><strong>解答:</strong></p>
+<p>分子の位置は完全にランダムであると仮定する。したがって、各分子が体積$v$に含まれる確率は、体積比に等しい:</p>
+<p>$$p = \frac{v}{V}$$</p>
+<p><strong>答え:</strong>
+$$p = \frac{v}{V}$$</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>分子の位置がランダムであるため、特定の領域に存在する確率は、その領域の体積比に比例する。</li>
+<li>これは、等確率の原理（等重率の原理）に基づいている。</li>
+</ul>
+<hr>
+<h3 id="%E5%95%8F2-%E5%B9%B3%E5%9D%87%E5%88%86%E5%AD%90%E6%95%B0%E3%81%AE%E4%BA%88%E6%83%B3">問2. 平均分子数の予想</h3>
+<p><strong>問題:</strong> 体積$v$に含まれる分子数$n$の平均値$\langle n \rangle$を予想せよ。</p>
+<p><strong>解答:</strong></p>
+<p>各分子が独立に確率$p$で体積$v$に含まれるため、期待値は:</p>
+<p>$$\langle n \rangle = Np = N \cdot \frac{v}{V} = \frac{N}{V} \cdot v = \rho v$$</p>
+<p>ここで、$\rho = N/V$は数密度である。</p>
+<p><strong>答え:</strong>
+$$\langle n \rangle = \rho v = \frac{Nv}{V}$$</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>平均分子数は、数密度と体積の積に等しい。</li>
+<li>これは直感的に理解できる結果である。</li>
+</ul>
+<hr>
+<h3 id="%E5%95%8F3-%E7%A2%BA%E7%8E%87%E5%88%86%E5%B8%83%E3%81%AE%E4%BF%82%E6%95%B0">問3. 確率分布の係数</h3>
+<p><strong>問題:</strong> $n$個の分子が体積$v$に含まれる確率$P(n)$が
+$$P(n) = Ap^{\alpha}(1-p)^{\beta}$$
+の形で与えられるとき、$A$, $\alpha$, $\beta$を求めよ。</p>
+<p><strong>解答:</strong></p>
+<p>$n$個の分子が体積$v$に含まれ、残りの$(N-n)$個が体積$v$の外にある確率は:</p>
+<p>$$P(n) = \binom{N}{n} p^n (1-p)^{N-n}$$</p>
+<p>ここで、$\binom{N}{n} = \frac{N!}{n!(N-n)!}$は二項係数である。</p>
+<p>したがって:
+$$A = \binom{N}{n}, \quad \alpha = n, \quad \beta = N-n$$</p>
+<p><strong>答え:</strong>
+$$A = \binom{N}{n} = \frac{N!}{n!(N-n)!}, \quad \alpha = n, \quad \beta = N-n$$</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>これは二項分布である。</li>
+<li>$n$個の分子を選ぶ組み合わせの数が$\binom{N}{n}$通りあり、それぞれの確率が$p^n(1-p)^{N-n}$である。</li>
+</ul>
+<hr>
+<h3 id="%E5%95%8F4-%E6%AF%8D%E9%96%A2%E6%95%B0%E3%81%A8%E7%B5%B1%E8%A8%88%E9%87%8F">問4. 母関数と統計量</h3>
+<p><strong>問題:</strong> 母関数
+$$F(x) = \sum_{n=0}^{N} x^n P(n)$$
+を用いて、以下の関係式を示せ:
+$$\langle n \rangle = \left.\frac{dF(x)}{dx}\right|<em>{x=1}$$
+$$\langle n^2 \rangle - \langle n \rangle = \left.\frac{d^2F(x)}{dx^2}\right|</em>{x=1}$$</p>
+<p><strong>解答:</strong></p>
+<p><strong>ステップ1: 平均値の導出</strong></p>
+<p>$$F(x) = \sum_{n=0}^{N} x^n P(n)$$</p>
+<p>微分:
+$$\frac{dF(x)}{dx} = \sum_{n=0}^{N} n x^{n-1} P(n)$$</p>
+<p>$x = 1$を代入:
+$$\left.\frac{dF(x)}{dx}\right|<em>{x=1} = \sum</em>{n=0}^{N} n P(n) = \langle n \rangle$$</p>
+<p><strong>ステップ2: 分散の導出</strong></p>
+<p>2階微分:
+$$\frac{d^2F(x)}{dx^2} = \sum_{n=0}^{N} n(n-1) x^{n-2} P(n)$$</p>
+<p>$x = 1$を代入:
+$$\left.\frac{d^2F(x)}{dx^2}\right|<em>{x=1} = \sum</em>{n=0}^{N} n(n-1) P(n) = \langle n(n-1) \rangle = \langle n^2 \rangle - \langle n \rangle$$</p>
+<p><strong>答え:</strong> 示された。</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>母関数は、確率分布のすべてのモーメント（平均、分散など）を計算するための便利なツールである。</li>
+<li>微分操作により、統計量を簡単に計算できる。</li>
+</ul>
+<hr>
+<h3 id="%E5%95%8F5-%E6%AF%8D%E9%96%A2%E6%95%B0%E3%81%AE%E5%85%B7%E4%BD%93%E5%BD%A2%E3%81%A8%E7%B5%B1%E8%A8%88%E9%87%8F%E3%81%AE%E8%A8%88%E7%AE%97">問5. 母関数の具体形と統計量の計算</h3>
+<p><strong>問題:</strong> 問3の結果を母関数の定義に代入し、
+$$F(x) = {(1-p) + px}^N$$
+を示せ。また、これを用いて平均値$\langle n \rangle$と分散$\langle \delta n^2 \rangle$を計算せよ。</p>
+<p><strong>解答:</strong></p>
+<p><strong>ステップ1: 母関数の計算</strong></p>
+<p>$$F(x) = \sum_{n=0}^{N} x^n P(n) = \sum_{n=0}^{N} x^n \binom{N}{n} p^n (1-p)^{N-n}$$</p>
+<p>$$= \sum_{n=0}^{N} \binom{N}{n} (px)^n (1-p)^{N-n}$$</p>
+<p>二項定理より:
+$$F(x) = {(1-p) + px}^N$$</p>
+<p><strong>ステップ2: 平均値の計算</strong></p>
+<p>$$\frac{dF(x)}{dx} = N {(1-p) + px}^{N-1} \cdot p$$</p>
+<p>$x = 1$を代入:
+$$\langle n \rangle = N {(1-p) + p}^{N-1} \cdot p = N \cdot 1^{N-1} \cdot p = Np = \rho v$$</p>
+<p>問2の予想と一致する。</p>
+<p><strong>ステップ3: 分散の計算</strong></p>
+<p>$$\frac{d^2F(x)}{dx^2} = N(N-1) {(1-p) + px}^{N-2} \cdot p^2$$</p>
+<p>$x = 1$を代入:
+$$\langle n^2 \rangle - \langle n \rangle = N(N-1) p^2$$</p>
+<p>したがって:
+$$\langle n^2 \rangle = N(N-1) p^2 + Np$$</p>
+<p>分散:
+$$\langle \delta n^2 \rangle = \langle n^2 \rangle - \langle n \rangle^2 = N(N-1) p^2 + Np - (Np)^2$$</p>
+<p>$$= N^2 p^2 - N p^2 + Np - N^2 p^2 = Np(1-p)$$</p>
+<p><strong>答え:</strong>
+$$F(x) = {(1-p) + px}^N$$
+$$\langle n \rangle = Np = \rho v$$
+$$\langle \delta n^2 \rangle = Np(1-p) = \rho v (1-p)$$</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>平均値は、数密度と体積の積に等しい。</li>
+<li>分散は、$Np(1-p)$で与えられる（二項分布の標準的な結果）。</li>
+<li>$p \ll 1$のとき、分散は平均に近づく（ポアソン分布の特徴）。</li>
+</ul>
+<hr>
+<h3 id="%E5%95%8F6-%E3%83%9D%E3%82%A2%E3%82%BD%E3%83%B3%E5%88%86%E5%B8%83%E3%81%B8%E3%81%AE%E6%A5%B5%E9%99%90">問6. ポアソン分布への極限</h3>
+<p><strong>問題:</strong> $\rho = N/V$を固定したまま、$v/V \to 0$の極限を取るとき、
+$$P(n) = \frac{a^n}{n!} e^{-a}$$
+（$a = \langle n \rangle$）となることを示せ。</p>
+<p><strong>解答:</strong></p>
+<p><strong>ステップ1: 母関数の書き換え</strong></p>
+<p>$$F(x) = {(1-p) + px}^N = \exp[N\ln{(1-p) + px}]$$</p>
+<p><strong>ステップ2: 極限の計算</strong></p>
+<p>$p = v/V$であり、$v/V \to 0$の極限を考える。$\rho = N/V$を固定するので、$N \to \infty$、$p \to 0$、$Np = \rho v = a$（一定）。</p>
+<p>$\ln{(1-p) + px}$を$p$について展開:
+$$\ln{(1-p) + px} = \ln{1 + p(x-1)} \approx p(x-1) - \frac{p^2(x-1)^2}{2} + \cdots$$</p>
+<p>一次まで:
+$$\ln{(1-p) + px} \approx p(x-1)$$</p>
+<p>したがって:
+$$F(x) \approx \exp[Np(x-1)] = \exp[a(x-1)] = e^{-a} e^{ax}$$</p>
+<p><strong>ステップ3: 確率分布の導出</strong></p>
+<p>$$F(x) = e^{-a} e^{ax} = e^{-a} \sum_{n=0}^{\infty} \frac{(ax)^n}{n!} = \sum_{n=0}^{\infty} \frac{a^n}{n!} e^{-a} x^n$$</p>
+<p>一方、$F(x) = \sum_{n=0}^{\infty} x^n P(n)$なので、係数を比較:</p>
+<p>$$P(n) = \frac{a^n}{n!} e^{-a}$$</p>
+<p><strong>答え:</strong>
+$$P(n) = \frac{a^n}{n!} e^{-a}$$</p>
+<p>ここで、$a = \langle n \rangle = \rho v$である。</p>
+<p><strong>物理的意味:</strong></p>
+<ul>
+<li>ポアソン分布は、稀な事象（$p \ll 1$）の発生回数を記述する。</li>
+<li>平均値$a$のみで分布が決まる（分散も$a$に等しい）。</li>
+<li>分子数が非常に多く、観測領域が小さい場合、分子数の分布はポアソン分布に従う。</li>
+<li>これは、統計力学における重要な分布であり、理想気体の粒子数揺らぎなどを記述する。</li>
+</ul>
+<hr>
+<h2 id="%E3%81%BE%E3%81%A8%E3%82%81">まとめ</h2>
+<p>本演習では、以下の重要な概念を学んだ:</p>
+<ol>
+<li><strong>熱力学関係式の導出</strong>: 偏微分とマクスウェル関係式を用いた熱力学量の関係式の導出</li>
+<li><strong>輪ゴムの熱力学</strong>: 温度依存性を持つバネ定数を持つ系の熱力学的記述</li>
+<li><strong>理想気体の統計力学</strong>: エントロピー、自由エネルギー、化学ポテンシャルの計算</li>
+<li><strong>混合エントロピー</strong>: 気体混合によるエントロピー増加</li>
+<li><strong>ポアソン分布</strong>: 二項分布からポアソン分布への極限遷移</li>
+</ol>
+<p>これらの概念は、統計力学の基礎を理解する上で重要である。</p>
+
+</body>
+</html>

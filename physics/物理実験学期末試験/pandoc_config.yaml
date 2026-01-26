@@ -1,0 +1,15 @@
+---
+pdf-engine: xelatex
+geometry:
+  - margin=2.5cm
+toc: true
+toc-depth: 2
+colorlinks: true
+linkcolor: blue
+urlcolor: blue
+toccolor: blue
+documentclass: article
+fontsize: 10pt
+mainfont: "Hiragino Sans"
+CJKmainfont: "Hiragino Sans"
+---

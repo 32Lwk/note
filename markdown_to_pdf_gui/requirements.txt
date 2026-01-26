@@ -1,0 +1,10 @@
+PyQt6>=6.6.0
+PyQt6-Qt6>=6.6.0
+pyyaml>=6.0
+cairosvg>=2.7.0  # SVG→PNG変換用（オプション）
+chardet>=5.0.0  # エンコーディング検出
+pypdf>=3.0.0  # PDF検証用
+psutil>=5.9.0  # メモリ監視用
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-qt>=4.2.0  # PyQtテスト用

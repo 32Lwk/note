@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <string.h>
+
+void shift_string(char *c)
+{
+    int i, n;
+    n = strlen(c);       // 文字列長を取得
+    char d[n + 1];       // 一時的な配列（+1は終端文字分）
+
+    // 先頭以外の文字を左に1つずらす
+    for (i = 0; i < n - 1; i++) {
+        d[i] = c[i + 1];
+    }
+    // 最初の文字を最後に移動
+    d[n - 1] = c[0];
+    d[n] = '\0';
+
+    // 結果を元の配列にコピー
+    strcpy(c, d);
+}

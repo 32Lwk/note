@@ -1,0 +1,30 @@
+% 日本語の改行と折り返しを改善するための設定（最小構成）
+% 日本語の改行設定（XeLaTeXの標準機能）- 最重要設定
+\XeTeXlinebreaklocale "ja"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+
+% 長いテキストの折り返しを許可（強力な設定）
+\sloppy
+
+% 日本語の改行を大幅に改善
+\setlength{\emergencystretch}{15em}
+\tolerance=10000
+\pretolerance=10000
+\setlength{\hfuzz}{2pt}
+\setlength{\overfullrule}{0pt}
+\hbadness=10000
+
+% ハイフネーションを無効化（日本語では不要）
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+% 長い数式の折り返し
+\allowdisplaybreaks
+
+% 段落の設定
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.3em plus 0.1em minus 0.1em}
+
+% 行間の調整
+\linespread{1.15}
+

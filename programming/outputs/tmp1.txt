@@ -1,0 +1,14 @@
+total 80
+-rw-r--r--   1 yuto  staff  40960  9 13 15:20 renu_typing_game.db
+drwx------@ 92 yuto  staff   2944  9 12 04:19 Library
+drwx------+ 33 yuto  staff   1056 10  3 17:38 Downloads
+drwx------+ 23 yuto  staff    736 10  2 13:28 Desktop
+drwxr-xr-x   6 yuto  staff    192 10  2 13:30 プログラミング
+drwxr-xr-x   5 yuto  staff    160 10  7 09:23 itphy
+drwx------   4 yuto  staff    128  9 12 04:34 Movies
+drwx------+  4 yuto  staff    128  9  9 17:00 Music
+drwx------+  4 yuto  staff    128  9  9 16:54 Pictures
+drwxr-xr-x+  4 yuto  staff    128  9  9 16:53 Public
+drwx------+  3 yuto  staff     96  9  9 16:53 Documents
+lrwxr-xr-x   1 yuto  staff     84  9 10 13:01 OneDrive - 国立大学法人東海国立大学機構 -> /Users/yuto/Library/CloudStorage/OneDrive-国立大学法人東海国立大学機構
+-rw-r--r--   1 yuto  staff      0 10  7 09:23 tmp1.txt

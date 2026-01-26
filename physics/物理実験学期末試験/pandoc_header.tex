@@ -1,0 +1,29 @@
+% 数式の改行を許可
+\allowdisplaybreaks
+
+% ページレイアウトの最適化
+\sloppy
+
+% pandocが生成する\tightlistコマンドの定義（必須）
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+% 日本語の改行設定（XeLaTeXで日本語を扱う際に必須）
+\XeTeXlinebreaklocale "ja"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+
+% 日本語の改行を改善する設定
+\setlength{\emergencystretch}{3em}
+\tolerance=10000
+\pretolerance=10000
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+
+% 警告記号と星記号のためのパッケージ
+\usepackage{pifont}
+
+% 警告記号の定義（⚠️を\warningに置き換える）
+\newcommand{\warning}{\ding{73}}
+
+% 星記号の定義（⭐を\stariconに置き換える）
+\newcommand{\staricon}{\ding{72}}

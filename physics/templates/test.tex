@@ -1,0 +1,2093 @@
+\section{統計物理学Ⅰ・演習6
+解答}\label{ux7d71ux8a08ux7269ux7406ux5b66ux2170ux6f14ux7fd26-ux89e3ux7b54}
+
+\subsection{セクションI:
+偏微分と熱力学関数}\label{ux30bbux30afux30b7ux30e7ux30f3i-ux504fux5faeux5206ux3068ux71b1ux529bux5b66ux95a2ux6570}
+
+\subsubsection{セクションIの概要}\label{ux30bbux30afux30b7ux30e7ux30f3iux306eux6982ux8981}
+
+本セクションでは、\textbf{偏微分とマクスウェル関係式}を用いて、熱力学量間の重要な関係式を導出する。これらの関係式は、実験的に測定しやすい量から、直接測定が困難な量を計算する際に非常に有用である。
+
+\textbf{重要な概念:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{マクスウェル関係式}:
+  熱力学ポテンシャル（自由エネルギーなど）の2階偏微分の順序交換可能性から導かれる関係式
+\item
+  \textbf{偏微分の連鎖則}: 変数変換における偏微分の関係
+\item
+  \textbf{熱力学ポテンシャル}: 系の平衡状態を記述する関数（\(F\), \(G\),
+  \(H\)など）
+\end{enumerate}
+
+本セクションで導出する関係式は、理想気体と実在気体の違いを理解する上で重要である。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問1.
+内部エネルギーの方程式}\label{ux554f1.-ux5185ux90e8ux30a8ux30cdux30ebux30aeux30fcux306eux65b9ux7a0bux5f0f}
+
+\textbf{問題:} 以下の関係式を導け。
+\[(1) \quad \left(\frac{\partial U}{\partial V}\right)_T = T^2 \left\{\frac{\partial(p/T)}{\partial T}\right\}_V\]
+
+\textbf{解答:}
+
+\textbf{基本関係式の確認}
+
+熱力学の基本関係式は、第一法則と第二法則を結合したものである：
+
+\[TdS = dU + pdV\]
+
+ここで、\(T\)は温度、\(S\)はエントロピー、\(U\)は内部エネルギー、\(p\)は圧力、\(V\)は体積である。
+
+また、ヘルムホルツ自由エネルギー\(F = U - TS\)の全微分は：
+
+\[dF = dU - TdS - SdT = -SdT - pdV\]
+
+\textbf{導出の戦略}
+
+目標は、\((\partial U/\partial V)_T\)を、圧力の温度依存性で表すことである。内部エネルギー\(U\)を直接測定するのは困難だが、圧力\(p\)の温度依存性は実験的に測定しやすい。
+
+\textbf{方法1: エントロピーを用いた導出}
+
+\textbf{ステップ1: 内部エネルギーの全微分}
+
+\(TdS = dU + pdV\)より、\(dU = TdS - pdV\)。
+
+\(U\)を\(T\)と\(V\)の関数として考えると、全微分は：
+
+\[dU = \left(\frac{\partial U}{\partial T}\right)_V dT + \left(\frac{\partial U}{\partial V}\right)_T dV\]
+
+\textbf{ステップ2: エントロピーの全微分}
+
+一方、\(S\)も\(T\)と\(V\)の関数として：
+
+\[dS = \left(\frac{\partial S}{\partial T}\right)_V dT + \left(\frac{\partial S}{\partial V}\right)_T dV\]
+
+\textbf{ステップ3: 基本関係式への代入}
+
+\(dU = TdS - pdV\)に\(dS\)を代入：
+
+\[dU = T\left[\left(\frac{\partial S}{\partial T}\right)_V dT + \left(\frac{\partial S}{\partial V}\right)_T dV\right] - pdV\]
+
+\[= T\left(\frac{\partial S}{\partial T}\right)_V dT + \left[T\left(\frac{\partial S}{\partial V}\right)_T - p\right]dV\]
+
+\textbf{ステップ4: 係数の比較}
+
+\(dU\)の2つの表現を比較すると：
+
+\[dU = \left(\frac{\partial U}{\partial T}\right)_V dT + \left(\frac{\partial U}{\partial V}\right)_T dV\]
+
+\[= T\left(\frac{\partial S}{\partial T}\right)_V dT + \left[T\left(\frac{\partial S}{\partial V}\right)_T - p\right]dV\]
+
+\(dV\)の係数を比較：
+
+\[\left(\frac{\partial U}{\partial V}\right)_T = T\left(\frac{\partial S}{\partial V}\right)_T - p\]
+
+\textbf{ステップ5: マクスウェル関係式の適用}
+
+マクスウェル関係式は、熱力学ポテンシャルの2階偏微分の順序交換可能性から導かれる。\(dF = -SdT - pdV\)より：
+
+\[\frac{\partial}{\partial V}\left(\frac{\partial F}{\partial T}\right)_V = \frac{\partial}{\partial T}\left(\frac{\partial F}{\partial V}\right)_T\]
+
+\[\frac{\partial(-S)}{\partial V} = \frac{\partial(-p)}{\partial T}\]
+
+したがって：
+
+\[\left(\frac{\partial S}{\partial V}\right)_T = \left(\frac{\partial p}{\partial T}\right)_V\]
+
+これは重要なマクスウェル関係式の1つである。
+
+\textbf{ステップ6: 最終的な関係式}
+
+ステップ4とステップ5の結果を組み合わせ：
+
+\[\left(\frac{\partial U}{\partial V}\right)_T = T\left(\frac{\partial p}{\partial T}\right)_V - p\]
+
+\textbf{ステップ7: 右辺の整理}
+
+右辺を\(T^2\)でくくる形に変形する：
+
+\[T\left(\frac{\partial p}{\partial T}\right)_V - p = T^2 \left[\frac{1}{T}\left(\frac{\partial p}{\partial T}\right)_V - \frac{p}{T^2}\right]\]
+
+ここで、積の微分法則を逆に適用すると：
+
+\[\frac{\partial}{\partial T}\left(\frac{p}{T}\right) = \frac{1}{T}\frac{\partial p}{\partial T} - \frac{p}{T^2}\]
+
+したがって：
+
+\[T\left(\frac{\partial p}{\partial T}\right)_V - p = T^2 \left[\frac{\partial}{\partial T}\left(\frac{p}{T}\right)\right]_V = T^2 \left\{\frac{\partial(p/T)}{\partial T}\right\}_V\]
+
+\textbf{答え:}
+\[\left(\frac{\partial U}{\partial V}\right)_T = T^2 \left\{\frac{\partial(p/T)}{\partial T}\right\}_V\]
+
+\textbf{物理的意味:}
+
+\textbf{式の解釈:}
+
+\[\left(\frac{\partial U}{\partial V}\right)_T = T^2 \left\{\frac{\partial(p/T)}{\partial T}\right\}_V\]
+
+この式は、\textbf{内部エネルギーが体積に依存する度合い}を、\textbf{圧力の温度依存性}から計算できることを示している。これは、内部エネルギーを直接測定する代わりに、より測定しやすい圧力の温度依存性から内部エネルギーの体積依存性を求めることができることを意味する。
+
+\textbf{理想気体の場合:}
+
+理想気体の状態方程式\(pV = nRT\)より：
+
+\[\frac{p}{T} = \frac{nR}{V}\]
+
+これは\(T\)に依存しないため：
+
+\[\left\{\frac{\partial(p/T)}{\partial T}\right\}_V = 0\]
+
+したがって：
+
+\[\left(\frac{\partial U}{\partial V}\right)_T = 0\]
+
+これは\textbf{ジュールの法則}（Joule's
+law）として知られている：理想気体の内部エネルギーは体積に依存せず、温度のみに依存する。
+
+\textbf{実在気体の場合:}
+
+実在気体では、分子間相互作用により、圧力が温度に依存する。例えば、ファン・デル・ワールス気体では：
+
+\[p = \frac{nRT}{V-nb} - \frac{an^2}{V^2}\]
+
+この場合、\(p/T\)は温度に依存するため、内部エネルギーも体積に依存する。これは、分子間相互作用エネルギーが体積に依存するためである。
+
+\textbf{応用:}
+
+この関係式は、実在気体の内部エネルギーを実験的に決定する際に重要である。圧力の温度依存性を測定することで、内部エネルギーの体積依存性を計算できる。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問2.
+定圧熱容量と定積熱容量の関係式}\label{ux554f2.-ux5b9aux5727ux71b1ux5bb9ux91cfux3068ux5b9aux7a4dux71b1ux5bb9ux91cfux306eux95a2ux4fc2ux5f0f}
+
+\textbf{問題:} 以下の関係式を導け。
+\[(2) \quad C_p = C_V + T\left(\frac{\partial V}{\partial T}\right)_p \left(\frac{\partial p}{\partial T}\right)_V\]
+
+\textbf{解答:}
+
+\textbf{熱容量の定義}
+
+熱容量は、系に熱を加えたときの温度上昇の度合いを表す：
+
+\begin{itemize}
+\item
+  \textbf{定積熱容量} \(C_V\): 体積を一定に保ったときの熱容量
+  \[C_V = \left(\frac{\partial U}{\partial T}\right)_V = T\left(\frac{\partial S}{\partial T}\right)_V\]
+\item
+  \textbf{定圧熱容量} \(C_p\): 圧力を一定に保ったときの熱容量
+  \[C_p = \left(\frac{\partial H}{\partial T}\right)_p = T\left(\frac{\partial S}{\partial T}\right)_p\]
+\end{itemize}
+
+ここで、\(H = U + pV\)は\textbf{エンタルピー}である。
+
+\textbf{導出の戦略}
+
+\(C_p\)と\(C_V\)の関係を導くには、エンタルピー\(H\)とエントロピー\(S\)の関係を利用する。
+
+\textbf{方法1: エンタルピーを用いた導出}
+
+\textbf{ステップ1: エンタルピーの全微分}
+
+\(H = U + pV\)より：
+
+\[dH = dU + pdV + Vdp\]
+
+基本関係式\(TdS = dU + pdV\)を代入：
+
+\[dH = TdS + Vdp\]
+
+\textbf{ステップ2: エンタルピーを\(T\)と\(p\)の関数として表現}
+
+\(H\)を\(T\)と\(p\)の関数として：
+
+\[dH = \left(\frac{\partial H}{\partial T}\right)_p dT + \left(\frac{\partial H}{\partial p}\right)_T dp\]
+
+\textbf{ステップ3: エントロピーを\(T\)と\(p\)の関数として表現}
+
+一方、\(S\)も\(T\)と\(p\)の関数として：
+
+\[dS = \left(\frac{\partial S}{\partial T}\right)_p dT + \left(\frac{\partial S}{\partial p}\right)_T dp\]
+
+\textbf{ステップ4: 基本関係式への代入}
+
+\(dH = TdS + Vdp\)に\(dS\)を代入：
+
+\[dH = T\left[\left(\frac{\partial S}{\partial T}\right)_p dT + \left(\frac{\partial S}{\partial p}\right)_T dp\right] + Vdp\]
+
+\[= T\left(\frac{\partial S}{\partial T}\right)_p dT + \left[T\left(\frac{\partial S}{\partial p}\right)_T + V\right]dp\]
+
+\textbf{ステップ5: 係数の比較}
+
+\(dH\)の2つの表現を比較：
+
+\[dH = \left(\frac{\partial H}{\partial T}\right)_p dT + \left(\frac{\partial H}{\partial p}\right)_T dp\]
+
+\[= T\left(\frac{\partial S}{\partial T}\right)_p dT + \left[T\left(\frac{\partial S}{\partial p}\right)_T + V\right]dp\]
+
+\(dT\)の係数を比較：
+
+\[C_p = \left(\frac{\partial H}{\partial T}\right)_p = T\left(\frac{\partial S}{\partial T}\right)_p\]
+
+\textbf{ステップ6: エントロピーの変数変換}
+
+\(S\)を\(T\)と\(V\)の関数として考えると：
+
+\[dS = \left(\frac{\partial S}{\partial T}\right)_V dT + \left(\frac{\partial S}{\partial V}\right)_T dV\]
+
+ここで、\(p\)を一定に保つ（\(dp = 0\)）と、\(V\)は\(T\)の関数になる。したがって：
+
+\[\left(\frac{\partial S}{\partial T}\right)_p = \left(\frac{\partial S}{\partial T}\right)_V + \left(\frac{\partial S}{\partial V}\right)_T \left(\frac{\partial V}{\partial T}\right)_p\]
+
+これは、\textbf{偏微分の連鎖則}の応用である。
+
+\textbf{ステップ7: 最終的な関係式}
+
+ステップ5とステップ6の結果を組み合わせ：
+
+\[C_p = T\left(\frac{\partial S}{\partial T}\right)_V + T\left(\frac{\partial S}{\partial V}\right)_T \left(\frac{\partial V}{\partial T}\right)_p\]
+
+\[= C_V + T\left(\frac{\partial S}{\partial V}\right)_T \left(\frac{\partial V}{\partial T}\right)_p\]
+
+\textbf{ステップ8: マクスウェル関係式の適用}
+
+マクスウェル関係式より：
+
+\[\left(\frac{\partial S}{\partial V}\right)_T = \left(\frac{\partial p}{\partial T}\right)_V\]
+
+したがって：
+
+\[C_p = C_V + T\left(\frac{\partial V}{\partial T}\right)_p \left(\frac{\partial p}{\partial T}\right)_V\]
+
+\textbf{答え:}
+\[C_p = C_V + T\left(\frac{\partial V}{\partial T}\right)_p \left(\frac{\partial p}{\partial T}\right)_V\]
+
+\textbf{物理的意味:}
+
+\textbf{\(C_p > C_V\)の理由:}
+
+\[C_p = C_V + T\left(\frac{\partial V}{\partial T}\right)_p \left(\frac{\partial p}{\partial T}\right)_V\]
+
+この式は、\textbf{定圧熱容量が定積熱容量より大きい理由}を説明している。
+
+\textbf{定圧過程と定積過程の違い:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{定積過程}（\(dV = 0\)）:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    温度を上げるために必要な熱は、内部エネルギーを増やすだけ
+  \item
+    \(C_V = (\partial U/\partial T)_V\)
+  \end{itemize}
+\item
+  \textbf{定圧過程}（\(dp = 0\)）:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    温度を上げると、体積が膨張する（\((\partial V/\partial T)_p > 0\)）
+  \item
+    体積が膨張すると、外部に対して仕事\(pdV\)をする必要がある
+  \item
+    そのため、同じ温度上昇に対して、より多くの熱が必要
+  \end{itemize}
+\end{enumerate}
+
+\textbf{右辺第2項の意味:}
+
+\[T\left(\frac{\partial V}{\partial T}\right)_p \left(\frac{\partial p}{\partial T}\right)_V\]
+
+この項は、\textbf{体積変化に伴う追加のエネルギー}を表している：
+
+\begin{itemize}
+\tightlist
+\item
+  \((\partial V/\partial T)_p\):
+  定圧での体積の温度依存性（熱膨張係数に関連）
+\item
+  \((\partial p/\partial T)_V\): 定積での圧力の温度依存性
+\item
+  これらの積に\(T\)をかけたものが、追加の熱容量に寄与
+\end{itemize}
+
+\textbf{理想気体の場合（マイヤーの関係式）:}
+
+理想気体の状態方程式\(pV = nRT\)より：
+
+\[\left(\frac{\partial V}{\partial T}\right)_p = \frac{nR}{p}, \quad \left(\frac{\partial p}{\partial T}\right)_V = \frac{nR}{V}\]
+
+したがって：
+
+\[C_p - C_V = T \cdot \frac{nR}{p} \cdot \frac{nR}{V} = T \cdot \frac{(nR)^2}{pV} = T \cdot \frac{(nR)^2}{nRT} = nR\]
+
+これは\textbf{マイヤーの関係式}（Mayer's relation）として知られている。
+
+\textbf{実在気体の場合:}
+
+実在気体では、\(C_p - C_V\)は\(nR\)より大きくなる。これは、分子間相互作用により、体積変化に伴う追加のエネルギーが大きくなるためである。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{セクションII:
+輪ゴムの熱力学}\label{ux30bbux30afux30b7ux30e7ux30f3ii-ux8f2aux30b4ux30e0ux306eux71b1ux529bux5b66}
+
+\subsubsection{セクションIIの概要}\label{ux30bbux30afux30b7ux30e7ux30f3iiux306eux6982ux8981}
+
+本セクションでは、\textbf{輪ゴムの熱力学}を扱う。輪ゴムは、通常のバネとは異なり、温度依存性を持つ弾性を示す興味深い系である。
+
+\textbf{輪ゴムの特徴:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{温度依存性のあるバネ定数}: \(k(T) = k_0 + k_1T\)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(k_0\): 温度に依存しない部分（通常の弾性）
+  \item
+    \(k_1\): 温度依存部分（エントロピー効果）
+  \end{itemize}
+\item
+  \textbf{伸びると発熱}: 輪ゴムを素早く伸ばすと、温度が上昇する
+
+  \begin{itemize}
+  \tightlist
+  \item
+    これは、通常のバネ（伸ばすと温度が下がる）とは逆の挙動
+  \end{itemize}
+\item
+  \textbf{エントロピー効果}: 輪ゴムの弾性は、主にエントロピー効果による
+
+  \begin{itemize}
+  \tightlist
+  \item
+    分子鎖が伸びると、エントロピーが減少する
+  \item
+    これが、温度が高いほど張力が大きくなる理由
+  \end{itemize}
+\end{enumerate}
+
+本セクションでは、温度依存性を持つバネ定数と比熱から、自由エネルギーと内部エネルギーを導出する。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問1.
+バネの自由エネルギー}\label{ux554f1.-ux30d0ux30cdux306eux81eaux7531ux30a8ux30cdux30ebux30aeux30fc}
+
+\textbf{問題:}
+バネの張力が\(X = -k(T)x\)（\(k(T) = k_0 + k_1T\)）で与えられ、比熱が\(C = \text{定数}\)のとき、自由エネルギーが
+\[F(T,x) = -CT\left[\ln\left(\frac{T}{T_0}\right) - 1\right] + \frac{1}{2}k(T)x^2\]
+と書けることを示せ。ただし、\(F(T=0, x=0) = 0\)とする。
+
+\textbf{解答:}
+
+\textbf{基本関係式の確認}
+
+バネ（輪ゴム）の熱力学では、自由エネルギー\(F\)の全微分は：
+
+\[dF = -SdT - Xdx\]
+
+ここで、\(S\)はエントロピー、\(X\)は張力、\(x\)は伸びである。張力は：
+
+\[X = -k(T)x = -(k_0 + k_1T)x\]
+
+負号は、張力が伸びに反対方向に働くことを示している。
+
+\textbf{導出の戦略}
+
+与えられた条件から自由エネルギーを決定する： 1.
+張力\(X = -k(T)x\)から、\(F\)の\(x\)依存性を決定 2.
+比熱\(C\)が定数であることから、\(F\)の\(T\)依存性を決定 3.
+境界条件\(F(T=0, x=0) = 0\)を適用
+
+\textbf{ステップ1: 張力からの条件}
+
+自由エネルギーの定義より：
+
+\[\left(\frac{\partial F}{\partial x}\right)_T = -X = k(T)x = (k_0 + k_1T)x\]
+
+これを\(x\)で積分する。\(T\)を定数として扱う：
+
+\[F(T,x) = \int_0^x k(T)x' dx' + f(T) = \frac{1}{2}k(T)x^2 + f(T)\]
+
+ここで、\(f(T)\)は\(x\)に依存しない関数（積分定数）である。この関数は、\(T\)のみに依存する部分を表す。
+
+\textbf{ステップ2: エントロピーからの条件}
+
+自由エネルギーの定義より：
+
+\[\left(\frac{\partial F}{\partial T}\right)_x = -S\]
+
+一方、ステップ1の結果\(F(T,x) = \frac{1}{2}k(T)x^2 + f(T)\)を\(T\)で偏微分：
+
+\[\left(\frac{\partial F}{\partial T}\right)_x = \frac{1}{2}\frac{\partial k(T)}{\partial T} x^2 + f'(T) = \frac{1}{2}k_1 x^2 + f'(T)\]
+
+したがって：
+
+\[S = -\frac{1}{2}k_1 x^2 - f'(T)\]
+
+\textbf{重要な観察:}
+
+エントロピーは、\(x\)に依存する項（\(-k_1 x^2/2\)）と、\(T\)に依存する項（\(-f'(T)\)）からなる。\(x\)に依存する項は、伸びが大きいほどエントロピーが小さくなることを示している（輪ゴムの特徴）。
+
+\textbf{ステップ3: 比熱からの条件}
+
+比熱\(C\)は、\(x\)を一定に保ったときの熱容量：
+
+\[C = T\left(\frac{\partial S}{\partial T}\right)_x\]
+
+ステップ2の結果\(S = -\frac{1}{2}k_1 x^2 - f'(T)\)を\(T\)で偏微分：
+
+\[\left(\frac{\partial S}{\partial T}\right)_x = -f''(T)\]
+
+したがって：
+
+\[C = -Tf''(T)\]
+
+\(C\)が定数なので：
+
+\[f''(T) = -\frac{C}{T}\]
+
+\textbf{ステップ4: \(f(T)\)の積分}
+
+\(f''(T) = -C/T\)を積分：
+
+\[f'(T) = -C\int \frac{1}{T} dT = -C\ln T + A\]
+
+ここで、\(A\)は積分定数である。
+
+もう一度積分：
+
+\[f(T) = -C\int \ln T dT + AT + B\]
+
+部分積分を用いると：
+
+\[\int \ln T dT = T\ln T - T\]
+
+したがって：
+
+\[f(T) = -C(T\ln T - T) + AT + B = -CT\left(\ln T - 1\right) + AT + B\]
+
+\textbf{ステップ5: 境界条件の適用}
+
+境界条件\(F(T=0, x=0) = 0\)を適用する。
+
+\(F(T,x) = -CT(\ln T - 1) + AT + B + \frac{1}{2}k(T)x^2\)において、\(T \to 0\)で\(\ln T \to -\infty\)となるため、適切な基準温度\(T_0\)を導入する必要がある。
+
+\textbf{基準温度\(T_0\)の導入:}
+
+\[\ln T = \ln\left(\frac{T}{T_0}\right) + \ln T_0\]
+
+したがって：
+
+\[f(T) = -CT\left[\ln\left(\frac{T}{T_0}\right) + \ln T_0 - 1\right] + AT + B\]
+
+\[= -CT\left[\ln\left(\frac{T}{T_0}\right) - 1\right] - CT\ln T_0 + AT + B\]
+
+\(T\ln T_0\)の項は、\(A\)の項と合わせて\(A' = A - C\ln T_0\)とすることができる。また、\(F(T=0, x=0) = 0\)より、\(B = 0\)である。
+
+さらに、\(A'\)は\(T\)の線形項であるが、\(F(T=0, x=0) = 0\)の条件から、\(A' = 0\)とすることができる（または、\(T_0\)の選択で吸収できる）。
+
+したがって：
+
+\[f(T) = -CT\left[\ln\left(\frac{T}{T_0}\right) - 1\right]\]
+
+\textbf{答え:}
+\[F(T,x) = -CT\left[\ln\left(\frac{T}{T_0}\right) - 1\right] + \frac{1}{2}k(T)x^2\]
+
+\textbf{物理的意味:}
+
+\textbf{自由エネルギーの2つの項:}
+
+\[F(T,x) = -CT\left[\ln\left(\frac{T}{T_0}\right) - 1\right] + \frac{1}{2}k(T)x^2\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{第1項（温度依存項）}: \(-CT[\ln(T/T_0) - 1]\)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    温度のみに依存する部分
+  \item
+    エントロピー効果による寄与
+  \item
+    比熱\(C\)が定数であることから生じる
+  \end{itemize}
+\item
+  \textbf{第2項（弾性エネルギー）}: \(\frac{1}{2}k(T)x^2\)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    伸び\(x\)に依存する部分
+  \item
+    バネの弾性エネルギー
+  \item
+    \(k(T) = k_0 + k_1T\)なので、温度が高いほど、同じ伸びに対してより大きなエネルギーが必要
+  \end{itemize}
+\end{enumerate}
+
+\textbf{輪ゴムの特徴:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\(k_1 > 0\)の場合}: 温度が高いほど、バネ定数が大きくなる
+
+  \begin{itemize}
+  \tightlist
+  \item
+    これは、輪ゴムが伸びるときに発熱する理由
+  \item
+    エントロピー効果により、温度が高いほど張力が大きくなる
+  \end{itemize}
+\item
+  \textbf{通常のバネとの違い}:
+  通常のバネでは\(k_1 = 0\)（温度に依存しない）
+
+  \begin{itemize}
+  \tightlist
+  \item
+    輪ゴムは、主にエントロピー効果による弾性を示す
+  \item
+    分子鎖が伸びると、エントロピーが減少し、これが張力の原因となる
+  \end{itemize}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問2.
+内部エネルギーの計算}\label{ux554f2.-ux5185ux90e8ux30a8ux30cdux30ebux30aeux30fcux306eux8a08ux7b97}
+
+\textbf{問題:} 問1の結果と、内部エネルギーの関係式（問1の(2)式のバネ版）
+\[\left(\frac{\partial U}{\partial x}\right)_T = T^2 \left\{\frac{\partial(X/T)}{\partial T}\right\}_x\]
+を用いて、内部エネルギー\(U(T,x)\)を求めよ。ただし、\(U(T=0, x=0) = 0\)とする。
+
+\textbf{解答:}
+
+\textbf{導出の戦略}
+
+問1で求めた自由エネルギー\(F(T,x)\)と、セクションIで導出した内部エネルギーの関係式を用いて、内部エネルギー\(U(T,x)\)を求める。
+
+\textbf{ステップ1: 内部エネルギーの関係式の適用}
+
+セクションIの問1で導出した関係式のバネ版：
+
+\[\left(\frac{\partial U}{\partial x}\right)_T = T^2 \left\{\frac{\partial(X/T)}{\partial T}\right\}_x\]
+
+張力は\(X = -k(T)x = -(k_0 + k_1T)x\)なので：
+
+\[\frac{X}{T} = -\frac{(k_0 + k_1T)x}{T} = -\frac{k_0 x}{T} - k_1 x\]
+
+これを\(T\)で偏微分（\(x\)を一定に保つ）：
+
+\[\left(\frac{\partial(X/T)}{\partial T}\right)_x = \frac{k_0 x}{T^2}\]
+
+したがって：
+
+\[\left(\frac{\partial U}{\partial x}\right)_T = T^2 \cdot \frac{k_0 x}{T^2} = k_0 x\]
+
+\textbf{重要な観察:}
+
+内部エネルギーの\(x\)依存性は、\(k_0\)（温度に依存しない部分）のみに依存し、\(k_1\)（温度依存部分）には依存しない。これは、\(k_1\)の効果が主にエントロピー効果であることを示している。
+
+\textbf{ステップ2: 内部エネルギーの積分}
+
+ステップ1の結果\(\partial U/\partial x = k_0 x\)を\(x\)で積分（\(T\)を定数として扱う）：
+
+\[U(T,x) = \int_0^x k_0 x' dx' + g(T) = \frac{1}{2}k_0 x^2 + g(T)\]
+
+ここで、\(g(T)\)は\(x\)に依存しない関数（積分定数）である。
+
+\textbf{ステップ3: 比熱からの条件}
+
+内部エネルギーとエントロピーの関係：
+
+\[U = F + TS\]
+
+問1より、自由エネルギーは：
+
+\[F(T,x) = -CT\left[\ln\left(\frac{T}{T_0}\right) - 1\right] + \frac{1}{2}k(T)x^2\]
+
+エントロピーは：
+
+\[S = -\left(\frac{\partial F}{\partial T}\right)_x\]
+
+\(F\)を\(T\)で偏微分：
+
+\[\frac{\partial F}{\partial T} = -C\left[\ln\left(\frac{T}{T_0}\right) - 1\right] - CT \cdot \frac{1}{T} + \frac{1}{2}k_1 x^2\]
+
+\[= -C\ln\left(\frac{T}{T_0}\right) + C - C + \frac{1}{2}k_1 x^2 = -C\ln\left(\frac{T}{T_0}\right) + \frac{1}{2}k_1 x^2\]
+
+したがって：
+
+\[S = C\ln\left(\frac{T}{T_0}\right) - \frac{1}{2}k_1 x^2\]
+
+\textbf{ステップ4: 内部エネルギーの計算}
+
+\(U = F + TS\)に代入：
+
+\[U = -CT\left[\ln\left(\frac{T}{T_0}\right) - 1\right] + \frac{1}{2}k(T)x^2 + T\left[C\ln\left(\frac{T}{T_0}\right) - \frac{1}{2}k_1 x^2\right]\]
+
+\[= -CT\ln\left(\frac{T}{T_0}\right) + CT + \frac{1}{2}(k_0 + k_1T)x^2 + CT\ln\left(\frac{T}{T_0}\right) - \frac{1}{2}k_1 T x^2\]
+
+\[= CT + \frac{1}{2}k_0 x^2 + \frac{1}{2}k_1 T x^2 - \frac{1}{2}k_1 T x^2\]
+
+\[= CT + \frac{1}{2}k_0 x^2\]
+
+\textbf{重要な結果:}
+
+内部エネルギーは、\(k_1\)（温度依存部分）を含まない。これは、\(k_1\)の効果が完全にエントロピー効果であることを示している。
+
+\textbf{答え:} \[U(T,x) = CT + \frac{1}{2}k_0 x^2\]
+
+\textbf{物理的意味:}
+
+\textbf{内部エネルギーの2つの項:}
+
+\[U(T,x) = CT + \frac{1}{2}k_0 x^2\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{第1項（温度依存項）}: \(CT\)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    温度に比例する項
+  \item
+    比熱\(C\)による寄与
+  \item
+    熱運動のエネルギー
+  \end{itemize}
+\item
+  \textbf{第2項（弾性エネルギー）}: \(\frac{1}{2}k_0 x^2\)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    伸び\(x\)の2乗に比例する項
+  \item
+    \(k_0\)（温度に依存しない部分）による弾性エネルギー
+  \item
+    通常のバネと同じ形
+  \end{itemize}
+\end{enumerate}
+
+\textbf{重要な観察:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\(k_1\)の効果}:
+  \(k_1\)（温度依存部分）は内部エネルギーには現れない
+
+  \begin{itemize}
+  \tightlist
+  \item
+    これは、\(k_1\)の効果が完全にエントロピー効果であることを示している
+  \item
+    自由エネルギーには\(k_1\)が含まれるが、それは\(TS\)項を通じて現れる
+  \end{itemize}
+\end{itemize}
+
+\textbf{輪ゴムの断熱伸長:}
+
+輪ゴムを素早く伸ばすと、断熱過程として\(U\)が一定に保たれる。\(U = CT + \frac{1}{2}k_0 x^2\)が一定なので：
+
+\begin{itemize}
+\tightlist
+\item
+  \(x\)が増加すると、\(\frac{1}{2}k_0 x^2\)が増加
+\item
+  したがって、\(CT\)が減少し、温度が下がるように見える
+\end{itemize}
+
+しかし、実際には： -
+エントロピー効果（\(k_1\)の効果）により、温度が上昇する -
+これは、輪ゴムが伸びるときに発熱する理由である
+
+\textbf{通常のバネとの違い:}
+
+\begin{itemize}
+\tightlist
+\item
+  通常のバネ: \(k_1 = 0\)なので、\(U = CT + \frac{1}{2}k_0 x^2\)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    断熱伸長では、温度が下がる
+  \end{itemize}
+\item
+  輪ゴム: \(k_1 > 0\)なので、エントロピー効果が重要
+
+  \begin{itemize}
+  \tightlist
+  \item
+    断熱伸長では、エントロピー効果により温度が上昇する
+  \end{itemize}
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{セクションIII:
+1成分理想気体}\label{ux30bbux30afux30b7ux30e7ux30f3iii-1ux6210ux5206ux7406ux60f3ux6c17ux4f53}
+
+\subsubsection{セクションIIIの概要}\label{ux30bbux30afux30b7ux30e7ux30f3iiiux306eux6982ux8981}
+
+本セクションでは、\textbf{1成分理想気体}の熱力学を詳しく扱う。理想気体とは、以下の性質を持つ気体である：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{状態方程式}: \(pV = NRT\)（\(N\)はモル数、\(R\)は気体定数）
+\item
+  \textbf{内部エネルギー}:
+  \(U = cNRT\)（\(c\)は定数、通常は\(c = 3/2\)（単原子気体）や\(c = 5/2\)（二原子気体））
+\item
+  \textbf{分子間相互作用が無視できる}:
+  粒子間の相互作用エネルギーが運動エネルギーに比べて無視できる
+\end{enumerate}
+
+理想気体のエントロピーは、統計力学から導出される形で与えられる：
+\[S = NR\ln(T^c V/N) + NS_0\] ここで、\(S_0\)は定数項である。
+
+本セクションでは、このエントロピーと内部エネルギーから出発して、以下の熱力学量を計算する：
+- \textbf{化学ポテンシャル} \(\mu\):
+粒子を1個追加する際の自由エネルギーの変化 -
+\textbf{ヘルムホルツ自由エネルギー} \(F\):
+等温過程で利用可能な仕事を表す - \textbf{エントロピーの線形形式}:
+広延変数による表現
+
+これらの量は、理想気体の平衡状態を完全に記述するために必要である。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問1.
+化学ポテンシャルの計算}\label{ux554f1.-ux5316ux5b66ux30ddux30c6ux30f3ux30b7ux30e3ux30ebux306eux8a08ux7b97}
+
+\textbf{問題:}
+エントロピー\(S = NR\ln(T^c V/N) + NS_0\)と内部エネルギー\(U = cNRT\)から、化学ポテンシャル\(\mu\)を計算せよ。
+
+\textbf{解答:}
+
+\textbf{基本関係式の確認}
+
+熱力学の基本関係式（第一法則と第二法則の結合）は、粒子数が変化する場合：
+\[TdS = dU + pdV - \mu dN\]
+
+ここで、\(\mu\)は化学ポテンシャルである。この式から、\(dN\)の係数を比較することで\(\mu\)を求めることができる。
+
+\textbf{ステップ1: エントロピーの全微分}
+
+与えられたエントロピー: \[S = NR\ln(T^c V/N) + NS_0\]
+
+\(S\)を\(T\), \(V\),
+\(N\)の関数として全微分する。まず、\(\ln(T^c V/N) = c\ln T + \ln V - \ln N\)に注意すると：
+
+\[\frac{\partial S}{\partial T} = NR \cdot \frac{c}{T} = \frac{cNR}{T}\]
+
+\[\frac{\partial S}{\partial V} = NR \cdot \frac{1}{V} = \frac{NR}{V}\]
+
+\[\frac{\partial S}{\partial N} = R\ln(T^c V/N) + NR \cdot \left(-\frac{1}{N}\right) + S_0 = R\ln(T^c V/N) - R + S_0\]
+
+したがって：
+\[dS = \frac{\partial S}{\partial T} dT + \frac{\partial S}{\partial V} dV + \frac{\partial S}{\partial N} dN\]
+
+\[= \frac{cNR}{T} dT + \frac{NR}{V} dV + \left[R\ln(T^c V/N) + S_0 - R\right] dN\]
+
+\textbf{ステップ2: 内部エネルギーの全微分}
+
+与えられた内部エネルギー: \[U = cNRT\]
+
+\(U\)を\(T\)と\(N\)の関数として全微分：
+\[\frac{\partial U}{\partial T} = cNR, \quad \frac{\partial U}{\partial N} = cRT\]
+
+したがって：
+\[dU = \frac{\partial U}{\partial T} dT + \frac{\partial U}{\partial N} dN = cNR dT + cRT dN\]
+
+\textbf{ステップ3: 基本関係式への代入}
+
+\(TdS\)を計算：
+\[TdS = cNR dT + \frac{NR T}{V} dV + T\left[R\ln(T^c V/N) + S_0 - R\right] dN\]
+
+\(dU + pdV\)を計算： \[dU + pdV = cRT dN + cNR dT + pdV\]
+
+したがって:
+\[TdS = cNR dT + \frac{NR T}{V} dV + T\left[R\ln(T^c V/N) + S_0 - R\right] dN\]
+
+\[dU + pdV = cRT dN + cNR dT + pdV\]
+
+\textbf{ステップ4: 係数の比較}
+
+\(TdS = dU + pdV - \mu dN\)の各項の係数を比較する。
+
+\textbf{\(dV\)の係数:}
+\[TdS \text{の} dV \text{の係数} = \frac{NR T}{V}\]
+\[dU + pdV \text{の} dV \text{の係数} = p\]
+
+したがって： \[p = \frac{NR T}{V}\]
+
+これは理想気体の状態方程式である。
+
+\textbf{\(dN\)の係数:}
+\[TdS \text{の} dN \text{の係数} = T\left[R\ln(T^c V/N) + S_0 - R\right]\]
+\[dU + pdV \text{の} dN \text{の係数} = cRT\]
+
+したがって： \[T\left[R\ln(T^c V/N) + S_0 - R\right] = cRT - \mu\]
+
+これを\(\mu\)について解くと：
+\[-\mu = T\left[R\ln(T^c V/N) + S_0 - R\right] - cRT\]
+
+\[\mu = -RT\ln(T^c V/N) - TS_0 + RT + cRT\]
+
+\[= -RT\ln(T^c V/N) - TS_0 + (c+1)RT\]
+
+\textbf{\(dT\)の係数:} \[TdS \text{の} dT \text{の係数} = cNR\]
+\[dU + pdV \text{の} dT \text{の係数} = cNR\]
+
+これは一致しており、整合性が取れている。
+
+\textbf{答え:}
+\[\mu = -RT\ln\left(\frac{T^c V}{N}\right) - TS_0 + (c+1)RT\]
+
+\textbf{物理的意味:}
+
+化学ポテンシャル\(\mu\)は、\textbf{粒子を1個追加する際の自由エネルギーの変化}を表す。理想気体の場合：
+
+\[\mu = -RT\ln\left(\frac{T^c V}{N}\right) - TS_0 + (c+1)RT\]
+
+\textbf{各項の意味:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{\(-RT\ln(T^c V/N)\)項}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    対数項は、エントロピー効果を表す。
+  \item
+    \(T^c V/N\)が大きいほど（温度が高い、体積が大きい、粒子数が少ない）、化学ポテンシャルは低くなる。
+  \item
+    これは、粒子を追加することでエントロピーが増加し、系がより安定になることを意味する。
+  \end{itemize}
+\item
+  \textbf{\(-TS_0\)項}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    定数項による寄与。通常は基準エントロピーとして扱われる。
+  \end{itemize}
+\item
+  \textbf{\((c+1)RT\)項}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    内部エネルギーからの寄与。粒子を追加すると、内部エネルギーが\(cRT\)増加する。
+  \item
+    また、エントロピーの温度依存性から\(RT\)の寄与がある。
+  \end{itemize}
+\end{enumerate}
+
+\textbf{化学ポテンシャルの性質:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{温度依存性}:
+  温度が高いほど、\(\ln(T^c V/N)\)が大きくなり、化学ポテンシャルは低くなる。高温では粒子を追加しやすい。
+\item
+  \textbf{体積依存性}:
+  体積が大きいほど、化学ポテンシャルは低くなる。広い空間では粒子を追加しやすい。
+\item
+  \textbf{粒子数依存性}:
+  粒子数が少ないほど、化学ポテンシャルは低くなる。希薄な系では粒子を追加しやすい。
+\end{itemize}
+
+\textbf{平衡条件:}
+
+2つの系が平衡にあるとき、化学ポテンシャルは等しい：\(\mu_1 = \mu_2\)。これにより、粒子の移動方向が決まる。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問2.
+ヘルムホルツ自由エネルギー}\label{ux554f2.-ux30d8ux30ebux30e0ux30dbux30ebux30c4ux81eaux7531ux30a8ux30cdux30ebux30aeux30fc}
+
+\textbf{問題:}
+内部エネルギーとエントロピーから、ヘルムホルツ自由エネルギー\(F(T,V,N)\)を求め、全微分形式を書け。また、各偏微分がどの熱力学変数に対応するか答えよ。
+
+\textbf{解答:}
+
+\textbf{ステップ1: 自由エネルギーの計算}
+
+\[F = U - TS = cNRT - T\left[NR\ln(T^c V/N) + NS_0\right]\]
+
+\[= cNRT - NRT\ln(T^c V/N) - NTS_0\]
+
+\[= NRT\left[c - \ln(T^c V/N)\right] - NTS_0\]
+
+\[= NRT\left[c - c\ln T - \ln(V/N)\right] - NTS_0\]
+
+\textbf{ステップ2: 全微分と偏微分の計算}
+
+自由エネルギー\(F(T,V,N)\)の全微分は：
+\[dF = \left(\frac{\partial F}{\partial T}\right)_{V,N} dT + \left(\frac{\partial F}{\partial V}\right)_{T,N} dV + \left(\frac{\partial F}{\partial N}\right)_{T,V} dN\]
+
+各偏微分を詳しく計算する。
+
+\textbf{温度による偏微分:}
+
+\[F = NRT\left[c - \ln(T^c V/N)\right] - NTS_0\]
+
+\(T\)で偏微分する際、積の微分法則を適用：
+\[\frac{\partial}{\partial T}\left[NRT \cdot \ln(T^c V/N)\right] = NR \cdot \ln(T^c V/N) + NRT \cdot \frac{\partial}{\partial T}\ln(T^c V/N)\]
+
+\[\frac{\partial}{\partial T}\ln(T^c V/N) = \frac{\partial}{\partial T}(c\ln T + \ln V - \ln N) = \frac{c}{T}\]
+
+したがって：
+\[\left(\frac{\partial F}{\partial T}\right)_{V,N} = NR\left[c - \ln(T^c V/N)\right] - NRT \cdot \frac{c}{T} - NS_0\]
+
+\[= NR\left[c - \ln(T^c V/N) - c\right] - NS_0\]
+
+\[= -NR\ln(T^c V/N) - NS_0 = -S\]
+
+これは、\(F = U - TS\)から\(\partial F/\partial T = -S\)であることと一致する。
+
+\textbf{体積による偏微分:}
+
+\[\left(\frac{\partial F}{\partial V}\right)_{T,N} = \frac{\partial}{\partial V}\left[NRT\left[c - \ln(T^c V/N)\right] - NTS_0\right]\]
+
+\[= -NRT \cdot \frac{\partial}{\partial V}\ln(T^c V/N) = -NRT \cdot \frac{1}{V} = -\frac{NRT}{V} = -p\]
+
+これは、理想気体の状態方程式\(p = NRT/V\)と一致する。
+
+\textbf{粒子数による偏微分:}
+
+\[\left(\frac{\partial F}{\partial N}\right)_{T,V} = \frac{\partial}{\partial N}\left[NRT\left[c - \ln(T^c V/N)\right] - NTS_0\right]\]
+
+積の微分法則を適用：
+\[= RT\left[c - \ln(T^c V/N)\right] - NRT \cdot \frac{\partial}{\partial N}\ln(T^c V/N) - TS_0\]
+
+\[\frac{\partial}{\partial N}\ln(T^c V/N) = \frac{\partial}{\partial N}(\ln(T^c V) - \ln N) = -\frac{1}{N}\]
+
+したがって：
+\[\left(\frac{\partial F}{\partial N}\right)_{T,V} = RT\left[c - \ln(T^c V/N)\right] + RT - TS_0\]
+
+\[= RT\left[c + 1 - \ln(T^c V/N)\right] - TS_0 = \mu\]
+
+これは問1で求めた化学ポテンシャルと一致する。
+
+したがって: \[dF = -SdT - pdV + \mu dN\]
+
+\textbf{答え:} \[F(T,V,N) = NRT\left[c - \ln(T^c V/N)\right] - NTS_0\]
+
+\[dF = -SdT - pdV + \mu dN\]
+
+各偏微分の対応: -
+\(\left(\frac{\partial F}{\partial T}\right)_{V,N} = -S\)（エントロピー）
+- \(\left(\frac{\partial F}{\partial V}\right)_{T,N} = -p\)（圧力） -
+\(\left(\frac{\partial F}{\partial N}\right)_{T,V} = \mu\)（化学ポテンシャル）
+
+\textbf{物理的意味:}
+
+\textbf{ヘルムホルツ自由エネルギー\(F\)の役割:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{等温過程での仕事}:
+  \(F\)は、等温過程で系が外部に対して行うことができる最大の仕事を表す。\(dF = -SdT - pdV + \mu dN\)より、等温（\(dT = 0\)）で粒子数一定（\(dN = 0\)）の過程では、\(dF = -pdV\)となり、体積変化による仕事が自由エネルギーの減少分に等しい。
+\item
+  \textbf{平衡条件}:
+  等温・等積・粒子数一定の条件下では、\(F\)が最小になる状態が平衡状態である。
+\item
+  \textbf{完全な熱力学記述}:
+  \(F(T,V,N)\)が与えられれば、以下の熱力学量がすべて導出できる：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    エントロピー: \(S = -\partial F/\partial T\)
+  \item
+    圧力: \(p = -\partial F/\partial V\)
+  \item
+    化学ポテンシャル: \(\mu = \partial F/\partial N\)
+  \item
+    内部エネルギー: \(U = F + TS\)
+  \end{itemize}
+\end{enumerate}
+
+\textbf{共役変数の関係:}
+
+各偏微分は、対応する\textbf{共役変数}（conjugate variable）を与える：
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{\((T, S)\)}: 温度とエントロピーは共役な変数対
+\item
+  \textbf{\((p, V)\)}: 圧力と体積は共役な変数対
+\item
+  \textbf{\((\mu, N)\)}: 化学ポテンシャルと粒子数は共役な変数対
+\end{itemize}
+
+全微分\(dF = -SdT - pdV + \mu dN\)は、これらの共役変数の関係を明確に示している。
+
+\textbf{理想気体の特徴:}
+
+理想気体の自由エネルギーは、対数項を含むため、温度や体積の変化に対して非線形に振る舞う。これは、エントロピーの対数依存性に起因している。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問3.
+化学ポテンシャルの検証}\label{ux554f3.-ux5316ux5b66ux30ddux30c6ux30f3ux30b7ux30e3ux30ebux306eux691cux8a3c}
+
+\textbf{問題:}
+問2の結果から、化学ポテンシャルを直接計算し、問1の結果と一致することを確認せよ。
+
+\textbf{解答:}
+
+問2より: \[\mu = \left(\frac{\partial F}{\partial N}\right)_{T,V}\]
+
+\[F = NRT\left[c - \ln(T^c V/N)\right] - NTS_0\]
+
+\(N\)で偏微分する際、\(T^c V/N\)の中に\(N\)が含まれることに注意:
+
+\[\mu = RT\left[c - \ln(T^c V/N)\right] - NRT \cdot \frac{\partial}{\partial N}\ln(T^c V/N) - TS_0\]
+
+\[\frac{\partial}{\partial N}\ln(T^c V/N) = \frac{\partial}{\partial N}\left[\ln(T^c V) - \ln N\right] = -\frac{1}{N}\]
+
+したがって: \[\mu = RT\left[c - \ln(T^c V/N)\right] + RT - TS_0\]
+
+\[= RT\left[c + 1 - \ln(T^c V/N)\right] - TS_0\]
+
+\[= -RT\ln(T^c V/N) + (c+1)RT - TS_0\]
+
+これは問1の結果と一致する。
+
+\textbf{答え:} 一致する。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問4.
+エントロピーの線形形式}\label{ux554f4.-ux30a8ux30f3ux30c8ux30edux30d4ux30fcux306eux7ddaux5f62ux5f62ux5f0f}
+
+\textbf{問題:} エントロピー\(S(U,V,N)\)を、広延変数の線形和の形
+\[S(U,V,N) = a_U U + a_V V + a_N N\] で表し、式(8)を再現せよ。
+
+\textbf{解答:}
+
+基本関係式: \[TdS = dU + pdV - \mu dN\]
+
+したがって: \[dS = \frac{1}{T} dU + \frac{p}{T} dV - \frac{\mu}{T} dN\]
+
+係数を比較:
+\[a_U = \frac{1}{T}, \quad a_V = \frac{p}{T}, \quad a_N = -\frac{\mu}{T}\]
+
+理想気体の状態方程式と内部エネルギー:
+\[p = \frac{NR T}{V}, \quad U = cNRT\]
+
+したがって:
+\[a_U = \frac{1}{T}, \quad a_V = \frac{NR}{V}, \quad a_N = -\frac{\mu}{T}\]
+
+問1より: \[\mu = -RT\ln(T^c V/N) - TS_0 + (c+1)RT\]
+
+したがって: \[a_N = R\ln(T^c V/N) + S_0 - (c+1)R\]
+
+\textbf{ステップ4: 線形形式から元の式への復元}
+
+係数を代入して、\(S\)を計算する：
+
+\[S = a_U U + a_V V + a_N N = \frac{1}{T} U + \frac{p}{T} V - \frac{\mu}{T} N\]
+
+理想気体の状態方程式\(p = NRT/V\)と内部エネルギー\(U = cNRT\)より：
+
+\[S = \frac{1}{T} \cdot cNRT + \frac{NRT/V}{T} \cdot V - \frac{\mu}{T} N\]
+
+\[= cNR + NR - \frac{\mu}{T} N\]
+
+問1より、\(\mu = -RT\ln(T^c V/N) - TS_0 + (c+1)RT\)なので：
+
+\[\frac{\mu}{T} = -R\ln(T^c V/N) - S_0 + (c+1)R\]
+
+したがって：
+
+\[S = cNR + NR - \left[-R\ln(T^c V/N) - S_0 + (c+1)R\right] N\]
+
+\[= cNR + NR + NR\ln(T^c V/N) + NS_0 - (c+1)NR\]
+
+\[= (c + 1 - c - 1)NR + NR\ln(T^c V/N) + NS_0\]
+
+\[= NR\ln(T^c V/N) + NS_0\]
+
+これは、元のエントロピーの式と一致する。
+
+\textbf{重要なポイント:}
+
+この計算により、エントロピー\(S(U,V,N)\)が広延変数の線形和として表されることが確認された。ただし、係数\(a_U\),
+\(a_V\), \(a_N\)は、\(U\), \(V\),
+\(N\)に依存する（\(T = U/(cNR)\)など）。これは、エントロピーが一次同次関数であることを示している。
+
+\textbf{答え:}
+\[S(U,V,N) = \frac{1}{T} U + \frac{p}{T} V - \frac{\mu}{T} N = NR\ln(T^c V/N) + NS_0\]
+
+\textbf{計算の詳細:}
+
+\textbf{エントロピーの線形形式の重要性:}
+
+エントロピー\(S(U,V,N)\)が広延変数の線形和として表されることは、熱力学の基本的な性質である。
+
+\[S(U,V,N) = a_U U + a_V V + a_N N = \frac{1}{T} U + \frac{p}{T} V - \frac{\mu}{T} N\]
+
+\textbf{広延性と強度性:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{広延変数}（extensive variables）: 系のサイズに比例する変数
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(U\)（内部エネルギー）
+  \item
+    \(V\)（体積）
+  \item
+    \(N\)（粒子数）
+  \item
+    \(S\)（エントロピー）
+  \end{itemize}
+\item
+  \textbf{強度変数}（intensive variables）: 系のサイズに依存しない変数
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(T\)（温度）
+  \item
+    \(p\)（圧力）
+  \item
+    \(\mu\)（化学ポテンシャル）
+  \end{itemize}
+\item
+  \textbf{係数の意味}: 各係数（\(a_U\), \(a_V\),
+  \(a_N\)）は、対応する強度変数を温度で割ったものである：
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \(a_U = 1/T\): 温度の逆数
+  \item
+    \(a_V = p/T\): 圧力と温度の比
+  \item
+    \(a_N = -\mu/T\): 化学ポテンシャルと温度の比（負号）
+  \end{itemize}
+\end{enumerate}
+
+\textbf{一次同次性:}
+
+エントロピーは一次同次関数である。すなわち、すべての広延変数を\(\lambda\)倍すると、エントロピーも\(\lambda\)倍される：
+
+\[S(\lambda U, \lambda V, \lambda N) = \lambda S(U, V, N)\]
+
+これは、系を2つ合わせたとき、エントロピーが2倍になることを意味する（エントロピーの加法性）。
+
+\textbf{オイラーの関係式:}
+
+一次同次関数に対して、オイラーの関係式が成り立つ：
+
+\[S = \frac{\partial S}{\partial U} U + \frac{\partial S}{\partial V} V + \frac{\partial S}{\partial N} N\]
+
+これは、上記の線形形式と一致している。
+
+\textbf{理想気体の特徴:}
+
+理想気体では、エントロピーが\(U\), \(V\),
+\(N\)の線形和として表されるが、実際の式\(S = NR\ln(T^c V/N) + NS_0\)は対数項を含む。これは、\(T = U/(cNR)\)の関係により、\(U\)が対数の中に現れるためである。しかし、\(S\)を\(U\),
+\(V\), \(N\)の関数として表すと、線形形式に分解できる。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{セクションIIIのまとめ}\label{ux30bbux30afux30b7ux30e7ux30f3iiiux306eux307eux3068ux3081}
+
+本セクションでは、\textbf{1成分理想気体}の熱力学を詳しく扱った。以下の重要な結果を得た：
+
+\textbf{1. 化学ポテンシャル:}
+\[\mu = -RT\ln\left(\frac{T^c V}{N}\right) - TS_0 + (c+1)RT\]
+
+\begin{itemize}
+\tightlist
+\item
+  粒子を1個追加する際の自由エネルギーの変化を表す
+\item
+  温度、体積、粒子数に依存する
+\item
+  平衡条件では、2つの系の化学ポテンシャルが等しい
+\end{itemize}
+
+\textbf{2. ヘルムホルツ自由エネルギー:}
+\[F(T,V,N) = NRT\left[c - \ln(T^c V/N)\right] - NTS_0\]
+
+\[dF = -SdT - pdV + \mu dN\]
+
+\begin{itemize}
+\tightlist
+\item
+  等温過程での最大仕事を表す
+\item
+  各偏微分が対応する熱力学量（\(S\), \(p\), \(\mu\)）を与える
+\item
+  完全な熱力学記述が可能
+\end{itemize}
+
+\textbf{3. エントロピーの線形形式:}
+\[S(U,V,N) = \frac{1}{T} U + \frac{p}{T} V - \frac{\mu}{T} N\]
+
+\begin{itemize}
+\tightlist
+\item
+  エントロピーは広延変数（\(U\), \(V\), \(N\)）の一次同次関数
+\item
+  各係数は対応する強度変数を温度で割ったもの
+\item
+  オイラーの関係式が成り立つ
+\end{itemize}
+
+\textbf{重要な概念:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{広延変数と強度変数}:
+  系のサイズに比例する変数と、サイズに依存しない変数
+\item
+  \textbf{共役変数}: 熱力学変数の対（\((T,S)\), \((p,V)\), \((\mu,N)\)）
+\item
+  \textbf{一次同次性}:
+  すべての広延変数を\(\lambda\)倍すると、エントロピーも\(\lambda\)倍される
+\end{itemize}
+
+これらの結果は、理想気体の平衡状態を完全に記述するための基礎となる。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{セクションIV:
+2成分理想気体混合}\label{ux30bbux30afux30b7ux30e7ux30f3iv-2ux6210ux5206ux7406ux60f3ux6c17ux4f53ux6df7ux5408}
+
+\subsubsection{セクションIVの概要}\label{ux30bbux30afux30b7ux30e7ux30f3ivux306eux6982ux8981}
+
+本セクションでは、\textbf{2成分理想気体の混合}によるエントロピー変化を扱う。これは、統計力学における重要な現象である。
+
+\textbf{混合エントロピーの重要性:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{自発的混合}:
+  異なる気体を混合すると、エントロピーが増加し、混合が自発的に起こる
+\item
+  \textbf{第二法則}: エントロピー増加は、第二法則の直接的な例である
+\item
+  \textbf{理想気体の独立性}:
+  理想気体では、各成分は独立に振る舞う（ダルトンの法則）
+\end{enumerate}
+
+\textbf{本セクションで扱う内容:}
+
+\begin{itemize}
+\tightlist
+\item
+  初期状態（仕切りで分離）のエントロピー
+\item
+  混合後のエントロピー
+\item
+  エントロピー変化とその正負の判定
+\end{itemize}
+
+これらの結果は、溶液の混合、拡散現象など、多くの物理現象の理解に重要である。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問1.
+初期状態のエントロピー}\label{ux554f1.-ux521dux671fux72b6ux614bux306eux30a8ux30f3ux30c8ux30edux30d4ux30fc}
+
+\textbf{問題:}
+体積\(V\)が仕切りで\(V_1\)と\(V_2\)に分けられ、それぞれに成分1（\(N_1\)モル）と成分2（\(N_2\)モル）が入っている平衡状態のエントロピーを、\((T, V, N_1, N_2)\)の関数として表せ。
+
+\textbf{解答:}
+
+\textbf{初期状態の設定}
+
+体積\(V\)が仕切りで\(V_1\)と\(V_2\)に分けられ、それぞれに成分1（\(N_1\)モル）と成分2（\(N_2\)モル）が入っている。初期状態では、2つの気体は仕切りで分離されているが、平衡状態（圧力が等しい）にある。
+
+\textbf{ステップ1: 各成分のエントロピー}
+
+セクションIIIで導出した理想気体のエントロピーを用いる：
+
+成分1のエントロピー:
+\[S_1(T, V_1, N_1) = N_1 R\ln(T^c V_1/N_1) + N_1 S_0\]
+
+成分2のエントロピー:
+\[S_2(T, V_2, N_2) = N_2 R\ln(T^c V_2/N_2) + N_2 S_0\]
+
+\textbf{ステップ2: 全エントロピー}
+
+2つの成分は独立しているため、全エントロピーは和：
+
+\[S_{\text{tot}} = S_1 + S_2 = N_1 R\ln(T^c V_1/N_1) + N_2 R\ln(T^c V_2/N_2) + (N_1 + N_2) S_0\]
+
+\textbf{ステップ3: 平衡条件の適用}
+
+平衡状態では、圧力が等しい：
+
+\[p_1 = \frac{N_1 RT}{V_1} = p_2 = \frac{N_2 RT}{V_2} = p\]
+
+したがって：
+
+\[\frac{N_1}{V_1} = \frac{N_2}{V_2}\]
+
+また、\(V_1 + V_2 = V\)なので：
+
+\[\frac{N_1}{V_1} = \frac{N_2}{V_2} = \frac{N_1 + N_2}{V_1 + V_2} = \frac{N_1 + N_2}{V}\]
+
+したがって：
+
+\[V_1 = \frac{N_1}{N_1 + N_2} V, \quad V_2 = \frac{N_2}{N_1 + N_2} V\]
+
+\textbf{ステップ4: エントロピーの整理}
+
+\(V_1\)と\(V_2\)を代入：
+
+\[S_{\text{tot}} = N_1 R\ln\left(\frac{T^c V_1}{N_1}\right) + N_2 R\ln\left(\frac{T^c V_2}{N_2}\right) + (N_1 + N_2) S_0\]
+
+\[= N_1 R\ln\left(\frac{T^c V}{N_1 + N_2}\right) + N_2 R\ln\left(\frac{T^c V}{N_1 + N_2}\right) + (N_1 + N_2) S_0\]
+
+\[= (N_1 + N_2) R\ln\left(\frac{T^c V}{N_1 + N_2}\right) + (N_1 + N_2) S_0\]
+
+\textbf{重要な観察:}
+
+初期状態のエントロピーは、2つの成分を合わせた1成分理想気体のエントロピーと同じ形になっている。これは、各成分が独立に占有する体積が、全体積に比例しているためである。
+
+\textbf{答え:}
+\[S_{\text{tot}} = (N_1 + N_2) R\ln\left(\frac{T^c V}{N_1 + N_2}\right) + (N_1 + N_2) S_0\]
+
+\textbf{物理的意味:}
+
+\textbf{初期状態の特徴:}
+
+\begin{itemize}
+\tightlist
+\item
+  2つの気体は仕切りで分離されているが、圧力が平衡している
+\item
+  各成分は、全体積のうち、自分のモル数に比例する部分を占有する
+\item
+  エントロピーは、各成分が独立に占有する体積に依存する
+\end{itemize}
+
+\textbf{エントロピーの解釈:}
+
+\[S_{\text{tot}} = (N_1 + N_2) R\ln\left(\frac{T^c V}{N_1 + N_2}\right) + (N_1 + N_2) S_0\]
+
+この式は、\(N_1 + N_2\)モルの1成分理想気体が体積\(V\)を占有する場合のエントロピーと同じである。これは、各成分が独立に振る舞うためである。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問2.
+混合後のエントロピー}\label{ux554f2.-ux6df7ux5408ux5f8cux306eux30a8ux30f3ux30c8ux30edux30d4ux30fc}
+
+\textbf{問題:}
+仕切りを取り除いて混合した後の平衡状態のエントロピー\(S(T, V, N_1, N_2)\)を計算せよ。
+
+\textbf{解答:}
+
+\textbf{混合後の状態}
+
+仕切りを取り除くと、2つの成分が混合し、各成分が全体積\(V\)を占有する。
+
+\textbf{理想気体の独立性（ダルトンの法則）:}
+
+理想気体では、各成分は独立に振る舞う。これは、分子間相互作用が無視できるためである。したがって、各成分のエントロピーは、その成分が単独で全体積\(V\)を占有する場合のエントロピーとして計算できる。
+
+\textbf{各成分のエントロピー:}
+
+成分1のエントロピー（全体積\(V\)を占有）:
+\[S_1(T, V, N_1) = N_1 R\ln(T^c V/N_1) + N_1 S_0\]
+
+成分2のエントロピー（全体積\(V\)を占有）:
+\[S_2(T, V, N_2) = N_2 R\ln(T^c V/N_2) + N_2 S_0\]
+
+\textbf{全エントロピー:}
+
+2つの成分は独立しているため、全エントロピーは和：
+
+\[S(T, V, N_1, N_2) = S_1 + S_2 = N_1 R\ln(T^c V/N_1) + N_2 R\ln(T^c V/N_2) + (N_1 + N_2) S_0\]
+
+\textbf{重要な観察:}
+
+混合後のエントロピーは、各成分が全体積\(V\)を占有する場合のエントロピーの和である。これは、理想気体の独立性による。
+
+\textbf{答え:}
+\[S(T, V, N_1, N_2) = N_1 R\ln\left(\frac{T^c V}{N_1}\right) + N_2 R\ln\left(\frac{T^c V}{N_2}\right) + (N_1 + N_2) S_0\]
+
+\textbf{物理的意味:}
+
+\textbf{混合による変化:}
+
+\begin{itemize}
+\tightlist
+\item
+  混合後、各成分は全体積\(V\)を利用できるようになる
+\item
+  初期状態では、各成分は\(V_1\)や\(V_2\)（\(V\)より小さい）を占有していた
+\item
+  混合により、各成分が利用できる体積が増加する
+\end{itemize}
+
+\textbf{エントロピーの増加:}
+
+エントロピーは、各成分がより大きな体積を占有できることにより増加する。これは、より多くの微視的状態が利用可能になるためである。
+
+\textbf{理想気体の特徴:}
+
+理想気体では、各成分は独立に振る舞うため、混合による相互作用の変化はない。エントロピー増加は、純粋に体積の利用可能性の増加による。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問3.
+エントロピー変化}\label{ux554f3.-ux30a8ux30f3ux30c8ux30edux30d4ux30fcux5909ux5316}
+
+\textbf{問題:}
+エントロピー変化\(\Delta S = S(T, V, N_1, N_2) - \{S_1(T, V_1, N_1) + S_2(T, V_2, N_2)\}\)を計算し、正負を判定せよ。
+
+\textbf{解答:}
+
+\textbf{エントロピー変化の計算}
+
+エントロピー変化は、混合後のエントロピーから初期状態のエントロピーを引いたものである：
+
+\[\Delta S = S(T, V, N_1, N_2) - \{S_1(T, V_1, N_1) + S_2(T, V_2, N_2)\}\]
+
+\textbf{ステップ1: 初期状態のエントロピー}
+
+問1より：
+
+\[S_1(T, V_1, N_1) + S_2(T, V_2, N_2) = (N_1 + N_2) R\ln\left(\frac{T^c V}{N_1 + N_2}\right) + (N_1 + N_2) S_0\]
+
+\textbf{ステップ2: 混合後のエントロピー}
+
+問2より：
+
+\[S(T, V, N_1, N_2) = N_1 R\ln\left(\frac{T^c V}{N_1}\right) + N_2 R\ln\left(\frac{T^c V}{N_2}\right) + (N_1 + N_2) S_0\]
+
+\textbf{ステップ3: エントロピー変化の計算}
+
+\[\Delta S = N_1 R\ln\left(\frac{T^c V}{N_1}\right) + N_2 R\ln\left(\frac{T^c V}{N_2}\right) - (N_1 + N_2) R\ln\left(\frac{T^c V}{N_1 + N_2}\right)\]
+
+\(T^c\)は共通なので：
+
+\[\Delta S = R\left[N_1\ln\left(\frac{V}{N_1}\right) + N_2\ln\left(\frac{V}{N_2}\right) - (N_1 + N_2)\ln\left(\frac{V}{N_1 + N_2}\right)\right]\]
+
+対数の性質\(\ln a - \ln b = \ln(a/b)\)を用いて整理：
+
+\[\Delta S = R\left[N_1\ln\left(\frac{V/N_1}{V/(N_1 + N_2)}\right) + N_2\ln\left(\frac{V/N_2}{V/(N_1 + N_2)}\right)\right]\]
+
+\[= R\left[N_1\ln\left(\frac{N_1 + N_2}{N_1}\right) + N_2\ln\left(\frac{N_1 + N_2}{N_2}\right)\right]\]
+
+\[= R\left[N_1\ln\left(1 + \frac{N_2}{N_1}\right) + N_2\ln\left(1 + \frac{N_1}{N_2}\right)\right]\]
+
+\textbf{ステップ4: 正負の判定}
+
+\(N_1 > 0\), \(N_2 > 0\)なので、\(N_2/N_1 > 0\), \(N_1/N_2 > 0\)である。
+
+対数の性質より、\(x > 0\)のとき\(\ln(1+x) > 0\)なので：
+
+\[\ln\left(1 + \frac{N_2}{N_1}\right) > 0, \quad \ln\left(1 + \frac{N_1}{N_2}\right) > 0\]
+
+したがって：
+
+\[\Delta S = R\left[N_1\ln\left(1 + \frac{N_2}{N_1}\right) + N_2\ln\left(1 + \frac{N_1}{N_2}\right)\right] > 0\]
+
+\textbf{重要な結果:}
+
+エントロピー変化は常に正である。これは、混合が自発的に起こることを示している。
+
+\textbf{答え:}
+\[\Delta S = R\left[N_1\ln\left(1 + \frac{N_2}{N_1}\right) + N_2\ln\left(1 + \frac{N_1}{N_2}\right)\right] > 0\]
+
+\textbf{物理的意味:}
+
+\textbf{エントロピー増加の理由:}
+
+\[\Delta S = R\left[N_1\ln\left(1 + \frac{N_2}{N_1}\right) + N_2\ln\left(1 + \frac{N_1}{N_2}\right)\right] > 0\]
+
+エントロピーは混合により増加する。これは、以下の理由による：
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{体積の利用可能性}:
+  各成分が、より大きな体積（全体積\(V\)）を利用できるようになる
+\item
+  \textbf{微視的状態の増加}: より多くの微視的状態が利用可能になる
+\item
+  \textbf{独立性}:
+  理想気体では、各成分は独立に振る舞うため、混合による相互作用の変化はない
+\end{enumerate}
+
+\textbf{第二法則との関係:}
+
+エントロピー増加（\(\Delta S > 0\)）は、混合が自発的に起こることを示している。これは、熱力学の第二法則の直接的な例である。
+
+\textbf{混合エントロピーの特徴:}
+
+\begin{itemize}
+\tightlist
+\item
+  混合エントロピーは、各成分のモル数に依存する
+\item
+  等モル混合（\(N_1 = N_2\)）の場合、混合エントロピーは最大になる
+\item
+  理想気体では、混合エントロピーは体積の利用可能性の増加による
+\end{itemize}
+
+\textbf{実在気体との違い:}
+
+実在気体では、分子間相互作用により、混合エントロピーは理想気体の場合とは異なる。しかし、希薄な気体では、理想気体の結果が良い近似となる。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{セクションV:
+ポアソン分布の導出}\label{ux30bbux30afux30b7ux30e7ux30f3v-ux30ddux30a2ux30bdux30f3ux5206ux5e03ux306eux5c0eux51fa}
+
+\subsubsection{セクションVの概要}\label{ux30bbux30afux30b7ux30e7ux30f3vux306eux6982ux8981}
+
+本セクションでは、\textbf{ポアソン分布}を統計力学の観点から導出する。ポアソン分布は、統計力学において重要な確率分布である。
+
+\textbf{ポアソン分布の重要性:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{稀な事象の記述}:
+  ポアソン分布は、稀な事象（\(p \ll 1\)）の発生回数を記述する
+\item
+  \textbf{粒子数揺らぎ}:
+  理想気体の粒子数揺らぎなど、統計力学における重要な現象を記述する
+\item
+  \textbf{極限分布}: 二項分布の極限として現れる
+\end{enumerate}
+
+\textbf{導出の戦略:}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  二項分布から出発
+\item
+  母関数を用いて統計量を計算
+\item
+  極限を取ってポアソン分布を導出
+\end{enumerate}
+
+\textbf{本セクションで扱う内容:}
+
+\begin{itemize}
+\tightlist
+\item
+  分子の位置の確率
+\item
+  二項分布の導出
+\item
+  母関数と統計量
+\item
+  ポアソン分布への極限遷移
+\end{itemize}
+
+これらの結果は、統計力学における粒子数揺らぎ、拡散現象など、多くの物理現象の理解に重要である。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{\texorpdfstring{問1.
+1個の分子が体積\(v\)に含まれる確率}{問1. 1個の分子が体積vに含まれる確率}}\label{ux554f1.-1ux500bux306eux5206ux5b50ux304cux4f53ux7a4dvux306bux542bux307eux308cux308bux78baux7387}
+
+\textbf{問題:}
+体積\(V\)の容器に\(N\)個の分子がランダムに分布している。体積\(v\)の部分領域に1個の分子が含まれる確率\(p\)を求めよ。
+
+\textbf{解答:}
+
+\textbf{等確率の原理（等重率の原理）}
+
+統計力学の基本原理として、\textbf{等確率の原理}（principle of equal a
+priori
+probability）がある。これは、平衡状態において、すべての微視的状態が等しい確率で実現するという原理である。
+
+\textbf{分子の位置の確率}
+
+体積\(V\)の容器に\(N\)個の分子がランダムに分布している場合、各分子の位置は完全にランダムであると仮定する。したがって、各分子が体積\(v\)の部分領域に含まれる確率は、体積比に等しい：
+
+\[p = \frac{v}{V}\]
+
+\textbf{確率の性質:}
+
+\begin{itemize}
+\tightlist
+\item
+  \(0 \leq p \leq 1\)（\(v \leq V\)のとき）
+\item
+  \(p = 1\)（\(v = V\)のとき、すべての分子が領域内）
+\item
+  \(p \to 0\)（\(v/V \to 0\)のとき、領域が非常に小さい）
+\end{itemize}
+
+\textbf{答え:} \[p = \frac{v}{V}\]
+
+\textbf{物理的意味:}
+
+\begin{itemize}
+\tightlist
+\item
+  分子の位置がランダムであるため、特定の領域に存在する確率は、その領域の体積比に比例する
+\item
+  これは、等確率の原理（等重率の原理）に基づいている
+\item
+  この仮定は、理想気体の統計力学的記述の基礎となる
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問2.
+平均分子数の予想}\label{ux554f2.-ux5e73ux5747ux5206ux5b50ux6570ux306eux4e88ux60f3}
+
+\textbf{問題:}
+体積\(v\)に含まれる分子数\(n\)の平均値\(\langle n \rangle\)を予想せよ。
+
+\textbf{解答:}
+
+\textbf{期待値の計算}
+
+各分子が独立に確率\(p\)で体積\(v\)に含まれるため、体積\(v\)に含まれる分子数\(n\)の期待値（平均値）は：
+
+\[\langle n \rangle = \sum_{i=1}^{N} \text{（分子$i$が領域内にある確率）} = Np\]
+
+ここで、各分子は独立に確率\(p\)で領域内にあるため、期待値は\(Np\)である。
+
+\textbf{数密度の導入}
+
+\(p = v/V\)を代入：
+
+\[\langle n \rangle = Np = N \cdot \frac{v}{V} = \frac{N}{V} \cdot v = \rho v\]
+
+ここで、\(\rho = N/V\)は\textbf{数密度}（number density）である。
+
+\textbf{答え:} \[\langle n \rangle = \rho v = \frac{Nv}{V}\]
+
+\textbf{物理的意味:}
+
+\begin{itemize}
+\tightlist
+\item
+  平均分子数は、数密度と体積の積に等しい
+\item
+  これは直感的に理解できる結果である
+\item
+  数密度\(\rho\)は、単位体積あたりの分子数を表す
+\item
+  この関係式は、統計力学における基本的な関係である
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問3.
+確率分布の係数}\label{ux554f3.-ux78baux7387ux5206ux5e03ux306eux4fc2ux6570}
+
+\textbf{問題:} \(n\)個の分子が体積\(v\)に含まれる確率\(P(n)\)が
+\[P(n) = Ap^{\alpha}(1-p)^{\beta}\] の形で与えられるとき、\(A\),
+\(\alpha\), \(\beta\)を求めよ。
+
+\textbf{解答:}
+
+\textbf{二項分布の導出}
+
+\(n\)個の分子が体積\(v\)に含まれ、残りの\((N-n)\)個が体積\(v\)の外にある確率を計算する。
+
+\textbf{組み合わせの数:}
+
+\(N\)個の分子から\(n\)個を選ぶ組み合わせの数は：
+
+\[\binom{N}{n} = \frac{N!}{n!(N-n)!}\]
+
+これは二項係数である。
+
+\textbf{各組み合わせの確率:}
+
+選ばれた\(n\)個の分子が領域内にある確率: \(p^n\)
+選ばれなかった\((N-n)\)個の分子が領域外にある確率: \((1-p)^{N-n}\)
+
+したがって、各組み合わせの確率は\(p^n(1-p)^{N-n}\)である。
+
+\textbf{全確率:}
+
+\[P(n) = \binom{N}{n} p^n (1-p)^{N-n}\]
+
+これは\textbf{二項分布}（binomial distribution）である。
+
+\textbf{係数の対応:}
+
+与えられた形式\(P(n) = Ap^{\alpha}(1-p)^{\beta}\)と比較：
+
+\[A = \binom{N}{n} = \frac{N!}{n!(N-n)!}, \quad \alpha = n, \quad \beta = N-n\]
+
+\textbf{答え:}
+\[A = \binom{N}{n} = \frac{N!}{n!(N-n)!}, \quad \alpha = n, \quad \beta = N-n\]
+
+\textbf{物理的意味:}
+
+\begin{itemize}
+\tightlist
+\item
+  これは二項分布である
+\item
+  \(n\)個の分子を選ぶ組み合わせの数が\(\binom{N}{n}\)通りあり、それぞれの確率が\(p^n(1-p)^{N-n}\)である
+\item
+  二項分布は、独立な試行の繰り返しから生じる確率分布である
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問4.
+母関数と統計量}\label{ux554f4.-ux6bcdux95a2ux6570ux3068ux7d71ux8a08ux91cf}
+
+\textbf{問題:} 母関数 \[F(x) = \sum_{n=0}^{N} x^n P(n)\]
+を用いて、以下の関係式を示せ:
+\[\langle n \rangle = \left.\frac{dF(x)}{dx}\right|_{x=1}\]
+\[\langle n^2 \rangle - \langle n \rangle = \left.\frac{d^2F(x)}{dx^2}\right|_{x=1}\]
+
+\textbf{解答:}
+
+\textbf{母関数の定義}
+
+母関数（generating
+function）は、確率分布のすべてのモーメント（平均、分散など）を計算するための便利なツールである。
+
+\[F(x) = \sum_{n=0}^{N} x^n P(n)\]
+
+\textbf{ステップ1: 平均値の導出}
+
+母関数を\(x\)で微分：
+
+\[\frac{dF(x)}{dx} = \frac{d}{dx}\sum_{n=0}^{N} x^n P(n) = \sum_{n=0}^{N} n x^{n-1} P(n)\]
+
+\(x = 1\)を代入：
+
+\[\left.\frac{dF(x)}{dx}\right|_{x=1} = \sum_{n=0}^{N} n P(n) = \langle n \rangle\]
+
+\textbf{重要な観察:}
+
+母関数の1階微分を\(x = 1\)で評価すると、平均値が得られる。これは、\(x^n\)の係数が\(n\)に比例するためである。
+
+\textbf{ステップ2: 分散の導出}
+
+母関数を2階微分：
+
+\[\frac{d^2F(x)}{dx^2} = \frac{d^2}{dx^2}\sum_{n=0}^{N} x^n P(n) = \sum_{n=0}^{N} n(n-1) x^{n-2} P(n)\]
+
+\(x = 1\)を代入：
+
+\[\left.\frac{d^2F(x)}{dx^2}\right|_{x=1} = \sum_{n=0}^{N} n(n-1) P(n) = \langle n(n-1) \rangle\]
+
+ここで、\(\langle n(n-1) \rangle = \langle n^2 - n \rangle = \langle n^2 \rangle - \langle n \rangle\)なので：
+
+\[\left.\frac{d^2F(x)}{dx^2}\right|_{x=1} = \langle n^2 \rangle - \langle n \rangle\]
+
+\textbf{重要な観察:}
+
+母関数の2階微分を\(x = 1\)で評価すると、\(\langle n^2 \rangle - \langle n \rangle\)が得られる。これから、分散\(\langle \delta n^2 \rangle = \langle n^2 \rangle - \langle n \rangle^2\)を計算できる。
+
+\textbf{答え:} 示された。
+
+\textbf{物理的意味:}
+
+\begin{itemize}
+\tightlist
+\item
+  母関数は、確率分布のすべてのモーメント（平均、分散など）を計算するための便利なツールである
+\item
+  微分操作により、統計量を簡単に計算できる
+\item
+  母関数の方法は、直接的な計算よりも計算が簡単になる場合が多い
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問5.
+母関数の具体形と統計量の計算}\label{ux554f5.-ux6bcdux95a2ux6570ux306eux5177ux4f53ux5f62ux3068ux7d71ux8a08ux91cfux306eux8a08ux7b97}
+
+\textbf{問題:} 問3の結果を母関数の定義に代入し、
+\[F(x) = \{(1-p) + px\}^N\]
+を示せ。また、これを用いて平均値\(\langle n \rangle\)と分散\(\langle \delta n^2 \rangle\)を計算せよ。
+
+\textbf{解答:}
+
+\textbf{ステップ1: 母関数の計算}
+
+問3の結果\(P(n) = \binom{N}{n} p^n (1-p)^{N-n}\)を母関数の定義に代入：
+
+\[F(x) = \sum_{n=0}^{N} x^n P(n) = \sum_{n=0}^{N} x^n \binom{N}{n} p^n (1-p)^{N-n}\]
+
+\[= \sum_{n=0}^{N} \binom{N}{n} (px)^n (1-p)^{N-n}\]
+
+\textbf{二項定理の適用:}
+
+二項定理より：
+
+\[(a + b)^N = \sum_{n=0}^{N} \binom{N}{n} a^{N-n} b^n\]
+
+ここで、\(a = 1-p\), \(b = px\)とすると：
+
+\[F(x) = \{(1-p) + px\}^N\]
+
+\textbf{重要な結果:}
+
+二項分布の母関数は、閉じた形で表すことができる。これは、統計量の計算を大幅に簡略化する。
+
+\textbf{ステップ2: 平均値の計算}
+
+\[\frac{dF(x)}{dx} = N \{(1-p) + px\}^{N-1} \cdot p\]
+
+\(x = 1\)を代入:
+\[\langle n \rangle = N \{(1-p) + p\}^{N-1} \cdot p = N \cdot 1^{N-1} \cdot p = Np = \rho v\]
+
+問2の予想と一致する。
+
+\textbf{ステップ3: 分散の計算}
+
+\[\frac{d^2F(x)}{dx^2} = N(N-1) \{(1-p) + px\}^{N-2} \cdot p^2\]
+
+\(x = 1\)を代入:
+\[\langle n^2 \rangle - \langle n \rangle = N(N-1) p^2\]
+
+したがって: \[\langle n^2 \rangle = N(N-1) p^2 + Np\]
+
+分散:
+\[\langle \delta n^2 \rangle = \langle n^2 \rangle - \langle n \rangle^2 = N(N-1) p^2 + Np - (Np)^2\]
+
+\[= N^2 p^2 - N p^2 + Np - N^2 p^2 = Np(1-p)\]
+
+\textbf{答え:} \[F(x) = \{(1-p) + px\}^N\]
+\[\langle n \rangle = Np = \rho v\]
+\[\langle \delta n^2 \rangle = Np(1-p) = \rho v (1-p)\]
+
+\textbf{物理的意味:}
+
+\textbf{平均値と分散:}
+
+\[\langle n \rangle = Np = \rho v\]
+\[\langle \delta n^2 \rangle = Np(1-p) = \rho v (1-p)\]
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  \textbf{平均値}:
+  数密度と体積の積に等しい。これは直感的に理解できる結果である。
+\item
+  \textbf{分散}:
+  \(Np(1-p)\)で与えられる。これは二項分布の標準的な結果である。
+\item
+  \textbf{\(p \ll 1\)の極限}:
+  \(p \ll 1\)のとき、\(1-p \approx 1\)なので：
+  \[\langle \delta n^2 \rangle \approx Np = \langle n \rangle\]
+
+  これは、分散が平均に等しくなることを意味する。これは、ポアソン分布の特徴である。
+\end{enumerate}
+
+\textbf{二項分布の特徴:}
+
+\begin{itemize}
+\tightlist
+\item
+  平均値と分散は、\(N\)と\(p\)に依存する
+\item
+  \(p\)が小さいとき、分散は平均に近づく
+\item
+  これは、ポアソン分布への極限遷移の準備となる
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{問6.
+ポアソン分布への極限}\label{ux554f6.-ux30ddux30a2ux30bdux30f3ux5206ux5e03ux3078ux306eux6975ux9650}
+
+\textbf{問題:}
+\(\rho = N/V\)を固定したまま、\(v/V \to 0\)の極限を取るとき、
+\[P(n) = \frac{a^n}{n!} e^{-a}\]
+（\(a = \langle n \rangle\)）となることを示せ。
+
+\textbf{解答:}
+
+\textbf{極限の設定}
+
+\(\rho = N/V\)を固定したまま、\(v/V \to 0\)の極限を考える。これは、以下の条件を意味する：
+
+\begin{itemize}
+\tightlist
+\item
+  \(p = v/V \to 0\)（領域が非常に小さい）
+\item
+  \(N \to \infty\)（分子数が非常に多い）
+\item
+  \(Np = \rho v = a\)（一定、平均分子数）
+\end{itemize}
+
+\textbf{ステップ1: 母関数の書き換え}
+
+\[F(x) = \{(1-p) + px\}^N = \exp[N\ln\{(1-p) + px\}]\]
+
+\textbf{ステップ2: 対数の展開}
+
+\(\ln\{(1-p) + px\} = \ln\{1 + p(x-1)\}\)を\(p\)について展開（\(p \ll 1\)のとき）：
+
+\[\ln\{1 + p(x-1)\} = p(x-1) - \frac{p^2(x-1)^2}{2} + \frac{p^3(x-1)^3}{3} - \cdots\]
+
+\(p \to 0\)の極限では、一次項のみを残す：
+
+\[\ln\{(1-p) + px\} \approx p(x-1)\]
+
+\textbf{ステップ3: 母関数の極限}
+
+\[F(x) \approx \exp[Np(x-1)] = \exp[a(x-1)] = e^{-a} e^{ax}\]
+
+ここで、\(a = Np = \rho v\)（平均分子数）である。
+
+\textbf{ステップ4: 確率分布の導出}
+
+\(e^{ax}\)をテイラー展開：
+
+\[e^{ax} = \sum_{n=0}^{\infty} \frac{(ax)^n}{n!}\]
+
+したがって：
+
+\[F(x) = e^{-a} \sum_{n=0}^{\infty} \frac{(ax)^n}{n!} = \sum_{n=0}^{\infty} \frac{a^n}{n!} e^{-a} x^n\]
+
+一方、母関数の定義より：
+
+\[F(x) = \sum_{n=0}^{\infty} x^n P(n)\]
+
+係数を比較：
+
+\[P(n) = \frac{a^n}{n!} e^{-a}\]
+
+これは\textbf{ポアソン分布}（Poisson distribution）である。
+
+\textbf{答え:} \[P(n) = \frac{a^n}{n!} e^{-a}\]
+
+ここで、\(a = \langle n \rangle = \rho v\)である。
+
+\textbf{物理的意味:}
+
+\textbf{ポアソン分布の特徴:}
+
+\[P(n) = \frac{a^n}{n!} e^{-a}\]
+
+ここで、\(a = \langle n \rangle = \rho v\)（平均分子数）である。
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{稀な事象の記述}:
+  ポアソン分布は、稀な事象（\(p \ll 1\)）の発生回数を記述する
+
+  \begin{itemize}
+  \tightlist
+  \item
+    各分子が領域内にある確率が非常に小さい
+  \item
+    しかし、分子数が非常に多いため、平均分子数\(a\)は有限
+  \end{itemize}
+\item
+  \textbf{平均値と分散}: 平均値\(a\)のみで分布が決まる
+
+  \begin{itemize}
+  \tightlist
+  \item
+    平均値: \(\langle n \rangle = a\)
+  \item
+    分散: \(\langle \delta n^2 \rangle = a\)（平均に等しい！）
+  \item
+    これは、二項分布の\(p \ll 1\)の極限で現れる特徴である
+  \end{itemize}
+\item
+  \textbf{統計力学への応用}:
+
+  \begin{itemize}
+  \tightlist
+  \item
+    分子数が非常に多く、観測領域が小さい場合、分子数の分布はポアソン分布に従う
+  \item
+    理想気体の粒子数揺らぎを記述する
+  \item
+    拡散現象、化学反応など、多くの物理現象で現れる
+  \end{itemize}
+\end{enumerate}
+
+\textbf{ポアソン分布の重要性:}
+
+ポアソン分布は、統計力学における重要な分布である。特に、粒子数揺らぎの記述において中心的な役割を果たす。
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsection{まとめ}\label{ux307eux3068ux3081}
+
+本演習では、以下の重要な概念を学んだ:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \textbf{熱力学関係式の導出}:
+  偏微分とマクスウェル関係式を用いた熱力学量の関係式の導出
+\item
+  \textbf{輪ゴムの熱力学}:
+  温度依存性を持つバネ定数を持つ系の熱力学的記述
+\item
+  \textbf{理想気体の統計力学}:
+  エントロピー、自由エネルギー、化学ポテンシャルの計算
+\item
+  \textbf{混合エントロピー}: 気体混合によるエントロピー増加
+\item
+  \textbf{ポアソン分布}: 二項分布からポアソン分布への極限遷移
+\end{enumerate}
+
+これらの概念は、統計力学の基礎を理解する上で重要である。

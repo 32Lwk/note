@@ -1,0 +1,134 @@
+% XeLaTeXで \( と \) が未定義になる場合の対策
+% まず amsmath を読み込んで \( と \) を確実に定義する
+\RequirePackage{amsmath}
+
+% 日本語の改行と折り返しを改善するための設定
+\usepackage{fixltx2e}  % LaTeXの古いコマンドを修正（\( と \) を含む）
+\usepackage{geometry}
+\usepackage{amssymb}
+\usepackage{breqn}
+\usepackage{textcomp}
+
+% \textbfを確実に定義（unicode-mathが読み込まれた後）
+\makeatletter
+\@ifundefined{textbf}{%
+  \newcommand{\textbf}[1]{{\bfseries #1}}%
+}{}
+\makeatother
+
+% amsmathパッケージ読み込み後に確実に \begin{math} と \end{math} に定義する
+% \let を使って既存の定義を保存してから再定義（未定義の場合はエラーになるので、try-catch的な処理）
+\makeatletter
+% \( の定義を試みる（既に定義されている場合は保存してから再定義）
+\expandafter\let\expandafter\temp@lparen\csname (\endcsname
+\ifx\temp@lparen\relax
+  % 未定義の場合
+  \def\({\begin{math}}%
+\else
+  % 既に定義されている場合（念のため再定義）
+  \def\({\begin{math}}%
+\fi
+% \) の定義を試みる
+\expandafter\let\expandafter\temp@rparen\csname )\endcsname
+\ifx\temp@rparen\relax
+  % 未定義の場合
+  \def\){\end{math}}%
+\else
+  % 既に定義されている場合（念のため再定義）
+  \def\){\end{math}}%
+\fi
+\makeatother
+
+% 文書開始時にも確実に定義されるようにする（二重の安全策）
+\AtBeginDocument{%
+  \makeatletter
+  \def\({\begin{math}}%
+  \def\){\end{math}}%
+  \makeatother
+}
+
+% ページレイアウトの調整
+\geometry{
+  a4paper,
+  margin=2cm
+}
+
+% \textbfが未定義の場合の対策（念のため再定義）
+\makeatletter
+\@ifundefined{textbf}{%
+  \newcommand{\textbf}[1]{{\bfseries #1}}%
+}{}
+\makeatother
+
+% 日本語の改行設定（XeLaTeXの標準機能）- 最重要設定
+\XeTeXlinebreaklocale "ja"
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt
+
+% 長いテキストの折り返しを許可（強力な設定）
+\sloppy
+
+% 日本語の改行を大幅に改善
+\setlength{\emergencystretch}{15em}
+\tolerance=10000
+\pretolerance=10000
+\setlength{\hfuzz}{2pt}
+\setlength{\vfuzz}{2pt}
+\setlength{\overfullrule}{0pt}
+\hbadness=10000
+
+% ハイフネーションを無効化（日本語では不要）
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\doublehyphendemerits=10000
+\finalhyphendemerits=10000
+\adjdemerits=10000
+\brokenpenalty=10000
+
+% 長い数式の折り返し
+\allowdisplaybreaks
+
+% 段落の設定
+\setlength{\parindent}{1em}
+\setlength{\parskip}{0.3em plus 0.1em minus 0.1em}
+
+% 行間の調整
+\linespread{1.15}
+
+% ============================================
+% 目次とアウトラインの設定
+% ============================================
+
+% hyperrefパッケージ（PDFのブックマークとリンク）
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor=green,
+    pdftitle={力学特論 演習問題 解答},
+    pdfauthor={},
+    pdfsubject={力学特論},
+    pdfkeywords={力学, 相対論, ラグランジアン, ハミルトニアン},
+    bookmarks=true,
+    bookmarksopen=true,
+    bookmarksnumbered=true,
+    pdfstartview={FitH},
+    pdfpagemode=UseOutlines
+}
+
+% 目次の深さを設定（セクション、サブセクション、サブサブセクションまで）
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+% 図のキャプションの設定
+\usepackage{caption}
+\captionsetup{font=small, labelfont=bf}
+
+% 図の参照を改善
+\usepackage{graphicx}
+\graphicspath{{physics/adPhysics/}}
+
+% ページ番号の設定
+\usepackage{fancyhdr}
+\pagestyle{plain}
