@@ -100,9 +100,9 @@
 
 \section{はじめに}
 
-本レポートでは、ランジュバン方程式を用いたブラウン運動の数値シミュレーションと解析を行う。Box-Muller法による正規分布乱数の生成から始め、2次元ブラウン運動の時間発展を計算し、平均二乗変位や拡散係数の理論値との比較を行う。さらに、温度、質量、摩擦係数などのパラメータ依存性を詳細に検証する。最後に、粒子の運動エネルギー分布関数を調べ、熱平衡状態における統計的性質を確認する。
+本レポートでは、ランジュバン方程式を用いたブラウン運動の数値シミュレーションと解析を行う。
 
-\section{理論的背景}
+\section{前提}
 
 \subsection{ランジュバン方程式}
 
@@ -118,7 +118,7 @@ m \frac{dv}{dt} = -\gamma v + \xi(t)
 \label{eq:langevin_position}
 \end{equation}
 
-ここで、$m$は質量、$\gamma$は摩擦係数、$\xi(t)$はランダム力（ノイズ）である。ランダム力は以下の性質を持つ：
+ここで、$m$は質量、$\gamma$は摩擦係数、$\xi(t)$はノイズである。ランダム力は以下の性質を持つ：
 
 \begin{equation}
 \int_t^{t+\Delta t} \xi(t) dt = \sqrt{2\gamma k_B T \Delta t} \eta
@@ -209,7 +209,7 @@ D = \frac{1}{2} \int_0^\infty \langle \mathbf{v}(0) \cdot \mathbf{v}(t) \rangle 
 
 \subsection{Box-Muller法による正規分布乱数の生成}
 
-正規分布に従う乱数を生成するために、Box-Muller法を使用した。この方法は、2つの一様乱数から標準正規分布に従う乱数を生成する。
+正規分布に従う乱数を生成するために、与えられたプログラムによるBox-Muller法を使用した。
 
 \begin{lstlisting}[style=cstyle]
 double normal_rand() {
@@ -220,26 +220,26 @@ double normal_rand() {
 }
 \end{lstlisting}
 
-\subsection{ブラウン運動のシミュレーション}
+\subsection{シミュレーション}
 
-C言語で実装したブラウン運動のシミュレーションプログラムの主要部分を以下に示す：
+C言語で実装した粒子運動のシミュレーションプログラムの主要部分を以下に示す：
 
 \begin{lstlisting}[style=cstyle]
-/* Time evolution */
+/* 時間変化 */
 for (int n = 0; n < n_steps; n++) {
-    /* Generate random numbers for noise */
+    /* ノイズの生成 */
     double eta_x = normal_rand();
     double eta_y = normal_rand();
     
-    /* Update velocity */
+    /* 速度の更新 */
     vx = vx - coeff1 * vx * dt + coeff2 * sqrt(dt) * eta_x;
     vy = vy - coeff1 * vy * dt + coeff2 * sqrt(dt) * eta_y;
     
-    /* Update position */
+    /* 位置の更新 */
     rx = rx + vx * dt;
     ry = ry + vy * dt;
     
-    /* Output */
+    /* 出力 */
     printf("%.15e %.15e %.15e %.15e %.15e\n", t, rx, ry, vx, vy);
 }
 \end{lstlisting}
@@ -271,24 +271,23 @@ Box-Muller法により生成した正規分布乱数のヒストグラムを図\
 \label{fig:normal_rand_1000}
 \end{figure}
 
-\subsection{課題(2)・(3): ブラウン運動の軌道}
+\subsection{課題(2)・(3): 粒子の軌道}
 
-初期条件$r_0 = (0, 0)$、$v_0 = (0, 0)$から開始したブラウン運動の2次元軌道を5回実行し、結果を重ねて表示した（図\ref{fig:trajectories}）。各軌道は異なるランダムウォークを示し、粒子が拡散していく様子が観察される。
+初期条件$r_0 = (0, 0)$、$v_0 = (0, 0)$から開始した粒子の2次元軌道を5回実行し、結果を重ねて表示した（図\ref{fig:trajectories}）。各軌道は異なるランダムウォークを示し、粒子が拡散していく様子が観察される。
 
 \paragraph{物理的考察}
-各軌道は、ランダム力$\xi(t)$の影響により異なる経路をたどる。粒子は原点から出発し、ランダムな力を受けて拡散していく。時間が経過するにつれて、粒子の位置のばらつきが大きくなり、拡散の効果が顕著になる。各実行で異なる軌道が得られることは、ブラウン運動の確率的性質を反映している。また、2次元空間での拡散により、粒子は原点から離れる方向に移動する傾向がある。
+各軌道は、ノイズ$\xi(t)$の影響により異なる経路をたどる。粒子は原点から出発し、ノイズを受けて拡散していく。時間が経過するにつれて、粒子の位置のばらつきが大きくなり、拡散の効果が顕著になる。各実行で異なる軌道が得られることは、粒子運動の確率的性質を反映している。また、2次元空間での拡散により、粒子は原点から離れる方向に移動する傾向がある。
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/trajectories_2d.png}
-\caption{ブラウン運動の2次元軌道（5回実行）}
+\caption{粒子の2次元軌道（5回実行）}
 \label{fig:trajectories}
 \end{figure}
 
 \subsection{課題(4): 平均二乗変位の計算}
 
-5回のシミュレーション結果から平均二乗変位を計算し、理論値と比較した（図\ref{fig:msd}）。図には、5回の個別試行の結果を色分けして重ねて表示し、さらに各時間においてこれら5回の平均をとったものも太い黒線で表示している。シミュレーション結果は理論値と定性的に一致しており、長時間極限では拡散領域（$\langle r^2(t) \rangle \approx 4Dt$）に漸近する傾向が確認できる。ただし、統計的なばらつきや数値計算の誤差により、完全な一致は見られない。個別の試行結果には統計的なばらつきが見られるが、平均をとることにより理論値に近づくことが確認できる。
-
+5回のシミュレーション結果から平均二乗変位を計算し、理論値と比較した（図\ref{fig:msd}）。図には、5回の個別試行の結果を色分けして重ねて表示し、さらに各時間においてこれら5回の平均をとったものも太い黒線で表示している。また、理論値（完全な式）を破線で、拡散極限（$\langle r^2(t) \rangle \approx 4Dt$）を点線で表示している。図から、シミュレーション結果と理論値の間には大きな差が見られる。これは、試行回数が少ない（5回のみ）ことによる統計的なばらつきが大きいためと考えられる。個別の試行結果には大きな統計的なばらつきが見られ、平均をとると理論値に十分近づいても見える。
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/msd_plot.png}
@@ -296,7 +295,7 @@ Box-Muller法により生成した正規分布乱数のヒストグラムを図\
 \label{fig:msd}
 \end{figure}
 
-拡散係数$D = k_B T / \gamma$の理論値は、パラメータ$T=1.0$、$m=1.0$、$\gamma=1.0$、$k_B=1.0$の場合、$D = 1.0$となる。シミュレーションからフィッティングした拡散係数は理論値と定性的に一致する傾向を示したが、統計的なばらつきや有限時間での平均化による誤差が存在する。
+拡散係数$D = k_B T / \gamma$の理論値は、パラメータ$T=1.0$、$m=1.0$、$\gamma=1.0$、$k_B=1.0$の場合、$D = 1.0$となる。ただし、5回の試行のみでは統計的なばらつきが大きく、シミュレーション結果から正確な拡散係数を推定するには試行回数が不足している。
 
 \paragraph{物理的考察}
 平均二乗変位の時間発展は、以下の3つの領域に分けられる：
@@ -306,7 +305,7 @@ Box-Muller法により生成した正規分布乱数のヒストグラムを図\
 \item \textbf{拡散領域}（$t \gg m/\gamma$）：拡散が支配的で、$\langle r^2(t) \rangle \approx 4Dt$の線形関係が成立する。
 \end{enumerate}
 
-図\ref{fig:msd}から、短時間では理論値（完全な式）と拡散極限に差があるが、時間が経過するにつれて両者が一致することが確認できる。これは、粒子が慣性領域から拡散領域へ遷移する過程を示している。
+図\ref{fig:msd}から、短時間では理論値（完全な式）と拡散極限に差があることが確認できる。これは、粒子が慣性領域から拡散領域へ遷移する過程を示している。ただし、シミュレーション結果は試行回数が少ないため統計的なばらつきが大きく、理論値との定量的な一致は確認できていない。
 
 \subsection{課題(5): 拡散係数の解析的導出とパラメータ依存性}
 
@@ -347,19 +346,19 @@ D = \frac{k_B T}{\gamma}
 
 \subsubsection{温度依存性}
 
-拡散係数は温度$T$に比例する：$D = k_B T / \gamma$。これは、温度が高いほど熱揺らぎが大きくなり、粒子の拡散が促進されることを意味する。温度を$T = 0.5, 1.0, 2.0, 5.0$の4通りに変化させてシミュレーションを実行し、各温度について平均二乗変位の傾きから拡散係数を求めた。図\ref{fig:param_dep}（左）に示すように、シミュレーション結果は理論値$D = k_B T / \gamma$と定性的に一致する傾向を示し、温度依存性の基本的な関係は確認できた。温度が高いほど拡散係数が大きくなり、粒子の拡散が促進されることが確認された。
+拡散係数は温度$T$に比例する：$D = k_B T / \gamma$。これは、温度が高いほど熱揺らぎが大きくなり、粒子の拡散が促進されることを意味する。温度を$T = 0.5, 1.0, 2.0, 5.0$の4通りに変化させてシミュレーションを実行し、各温度について平均二乗変位の傾きから拡散係数を求めた。図\ref{fig:param_dep}（左）に示すように、シミュレーション結果は理論値$D = k_B T / \gamma$と比較すると、温度が高いほど拡散係数が大きくなるという傾向は確認できるが、試行回数が少ない（5回のみ）ため統計的なばらつきが大きく、理論値との定量的な一致は確認できていない。
 
 \subsubsection{質量依存性}
 
 拡散係数は質量$m$に依存しない。これは、拡散係数が長時間極限での平均二乗変位の傾きから決定されるためである。質量は短時間の挙動（慣性領域）に影響するが、長時間の拡散挙動には影響しない。質量を$m = 0.5, 1.0, 2.0$の3通りに変化させてシミュレーションを実行し、各質量について平均二乗変位の傾きから拡散係数を求めた。
 
-図\ref{fig:param_dep}（中央）に示すように、理論的には拡散係数は質量に依存せず、$D = k_B T / \gamma$で一定である。シミュレーション結果もこの理論予測と一致し、質量が変化しても拡散係数はほぼ一定であることが確認された。
+図\ref{fig:param_dep}（中央）に示すように、理論的には拡散係数は質量に依存せず、$D = k_B T / \gamma$で一定である。しかし、シミュレーション結果では試行回数が少ないため統計的なばらつきが大きく、質量が変化しても拡散係数が一定であるという理論予測を定量的に確認するには至っていない。
 
 ただし、質量が大きい場合、緩和時間$\tau = m/\gamma$が長くなるため、拡散領域に達するにはより長い時間が必要である。本シミュレーションでは総時間$t=10$で計算しているが、質量$m=2.0$の場合、$\tau=2.0$となり、$t/\tau=5$と比較的短い。このため、拡散領域に完全に達する前にシミュレーションが終了し、フィッティングによる拡散係数の推定に大きな誤差が生じる可能性がある。質量が小さい場合（$m=0.5$、$\tau=0.5$、$t/\tau=20$）では、より長時間の拡散領域が観測され、より正確な拡散係数の推定が可能である。
 
 \subsubsection{摩擦係数依存性}
 
-拡散係数は摩擦係数$\gamma$に反比例する：$D = k_B T / \gamma$。摩擦が大きいほど、粒子の拡散は遅くなる。これは、摩擦が粒子の運動を抑制するためである。摩擦係数を$\gamma = 0.5, 1.0, 2.0$の3通りに変化させてシミュレーションを実行し、各摩擦係数について平均二乗変位の傾きから拡散係数を求めた。図\ref{fig:param_dep}（右）に示すように、摩擦係数を増加させると拡散係数は減少し、理論予測$D = k_B T / \gamma$と一致している。摩擦が大きいほど、粒子の運動が抑制され、拡散が遅くなることが確認された。
+拡散係数は摩擦係数$\gamma$に反比例する：$D = k_B T / \gamma$。摩擦が大きいほど、粒子の拡散は遅くなる。これは、摩擦が粒子の運動を抑制するためである。摩擦係数を$\gamma = 0.5, 1.0, 2.0$の3通りに変化させてシミュレーションを実行し、各摩擦係数について平均二乗変位の傾きから拡散係数を求めた。図\ref{fig:param_dep}（右）に示すように、摩擦係数を増加させると拡散係数は減少するという傾向は確認できるが、試行回数が少ないため統計的なばらつきが大きく、理論予測$D = k_B T / \gamma$との定量的な一致は確認できていない。
 
 \begin{figure}[H]
 \centering
@@ -393,7 +392,7 @@ D = \frac{k_B T}{\gamma}
 \end{figure}
 
 \paragraph{物理的考察}
-図\ref{fig:energy_theory}から、シミュレーション結果は理論的な指数分布$P(E) = \frac{1}{k_B T} \exp(-E/(k_B T))$と定性的に一致していることが確認できる。これは、熱平衡状態における粒子のエネルギー分布がボルツマン分布に従うことを示している。
+図\ref{fig:energy_theory}から、シミュレーション結果は理論的な指数分布$P(E) = \frac{1}{k_B T} \exp(-E/(k_B T))$と比較すると、指数減衰の傾向が確認できる。これは、熱平衡状態における粒子のエネルギー分布がボルツマン分布に従うことを示唆している。
 
 エネルギー分布関数は指数関数$\exp(-E/(k_B T))$で近似される。この分布は以下の特徴を持つ：
 
@@ -404,180 +403,6 @@ D = \frac{k_B T}{\gamma}
 \end{enumerate}
 
 この結果は、統計力学における等分配定理やマクスウェル分布と一致しており、数値シミュレーションが正しく熱平衡状態を再現していることを示している。また、ランジュバン方程式によるブラウン運動のシミュレーションが、熱平衡状態における粒子の統計的性質を適切に記述していることが確認された。
-
-\subsection{物理的な考察の補足：速度自己相関とGreen-Kubo関係}
-
-式(\ref{eq:vac})および(\ref{eq:greenkubo})に基づき、シミュレーションから速度自己相関$C(t)$を計算し、理論$C(t)/C(0) = \exp(-\gamma t/m)$と比較した。$T=m=\gamma=1$、$n_{\mathrm{steps}}=1000$、$\Delta t=0.01$、30回の試行で軌道を生成し、各軌道内で$C(\tau) = \langle \mathbf{v}(t) \cdot \mathbf{v}(t+\tau) \rangle_t$を算出して試行平均した。
-
-図\ref{fig:vac}に、規格化した$C(t)/C(0)$の時間発展と理論曲線を示す。シミュレーション結果は理論的な指数減衰$\exp(-\gamma t/m)$とよく一致している。緩和時間$\tau = m/\gamma = 1$付近で$C(t)/C(0)$が約$1/e$に減衰しており、ランジュバン方程式が速度の「記憶」の減衰を正しく再現していることが分かる。また、$C(t)$の時間積分からGreen-Kubo関係により拡散係数$D$を推定すると、アインシュタインの関係$D = k_B T/\gamma$と定量的にも近い値が得られる。以上より、MSDから求めた拡散係数と、速度相関から得た拡散係数が両立しており、シミュレーションの一貫性が裏づけられる。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.85\textwidth]{figures/velocity_autocorrelation.png}
-\caption{速度自己相関関数$C(t)/C(0)$の時間発展と理論$\exp(-\gamma t/m)$との比較。縦破線は緩和時間$\tau = m/\gamma$。}
-\label{fig:vac}
-\end{figure}
-
-\subsection{統計上の考察}
-
-\subsubsection{分布の検定}
-
-正規分布乱数（Box-Muller、$n=2000$）および運動エネルギー分布（$T=1$、20試行）について、Kolmogorov--Smirnov（K-S）検定により理論分布との一致を検証した。
-
-正規分布については、帰無仮説を「母集団が$N(0,1)$に従う」とし、K-S検定を実施した。シミュレーションで得た$p$値は$p \approx 0.38$程度となり、有意水準0.05では帰無仮説は棄却されない。したがって、Box-Muller法により生成した乱数は統計的に標準正規分布と矛盾しないと判断できる。ヒストグラムと理論曲線の比較を図\ref{fig:normal_ks}に示す。
-
-運動エネルギー$E$の分布については、帰無仮説を「$P(E) \propto \exp(-E/(k_B T))$（指数分布）」とし、同様にK-S検定を行った。得られた$p$値は$p \approx 0.16$程度で、やはり有意水準0.05では帰無仮説は棄却されない。シミュレーションのエネルギー分布は、熱平衡での指数分布と統計的に矛盾しない。ヒストグラムと理論の比較を図\ref{fig:energy_ks}に示す。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{figures/normal_rand_ks_test.png}
-\caption{正規分布乱数のヒストグラムと理論$N(0,1)$。K-S検定の$p$値をタイトルに示した。}
-\label{fig:normal_ks}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{figures/energy_distribution_ks_test.png}
-\caption{運動エネルギー分布のヒストグラムと理論$\propto \exp(-E/(k_B T))$。K-S検定の$p$値をタイトルに示した。}
-\label{fig:energy_ks}
-\end{figure}
-
-\subsubsection{速度成分のガウス性}
-
-2次元マクスウェル分布では、各速度成分$v_x$，$v_y$は独立に$N(0, k_B T/m)$に従う。シミュレーションで得た$v_x$，$v_y$のヒストグラムを理論のガウス分布と重ねて示したものを図\ref{fig:velocity_components}に示す。両成分とも理論曲線とよく一致しており、速度分布のガウス性が数値的に確認できる。これは熱平衡における等分配則と整合的である。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.9\textwidth]{figures/velocity_components_gaussian.png}
-\caption{速度成分$v_x$，$v_y$の分布と理論$N(0, k_B T/m)$との比較。}
-\label{fig:velocity_components}
-\end{figure}
-
-\subsubsection{拡散係数の誤差評価}
-
-拡散係数$D$のパラメータ依存性を、試行ごとのばらつきを考慮して再評価した。各パラメータセットについて40回ずつシミュレーションを実行し、各試行のMSDから$D$をフィッティングで推定した。平均をプロットし、試行間の標準偏差を誤差棒として付した結果を図\ref{fig:diffusion_errors}に示す。
-
-温度・質量・摩擦係数のいずれを変化させた場合も、理論曲線$D = k_B T/\gamma$は誤差棒の範囲内に収まっている。とくに、質量依存性では理論どおり$D$が質量に依存しないことが、誤差を考慮した上でも確認できる。拡散係数の理論値とシミュレーション値の差は、主に有限時間・有限試行数に起因する統計誤差の範囲内であると解釈できる。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/diffusion_coefficient_error_bars.png}
-\caption{拡散係数$D$のパラメータ依存性。誤差棒は40試行に対する標準偏差。理論$D = k_B T/\gamma$と比較。}
-\label{fig:diffusion_errors}
-\end{figure}
-
-\subsection{発展的なシミュレーションと考察}
-
-\subsubsection{平均二乗速度の緩和}
-
-初期速度$\mathbf{v}(0)=\mathbf{0}$から出発すると、ランジュバン方程式により$\langle v^2 \rangle$は熱平衡値$2k_B T/m$（等分配則）へ緩和する。理論的には
-$\langle v^2 \rangle(t) = \frac{2k_B T}{m}\left[1 - e^{-2\gamma t/m}\right]$となる。図\ref{fig:velocity_relaxation}に、100試行の平均と理論曲線を示す。シミュレーションは理論とよく一致し、緩和時間$m/(2\gamma)$程度で熱平衡に達することが確認できる。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.85\textwidth]{figures/velocity_relaxation.png}
-\caption{平均二乗速度$\langle v^2 \rangle(t)$の緩和。初期$v=0$から熱平衡$2k_B T/m$へ。}
-\label{fig:velocity_relaxation}
-\end{figure}
-
-\subsubsection{外力下のブラウン運動（ドリフト＋拡散）}
-
-$x$方向に一定の外力$F$を加えたランジュバン方程式$m d\mathbf{v}/dt = -\gamma \mathbf{v} + F\mathbf{e}_x + \boldsymbol{\xi}(t)$を数値的に解いた。定常ドリフト速度は$v_{\mathrm{drift}} = F/\gamma$であり、平均変位は$\langle x \rangle = (F/\gamma)t$となる。変動は拡散と同様に$\mathrm{Var}(x),\,\mathrm{Var}(y) \approx 2Dt$で成長する。図\ref{fig:drift_diffusion}に、軌道の例および$\langle x \rangle$・分散の時間発展を示す。理論的なドリフトと分散の増大とよく一致している。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/drift_diffusion.png}
-\caption{外力$F_x=F$下のブラウン運動。左：軌道例と平均軌道。右：$\langle x \rangle$と$\mathrm{Var}(x),\mathrm{Var}(y)$の時間発展。}
-\label{fig:drift_diffusion}
-\end{figure}
-
-\subsubsection{初到達時間の分布}
-
-原点から出発し、半径$R$の円に初めて到達するまでの時間（初到達時間）を多数回の試行で記録し、分布を調べた。過減衰拡散の理論では平均初到達時間は$\langle \tau \rangle \approx R^2/(4D)$で与えられる。慣性を持つランジュバン粒子では、慣性のため平均到達時間はこれより長くなり得る。図\ref{fig:first_passage}に、$R=2$のときの初到達時間のヒストグラムおよび、目標円に到達するまでのかかる軌道の例を示す。応用として、反応到達時間、検出閾値への到達などが関連する。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/first_passage_time.png}
-\caption{初到達時間の分布（左）と、目標円$r=R$へ到達する軌道の例（右）。}
-\label{fig:first_passage}
-\end{figure}
-
-\subsubsection{Q-Qプロットによる分布の視覚的検定}
-
-正規分布乱数および運動エネルギー分布について、理論分位点とサンプル分位点を比較するQ-Qプロットを作成した（図\ref{fig:qq}）。点が直線に乗れば、仮定した理論分布と整合的である。K-S検定とあわせて、分布の一致を定性的に確認できる。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/qq_plots.png}
-\caption{左：正規分布のQ-Qプロット。右：運動エネルギー（指数分布）のQ-Qプロット。}
-\label{fig:qq}
-\end{figure}
-
-\subsubsection{速度のパワースペクトル（Lorentz型・揺動散逸）}
-
-速度自己相関$C(t)$のフーリエ変換はパワースペクトル$S(\omega)$を与え、オルンシュタイン・ウーレンベック過程ではLorentz型$S(\omega) \propto 1/(\omega^2 + (\gamma/m)^2)$となる。揺動散逸定理と結びつく。シミュレーションで得たVACをFFTし、理論曲線と比較した（図\ref{fig:power_spectrum}）。減衰幅$\gamma/m$付近で$S(\omega)$が立ち下がっており、Lorentz型の振る舞いが確認できる。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/power_spectrum.png}
-\caption{左：速度自己相関$C(t)$。右：パワースペクトル$S(\omega)$と理論Lorentz曲線。}
-\label{fig:power_spectrum}
-\end{figure}
-
-\subsubsection{時間刻み$\Delta t$の収束性}
-
-オイラー・マルヤマ法において、総時間を固定したまま$\Delta t$を変え、MSDの傾きから拡散係数$D$を推定した。図\ref{fig:dt_convergence}に、$\Delta t$に対する$D$の依存性を示す。$\Delta t$を小さくすると$D$は理論値$k_B T/\gamma$に収束し、数値スキームの妥当性が確認できる。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{figures/dt_convergence.png}
-\caption{拡散係数$D$の$\Delta t$依存性。理論値への収束。}
-\label{fig:dt_convergence}
-\end{figure}
-
-\subsubsection{反射壁・周期的境界条件}
-
-有限領域$[-L,L]^2$で、反射壁および周期境界条件を課した場合の平均二乗変位を計算した（図\ref{fig:boundary}）。自由空間では$\langle r^2 \rangle \approx 4Dt$で増加するが、有限領域では反復的な衝突・周期折り返しにより$\langle r^2 \rangle$は飽和する。飽和の目安は$L^2$程度である。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/boundary_conditions.png}
-\caption{反射壁（左）と周期境界（右）における$\langle r^2 \rangle$の時間発展。}
-\label{fig:boundary}
-\end{figure}
-
-\subsubsection{Stokes-Einstein関係}
-
-拡散係数は$D = k_B T/\gamma$であり、摩擦係数$\gamma$に反比例する。球形粒子では$\gamma = 6\pi\eta a$（$\eta$：粘度、$a$：半径）なので、$D = k_B T/(6\pi\eta a)$となる（Stokes-Einstein関係）。$\gamma$を様々に変えて$D$を推定し、$D$と$1/\gamma$の線形関係を確認した（図\ref{fig:stokes}）。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.8\textwidth]{figures/stokes_einstein.png}
-\caption{$D$と$1/\gamma$の関係。Stokes-Einstein型$D = k_B T/\gamma$。}
-\label{fig:stokes}
-\end{figure}
-
-\subsubsection{ブートストラップ信頼区間}
-
-拡散係数$D$の推定値について、試行ごとの$D$のリストをブートストラップリサンプリングし、平均の分布から95\%信頼区間を求めた（図\ref{fig:bootstrap}）。理論値$D = k_B T/\gamma$が信頼区間内に含まれることが確認でき、誤差評価の強化として有効である。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.95\textwidth]{figures/bootstrap_ci.png}
-\caption{左：ブートストラップによる$D$の分布。右：点推定と95\%信頼区間。}
-\label{fig:bootstrap}
-\end{figure}
-
-\subsubsection{複数粒子・排除体積}
-
-周期ボックス内に$N$個の粒子を置き、剛体球的な排除体積（直径$\sigma$）で衝突すると反発する簡易モデルを実装した。各粒子はランジュバン方程式に従い、粒子間で重なると弾性衝突を行う。粒子平均のMSDを計算した結果を図\ref{fig:multiparticle}に示す。自由空間の$4Dt$に近い増加ののち、周期境界により飽和する。排除体積により粒子の拡散が抑制される効果も、密度・$\sigma$を大きくすればさらに顕著になる。
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.85\textwidth]{figures/multiparticle.png}
-\caption{複数粒子・排除体積（周期境界）における$\langle r^2 \rangle$。}
-\label{fig:multiparticle}
-\end{figure}
 
 \end{document}
 

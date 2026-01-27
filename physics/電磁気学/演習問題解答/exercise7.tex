@@ -1,0 +1,639 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[no-math]{luatexja-fontspec}
+\setmainjfont{Hiragino Mincho ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\setsansjfont{Hiragino Kaku Gothic ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{float}
+\usepackage[draft=false]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdfusetitle=true
+}
+
+\title{電磁気学演習問題 解答・解説\\第7回 (2025年12月26日)}
+\author{名古屋大学　理学部物理学科}
+\date{2025年12月26日}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{問題1: 液体中の有極性分子の分極と電気感受率}
+
+\subsection{問題}
+
+時刻$t=0$で一様な電場$\boldsymbol{E}$をかけたときの分極ベクトルの大きさ$P(t)$は、時定数$\tau$を用いて$P(t) = \varepsilon_0\chi_0 E(1 - \exp(-t/\tau))$と表される。真空の誘電率を$\varepsilon_0$とする。有極性分子の分極が液体内の全電場$\boldsymbol{E}$に与える変化は無視する。
+
+\begin{enumerate}
+    \item[(1-1)] 上記の$P(t)$が微分方程式$\tau dP/dt + P = \varepsilon_0\chi_0 E$を満たすことを利用する。単一角振動数$\omega$で振動する電場$\boldsymbol{E}(\omega) = \boldsymbol{E}_0\exp(-i\omega t)$に対する電気感受率$\chi_e(\omega)$を、$\chi_0$、$\tau$、$\omega$を用いて求める。また、この液体の誘電率$\varepsilon(\omega)$の実部と虚部が、$\omega$に対してどのように変化するかを図示する。
+    \item[(1-2)] 上述の液体による電場エネルギーの吸収率を求める。単位体積あたりの誘電体の微視的な変形エネルギーの時間変化$dw/dt = \text{Re}\{\boldsymbol{E}\} \cdot \text{Re}\{d\boldsymbol{P}/dt\}$を、前問の単一振動電場に対して計算し、一周期平均の$\langle dw/dt \rangle$を、$\varepsilon_0$、$\chi_0$、$\tau$、$\omega$、$E_0$を用いて求める。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+分極の時間発展方程式から、周波数依存の電気感受率を求める。
+
+\subsubsection{使用する物理法則}
+
+分極の時間発展方程式：
+\begin{equation}
+\tau\frac{dP}{dt} + P = \varepsilon_0\chi_0 E
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(1-1) 電気感受率}
+
+$P(\omega) = P_0\exp(-i\omega t)$と仮定して代入：
+\begin{align}
+\tau(-i\omega)P_0\exp(-i\omega t) + P_0\exp(-i\omega t) &= \varepsilon_0\chi_0 E_0\exp(-i\omega t) \\
+P_0(1 - i\omega\tau) &= \varepsilon_0\chi_0 E_0
+\end{align}
+
+したがって：
+\begin{equation}
+\chi_e(\omega) = \frac{P_0}{\varepsilon_0 E_0} = \frac{\chi_0}{1 - i\omega\tau} = \frac{\chi_0(1 + i\omega\tau)}{1 + \omega^2\tau^2}
+\end{equation}
+
+誘電率：
+\begin{equation}
+\varepsilon(\omega) = \varepsilon_0[1 + \chi_e(\omega)] = \varepsilon_0\left[1 + \frac{\chi_0(1 + i\omega\tau)}{1 + \omega^2\tau^2}\right]
+\end{equation}
+
+実部と虚部：
+\begin{align}
+\text{Re}[\varepsilon(\omega)] &= \varepsilon_0\left[1 + \frac{\chi_0}{1 + \omega^2\tau^2}\right] \\
+\text{Im}[\varepsilon(\omega)] &= \varepsilon_0\frac{\chi_0\omega\tau}{1 + \omega^2\tau^2}
+\end{align}
+
+\paragraph{(1-2) エネルギー吸収率}
+
+単位体積あたりの誘電体の微視的な変形エネルギーの時間変化は：
+\begin{equation}
+\frac{dw}{dt} = \text{Re}\{\boldsymbol{E}\} \cdot \text{Re}\left\{\frac{d\boldsymbol{P}}{dt}\right\}
+\end{equation}
+
+電場と分極を複素表示で：
+\begin{align}
+\boldsymbol{E}(t) &= \boldsymbol{E}_0\exp(-i\omega t) = E_0\exp(-i\omega t)\hat{\boldsymbol{z}} \\
+\boldsymbol{P}(t) &= \boldsymbol{P}_0\exp(-i\omega t) = P_0\exp(-i\omega t)\hat{\boldsymbol{z}}
+\end{align}
+
+前問より：
+\begin{equation}
+P_0 = \varepsilon_0\chi_e(\omega)E_0 = \varepsilon_0\frac{\chi_0(1 + i\omega\tau)}{1 + \omega^2\tau^2}E_0
+\end{equation}
+
+実部を取ると：
+\begin{align}
+\text{Re}\{E(t)\} &= E_0\cos(\omega t) \\
+\text{Re}\{P(t)\} &= \text{Re}\{P_0\}\cos(\omega t) - \text{Im}\{P_0\}\sin(\omega t) \\
+&= \varepsilon_0\frac{\chi_0}{1 + \omega^2\tau^2}E_0\cos(\omega t) + \varepsilon_0\frac{\chi_0\omega\tau}{1 + \omega^2\tau^2}E_0\sin(\omega t)
+\end{align}
+
+分極の時間微分：
+\begin{align}
+\frac{dP}{dt} &= -i\omega P_0\exp(-i\omega t) \\
+\text{Re}\left\{\frac{dP}{dt}\right\} &= \omega\text{Im}\{P_0\}\cos(\omega t) + \omega\text{Re}\{P_0\}\sin(\omega t) \\
+&= \omega\varepsilon_0\frac{\chi_0\omega\tau}{1 + \omega^2\tau^2}E_0\cos(\omega t) - \omega\varepsilon_0\frac{\chi_0}{1 + \omega^2\tau^2}E_0\sin(\omega t)
+\end{align}
+
+したがって：
+\begin{align}
+\frac{dw}{dt} &= E_0\cos(\omega t) \cdot \left[\omega\varepsilon_0\frac{\chi_0\omega\tau}{1 + \omega^2\tau^2}E_0\cos(\omega t) - \omega\varepsilon_0\frac{\chi_0}{1 + \omega^2\tau^2}E_0\sin(\omega t)\right] \\
+&= \omega\varepsilon_0\frac{\chi_0\omega\tau}{1 + \omega^2\tau^2}E_0^2\cos^2(\omega t) - \omega\varepsilon_0\frac{\chi_0}{1 + \omega^2\tau^2}E_0^2\cos(\omega t)\sin(\omega t) \\
+&= \omega\varepsilon_0\frac{\chi_0\omega\tau}{1 + \omega^2\tau^2}E_0^2\cos^2(\omega t) - \omega\varepsilon_0\frac{\chi_0}{2(1 + \omega^2\tau^2)}E_0^2\sin(2\omega t)
+\end{align}
+
+一周期平均を計算する：
+\begin{align}
+\left\langle\frac{dw}{dt}\right\rangle &= \frac{\omega}{2\pi}\int_0^{2\pi/\omega} \frac{dw}{dt} dt \\
+&= \frac{\omega}{2\pi}\left[\omega\varepsilon_0\frac{\chi_0\omega\tau}{1 + \omega^2\tau^2}E_0^2\int_0^{2\pi/\omega}\cos^2(\omega t) dt - \omega\varepsilon_0\frac{\chi_0}{2(1 + \omega^2\tau^2)}E_0^2\int_0^{2\pi/\omega}\sin(2\omega t) dt\right]
+\end{align}
+
+$\int_0^{2\pi/\omega}\cos^2(\omega t) dt = \frac{\pi}{\omega}$、$\int_0^{2\pi/\omega}\sin(2\omega t) dt = 0$より：
+\begin{align}
+\left\langle\frac{dw}{dt}\right\rangle &= \frac{\omega}{2\pi} \cdot \omega\varepsilon_0\frac{\chi_0\omega\tau}{1 + \omega^2\tau^2}E_0^2 \cdot \frac{\pi}{\omega} \\
+&= \frac{\omega\varepsilon_0\chi_0 E_0^2}{2}\frac{\omega\tau}{1 + \omega^2\tau^2}
+\end{align}
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(1-1)] $\chi_e(\omega) = \frac{\chi_0}{1 - i\omega\tau} = \frac{\chi_0(1 + i\omega\tau)}{1 + \omega^2\tau^2}$、実部：$\text{Re}[\chi_e] = \frac{\chi_0}{1 + \omega^2\tau^2}$、虚部：$\text{Im}[\chi_e] = \frac{\chi_0\omega\tau}{1 + \omega^2\tau^2}$
+    \item[(1-2)] $\left\langle\frac{dw}{dt}\right\rangle = \frac{\omega\varepsilon_0\chi_0 E_0^2}{2}\frac{\omega\tau}{1 + \omega^2\tau^2}$
+\end{enumerate}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 電気感受率$\chi_e(\omega)$は周波数依存性を持ち、$\omega\tau \ll 1$（低周波）では$\chi_e \approx \chi_0$、$\omega\tau \gg 1$（高周波）では$\chi_e \approx 0$となる。これは、分極が電場の変化に追従できなくなるためである。
+    \item 誘電率の実部は、低周波では$\varepsilon_0(1 + \chi_0)$、高周波では$\varepsilon_0$に近づく。虚部は$\omega\tau = 1$付近で最大値を取り、エネルギー吸収が最大となる。
+    \item エネルギー吸収率は、$\omega\tau = 1$付近で最大となり、この周波数で分極の緩和によるエネルギー散逸が最も大きい。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex7_1_dielectric_dispersion.png}
+\caption{誘電率の周波数依存性（実部と虚部）}
+\label{fig:ex7_1_dielectric_dispersion}
+\end{figure}
+
+\section{問題2: 遅延ポテンシャル}
+
+\subsection{問題}
+
+真空中の電荷密度$\rho(\boldsymbol{r})$と電流密度$\boldsymbol{i}(\boldsymbol{r})$が時間変化する場合を考える。スカラーポテンシャル$\phi$とベクトルポテンシャル$\boldsymbol{A}$は遅延ポテンシャルの式で与えられる。電場は$\boldsymbol{E} = -\nabla\phi - \partial\boldsymbol{A}/\partial t$と表せる。
+
+\begin{enumerate}
+    \item[(2-1)] 電場$\boldsymbol{E}(\boldsymbol{r},t)$が以下の式で与えられることを示す：
+    \begin{equation}
+    \boldsymbol{E}(\boldsymbol{r},t) = \frac{1}{4\pi\varepsilon_0}\left[\int \frac{\rho(\boldsymbol{r}',t')(\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3} dV' + \int \frac{\partial\rho(\boldsymbol{r}',t')/\partial t'(\boldsymbol{r} - \boldsymbol{r}')}{c|\boldsymbol{r} - \boldsymbol{r}'|^2} dV' - \int \frac{\partial\boldsymbol{i}(\boldsymbol{r}',t')/\partial t'}{c^2|\boldsymbol{r} - \boldsymbol{r}'|} dV'\right]
+    \end{equation}
+    ただし、$t' = t - |\boldsymbol{r} - \boldsymbol{r}'|/c$である。
+    \item[(2-2)] 同様に、磁場$\boldsymbol{B}(\boldsymbol{r},t)$の式を求める。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+遅延ポテンシャルから電場と磁場を計算する。
+
+\subsubsection{使用する物理法則}
+
+遅延ポテンシャル：
+\begin{align}
+\phi(\boldsymbol{r},t) &= \frac{1}{4\pi\varepsilon_0}\int \frac{\rho(\boldsymbol{r}',t')}{|\boldsymbol{r} - \boldsymbol{r}'|} dV' \\
+\boldsymbol{A}(\boldsymbol{r},t) &= \frac{\mu_0}{4\pi}\int \frac{\boldsymbol{i}(\boldsymbol{r}',t')}{|\boldsymbol{r} - \boldsymbol{r}'|} dV'
+\end{align}
+ここで、$t' = t - |\boldsymbol{r} - \boldsymbol{r}'|/c$。
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(2-1) 電場の計算}
+
+電場は：
+\begin{equation}
+\boldsymbol{E} = -\nabla\phi - \frac{\partial\boldsymbol{A}}{\partial t}
+\end{equation}
+
+まず、$\nabla\phi$を計算する。$\phi$は遅延ポテンシャル：
+\begin{equation}
+\phi(\boldsymbol{r},t) = \frac{1}{4\pi\varepsilon_0}\int \frac{\rho(\boldsymbol{r}',t')}{|\boldsymbol{r} - \boldsymbol{r}'|} dV'
+\end{equation}
+ここで、$t' = t - |\boldsymbol{r} - \boldsymbol{r}'|/c$である。
+
+$\nabla\phi$を計算する際、$t'$が$\boldsymbol{r}$に依存することを考慮する必要がある：
+\begin{align}
+\nabla\phi &= \frac{1}{4\pi\varepsilon_0}\nabla\int \frac{\rho(\boldsymbol{r}',t')}{|\boldsymbol{r} - \boldsymbol{r}'|} dV' \\
+&= \frac{1}{4\pi\varepsilon_0}\int\left[\frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|}\nabla\rho(\boldsymbol{r}',t') + \rho(\boldsymbol{r}',t')\nabla\frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|}\right] dV'
+\end{align}
+
+第1項について、$\rho(\boldsymbol{r}',t')$は$\boldsymbol{r}'$と$t'$の関数であり、$t' = t - |\boldsymbol{r} - \boldsymbol{r}'|/c$より：
+\begin{align}
+\nabla\rho(\boldsymbol{r}',t') &= \frac{\partial\rho}{\partial t'}\nabla t' \\
+&= \frac{\partial\rho}{\partial t'}\nabla\left(t - \frac{|\boldsymbol{r} - \boldsymbol{r}'|}{c}\right) \\
+&= -\frac{1}{c}\frac{\partial\rho}{\partial t'}\nabla|\boldsymbol{r} - \boldsymbol{r}'| \\
+&= -\frac{1}{c}\frac{\partial\rho}{\partial t'}\frac{\boldsymbol{r} - \boldsymbol{r}'}{|\boldsymbol{r} - \boldsymbol{r}'|}
+\end{align}
+
+第2項について：
+\begin{equation}
+\nabla\frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|} = -\frac{\boldsymbol{r} - \boldsymbol{r}'}{|\boldsymbol{r} - \boldsymbol{r}'|^3}
+\end{equation}
+
+したがって：
+\begin{align}
+\nabla\phi &= \frac{1}{4\pi\varepsilon_0}\int\left[-\frac{1}{c}\frac{\partial\rho}{\partial t'}\frac{\boldsymbol{r} - \boldsymbol{r}'}{|\boldsymbol{r} - \boldsymbol{r}'|^2} - \rho(\boldsymbol{r}',t')\frac{\boldsymbol{r} - \boldsymbol{r}'}{|\boldsymbol{r} - \boldsymbol{r}'|^3}\right] dV' \\
+&= -\frac{1}{4\pi\varepsilon_0}\int\left[\frac{\rho(\boldsymbol{r}',t')(\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3} + \frac{1}{c}\frac{\partial\rho(\boldsymbol{r}',t')}{\partial t'}\frac{\boldsymbol{r} - \boldsymbol{r}'}{|\boldsymbol{r} - \boldsymbol{r}'|^2}\right] dV'
+\end{align}
+
+次に、$\frac{\partial\boldsymbol{A}}{\partial t}$を計算する：
+\begin{align}
+\frac{\partial\boldsymbol{A}}{\partial t} &= \frac{\mu_0}{4\pi}\frac{\partial}{\partial t}\int \frac{\boldsymbol{i}(\boldsymbol{r}',t')}{|\boldsymbol{r} - \boldsymbol{r}'|} dV' \\
+&= \frac{\mu_0}{4\pi}\int\frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|}\frac{\partial\boldsymbol{i}(\boldsymbol{r}',t')}{\partial t'} \cdot \frac{\partial t'}{\partial t} dV'
+\end{align}
+
+$t' = t - |\boldsymbol{r} - \boldsymbol{r}'|/c$より、$\frac{\partial t'}{\partial t} = 1$である。したがって：
+\begin{equation}
+\frac{\partial\boldsymbol{A}}{\partial t} = \frac{\mu_0}{4\pi}\int\frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|}\frac{\partial\boldsymbol{i}(\boldsymbol{r}',t')}{\partial t'} dV'
+\end{equation}
+
+電場は：
+\begin{align}
+\boldsymbol{E} &= -\nabla\phi - \frac{\partial\boldsymbol{A}}{\partial t} \\
+&= \frac{1}{4\pi\varepsilon_0}\int\left[\frac{\rho(\boldsymbol{r}',t')(\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3} + \frac{1}{c}\frac{\partial\rho(\boldsymbol{r}',t')}{\partial t'}\frac{\boldsymbol{r} - \boldsymbol{r}'}{|\boldsymbol{r} - \boldsymbol{r}'|^2}\right] dV' \\
+&\quad - \frac{\mu_0}{4\pi}\int\frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|}\frac{\partial\boldsymbol{i}(\boldsymbol{r}',t')}{\partial t'} dV'
+\end{align}
+
+$\mu_0 = 1/(\varepsilon_0 c^2)$より：
+\begin{equation}
+\boldsymbol{E}(\boldsymbol{r},t) = \frac{1}{4\pi\varepsilon_0}\left[\int \frac{\rho(\boldsymbol{r}',t')(\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3} dV' + \int \frac{\partial\rho(\boldsymbol{r}',t')/\partial t'(\boldsymbol{r} - \boldsymbol{r}')}{c|\boldsymbol{r} - \boldsymbol{r}'|^2} dV' - \int \frac{\partial\boldsymbol{i}(\boldsymbol{r}',t')/\partial t'}{c^2|\boldsymbol{r} - \boldsymbol{r}'|} dV'\right]
+\end{equation}
+
+\paragraph{(2-2) 磁場の計算}
+
+磁場は：
+\begin{equation}
+\boldsymbol{B} = \nabla \times \boldsymbol{A}
+\end{equation}
+
+ベクトルポテンシャル：
+\begin{equation}
+\boldsymbol{A}(\boldsymbol{r},t) = \frac{\mu_0}{4\pi}\int \frac{\boldsymbol{i}(\boldsymbol{r}',t')}{|\boldsymbol{r} - \boldsymbol{r}'|} dV'
+\end{equation}
+
+$\nabla \times \boldsymbol{A}$を計算する。ベクトル恒等式：
+\begin{equation}
+\nabla \times (f\boldsymbol{v}) = f\nabla \times \boldsymbol{v} + \nabla f \times \boldsymbol{v}
+\end{equation}
+
+ここで、$f = 1/|\boldsymbol{r} - \boldsymbol{r}'|$、$\boldsymbol{v} = \boldsymbol{i}(\boldsymbol{r}',t')$である。$\boldsymbol{i}(\boldsymbol{r}',t')$は$\boldsymbol{r}$に依存しないため、$\nabla \times \boldsymbol{i} = \boldsymbol{0}$である。したがって：
+\begin{align}
+\nabla \times \boldsymbol{A} &= \frac{\mu_0}{4\pi}\int \nabla\frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|} \times \boldsymbol{i}(\boldsymbol{r}',t') dV' \\
+&= \frac{\mu_0}{4\pi}\int \left(-\frac{\boldsymbol{r} - \boldsymbol{r}'}{|\boldsymbol{r} - \boldsymbol{r}'|^3}\right) \times \boldsymbol{i}(\boldsymbol{r}',t') dV' \\
+&= \frac{\mu_0}{4\pi}\int \frac{\boldsymbol{i}(\boldsymbol{r}',t') \times (\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3} dV'
+\end{align}
+
+ただし、$t'$が$\boldsymbol{r}$に依存するため、より正確には：
+\begin{align}
+\nabla \times \boldsymbol{A} &= \frac{\mu_0}{4\pi}\int\left[\frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|}\nabla \times \boldsymbol{i}(\boldsymbol{r}',t') + \nabla\frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|} \times \boldsymbol{i}(\boldsymbol{r}',t')\right] dV'
+\end{align}
+
+第1項について、$\nabla \times \boldsymbol{i}(\boldsymbol{r}',t') = \frac{\partial\boldsymbol{i}}{\partial t'}\nabla t' \times \boldsymbol{i}$の寄与を考慮すると：
+\begin{align}
+\nabla \times \boldsymbol{A} &= \frac{\mu_0}{4\pi}\int\left[\frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|}\frac{\partial\boldsymbol{i}}{\partial t'}\nabla t' \times \boldsymbol{i} + \left(-\frac{\boldsymbol{r} - \boldsymbol{r}'}{|\boldsymbol{r} - \boldsymbol{r}'|^3}\right) \times \boldsymbol{i}(\boldsymbol{r}',t')\right] dV' \\
+&= \frac{\mu_0}{4\pi}\int\left[-\frac{1}{c|\boldsymbol{r} - \boldsymbol{r}'|}\frac{\partial\boldsymbol{i}}{\partial t'}\frac{\boldsymbol{r} - \boldsymbol{r}'}{|\boldsymbol{r} - \boldsymbol{r}'|} \times \boldsymbol{i} + \frac{\boldsymbol{i}(\boldsymbol{r}',t') \times (\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3}\right] dV' \\
+&= \frac{\mu_0}{4\pi}\left[\int \frac{\boldsymbol{i}(\boldsymbol{r}',t') \times (\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3} dV' + \int \frac{\partial\boldsymbol{i}(\boldsymbol{r}',t')/\partial t' \times (\boldsymbol{r} - \boldsymbol{r}')}{c|\boldsymbol{r} - \boldsymbol{r}'|^2} dV'\right]
+\end{align}
+
+したがって：
+\begin{equation}
+\boldsymbol{B}(\boldsymbol{r},t) = \frac{\mu_0}{4\pi}\left[\int \frac{\boldsymbol{i}(\boldsymbol{r}',t') \times (\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3} dV' + \int \frac{\partial\boldsymbol{i}(\boldsymbol{r}',t')/\partial t' \times (\boldsymbol{r} - \boldsymbol{r}')}{c|\boldsymbol{r} - \boldsymbol{r}'|^2} dV'\right]
+\end{equation}
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(2-1)] $\boldsymbol{E}(\boldsymbol{r},t) = \frac{1}{4\pi\varepsilon_0}\left[\int \frac{\rho(\boldsymbol{r}',t')(\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3} dV' + \int \frac{\partial\rho(\boldsymbol{r}',t')/\partial t'(\boldsymbol{r} - \boldsymbol{r}')}{c|\boldsymbol{r} - \boldsymbol{r}'|^2} dV' - \int \frac{\partial\boldsymbol{i}(\boldsymbol{r}',t')/\partial t'}{c^2|\boldsymbol{r} - \boldsymbol{r}'|} dV'\right]$
+    \item[(2-2)] $\boldsymbol{B}(\boldsymbol{r},t) = \frac{\mu_0}{4\pi}\left[\int \frac{\boldsymbol{i}(\boldsymbol{r}',t') \times (\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3} dV' + \int \frac{\partial\boldsymbol{i}(\boldsymbol{r}',t')/\partial t' \times (\boldsymbol{r} - \boldsymbol{r}')}{c|\boldsymbol{r} - \boldsymbol{r}'|^2} dV'\right]$
+\end{enumerate}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 遅延ポテンシャルから導出される電場・磁場は、静電場・静磁場の項に加えて、時間変化による補正項を含む。
+    \item 第1項は静電場・静磁場に対応し、第2項は時間変化による補正項である。これらの項により、電磁波の放射が記述される。
+    \item $t' = t - |\boldsymbol{r} - \boldsymbol{r}'|/c$は、情報が光速$c$で伝播することを示している（遅延時間）。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex7_2_retarded_potential.png}
+\caption{遅延ポテンシャルと電場の時間変化}
+\label{fig:ex7_2_retarded_potential}
+\end{figure}
+
+\section{問題3: 微小誘電体球による光の吸収と散乱}
+
+\subsection{問題}
+
+真空（誘電率$\varepsilon_0$）に置かれた微小誘電体球（体積$V$、複素誘電率$\varepsilon = \varepsilon' + i\varepsilon''$）による光の吸収、散乱を考える。入射光は単色で、単一角振動数$\omega$で振動する外部電場$\boldsymbol{E}_i = \boldsymbol{E}_0\exp(-i\omega t)$とする。真空中の光のエネルギーの流れ（ポインティングベクトルの大きさ）$\boldsymbol{S}$は、光速$c$として、振動の一周期平均$\langle S \rangle = c\varepsilon_0|\boldsymbol{E}_0|^2/2$と書ける。誘電体球の大きさは光の波長に比べて十分小さいと考え、誘電体の分極は同位相で振動する双極子$\boldsymbol{p}$として近似できるとする。
+
+\begin{enumerate}
+    \item[(3-1)] 光の吸収断面積$C_a$を、$c$、$V$、$\varepsilon_0$、$\varepsilon'$、$\varepsilon''$、$\omega$を用いて求める。
+    \item[(3-2)] 光の散乱断面積$C_s$を、$c$、$V$、$\varepsilon_0$、$\varepsilon'$、$\omega$を用いて求める。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+微小誘電体球の分極による光の吸収と散乱を、双極子近似で求める。
+
+\subsubsection{使用する物理法則}
+
+双極子の分極：
+\begin{equation}
+\boldsymbol{p} = \varepsilon_0\frac{\varepsilon - \varepsilon_0}{\varepsilon + 2\varepsilon_0}V\boldsymbol{E}_0
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(3-1) 吸収断面積}
+
+問題1-2の結果を用いて、単位体積あたりの吸収エネルギー率を求める。複素誘電率$\varepsilon = \varepsilon' + i\varepsilon''$の場合、誘電率の虚部$\varepsilon''$がエネルギー吸収に関与する。
+
+問題1-2より、単位体積あたりの吸収エネルギー率の一周期平均は：
+\begin{equation}
+\left\langle\frac{dw_a}{dt}\right\rangle = \frac{\omega\varepsilon_0\chi_0 E_0^2}{2}\frac{\omega\tau}{1 + \omega^2\tau^2}
+\end{equation}
+
+複素誘電率の場合、$\varepsilon = \varepsilon_0(1 + \chi_e)$より、$\chi_e$の虚部は$\varepsilon''/\varepsilon_0$に対応する。より直接的に、問題1-2の結果を拡張すると：
+\begin{equation}
+\left\langle\frac{dw_a}{dt}\right\rangle = \frac{\omega\varepsilon'' E_0^2}{2}
+\end{equation}
+
+誘電体球全体での吸収エネルギー率：
+\begin{align}
+\left\langle\frac{dW_a}{dt}\right\rangle &= V \cdot \left\langle\frac{dw_a}{dt}\right\rangle \\
+&= V \cdot \frac{\omega\varepsilon'' E_0^2}{2}
+\end{align}
+
+入射光のエネルギーフラックス（ポインティングベクトルの大きさの一周期平均）：
+\begin{equation}
+\langle S \rangle = \frac{c\varepsilon_0|\boldsymbol{E}_0|^2}{2}
+\end{equation}
+
+吸収断面積の定義：
+\begin{equation}
+C_a = \frac{\langle dW_a/dt \rangle}{\langle S \rangle}
+\end{equation}
+
+したがって：
+\begin{align}
+C_a &= \frac{V \cdot \frac{\omega\varepsilon'' E_0^2}{2}}{\frac{c\varepsilon_0 E_0^2}{2}} \\
+&= \frac{V\omega\varepsilon''}{c\varepsilon_0}
+\end{align}
+
+\paragraph{(3-2) 散乱断面積}
+
+振動双極子が放射する電磁波のパワーを求める。振動双極子$\boldsymbol{p} = \boldsymbol{p}_0\exp(-i\omega t)$が作る電磁場から、放射パワーを計算する。
+
+双極子放射の公式より、単位時間あたりに放射されるエネルギーは：
+\begin{equation}
+P = \frac{\mu_0}{6\pi c}\left|\frac{d^2\boldsymbol{p}}{dt^2}\right|^2
+\end{equation}
+
+$\boldsymbol{p} = \boldsymbol{p}_0\exp(-i\omega t)$より：
+\begin{align}
+\frac{d^2\boldsymbol{p}}{dt^2} &= (-i\omega)^2\boldsymbol{p}_0\exp(-i\omega t) = -\omega^2\boldsymbol{p}
+\end{align}
+
+したがって：
+\begin{align}
+\left|\frac{d^2\boldsymbol{p}}{dt^2}\right|^2 &= \omega^4|\boldsymbol{p}|^2
+\end{align}
+
+一周期平均：
+\begin{align}
+\left\langle\frac{dW_s}{dt}\right\rangle &= \frac{\mu_0\omega^4}{6\pi c}|\boldsymbol{p}_0|^2
+\end{align}
+
+双極子モーメントは、問題4（演習問題4）の結果より：
+\begin{equation}
+\boldsymbol{p} = \varepsilon_0\frac{\varepsilon - \varepsilon_0}{\varepsilon + 2\varepsilon_0}V\boldsymbol{E}_0
+\end{equation}
+
+散乱には実部のみが寄与するため、$\varepsilon'$を用いる：
+\begin{equation}
+\boldsymbol{p}_0 = \varepsilon_0\frac{\varepsilon' - \varepsilon_0}{\varepsilon' + 2\varepsilon_0}V\boldsymbol{E}_0
+\end{equation}
+
+したがって：
+\begin{align}
+\left\langle\frac{dW_s}{dt}\right\rangle &= \frac{\mu_0\omega^4}{6\pi c}\left|\varepsilon_0\frac{\varepsilon' - \varepsilon_0}{\varepsilon' + 2\varepsilon_0}V\boldsymbol{E}_0\right|^2 \\
+&= \frac{\mu_0\omega^4\varepsilon_0^2 V^2 E_0^2}{6\pi c}\left(\frac{\varepsilon' - \varepsilon_0}{\varepsilon' + 2\varepsilon_0}\right)^2
+\end{align}
+
+散乱断面積：
+\begin{align}
+C_s &= \frac{\langle dW_s/dt \rangle}{\langle S \rangle} \\
+&= \frac{\frac{\mu_0\omega^4\varepsilon_0^2 V^2 E_0^2}{6\pi c}\left(\frac{\varepsilon' - \varepsilon_0}{\varepsilon' + 2\varepsilon_0}\right)^2}{\frac{c\varepsilon_0 E_0^2}{2}} \\
+&= \frac{\mu_0\omega^4\varepsilon_0 V^2}{3\pi c^2}\left(\frac{\varepsilon' - \varepsilon_0}{\varepsilon' + 2\varepsilon_0}\right)^2
+\end{align}
+
+$\mu_0 = 1/(\varepsilon_0 c^2)$より：
+\begin{align}
+C_s &= \frac{\omega^4 V^2}{3\pi c^4}\left(\frac{\varepsilon' - \varepsilon_0}{\varepsilon' + 2\varepsilon_0}\right)^2 \\
+&= \frac{8\pi}{3}\frac{\omega^4 V^2}{c^4}\left(\frac{\varepsilon' - \varepsilon_0}{\varepsilon' + 2\varepsilon_0}\right)^2
+\end{align}
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(3-1)] $C_a = \frac{V\omega\varepsilon''}{c\varepsilon_0}$
+    \item[(3-2)] $C_s = \frac{8\pi}{3}\frac{\omega^4 V^2}{c^4}\left(\frac{\varepsilon' - \varepsilon_0}{\varepsilon' + 2\varepsilon_0}\right)^2$
+\end{enumerate}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 吸収断面積$C_a$は、誘電率の虚部$\varepsilon''$に比例する。$\varepsilon''$が大きいほど、エネルギー吸収が大きい。
+    \item 散乱断面積$C_s$は、周波数の4乗に比例する（レイリー散乱）。これは、波長が短いほど散乱が強くなることを示している。
+    \item 散乱断面積は、誘電体球の体積の2乗に比例する。これは、双極子モーメントが体積に比例し、放射パワーが双極子モーメントの2乗に比例するためである。
+    \item 吸収と散乱の比は、$\frac{C_a}{C_s} \propto \frac{\varepsilon''}{\omega^3 V}$となり、周波数が高いほど散乱が優勢になる。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex7_3_scattering.png}
+\caption{微小誘電体球による光の吸収と散乱}
+\label{fig:ex7_3_scattering}
+\end{figure}
+
+\section{問題4: 媒質境界面での電磁波の反射}
+
+\subsection{問題}
+
+$z$軸方向に進行する、角振動数$\omega$、波数$k$の平面電磁波（$\boldsymbol{E} = \boldsymbol{E}_0\exp[i(kz - \omega t)]$、$\boldsymbol{H} = \boldsymbol{H}_0\exp[i(kz - \omega t)]$）が、真空（誘電率$\varepsilon_0$、透磁率$\mu_0$）から、誘電率$\varepsilon$、透磁率$\mu$の物質（$\varepsilon$と$\mu$は実数）の境界面に垂直に入射する。境界面を$z=0$とする。物質は$z \geq 0$の領域を占める。
+
+\begin{enumerate}
+    \item[(4-1)] 反射率を、$\varepsilon_0$、$\mu_0$、$\varepsilon$、$\mu$を用いて求める。
+    \item[(4-2)] 入射波と反射波の電場成分の位相が、反射面で$\pi$だけ変化するための条件を示す。
+    \item[(4-3)] 真空中からガラス面（屈折率$n = \sqrt{\varepsilon\mu/(\varepsilon_0\mu_0)} = 1.5$）に光が垂直入射するときの反射率を求める。ただし、ここでは$\mu = \mu_0$と考える。
+    \item[(4-4)] もし$\varepsilon$が負であった場合、反射率はどうなるかを述べる。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+境界面での電場と磁場の連続性条件を用いて反射率を求める。
+
+\subsubsection{使用する物理法則}
+
+境界条件：
+\begin{align}
+E_{\parallel,1} &= E_{\parallel,2} \\
+H_{\parallel,1} &= H_{\parallel,2}
+\end{align}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(4-1) 反射率}
+
+入射波、反射波、透過波を以下のように表す：
+
+入射波（真空側、$z < 0$）：
+\begin{align}
+E_i(z,t) &= E_0\exp[i(k_0 z - \omega t)] \\
+H_i(z,t) &= \frac{E_0}{Z_0}\exp[i(k_0 z - \omega t)]
+\end{align}
+ここで、$k_0 = \omega\sqrt{\varepsilon_0\mu_0}$、$Z_0 = \sqrt{\mu_0/\varepsilon_0}$は真空の特性インピーダンスである。
+
+反射波（真空側、$z < 0$）：
+\begin{align}
+E_r(z,t) &= rE_0\exp[i(-k_0 z - \omega t)] \\
+H_r(z,t) &= -\frac{rE_0}{Z_0}\exp[i(-k_0 z - \omega t)]
+\end{align}
+反射波の磁場の符号が負なのは、進行方向が逆向きのためである。
+
+透過波（物質側、$z > 0$）：
+\begin{align}
+E_t(z,t) &= tE_0\exp[i(k z - \omega t)] \\
+H_t(z,t) &= \frac{tE_0}{Z}\exp[i(k z - \omega t)]
+\end{align}
+ここで、$k = \omega\sqrt{\varepsilon\mu}$、$Z = \sqrt{\mu/\varepsilon}$は物質の特性インピーダンスである。
+
+境界面$z = 0$での境界条件を適用する。
+
+第1の境界条件（電場の接線成分の連続性）：
+\begin{align}
+E_i(0,t) + E_r(0,t) &= E_t(0,t) \\
+E_0\exp(-i\omega t) + rE_0\exp(-i\omega t) &= tE_0\exp(-i\omega t) \\
+1 + r &= t \quad \text{(1)}
+\end{align}
+
+第2の境界条件（磁場の接線成分の連続性）：
+\begin{align}
+H_i(0,t) + H_r(0,t) &= H_t(0,t) \\
+\frac{E_0}{Z_0}\exp(-i\omega t) - \frac{rE_0}{Z_0}\exp(-i\omega t) &= \frac{tE_0}{Z}\exp(-i\omega t) \\
+\frac{1 - r}{Z_0} &= \frac{t}{Z} \quad \text{(2)}
+\end{align}
+
+(1)より$t = 1 + r$を(2)に代入：
+\begin{align}
+\frac{1 - r}{Z_0} &= \frac{1 + r}{Z} \\
+Z(1 - r) &= Z_0(1 + r) \\
+Z - Zr &= Z_0 + Z_0 r \\
+Z - Z_0 &= r(Z + Z_0) \\
+r &= \frac{Z - Z_0}{Z + Z_0}
+\end{align}
+
+反射率は：
+\begin{align}
+R &= |r|^2 = \left|\frac{Z - Z_0}{Z + Z_0}\right|^2 = \left(\frac{Z - Z_0}{Z + Z_0}\right)^2
+\end{align}
+
+$Z = \sqrt{\mu/\varepsilon}$、$Z_0 = \sqrt{\mu_0/\varepsilon_0}$より：
+\begin{equation}
+R = \left(\frac{\sqrt{\mu/\varepsilon} - \sqrt{\mu_0/\varepsilon_0}}{\sqrt{\mu/\varepsilon} + \sqrt{\mu_0/\varepsilon_0}}\right)^2
+\end{equation}
+
+\paragraph{(4-2) 位相変化}
+
+反射係数$r$の符号を調べる：
+\begin{equation}
+r = \frac{Z - Z_0}{Z + Z_0}
+\end{equation}
+
+$Z < Z_0$の場合、$Z - Z_0 < 0$、$Z + Z_0 > 0$より、$r < 0$となる。
+
+$r < 0$の場合、反射波の電場は：
+\begin{equation}
+E_r = rE_0\exp[i(-k_0 z - \omega t)] = |r|E_0\exp[i(-k_0 z - \omega t + \pi)]
+\end{equation}
+
+これは、入射波の電場$E_i = E_0\exp[i(k_0 z - \omega t)]$と比較すると、位相が$\pi$だけずれていることを示す。
+
+したがって、$Z < Z_0$（すなわち、物質の特性インピーダンスが真空より小さい）場合、反射面で位相が$\pi$変化する。
+
+\paragraph{(4-3) ガラスの場合}
+
+$\mu = \mu_0$の場合、特性インピーダンスは：
+\begin{align}
+Z &= \sqrt{\frac{\mu_0}{\varepsilon}} = \sqrt{\frac{\mu_0}{\varepsilon_0}} \cdot \sqrt{\frac{\varepsilon_0}{\varepsilon}} = Z_0 \cdot \frac{1}{n}
+\end{align}
+
+ここで、屈折率$n = \sqrt{\varepsilon/\varepsilon_0}$である。
+
+反射率：
+\begin{align}
+R &= \left(\frac{Z - Z_0}{Z + Z_0}\right)^2 \\
+&= \left(\frac{Z_0/n - Z_0}{Z_0/n + Z_0}\right)^2 \\
+&= \left(\frac{1/n - 1}{1/n + 1}\right)^2 \\
+&= \left(\frac{1 - n}{1 + n}\right)^2 \\
+&= \left(\frac{n - 1}{n + 1}\right)^2
+\end{align}
+
+$n = 1.5$の場合：
+\begin{align}
+R &= \left(\frac{1.5 - 1}{1.5 + 1}\right)^2 \\
+&= \left(\frac{0.5}{2.5}\right)^2 \\
+&= \left(\frac{1}{5}\right)^2 = \frac{1}{25} = 0.04 = 4\%
+\end{align}
+
+\paragraph{(4-4) $\varepsilon < 0$の場合}
+
+$\varepsilon < 0$の場合、特性インピーダンス：
+\begin{equation}
+Z = \sqrt{\frac{\mu}{\varepsilon}}
+\end{equation}
+
+$\varepsilon < 0$より、$Z$は純虚数となる。実際には：
+\begin{equation}
+Z = i\sqrt{\frac{\mu}{|\varepsilon|}} = i|Z|
+\end{equation}
+
+反射係数：
+\begin{align}
+r &= \frac{Z - Z_0}{Z + Z_0} = \frac{i|Z| - Z_0}{i|Z| + Z_0}
+\end{align}
+
+この場合、$|r|^2$を計算すると：
+\begin{align}
+|r|^2 &= \left|\frac{i|Z| - Z_0}{i|Z| + Z_0}\right|^2 \\
+&= \frac{|i|Z| - Z_0|^2}{|i|Z| + Z_0|^2} \\
+&= \frac{|Z|^2 + Z_0^2}{|Z|^2 + Z_0^2} = 1
+\end{align}
+
+したがって、反射率$R = 1$となり、全反射が起こる。これは、$\varepsilon < 0$の場合、物質内で電磁波が伝播できず、すべて反射されるためである。
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(4-1)] $R = \left(\frac{\sqrt{\mu/\varepsilon} - \sqrt{\mu_0/\varepsilon_0}}{\sqrt{\mu/\varepsilon} + \sqrt{\mu_0/\varepsilon_0}}\right)^2$
+    \item[(4-2)] $Z < Z_0$（物質の特性インピーダンスが真空より小さい）のとき、反射面で位相が$\pi$変化する。
+    \item[(4-3)] $R = 4\%$
+    \item[(4-4)] $\varepsilon < 0$のとき、$R = 1$となり、全反射が起こる。
+\end{enumerate}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 反射率は、特性インピーダンスの差によって決まる。インピーダンスの差が大きいほど、反射率は大きくなる。
+    \item 位相変化は、特性インピーダンスの大小関係によって決まる。物質のインピーダンスが真空より小さい場合、反射面で位相が$\pi$変化する。
+    \item ガラスの場合、反射率は約4\%であり、大部分の光は透過する。これは、ガラスと真空のインピーダンスの差が小さいためである。
+    \item $\varepsilon < 0$の場合（メタマテリアルなど）、全反射が起こる。これは、物質内で電磁波が伝播できないためである。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex7_4_reflection.png}
+\caption{媒質境界面での電磁波の反射}
+\label{fig:ex7_4_reflection}
+\end{figure}
+
+\end{document}

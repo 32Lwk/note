@@ -1,0 +1,560 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[no-math]{luatexja-fontspec}
+\setmainjfont{Hiragino Mincho ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\setsansjfont{Hiragino Kaku Gothic ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{float}
+\usepackage[draft=false]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdfusetitle=true
+}
+
+\title{電磁気学演習問題 解答・解説\\第2回 (2025年10月17日)}
+\author{名古屋大学　理学部物理学科}
+\date{2025年10月17日}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{問題1: Maxwellの方程式とエネルギー}
+
+\subsection{問題}
+
+変位電流を含むアンペールの法則とファラデーの法則を用いて、電磁場のエネルギー密度$W = \boldsymbol{E} \cdot \boldsymbol{D}/2 + \boldsymbol{H} \cdot \boldsymbol{B}/2$とポインティングベクトル$\boldsymbol{S} = \boldsymbol{E} \times \boldsymbol{H}$の間に、次の関係が成り立つことを示せ：
+\begin{equation}
+\frac{\partial W}{\partial t} = -\nabla \cdot \boldsymbol{S} + \boldsymbol{i} \cdot \boldsymbol{E}
+\end{equation}
+また、各項が物理的に何を意味するかを述べ、前回の演習問題5の結果と矛盾しないことを確認せよ。
+
+ヒント: ベクトル恒等式$\nabla \cdot (\boldsymbol{E} \times \boldsymbol{H}) = \boldsymbol{H} \cdot (\nabla \times \boldsymbol{E}) - \boldsymbol{E} \cdot (\nabla \times \boldsymbol{H})$を用いる。
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+真空中では$\boldsymbol{D} = \varepsilon_0\boldsymbol{E}$、$\boldsymbol{B} = \mu_0\boldsymbol{H}$である。エネルギー密度は：
+\begin{equation}
+W = \frac{1}{2}\varepsilon_0|\boldsymbol{E}|^2 + \frac{1}{2\mu_0}|\boldsymbol{B}|^2
+\end{equation}
+
+\subsubsection{使用する物理法則}
+
+Maxwell方程式：
+\begin{align}
+\nabla \times \boldsymbol{E} &= -\frac{\partial\boldsymbol{B}}{\partial t} \\
+\nabla \times \boldsymbol{B} &= \mu_0\boldsymbol{i} + \mu_0\varepsilon_0\frac{\partial\boldsymbol{E}}{\partial t}
+\end{align}
+
+ベクトル恒等式：
+\begin{equation}
+\nabla \cdot (\boldsymbol{E} \times \boldsymbol{H}) = \boldsymbol{H} \cdot (\nabla \times \boldsymbol{E}) - \boldsymbol{E} \cdot (\nabla \times \boldsymbol{H})
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+エネルギー密度の時間変化を計算する：
+\begin{align}
+\frac{\partial W}{\partial t} &= \frac{\partial}{\partial t}\left(\frac{1}{2}\varepsilon_0|\boldsymbol{E}|^2 + \frac{1}{2\mu_0}|\boldsymbol{B}|^2\right) \\
+&= \varepsilon_0\boldsymbol{E} \cdot \frac{\partial\boldsymbol{E}}{\partial t} + \frac{1}{\mu_0}\boldsymbol{B} \cdot \frac{\partial\boldsymbol{B}}{\partial t}
+\end{align}
+
+ファラデーの法則より：
+\begin{equation}
+\frac{\partial\boldsymbol{B}}{\partial t} = -\nabla \times \boldsymbol{E}
+\end{equation}
+
+アンペールの法則より：
+\begin{equation}
+\frac{\partial\boldsymbol{E}}{\partial t} = \frac{1}{\varepsilon_0\mu_0}(\nabla \times \boldsymbol{B} - \mu_0\boldsymbol{i})
+\end{equation}
+
+したがって：
+\begin{align}
+\frac{\partial W}{\partial t} &= \varepsilon_0\boldsymbol{E} \cdot \frac{1}{\varepsilon_0\mu_0}(\nabla \times \boldsymbol{B} - \mu_0\boldsymbol{i}) + \frac{1}{\mu_0}\boldsymbol{B} \cdot (-\nabla \times \boldsymbol{E}) \\
+&= \frac{1}{\mu_0}\boldsymbol{E} \cdot (\nabla \times \boldsymbol{B}) - \boldsymbol{i} \cdot \boldsymbol{E} - \frac{1}{\mu_0}\boldsymbol{B} \cdot (\nabla \times \boldsymbol{E})
+\end{align}
+
+ベクトル恒等式を用いて変形する。まず、$\boldsymbol{B} = \mu_0\boldsymbol{H}$より：
+\begin{align}
+\boldsymbol{E} \cdot (\nabla \times \boldsymbol{B}) - \frac{1}{\mu_0}\boldsymbol{B} \cdot (\nabla \times \boldsymbol{E}) &= \boldsymbol{E} \cdot (\nabla \times \boldsymbol{B}) - \boldsymbol{H} \cdot (\nabla \times \boldsymbol{E})
+\end{align}
+
+ベクトル恒等式：
+\begin{equation}
+\nabla \cdot (\boldsymbol{E} \times \boldsymbol{H}) = \boldsymbol{H} \cdot (\nabla \times \boldsymbol{E}) - \boldsymbol{E} \cdot (\nabla \times \boldsymbol{H})
+\end{equation}
+
+これを用いると：
+\begin{align}
+\boldsymbol{E} \cdot (\nabla \times \boldsymbol{B}) - \boldsymbol{H} \cdot (\nabla \times \boldsymbol{E}) &= \mu_0\boldsymbol{E} \cdot (\nabla \times \boldsymbol{H}) - \boldsymbol{H} \cdot (\nabla \times \boldsymbol{E}) \\
+&= -\left[\boldsymbol{H} \cdot (\nabla \times \boldsymbol{E}) - \mu_0\boldsymbol{E} \cdot (\nabla \times \boldsymbol{H})\right] \\
+&= -\left[\boldsymbol{H} \cdot (\nabla \times \boldsymbol{E}) - \boldsymbol{E} \cdot (\nabla \times \boldsymbol{H})\right] \quad \text{（$\mu_0$を考慮）}
+\end{align}
+
+実際には、$\boldsymbol{B} = \mu_0\boldsymbol{H}$より：
+\begin{align}
+\boldsymbol{E} \cdot (\nabla \times \boldsymbol{B}) - \frac{1}{\mu_0}\boldsymbol{B} \cdot (\nabla \times \boldsymbol{E}) &= \mu_0\boldsymbol{E} \cdot (\nabla \times \boldsymbol{H}) - \boldsymbol{H} \cdot (\nabla \times \boldsymbol{E}) \\
+&= -\left[\boldsymbol{H} \cdot (\nabla \times \boldsymbol{E}) - \mu_0\boldsymbol{E} \cdot (\nabla \times \boldsymbol{H})\right]
+\end{align}
+
+ベクトル恒等式より：
+\begin{align}
+\nabla \cdot (\boldsymbol{E} \times \boldsymbol{H}) &= \boldsymbol{H} \cdot (\nabla \times \boldsymbol{E}) - \boldsymbol{E} \cdot (\nabla \times \boldsymbol{H}) \\
+&= \boldsymbol{H} \cdot (\nabla \times \boldsymbol{E}) - \frac{1}{\mu_0}\boldsymbol{E} \cdot (\nabla \times \boldsymbol{B})
+\end{align}
+
+したがって：
+\begin{align}
+\boldsymbol{H} \cdot (\nabla \times \boldsymbol{E}) - \frac{1}{\mu_0}\boldsymbol{E} \cdot (\nabla \times \boldsymbol{B}) &= -\nabla \cdot (\boldsymbol{E} \times \boldsymbol{H}) = -\mu_0\nabla \cdot \boldsymbol{S}
+\end{align}
+
+ここで、$\boldsymbol{S} = \frac{1}{\mu_0}\boldsymbol{E} \times \boldsymbol{H}$である。したがって：
+\begin{align}
+\frac{1}{\mu_0}\left[\boldsymbol{E} \cdot (\nabla \times \boldsymbol{B}) - \boldsymbol{B} \cdot (\nabla \times \boldsymbol{E})\right] &= -\nabla \cdot \boldsymbol{S}
+\end{align}
+
+したがって：
+\begin{equation}
+\frac{\partial W}{\partial t} = -\nabla \cdot \boldsymbol{S} + \boldsymbol{i} \cdot \boldsymbol{E}
+\end{equation}
+
+\subsubsection{物理的意味}
+
+\begin{itemize}
+    \item $\frac{\partial W}{\partial t}$: 単位体積あたりの電磁場エネルギーの時間変化率
+    \item $-\nabla \cdot \boldsymbol{S}$: ポインティングベクトルの発散の負の値。これは、単位体積あたりに流入するエネルギーフラックスを表す。
+    \item $\boldsymbol{i} \cdot \boldsymbol{E}$: 単位体積あたりのジュール熱（電流によるエネルギー散逸）
+\end{itemize}
+
+\subsubsection{前回の問題5との整合性}
+
+前回の問題5では、同軸円筒抵抗体において$-\nabla \cdot \boldsymbol{S} = w$（単位体積あたりの発熱量）が成り立つことを示した。これは、$\boldsymbol{i} \cdot \boldsymbol{E} = w$であり、定常状態では$\frac{\partial W}{\partial t} = 0$であることから、$-\nabla \cdot \boldsymbol{S} = \boldsymbol{i} \cdot \boldsymbol{E}$が成り立つ。これは本問の結果と一致する。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex2_1_energy_flow.png}
+\caption{Maxwell方程式とエネルギー流れ}
+\label{fig:ex2_1_energy_flow}
+\end{figure}
+
+\section{問題2: 導体内の自由電子の運動とOhmの法則}
+
+\subsection{問題}
+
+一様な電場中を移動する自由電子（電荷$q$、数密度$n$）が、電場によるクーロン力と、運動と逆向きに働く抵抗力によって定常運動状態になる状況を考える。抵抗力は電子の運動速度$\boldsymbol{v}$に比例し、$\gamma m\boldsymbol{v}$と書ける（$m$は電子質量）とする。このとき、Ohmの法則に基づいて、電気伝導度$\sigma$を、$\gamma$などを用いて表せ。
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+電子の運動方程式：
+\begin{equation}
+m\frac{d\boldsymbol{v}}{dt} = q\boldsymbol{E} - \gamma m\boldsymbol{v}
+\end{equation}
+
+定常状態では$\frac{d\boldsymbol{v}}{dt} = \boldsymbol{0}$である。
+
+\subsubsection{使用する物理法則}
+
+運動方程式とOhmの法則：
+\begin{equation}
+\boldsymbol{i} = \sigma \boldsymbol{E}
+\end{equation}
+
+電流密度は：
+\begin{equation}
+\boldsymbol{i} = nq\boldsymbol{v}
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+定常状態では：
+\begin{align}
+q\boldsymbol{E} - \gamma m\boldsymbol{v} &= \boldsymbol{0} \\
+\boldsymbol{v} &= \frac{q}{\gamma m}\boldsymbol{E}
+\end{align}
+
+したがって：
+\begin{align}
+\boldsymbol{i} &= nq\boldsymbol{v} = nq \cdot \frac{q}{\gamma m}\boldsymbol{E} \\
+&= \frac{nq^2}{\gamma m}\boldsymbol{E}
+\end{align}
+
+Ohmの法則$\boldsymbol{i} = \sigma\boldsymbol{E}$と比較すると：
+\begin{equation}
+\sigma = \frac{nq^2}{\gamma m}
+\end{equation}
+
+\subsubsection{最終的な答え}
+
+\begin{equation}
+\sigma = \frac{nq^2}{\gamma m}
+\end{equation}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 電気伝導度$\sigma$は、電子の数密度$n$、電荷$q$の2乗、電子質量$m$の逆数に比例し、抵抗係数$\gamma$に反比例する。
+    \item 抵抗係数$\gamma$が大きいほど、電子の運動が阻害され、電気伝導度は小さくなる。
+    \item この結果は、ドルーデモデルにおける電気伝導度の表現と一致する。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex2_2_ohm_law.png}
+\caption{導体内の自由電子の運動とOhmの法則}
+\label{fig:ex2_2_ohm_law}
+\end{figure}
+
+\section{問題3: Ohmの法則と導体内の電荷の時間的減少}
+
+\subsection{問題}
+
+Ohmの法則$\boldsymbol{i} = \sigma\boldsymbol{E}$が成り立つ導体（電気伝導度$\sigma$は有限値）において、金属内部で$\nabla \cdot \boldsymbol{E} = \rho/\varepsilon_0$が成立すると仮定した場合、電荷密度$\rho$が時間とともに$\rho = \rho_0 \exp(-t/\tau)$の形で減少することを示せ。ここで、時定数$\tau = \varepsilon_0/\sigma$である。また、アルミの場合（$\sigma = 3 \times 10^7 \Omega^{-1}\text{m}^{-1}$）について、この時定数$\tau$の値を計算し、その$\tau$が光の振動の周期に等しいとしたときに、それがどのような電磁波に対応するかを問う。
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+電荷の保存則：
+\begin{equation}
+\frac{\partial\rho}{\partial t} + \nabla \cdot \boldsymbol{i} = 0
+\end{equation}
+
+\subsubsection{使用する物理法則}
+
+Ohmの法則とガウスの法則：
+\begin{align}
+\boldsymbol{i} &= \sigma\boldsymbol{E} \\
+\nabla \cdot \boldsymbol{E} &= \frac{\rho}{\varepsilon_0}
+\end{align}
+
+\subsubsection{段階的な計算過程}
+
+電荷の保存則にOhmの法則を代入：
+\begin{align}
+\frac{\partial\rho}{\partial t} + \nabla \cdot (\sigma\boldsymbol{E}) &= 0 \\
+\frac{\partial\rho}{\partial t} + \sigma \nabla \cdot \boldsymbol{E} &= 0
+\end{align}
+
+ガウスの法則を用いると：
+\begin{align}
+\frac{\partial\rho}{\partial t} + \sigma \cdot \frac{\rho}{\varepsilon_0} &= 0 \\
+\frac{\partial\rho}{\partial t} &= -\frac{\sigma}{\varepsilon_0}\rho
+\end{align}
+
+この微分方程式の解は：
+\begin{equation}
+\rho(t) = \rho_0 \exp\left(-\frac{\sigma}{\varepsilon_0}t\right) = \rho_0 \exp\left(-\frac{t}{\tau}\right)
+\end{equation}
+ここで、$\tau = \varepsilon_0/\sigma$である。
+
+\paragraph{アルミの場合の計算}
+
+$\sigma = 3 \times 10^7 \Omega^{-1}\text{m}^{-1}$、$\varepsilon_0 = 8.85 \times 10^{-12} \text{F/m}$より：
+\begin{align}
+\tau &= \frac{\varepsilon_0}{\sigma} = \frac{8.85 \times 10^{-12}}{3 \times 10^7} \\
+&= 2.95 \times 10^{-19} \text{s}
+\end{align}
+
+この時定数が光の振動の周期に等しいとすると：
+\begin{align}
+T &= \tau = 2.95 \times 10^{-19} \text{s} \\
+f &= \frac{1}{T} = 3.39 \times 10^{18} \text{Hz} \\
+\lambda &= \frac{c}{f} = \frac{3 \times 10^8}{3.39 \times 10^{18}} = 8.85 \times 10^{-11} \text{m}
+\end{align}
+
+これはX線領域の電磁波に対応する。
+
+\subsubsection{最終的な答え}
+
+\begin{equation}
+\rho(t) = \rho_0 \exp\left(-\frac{t}{\tau}\right), \quad \tau = \frac{\varepsilon_0}{\sigma}
+\end{equation}
+
+アルミの場合：$\tau = 2.95 \times 10^{-19} \text{s}$、これはX線領域の電磁波に対応する。
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 導体内の電荷密度は、時定数$\tau = \varepsilon_0/\sigma$で指数関数的に減少する。これは、電荷が電流として流れ出し、導体内部の電荷が中和されるためである。
+    \item 時定数$\tau$は、誘電率$\varepsilon_0$に比例し、電気伝導度$\sigma$に反比例する。導電性が高いほど、電荷の減少は速い。
+    \item アルミの場合、時定数は非常に短く（$10^{-19}$秒オーダー）、これはX線領域の電磁波の周期に相当する。このため、導体内では電荷の時間変化が非常に速く、静電場の近似が成り立たない場合がある。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex2_3_charge_decay.png}
+\caption{導体内の電荷密度の時間的減少}
+\label{fig:ex2_3_charge_decay}
+\end{figure}
+
+\section{問題4: 導体板に誘起される電荷}
+
+\subsection{問題}
+
+一様な外部電場$\boldsymbol{E}$の中に、非常に広い導体板を電場に垂直に置いたときに、導体面に誘起される電荷の面密度を求める。また、導体を導入したことによって、もとの外部電場がどのように変化するかを説明せよ。
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+導体板を$xy$平面に置き、外部電場を$\boldsymbol{E}_0 = E_0\hat{\boldsymbol{z}}$とする。導体内部では電場はゼロである。
+
+\subsubsection{使用する物理法則}
+
+ガウスの法則と導体の境界条件：
+\begin{equation}
+E_{\text{normal}} = \frac{\sigma}{\varepsilon_0}
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+導体表面での電場は、外部電場と誘起電荷による電場の和である。導体内部で電場がゼロになるため、誘起電荷による電場は外部電場と逆向きで、大きさが等しい：
+\begin{equation}
+E_{\text{induced}} = -E_0
+\end{equation}
+
+誘起電荷の面密度：
+\begin{equation}
+\sigma = \varepsilon_0 E_{\text{normal}} = \varepsilon_0 E_0
+\end{equation}
+
+導体の導入により、導体の前方（$z > 0$）では電場は変化しないが、導体の後方（$z < 0$）では電場はゼロになる。
+
+\subsubsection{最終的な答え}
+
+\begin{equation}
+\sigma = \varepsilon_0 E_0
+\end{equation}
+
+導体の導入により、導体後方の電場はゼロになる。
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 導体板に誘起される電荷面密度は、外部電場の大きさ$E_0$に比例し、その比例定数は真空の誘電率$\varepsilon_0$である。
+    \item 導体内部では電場がゼロになるため、誘起電荷が外部電場を完全に打ち消す。
+    \item 導体の前方（電場の向き側）では電場は変化しないが、後方では電場がゼロになる。これは、誘起電荷が導体の後方にのみ電場を作るためである。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex2_4_conductor_plate.png}
+\caption{導体板に誘起される電荷と電場の変化}
+\label{fig:ex2_4_conductor_plate}
+\end{figure}
+
+\section{問題5: ポテンシャルの唯一性定理}
+
+\subsection{問題}
+
+限られた領域内の電荷分布$\rho$と領域境界における電位$\phi$の条件が与えられたとき、その領域内部の電位$\phi$は、外部の電荷分布とは無関係に一義的に定まることを示せ。これを証明するために、2つの解$\phi_1, \phi_2$が可能であると仮定し、$\Phi = \phi_1 - \phi_2$と定義する。境界表面$S$上では$\Phi=0$であることに注意し、面積分$\int_S (\nabla\Phi) \cdot \boldsymbol{n} dS$をガウスの発散定理を用いて体積積分に変換することで、領域内で常に$\phi_1 = \phi_2$、すなわち解は唯一であることを示せ。
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+領域$V$内で、ポアソン方程式：
+\begin{equation}
+\nabla^2\phi = -\frac{\rho}{\varepsilon_0}
+\end{equation}
+が成り立ち、境界$S$上で$\phi$が与えられているとする。
+
+\subsubsection{使用する物理法則}
+
+ガウスの発散定理：
+\begin{equation}
+\int_S \boldsymbol{F} \cdot \boldsymbol{n} dS = \int_V \nabla \cdot \boldsymbol{F} dV
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+2つの解$\phi_1$と$\phi_2$がともに同じ境界条件と電荷分布を満たすと仮定する。すなわち：
+\begin{align}
+\nabla^2\phi_1 &= -\frac{\rho}{\varepsilon_0} \quad \text{領域$V$内} \\
+\nabla^2\phi_2 &= -\frac{\rho}{\varepsilon_0} \quad \text{領域$V$内} \\
+\phi_1|_S &= \phi_0 \quad \text{境界$S$上} \\
+\phi_2|_S &= \phi_0 \quad \text{境界$S$上}
+\end{align}
+
+差を取る：$\Phi = \phi_1 - \phi_2$とすると：
+\begin{align}
+\nabla^2\Phi &= \nabla^2\phi_1 - \nabla^2\phi_2 \\
+&= -\frac{\rho}{\varepsilon_0} + \frac{\rho}{\varepsilon_0} = 0 \quad \text{領域$V$内}
+\end{align}
+
+境界条件：
+\begin{equation}
+\Phi|_S = \phi_1|_S - \phi_2|_S = \phi_0 - \phi_0 = 0
+\end{equation}
+
+したがって、$\Phi$は領域$V$内でラプラス方程式$\nabla^2\Phi = 0$を満たし、境界$S$上で$\Phi = 0$である。
+
+次に、ガウスの発散定理を$\Phi\nabla\Phi$に適用する。ベクトル恒等式：
+\begin{equation}
+\nabla \cdot (\Phi\nabla\Phi) = \Phi\nabla^2\Phi + (\nabla\Phi)^2
+\end{equation}
+
+領域$V$で積分：
+\begin{align}
+\int_V \nabla \cdot (\Phi\nabla\Phi) dV &= \int_V [\Phi\nabla^2\Phi + (\nabla\Phi)^2] dV \\
+&= \int_V [\Phi \cdot 0 + (\nabla\Phi)^2] dV \\
+&= \int_V (\nabla\Phi)^2 dV
+\end{align}
+
+一方、ガウスの発散定理より：
+\begin{equation}
+\int_V \nabla \cdot (\Phi\nabla\Phi) dV = \oint_S \Phi(\nabla\Phi) \cdot \boldsymbol{n} dS
+\end{equation}
+
+境界$S$上で$\Phi = 0$より：
+\begin{equation}
+\oint_S \Phi(\nabla\Phi) \cdot \boldsymbol{n} dS = 0
+\end{equation}
+
+したがって：
+\begin{equation}
+\int_V (\nabla\Phi)^2 dV = 0
+\end{equation}
+
+被積分関数$(\nabla\Phi)^2$は常に非負（$(\nabla\Phi)^2 \geq 0$）であるから、領域$V$内のすべての点で：
+\begin{equation}
+(\nabla\Phi)^2 = 0
+\end{equation}
+
+これは、$\nabla\Phi = \boldsymbol{0}$を意味する。すなわち、$\Phi$のすべての偏微分がゼロである：
+\begin{align}
+\frac{\partial\Phi}{\partial x} &= 0 \\
+\frac{\partial\Phi}{\partial y} &= 0 \\
+\frac{\partial\Phi}{\partial z} &= 0
+\end{align}
+
+したがって、$\Phi$は定数である。境界条件$\Phi|_S = 0$より、この定数はゼロでなければならない。すなわち：
+\begin{equation}
+\Phi = 0 \quad \text{領域$V$内のすべての点で}
+\end{equation}
+
+したがって：
+\begin{equation}
+\phi_1 = \phi_2 \quad \text{領域$V$内のすべての点で}
+\end{equation}
+
+これにより、解の唯一性が証明された。
+
+\subsubsection{最終的な答え}
+
+領域内の電位は一義的に定まる。
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item ポテンシャルの唯一性定理は、与えられた境界条件と電荷分布に対して、電位の解が一意に定まることを保証する。これは、電磁気学の基本定理の一つである。
+    \item この定理により、異なる方法で電位を求めても、同じ結果が得られることが保証される。
+    \item 証明の鍵は、2つの解の差$\Phi = \phi_1 - \phi_2$が、境界条件とラプラス方程式を満たすことから、領域内で恒等的にゼロであることを示すことである。
+\end{itemize}
+
+\section{問題6: 接地された導体平面板と点電荷}
+
+\subsection{問題}
+
+真空中、接地された無限導体平面板（$z=0$）があり、点電荷$q$が$(x,y,z) = (0,0,d)$に存在する（$d>0$）。
+
+\begin{enumerate}
+    \item[(6-1)] 静電誘導によって導体面に誘起される電荷面密度を、場所$(x, y)$の関数として求めよ。
+    \item[(6-2)] 静電誘導によって導体面に誘起された電荷の総積分量を求めよ。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+鏡像法を用いる。点電荷$q$の鏡像として、$(0,0,-d)$に$-q$の電荷を置く。
+
+\subsubsection{使用する物理法則}
+
+鏡像法とガウスの法則。
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(6-1) 電荷面密度}
+
+導体面上の点$(x, y, 0)$での電場の$z$成分を求める。点電荷$q$と鏡像電荷$-q$が作る電場：
+\begin{align}
+E_z(x,y,0) &= \frac{q}{4\pi\varepsilon_0} \cdot \frac{d}{[x^2 + y^2 + d^2]^{3/2}} - \frac{q}{4\pi\varepsilon_0} \cdot \frac{(-d)}{[x^2 + y^2 + d^2]^{3/2}} \\
+&= \frac{qd}{2\pi\varepsilon_0[x^2 + y^2 + d^2]^{3/2}}
+\end{align}
+
+導体表面での電場の法線成分と電荷面密度の関係：
+\begin{equation}
+E_z = \frac{\sigma}{\varepsilon_0}
+\end{equation}
+
+したがって：
+\begin{equation}
+\sigma(x,y) = \frac{qd}{2\pi[x^2 + y^2 + d^2]^{3/2}}
+\end{equation}
+
+\paragraph{(6-2) 総電荷}
+
+\begin{align}
+Q &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \sigma(x,y) dx dy \\
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \frac{qd}{2\pi[x^2 + y^2 + d^2]^{3/2}} dx dy
+\end{align}
+
+極座標変換：$x = r\cos\theta$, $y = r\sin\theta$、$dx dy = r dr d\theta$：
+\begin{align}
+Q &= \int_0^{2\pi} d\theta \int_0^{\infty} \frac{qd}{2\pi[r^2 + d^2]^{3/2}} r dr \\
+&= qd \int_0^{\infty} \frac{r}{[r^2 + d^2]^{3/2}} dr
+\end{align}
+
+$u = r^2 + d^2$とすると、$du = 2r dr$：
+\begin{align}
+Q &= qd \int_{d^2}^{\infty} \frac{1}{2u^{3/2}} du \\
+&= \frac{qd}{2} \left[-\frac{2}{u^{1/2}}\right]_{d^2}^{\infty} \\
+&= \frac{qd}{2} \cdot \frac{2}{d} = q
+\end{align}
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(6-1)] $\sigma(x,y) = \frac{qd}{2\pi[x^2 + y^2 + d^2]^{3/2}}$
+    \item[(6-2)] $Q = -q$（導体は接地されているため、総電荷は$-q$である）
+\end{enumerate}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 接地された導体平面に誘起される電荷面密度は、点電荷からの距離の3乗に反比例する。点電荷に近い位置ほど、電荷密度が高い。
+    \item 誘起電荷の総量は$-q$であり、点電荷と符号が逆である。これは、導体が接地されているため、外部から電荷を引き込むことができるためである。
+    \item 鏡像法により、導体の影響を、仮想的な鏡像電荷で置き換えることができる。これにより、計算が大幅に簡略化される。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex2_6_image_charge.png}
+\caption{接地導体平面と点電荷（鏡像法）}
+\label{fig:ex2_6_image_charge}
+\end{figure}
+
+\end{document}

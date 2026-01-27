@@ -1,0 +1,637 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[no-math]{luatexja-fontspec}
+\setmainjfont{Hiragino Mincho ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\setsansjfont{Hiragino Kaku Gothic ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{float}
+\usepackage[draft=false]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdfusetitle=true
+}
+
+\title{電磁気学演習問題 解答・解説\\第3回 (2025年10月31日)}
+\author{名古屋大学　理学部物理学科}
+\date{2025年10月31日}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+\newpage
+
+\section{問題1: 電気双極子}
+
+\subsection{問題}
+
+真空中に点電荷$q$が座標$(0,0,s/2)$に、点電荷$-q$が座標$(0,0,-s/2)$に存在する。これは電気双極子（双極子モーメント$\boldsymbol{p} = q\boldsymbol{s}$、ただし$\boldsymbol{s} = (0,0,s)$）を形成する。真空の誘電率を$\varepsilon_0$とする。
+
+\begin{enumerate}
+    \item[(1-1)] 電気双極子から十分に遠方（$|\boldsymbol{r}|=r \gg s$）の位置ベクトル$\boldsymbol{r}$における、双極子が作る電位$\phi$の近似式を、$\boldsymbol{p}$、$\boldsymbol{r}$、$r$、$\varepsilon_0$を用いて表す。
+    \item[(1-2)] 一様な電場$\boldsymbol{E}_0$が与えられたとき、双極子$\boldsymbol{p}$が受ける力のモーメント$\boldsymbol{N}$を求める。また、双極子の力学的な位置エネルギー$U$を求める。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+2つの点電荷が作る電位は、それぞれの電位の重ね合わせである：
+\begin{equation}
+\phi(\boldsymbol{r}) = \frac{q}{4\pi\varepsilon_0|\boldsymbol{r} - \boldsymbol{s}/2|} - \frac{q}{4\pi\varepsilon_0|\boldsymbol{r} + \boldsymbol{s}/2|}
+\end{equation}
+
+\subsubsection{使用する物理法則}
+
+点電荷の電位：
+\begin{equation}
+\phi = \frac{q}{4\pi\varepsilon_0 r}
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(1-1) 遠方での電位の近似}
+
+$r \gg s$のとき、$|\boldsymbol{r} \pm \boldsymbol{s}/2|$を展開する：
+\begin{align}
+|\boldsymbol{r} - \boldsymbol{s}/2|^{-1} &= \left[r^2 - \boldsymbol{r} \cdot \boldsymbol{s} + \frac{s^2}{4}\right]^{-1/2} \\
+&= \frac{1}{r}\left[1 - \frac{\boldsymbol{r} \cdot \boldsymbol{s}}{r^2} + \frac{s^2}{4r^2}\right]^{-1/2} \\
+&\approx \frac{1}{r}\left[1 + \frac{\boldsymbol{r} \cdot \boldsymbol{s}}{2r^2}\right]
+\end{align}
+
+同様に：
+\begin{align}
+|\boldsymbol{r} + \boldsymbol{s}/2|^{-1} &\approx \frac{1}{r}\left[1 - \frac{\boldsymbol{r} \cdot \boldsymbol{s}}{2r^2}\right]
+\end{align}
+
+したがって：
+\begin{align}
+\phi(\boldsymbol{r}) &\approx \frac{q}{4\pi\varepsilon_0 r}\left[1 + \frac{\boldsymbol{r} \cdot \boldsymbol{s}}{2r^2} - 1 + \frac{\boldsymbol{r} \cdot \boldsymbol{s}}{2r^2}\right] \\
+&= \frac{q}{4\pi\varepsilon_0 r} \cdot \frac{\boldsymbol{r} \cdot \boldsymbol{s}}{r^2} \\
+&= \frac{1}{4\pi\varepsilon_0} \frac{\boldsymbol{p} \cdot \boldsymbol{r}}{r^3}
+\end{align}
+
+\paragraph{(1-2) 力のモーメントと位置エネルギー}
+
+双極子の各電荷に働く力：
+\begin{align}
+\boldsymbol{F}_+ &= q\boldsymbol{E}_0 \\
+\boldsymbol{F}_- &= -q\boldsymbol{E}_0
+\end{align}
+
+力のモーメント：
+\begin{align}
+\boldsymbol{N} &= \frac{\boldsymbol{s}}{2} \times \boldsymbol{F}_+ + \left(-\frac{\boldsymbol{s}}{2}\right) \times \boldsymbol{F}_- \\
+&= \frac{\boldsymbol{s}}{2} \times q\boldsymbol{E}_0 - \frac{\boldsymbol{s}}{2} \times (-q\boldsymbol{E}_0) \\
+&= q\boldsymbol{s} \times \boldsymbol{E}_0 = \boldsymbol{p} \times \boldsymbol{E}_0
+\end{align}
+
+位置エネルギー：
+\begin{align}
+U &= -q\phi(\boldsymbol{s}/2) + q\phi(-\boldsymbol{s}/2) \\
+&= -q\boldsymbol{E}_0 \cdot \frac{\boldsymbol{s}}{2} + q\boldsymbol{E}_0 \cdot \left(-\frac{\boldsymbol{s}}{2}\right) \\
+&= -q\boldsymbol{E}_0 \cdot \boldsymbol{s} = -\boldsymbol{p} \cdot \boldsymbol{E}_0
+\end{align}
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(1-1)] $\phi(\boldsymbol{r}) = \frac{1}{4\pi\varepsilon_0} \frac{\boldsymbol{p} \cdot \boldsymbol{r}}{r^3}$
+    \item[(1-2)] $\boldsymbol{N} = \boldsymbol{p} \times \boldsymbol{E}_0$、$U = -\boldsymbol{p} \cdot \boldsymbol{E}_0$
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex3_1_dipole.png}
+\caption{電気双極子の配置と電位}
+\label{fig:ex3_1_dipole}
+\end{figure}
+
+\section{問題2: 誘電体入り同心導体球殻コンデンサー}
+
+\subsection{問題}
+
+半径$a$、$b$（$a < b$）の同心の導体球殻からなるコンデンサーに起電力$V$（$>0$）の電池をつなぐ（内側が高電圧）。導体球殻間$a < r < b$に一定の誘電率$\varepsilon$をもつ誘電体を詰める。真空の誘電率は$\varepsilon_0$とする。このとき、誘電体表面の$r=a$、および$r=b$に現れる分極電荷の面密度$\sigma_p(a)$、および$\sigma_p(b)$を求める。
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+球対称性より、電場は動径方向のみを向く。ガウスの法則（電束密度について）：
+\begin{equation}
+\oint \boldsymbol{D} \cdot d\boldsymbol{S} = Q_{\text{free}}
+\end{equation}
+
+\subsubsection{使用する物理法則}
+
+電束密度と電場の関係：
+\begin{equation}
+\boldsymbol{D} = \varepsilon\boldsymbol{E}
+\end{equation}
+
+分極電荷面密度：
+\begin{equation}
+\sigma_p = \boldsymbol{P} \cdot \hat{\boldsymbol{n}}
+\end{equation}
+ここで、$\boldsymbol{P} = \boldsymbol{D} - \varepsilon_0\boldsymbol{E}$は分極ベクトルである。
+
+\subsubsection{段階的な計算過程}
+
+内側の球殻の電荷を$Q$とすると、ガウスの法則より：
+\begin{equation}
+D(r) \cdot 4\pi r^2 = Q
+\end{equation}
+
+したがって：
+\begin{equation}
+D(r) = \frac{Q}{4\pi r^2}, \quad E(r) = \frac{D(r)}{\varepsilon} = \frac{Q}{4\pi\varepsilon r^2}
+\end{equation}
+
+電位差：
+\begin{align}
+V &= \int_a^b E(r) dr = \int_a^b \frac{Q}{4\pi\varepsilon r^2} dr \\
+&= \frac{Q}{4\pi\varepsilon}\left[-\frac{1}{r}\right]_a^b \\
+&= \frac{Q}{4\pi\varepsilon}\left(\frac{1}{a} - \frac{1}{b}\right)
+\end{align}
+
+したがって：
+\begin{equation}
+Q = \frac{4\pi\varepsilon V}{\frac{1}{a} - \frac{1}{b}} = \frac{4\pi\varepsilon ab V}{b - a}
+\end{equation}
+
+分極ベクトル：
+\begin{align}
+\boldsymbol{P} &= \boldsymbol{D} - \varepsilon_0\boldsymbol{E} = \left(\varepsilon - \varepsilon_0\right)\boldsymbol{E} \\
+&= \left(\varepsilon - \varepsilon_0\right)\frac{Q}{4\pi\varepsilon r^2}\hat{\boldsymbol{r}}
+\end{align}
+
+$r = a$での分極電荷面密度（内向き法線）：
+\begin{align}
+\sigma_p(a) &= -\boldsymbol{P}(a) \cdot \hat{\boldsymbol{r}} \\
+&= -\left(\varepsilon - \varepsilon_0\right)\frac{Q}{4\pi\varepsilon a^2} \\
+&= -\left(\varepsilon - \varepsilon_0\right)\frac{ab V}{\varepsilon a^2(b - a)} \\
+&= -\frac{(\varepsilon - \varepsilon_0)b V}{\varepsilon a(b - a)}
+\end{align}
+
+$r = b$での分極電荷面密度（外向き法線）：
+\begin{align}
+\sigma_p(b) &= \boldsymbol{P}(b) \cdot \hat{\boldsymbol{r}} \\
+&= \left(\varepsilon - \varepsilon_0\right)\frac{Q}{4\pi\varepsilon b^2} \\
+&= \frac{(\varepsilon - \varepsilon_0)a V}{\varepsilon b(b - a)}
+\end{align}
+
+\subsubsection{最終的な答え}
+
+\begin{align}
+\sigma_p(a) &= -\frac{(\varepsilon - \varepsilon_0)b V}{\varepsilon a(b - a)} \\
+\sigma_p(b) &= \frac{(\varepsilon - \varepsilon_0)a V}{\varepsilon b(b - a)}
+\end{align}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex3_2_capacitor.png}
+\caption{誘電体入り同心導体球殻コンデンサー}
+\label{fig:ex3_2_capacitor}
+\end{figure}
+
+\section{問題3: 接地された導体球の鏡像電荷}
+
+\subsection{問題}
+
+中心$O$を原点にもつ半径$a$の導体球を考え、その外部の$x$軸上の中心$O$から距離$d$（$d > a$）の点$P$に点電荷$q$を置く。導体球は接地されているとする。鏡像電荷$q'$の位置を点$P'$（$x = d'$）と考える。
+
+\begin{enumerate}
+    \item[(3-1)] 球面上のあらゆる点で、電荷$q$と鏡像電荷$q'$が作る電位の和がゼロとなるためには、$q' = -aq/d$、$d' = a^2/d$であれば良いことを示す。
+    \item[(3-2)] 点電荷$q$に働く力を求める。一方、導体球が接地されておらず、導体球が電気的に中性で絶縁されている場合、点電荷$q$に働く力はどうなるか？
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+鏡像法により、導体球の外部の電位を、点電荷$q$と鏡像電荷$q'$が作る電位の和として表す。
+
+\subsubsection{使用する物理法則}
+
+点電荷の電位：
+\begin{equation}
+\phi = \frac{q}{4\pi\varepsilon_0 r}
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(3-1) 鏡像電荷の決定}
+
+球面上の点を極座標で表す：$(a, \theta, \phi)$。点電荷$q$からの距離：
+\begin{equation}
+r_1 = \sqrt{a^2 + d^2 - 2ad\cos\theta}
+\end{equation}
+
+鏡像電荷$q'$からの距離：
+\begin{equation}
+r_2 = \sqrt{a^2 + d'^2 - 2ad'\cos\theta}
+\end{equation}
+
+球面上で電位がゼロになる条件：
+\begin{equation}
+\frac{q}{4\pi\varepsilon_0 r_1} + \frac{q'}{4\pi\varepsilon_0 r_2} = 0
+\end{equation}
+
+すなわち：
+\begin{equation}
+\frac{q}{r_1} + \frac{q'}{r_2} = 0
+\end{equation}
+
+この条件がすべての$\theta$で成り立つためには、$r_1$と$r_2$が比例関係にある必要がある。すなわち：
+\begin{equation}
+\frac{r_2}{r_1} = \text{const}
+\end{equation}
+
+これを満たすためには：
+\begin{align}
+a^2 + d'^2 - 2ad'\cos\theta &= k^2(a^2 + d^2 - 2ad\cos\theta)
+\end{align}
+
+すべての$\theta$で成り立つためには、$\cos\theta$の係数と定数項が等しくなる必要がある：
+\begin{align}
+-2ad' &= -2k^2ad \\
+a^2 + d'^2 &= k^2(a^2 + d^2)
+\end{align}
+
+第1式より$k^2 = d'/d$。第2式に代入：
+\begin{align}
+a^2 + d'^2 &= \frac{d'}{d}(a^2 + d^2) \\
+d(a^2 + d'^2) &= d'(a^2 + d^2) \\
+da^2 + dd'^2 &= d'a^2 + d'd^2 \\
+dd'^2 - d'd^2 &= d'a^2 - da^2 \\
+dd'(d' - d) &= a^2(d' - d)
+\end{align}
+
+$d' \neq d$より：
+\begin{equation}
+dd' = a^2, \quad d' = \frac{a^2}{d}
+\end{equation}
+
+また、$r_2/r_1 = k = \sqrt{d'/d} = a/d$より：
+\begin{equation}
+\frac{q}{r_1} + \frac{q'}{r_2} = \frac{q}{r_1} + \frac{q'}{kr_1} = \frac{1}{r_1}\left(q + \frac{q'}{k}\right) = 0
+\end{equation}
+
+したがって：
+\begin{equation}
+q' = -kq = -\frac{a}{d}q
+\end{equation}
+
+\paragraph{(3-2) 点電荷に働く力}
+
+鏡像電荷による力：
+\begin{equation}
+F = \frac{1}{4\pi\varepsilon_0}\frac{qq'}{(d - d')^2} = \frac{1}{4\pi\varepsilon_0}\frac{q(-aq/d)}{(d - a^2/d)^2} = -\frac{aq^2}{4\pi\varepsilon_0 d(d - a^2/d)^2}
+\end{equation}
+
+導体球が中性で絶縁されている場合、総電荷がゼロになるように、中心に追加の電荷$q'' = -q' = aq/d$を置く必要がある。この場合、点電荷$q$に働く力は、鏡像電荷$q'$と中心電荷$q''$による力の和となる。
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(3-1)] $q' = -aq/d$、$d' = a^2/d$
+    \item[(3-2)] 接地されている場合：$F = -\frac{aq^2}{4\pi\varepsilon_0 d(d - a^2/d)^2}$（引力）
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex3_3_image_charge.png}
+\caption{接地導体球と点電荷（鏡像法）}
+\label{fig:ex3_3_image_charge}
+\end{figure}
+
+\section{問題4: 微小導体球の誘起双極子モーメントと分極率}
+
+\subsection{問題}
+
+半径$a$の微小導体球が原点に存在する。原点から十分遠方の点$(0,0,d)$に点電荷$-q$を、$(0,0,-d)$に点電荷$q$を置く（$d \gg a$）。真空の誘電率を$\varepsilon_0$とする。
+
+\begin{enumerate}
+    \item[(4-1)] 微小導体球に発生する電気双極子モーメント$\boldsymbol{p}$を求める（ヒント: 問題(3-1)の鏡像電荷を考える）。
+    \item[(4-2)] 2つの点電荷は導体球近傍で$z$方向に一様な電場$\boldsymbol{E}_0$を作る。$\boldsymbol{p} = \alpha\boldsymbol{E}_0$で定義される分極率$\alpha$を求める。
+    \item[(4-3)] 極座標表示で表すと、電場$\boldsymbol{E}_0$が作る電位は$\phi = -E_0r\cos\theta$と書けること、および、動径方向の電場は一般に$E_r = -\partial\phi/\partial r$と表せることを用いて、導体球表面に発生した誘導電荷の面密度$\sigma$を、$E_0$、$\varepsilon_0$、$\theta$を用いて表す。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+遠方の2つの点電荷が作る電場は、導体球の近傍では一様とみなせる。導体球はこの電場によって分極する。
+
+\subsubsection{使用する物理法則}
+
+鏡像法と双極子モーメントの定義。
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(4-1) 双極子モーメント}
+
+問題(3-1)の結果を用いて、各点電荷に対する鏡像電荷を求める。
+
+点電荷$q$が$(0,0,-d)$にある場合、導体球（半径$a$、中心が原点）に対する鏡像電荷は、問題(3-1)の結果より：
+\begin{align}
+q'_1 &= -\frac{a}{d}q = -\frac{aq}{d} \\
+d'_1 &= \frac{a^2}{d}
+\end{align}
+鏡像電荷$q'_1$の位置は$(0,0,-a^2/d)$である。
+
+点電荷$-q$が$(0,0,d)$にある場合、同様に：
+\begin{align}
+q'_2 &= -\frac{a}{d}(-q) = \frac{aq}{d} \\
+d'_2 &= \frac{a^2}{d}
+\end{align}
+鏡像電荷$q'_2$の位置は$(0,0,a^2/d)$である。
+
+これらの鏡像電荷が作る双極子モーメントを計算する。双極子モーメントの定義：
+\begin{equation}
+\boldsymbol{p} = \sum_i q_i \boldsymbol{r}_i
+\end{equation}
+
+鏡像電荷$q'_1$と$q'_2$の位置ベクトルはそれぞれ：
+\begin{align}
+\boldsymbol{r}_1 &= (0, 0, -a^2/d) \\
+\boldsymbol{r}_2 &= (0, 0, a^2/d)
+\end{align}
+
+したがって、双極子モーメント：
+\begin{align}
+\boldsymbol{p} &= q'_1 \boldsymbol{r}_1 + q'_2 \boldsymbol{r}_2 \\
+&= -\frac{aq}{d} \cdot (0, 0, -a^2/d) + \frac{aq}{d} \cdot (0, 0, a^2/d) \\
+&= \frac{aq}{d} \cdot \frac{a^2}{d}\hat{\boldsymbol{z}} + \frac{aq}{d} \cdot \frac{a^2}{d}\hat{\boldsymbol{z}} \\
+&= \frac{2a^3q}{d^2}\hat{\boldsymbol{z}}
+\end{align}
+
+ただし、この計算では符号に注意が必要である。実際には、$d \gg a$の条件の下で、より正確には：
+\begin{equation}
+\boldsymbol{p} = 4\pi\varepsilon_0 a^3 \boldsymbol{E}_0
+\end{equation}
+となる（次問で確認する）。
+
+\paragraph{(4-2) 分極率}
+
+2つの点電荷$q$（$(0,0,-d)$）と$-q$（$(0,0,d)$）が作る電場を、導体球の近傍（原点付近）で評価する。
+
+原点から$z$方向に微小距離$\delta z$（$|\delta z| \ll d$）の点での電場の$z$成分：
+\begin{align}
+E_z(0,0,\delta z) &= \frac{q}{4\pi\varepsilon_0}\left[\frac{1}{(d + \delta z)^2} - \frac{1}{(d - \delta z)^2}\right] \\
+&\approx \frac{q}{4\pi\varepsilon_0 d^2}\left[\left(1 - \frac{2\delta z}{d}\right) - \left(1 + \frac{2\delta z}{d}\right)\right] \\
+&= -\frac{q}{\pi\varepsilon_0 d^3}\delta z
+\end{align}
+
+原点付近では、この電場は一様とみなせ、その大きさは：
+\begin{equation}
+E_0 = \lim_{\delta z \to 0} \left|\frac{E_z}{\delta z}\right| = \frac{q}{\pi\varepsilon_0 d^3}
+\end{equation}
+
+より正確には、2つの点電荷が原点付近に作る電場は、双極子場として：
+\begin{equation}
+E_0 = \frac{q \cdot 2d}{4\pi\varepsilon_0 d^3} = \frac{q}{2\pi\varepsilon_0 d^2}
+\end{equation}
+
+したがって：
+\begin{equation}
+q = 2\pi\varepsilon_0 d^2 E_0
+\end{equation}
+
+前問で求めた双極子モーメントに代入：
+\begin{align}
+\boldsymbol{p} &= \frac{2a^3}{d^2} \cdot 2\pi\varepsilon_0 d^2 E_0 \hat{\boldsymbol{z}} \\
+&= 4\pi\varepsilon_0 a^3 E_0 \hat{\boldsymbol{z}} = 4\pi\varepsilon_0 a^3 \boldsymbol{E}_0
+\end{align}
+
+分極率の定義$\boldsymbol{p} = \alpha\boldsymbol{E}_0$より：
+\begin{equation}
+\alpha = 4\pi\varepsilon_0 a^3
+\end{equation}
+
+\paragraph{(4-3) 誘導電荷面密度}
+
+導体球表面での電位は一定（$= 0$と仮定）。外部電場による電位$\phi_{\text{ext}} = -E_0r\cos\theta$と、誘導双極子による電位$\phi_{\text{dipole}} = \frac{1}{4\pi\varepsilon_0}\frac{\boldsymbol{p} \cdot \boldsymbol{r}}{r^3}$の和が球面上でゼロ：
+\begin{equation}
+-E_0a\cos\theta + \frac{1}{4\pi\varepsilon_0}\frac{p\cos\theta}{a^2} = 0
+\end{equation}
+
+したがって：
+\begin{equation}
+p = 4\pi\varepsilon_0 a^3 E_0
+\end{equation}
+
+球面上での電場の動径成分：
+\begin{align}
+E_r(a) &= -\frac{\partial\phi}{\partial r}\Big|_{r=a} \\
+&= E_0\cos\theta + \frac{2p\cos\theta}{4\pi\varepsilon_0 a^3} \\
+&= E_0\cos\theta + 2E_0\cos\theta = 3E_0\cos\theta
+\end{align}
+
+誘導電荷面密度：
+\begin{equation}
+\sigma = \varepsilon_0 E_r(a) = 3\varepsilon_0 E_0\cos\theta
+\end{equation}
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(4-1)] $\boldsymbol{p} = 4\pi\varepsilon_0 a^3 \boldsymbol{E}_0$
+    \item[(4-2)] $\alpha = 4\pi\varepsilon_0 a^3$
+    \item[(4-3)] $\sigma(\theta) = 3\varepsilon_0 E_0\cos\theta$
+\end{enumerate}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 導体球は外部電場によって分極し、双極子モーメントを持つ。この双極子モーメントは、外部電場に比例する。
+    \item 分極率$\alpha$は、導体球の体積$4\pi a^3/3$に比例し、誘電率$\varepsilon_0$に比例する。
+    \item 誘導電荷面密度は、$\cos\theta$に比例し、$\theta = 0$（電場の方向）で最大、$\theta = \pi/2$でゼロとなる。これは、電場の方向に正の電荷が、反対方向に負の電荷が誘起されることを示している。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex3_4_induced_dipole.png}
+\caption{微小導体球の誘起双極子と誘導電荷}
+\label{fig:ex3_4_induced_dipole}
+\end{figure}
+
+\section{問題5: 誘電体中の点電荷}
+
+\subsection{問題}
+
+一定の誘電率$\varepsilon$をもつ誘電体で満たされた全空間の原点に、点電荷$q$が存在する。真空の誘電率を$\varepsilon_0$とする。
+
+\begin{enumerate}
+    \item[(5-1)] 原点から位置ベクトル$\boldsymbol{r}$の場所における電束密度$\boldsymbol{D}$、電場$\boldsymbol{E}$、分極ベクトル$\boldsymbol{P}$を求める。
+    \item[(5-2)] 半径$r$の球内に生じる分極電荷の総量$Q_p$を求める。
+    \item[(5-3)] 前問の分極電荷は空間内でどのように分布するか。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+球対称性より、電場は動径方向のみを向く。
+
+\subsubsection{使用する物理法則}
+
+ガウスの法則（電束密度について）：
+\begin{equation}
+\oint \boldsymbol{D} \cdot d\boldsymbol{S} = Q_{\text{free}}
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(5-1) 電束密度、電場、分極ベクトル}
+
+ガウスの法則より：
+\begin{equation}
+D(r) \cdot 4\pi r^2 = q
+\end{equation}
+
+したがって：
+\begin{align}
+\boldsymbol{D}(\boldsymbol{r}) &= \frac{q}{4\pi r^2}\hat{\boldsymbol{r}} \\
+\boldsymbol{E}(\boldsymbol{r}) &= \frac{\boldsymbol{D}(\boldsymbol{r})}{\varepsilon} = \frac{q}{4\pi\varepsilon r^2}\hat{\boldsymbol{r}} \\
+\boldsymbol{P}(\boldsymbol{r}) &= \boldsymbol{D} - \varepsilon_0\boldsymbol{E} = \left(1 - \frac{\varepsilon_0}{\varepsilon}\right)\frac{q}{4\pi r^2}\hat{\boldsymbol{r}}
+\end{align}
+
+\paragraph{(5-2) 分極電荷の総量}
+
+分極電荷密度を計算する。球座標系での発散：
+\begin{equation}
+\nabla \cdot \boldsymbol{P} = \frac{1}{r^2}\frac{\partial}{\partial r}(r^2 P_r) + \frac{1}{r\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta P_\theta) + \frac{1}{r\sin\theta}\frac{\partial P_\phi}{\partial\phi}
+\end{equation}
+
+$\boldsymbol{P}$は動径方向のみを向くため、$P_\theta = P_\phi = 0$である。したがって：
+\begin{equation}
+\nabla \cdot \boldsymbol{P} = \frac{1}{r^2}\frac{\partial}{\partial r}(r^2 P_r)
+\end{equation}
+
+$P_r = \left(1 - \frac{\varepsilon_0}{\varepsilon}\right)\frac{q}{4\pi r^2}$より：
+\begin{align}
+r^2 P_r &= \left(1 - \frac{\varepsilon_0}{\varepsilon}\right)\frac{q}{4\pi} \\
+\frac{\partial}{\partial r}(r^2 P_r) &= 0 \quad (r > 0)
+\end{align}
+
+したがって：
+\begin{equation}
+\rho_p = -\nabla \cdot \boldsymbol{P} = 0 \quad (r > 0)
+\end{equation}
+
+しかし、原点に点電荷があるため、原点での分極電荷を考慮する必要がある。半径$r$の球面を考え、ガウスの法則（分極電荷について）を適用する：
+\begin{equation}
+Q_p(r) = -\oint_{S_r} \boldsymbol{P} \cdot d\boldsymbol{S}
+\end{equation}
+
+ここで、$S_r$は半径$r$の球面である。球面上では$\boldsymbol{P}$は動径方向を向き、その大きさは一定：
+\begin{align}
+Q_p(r) &= -\int_0^{2\pi} \int_0^{\pi} P_r \cdot r^2 \sin\theta d\theta d\phi \\
+&= -P_r \cdot 4\pi r^2 \\
+&= -\left(1 - \frac{\varepsilon_0}{\varepsilon}\right)\frac{q}{4\pi r^2} \cdot 4\pi r^2 \\
+&= -\left(1 - \frac{\varepsilon_0}{\varepsilon}\right)q
+\end{align}
+
+この結果は$r$に依存しないため、分極電荷は原点に集中していることがわかる。
+
+\paragraph{(5-3) 分極電荷の分布}
+
+分極電荷は原点に集中しており、その総量は$-\left(1 - \frac{\varepsilon_0}{\varepsilon}\right)q$である。
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(5-1)] $\boldsymbol{D} = \frac{q}{4\pi r^2}\hat{\boldsymbol{r}}$、$\boldsymbol{E} = \frac{q}{4\pi\varepsilon r^2}\hat{\boldsymbol{r}}$、$\boldsymbol{P} = \left(1 - \frac{\varepsilon_0}{\varepsilon}\right)\frac{q}{4\pi r^2}\hat{\boldsymbol{r}}$
+    \item[(5-2)] $Q_p = -\left(1 - \frac{\varepsilon_0}{\varepsilon}\right)q$
+    \item[(5-3)] 分極電荷は原点に集中している。
+\end{enumerate}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 誘電体中の点電荷は、周囲の誘電体を分極させる。この分極により、点電荷の周りに分極電荷が誘起される。
+    \item 分極電荷の総量は、真電荷$q$の符号と逆向きで、その大きさは$\left(1 - \frac{\varepsilon_0}{\varepsilon}\right)q$である。誘電率が大きいほど、分極電荷の絶対値は大きくなる。
+    \item 分極電荷は原点に集中しており、空間分布は$\delta$関数で表される。これは、分極ベクトルが$1/r^2$に比例するため、その発散が原点以外でゼロとなることに対応する。
+    \item 真電荷と分極電荷の和は、$\frac{\varepsilon_0}{\varepsilon}q$となり、真電荷より小さくなる。これにより、誘電体中での電場は真空中より弱くなる。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex3_5_point_charge_dielectric.png}
+\caption{誘電体中の点電荷が作る電場と分極}
+\label{fig:ex3_5_point_charge_dielectric}
+\end{figure}
+
+\section{問題6: 誘電体中の分極電荷}
+
+\subsection{問題}
+
+一様な誘電体（誘電率$\varepsilon$が一定）の内部。真電荷がないときは分極電荷$\rho_p$も存在しないことを示せ。一方、誘電体の表面ではどうか？
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+分極電荷密度：
+\begin{equation}
+\rho_p = -\nabla \cdot \boldsymbol{P}
+\end{equation}
+
+\subsubsection{使用する物理法則}
+
+分極ベクトルと電場の関係：
+\begin{equation}
+\boldsymbol{P} = (\varepsilon - \varepsilon_0)\boldsymbol{E} = \chi_e \varepsilon_0 \boldsymbol{E}
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+一様な誘電体内部で、真電荷がない場合、$\nabla \cdot \boldsymbol{D} = 0$である。$\boldsymbol{D} = \varepsilon\boldsymbol{E}$より：
+\begin{equation}
+\nabla \cdot \boldsymbol{D} = \varepsilon \nabla \cdot \boldsymbol{E} = 0
+\end{equation}
+
+したがって$\nabla \cdot \boldsymbol{E} = 0$。分極ベクトル：
+\begin{equation}
+\boldsymbol{P} = (\varepsilon - \varepsilon_0)\boldsymbol{E}
+\end{equation}
+
+したがって：
+\begin{equation}
+\rho_p = -\nabla \cdot \boldsymbol{P} = -(\varepsilon - \varepsilon_0)\nabla \cdot \boldsymbol{E} = 0
+\end{equation}
+
+誘電体の表面では、分極ベクトルが不連続になるため、分極電荷面密度が現れる：
+\begin{equation}
+\sigma_p = \boldsymbol{P} \cdot \hat{\boldsymbol{n}}
+\end{equation}
+
+\subsubsection{最終的な答え}
+
+一様な誘電体内部で真電荷がない場合、$\rho_p = 0$である。一方、誘電体の表面では分極電荷面密度$\sigma_p = \boldsymbol{P} \cdot \hat{\boldsymbol{n}}$が現れる。
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 一様な誘電体内部では、分極ベクトルが一定であるため、その発散はゼロとなり、分極電荷密度もゼロとなる。
+    \item しかし、誘電体の表面では、分極ベクトルが不連続になるため、分極電荷面密度が現れる。これは、表面での分極の「切れ目」に対応する。
+    \item この結果は、誘電体の内部では真電荷がない限り分極電荷も存在しないが、表面では必ず分極電荷が現れることを示している。
+\end{itemize}
+
+\end{document}
