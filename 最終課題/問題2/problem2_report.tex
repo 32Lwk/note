@@ -1,0 +1,261 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{CJKutf8}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{url}
+
+\title{問題2: 2準位系のエントロピーと温度の数値計算}
+\author{}
+\date{}
+
+\begin{document}
+\begin{CJK}{UTF8}{min}
+
+\maketitle
+
+\section{問題設定}
+
+本問題では、統計力学における2準位系のエントロピーと温度を数値計算により求め、熱力学極限でのStirling近似との比較を行う。
+
+\subsection{物理系の設定}
+
+\begin{itemize}
+    \item \textbf{独立な$N$個の粒子}: 各粒子は2準位を持つ
+    \item \textbf{エネルギー準位}: 
+    \begin{itemize}
+        \item 基底状態: エネルギー $0$
+        \item 励起状態: エネルギー $\varepsilon$
+    \end{itemize}
+    \item \textbf{系の全エネルギー}: $M$個の粒子が励起状態にあるとき
+    \begin{equation}
+        E = M \varepsilon
+    \end{equation}
+    \item \textbf{最大エネルギー}: 
+    \begin{equation}
+        E_0 = N \varepsilon
+    \end{equation}
+    \item \textbf{規格化}: $\varepsilon = 1$, $k_B = 1$ として計算
+\end{itemize}
+
+\subsection{実装条件}
+
+以下の3つの粒子数について計算を行う：
+\begin{itemize}
+    \item $N = 20$
+    \item $N = 50$
+    \item $N = 100$
+\end{itemize}
+
+各粒子数について、励起状態の粒子数 $M$ は $M = 0, 1, 2, \ldots, N$ の範囲で計算する。
+
+\section{課題1: エントロピーの数値計算}
+
+\subsection{目的}
+
+エネルギー $E = M$ に対応する微視的状態数 $W(M)$ とエントロピー $S(M)$ を数値計算する。
+
+\subsection{計算式}
+
+\textbf{微視的状態数}:
+\begin{equation}
+    W(M) = C(N, M) = \frac{N!}{M!(N-M)!}
+\end{equation}
+
+\textbf{エントロピー}:
+\begin{equation}
+    S(M) = \ln W(M)
+\end{equation}
+
+\subsection{実装方法}
+
+数値安定性のため、大きな階乗の直接計算を避け、以下の公式を使用して対数で計算した：
+\begin{equation}
+    \ln C(N, M) = \sum_{k=1}^{M} \ln(N - k + 1) - \sum_{k=1}^{M} \ln k
+\end{equation}
+
+各$N$について、すべての$M$ ($0 \leq M \leq N$) について$S(M)$を計算した。
+
+\section{課題2: エントロピー$S(E)$のプロット}
+
+\subsection{目的}
+
+課題1で得たエントロピーを正規化してプロットし、粒子数の違いによる挙動を比較する。
+
+\subsection{プロット仕様}
+
+\begin{itemize}
+    \item \textbf{横軸}: $x = E/E_0 = M/N$ (正規化エネルギー)
+    \item \textbf{縦軸}: $s = S/N$ (正規化エントロピー)
+    \item \textbf{比較}: $N = 20, 50, 100$ の3つの結果を同一グラフにプロット
+\end{itemize}
+
+\subsection{結果}
+
+図\ref{fig:entropy}に、$N = 20, 50, 100$ の数値計算結果を示す。エントロピーは正規化エネルギー $x = M/N$ に対して対称な形状を示し、$x = 0.5$ で最大値を取ることが確認できる。また、粒子数$N$が大きくなるにつれて、曲線が滑らかになることがわかる。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/entropy_plot.png}
+    \caption{2準位系の正規化エントロピー $s = S/N$ の正規化エネルギー $x = M/N$ 依存性}
+    \label{fig:entropy}
+\end{figure}
+
+\section{課題3: Stirling近似との比較}
+
+\subsection{目的}
+
+熱力学極限（$N \to \infty$）でのStirling近似による理論値と数値計算結果を比較する。
+
+\subsection{理論式}
+
+Stirling近似により、$N \to \infty$ の極限で得られるエントロピー密度：
+\begin{equation}
+    s_{\text{approx}}(x) = -[x \ln x + (1 - x) \ln(1 - x)] \quad (0 < x < 1)
+\end{equation}
+
+\subsection{結果}
+
+図\ref{fig:entropy}に、Stirling近似による理論曲線（黒線）を重ねて表示した。粒子数$N$が大きくなるにつれて、数値計算結果が理論曲線に近づくことが確認できる。特に$N = 100$では、理論曲線とほぼ一致している。
+
+\subsection{収束性の詳細分析}
+
+粒子数$N$を大きくしたときの収束の様子をより詳細に調べるため、エントロピー最大値$s_{\max}$の$N$依存性を図\ref{fig:entropy_convergence}に示す。$N$が増加するにつれて、$s_{\max}$はStirling近似の理論値$s = \ln 2 \approx 0.693$に漸近的に近づくことが確認できる。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/entropy_convergence.png}
+    \caption{エントロピー最大値の粒子数依存性。数値計算結果がStirling近似の理論値に収束する様子を示す。}
+    \label{fig:entropy_convergence}
+\end{figure}
+
+表\ref{tab:entropy_max}に、異なる粒子数$N$でのエントロピー最大値の数値計算結果を示す。$N$が大きくなるにつれて、相対誤差が減少し、理論値に近づくことが定量的に確認できる。
+
+\input{figures/numerical_table.tex}
+
+\section{課題4: 温度の数値計算}
+
+\subsection{目的}
+
+エントロピーから温度を数値的に計算する。
+
+\subsection{温度の定義}
+
+\begin{equation}
+    \frac{1}{T} = \left(\frac{\partial S}{\partial E}\right)_N
+\end{equation}
+
+\subsection{数値微分の実装}
+
+離散データに対して、中心差分法を使用：
+\begin{equation}
+    \frac{1}{T(M)} \approx \frac{S(M+1) - S(M-1)}{E(M+1) - E(M-1)}
+\end{equation}
+
+$E = M$ なので：
+\begin{equation}
+    \frac{1}{T(M)} \approx \frac{S(M+1) - S(M-1)}{2}
+\end{equation}
+
+したがって：
+\begin{equation}
+    T(M) \approx \frac{2}{S(M+1) - S(M-1)}
+\end{equation}
+
+計算範囲は $M = 1, 2, \ldots, N-1$ とし、$M = 0$ と $M = N$ は境界条件により除外した。
+
+\section{課題5: Stirling近似での温度との比較}
+
+\subsection{目的}
+
+熱力学極限での理論的温度と数値計算結果を比較する。
+
+\subsection{理論式}
+
+Stirling近似により得られる温度：
+\begin{equation}
+    T_{\text{th}}(x) = \left[\ln\left(\frac{1-x}{x}\right)\right]^{-1}
+\end{equation}
+
+\subsection{結果}
+
+図\ref{fig:temperature}に、数値計算結果とStirling近似による理論曲線を示す。$x = 0.5$ で温度が無限大になる点が確認できる。また、$x < 0.5$ では正の温度、$x > 0.5$ では負の温度が現れることがわかる。
+
+\subsection{温度の収束性}
+
+有限粒子数系が熱力学極限にどのように近づくかをより詳細に調べるため、異なる正規化エネルギー$x$での温度の粒子数依存性を図\ref{fig:temperature_convergence}に示す。各$x$値について、粒子数$N$を大きくすると、数値計算結果がStirling近似による理論値に収束する様子が確認できる。特に、$x = 0.3$や$x = 0.4$（正の温度領域）および$x = 0.6$や$x = 0.7$（負の温度領域）での収束が明確に示されている。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/temperature_convergence.png}
+    \caption{温度の粒子数依存性。異なる正規化エネルギー$x$での温度が、粒子数$N$の増加とともにStirling近似の理論値に収束する様子を示す。}
+    \label{fig:temperature_convergence}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/temperature_plot.png}
+    \caption{2準位系の温度 $T$ の正規化エネルギー $x = M/N$ 依存性}
+    \label{fig:temperature}
+\end{figure}
+
+\section{課題6: 考察}
+
+\subsection{エントロピーの最大値}
+
+数値計算の結果、エントロピーは $x = M/N = 0.5$ で最大値を取ることが確認された。これは、$M = N/2$ のとき、微視的状態数 $W(M) = C(N, M)$ が最大となるためである。この状態では、基底状態と励起状態の粒子数が等しく、系の配置の自由度が最大となる。
+
+Stirling近似による理論値では、$s_{\text{max}} = \ln 2 \approx 0.693$ となる。数値計算結果を見ると、$N = 20$ で $s_{\text{max}} = 0.606$、$N = 50$ で $s_{\text{max}} = 0.649$、$N = 100$ で $s_{\text{max}} = 0.668$ となり、粒子数が大きくなるにつれて理論値に近づいている。図\ref{fig:entropy_convergence}と表\ref{tab:entropy_max}から、この収束が系統的かつ漸近的であることが確認できる。特に、$N = 200$では相対誤差が約2\%まで減少し、熱力学極限への収束が良好であることがわかる。
+
+\subsection{温度の符号}
+
+エントロピーが最大となるエネルギー（$x = 0.5$）付近で、温度の符号が変化することが確認された。具体的には：
+
+\begin{itemize}
+    \item $x < 0.5$: 正の温度
+    \item $x = 0.5$: 無限大温度（$\partial S/\partial E = 0$）
+    \item $x > 0.5$: 負の温度
+\end{itemize}
+
+負の温度が出現する理由は、エントロピーがエネルギーに対して減少する領域（$x > 0.5$）が存在するためである。温度の定義 $1/T = \partial S/\partial E$ より、$\partial S/\partial E < 0$ の領域では $T < 0$ となる。
+
+\subsection{負の温度の物理的意味}
+
+本問題設定において、負の温度が現れる理由を物理的に考察する。
+
+2準位系では、エネルギーが増加するとエントロピーが増加する領域（$x < 0.5$）と、エネルギーが増加するとエントロピーが減少する領域（$x > 0.5$）が存在する。後者の領域では、系にエネルギーを加えるとエントロピーが減少するため、統計力学的な温度が負となる。
+
+負の温度は、正の温度よりも「熱い」状態を表す。温度の順序は：
+\begin{equation}
+    +0 < +\infty < -\infty < -0
+\end{equation}
+つまり、負の温度は正の無限大温度よりも高い温度である。これは、負の温度の系は正の温度の系にエネルギーを流すことができることを意味する。
+
+\subsection{実在系との関係}
+
+実際の自然界で負の温度を示す系が少ない理由は、通常の系ではエネルギーが増加するとエントロピーも単調に増加するためである。しかし、以下のような特殊な系では負の温度が実現される：
+
+\begin{itemize}
+    \item \textbf{スピン系}: 核スピンや電子スピンなどの2準位系で、外部磁場中での反転分布状態
+    \item \textbf{レーザー媒質}: 反転分布状態の原子系
+    \item \textbf{光学格子中の原子}: ボース・アインシュタイン凝縮などの特殊な状態
+\end{itemize}
+
+これらの系は、エネルギーに上限がある（有界な状態空間）という特徴を持ち、本問題の2準位系と同様の性質を示す。
+
+\section{結論}
+
+本問題では、2準位系のエントロピーと温度を数値計算により求め、以下の結果を得た：
+
+\begin{enumerate}
+    \item エントロピーは $x = M/N = 0.5$ で最大値を取り、粒子数が大きくなるにつれてStirling近似の理論値に近づく。
+    \item 温度は $x = 0.5$ で無限大となり、$x < 0.5$ では正、$x > 0.5$ では負の温度が現れる。
+    \item 負の温度は、エントロピーがエネルギーに対して減少する領域で現れ、正の無限大温度よりも高い温度を表す。
+    \item 実際の自然界では、エネルギーに上限がある特殊な系でのみ負の温度が実現される。
+\end{enumerate}
+
+これらの結果は、統計力学における温度の概念が単純な「熱さ」の尺度ではなく、エントロピーとエネルギーの関係によって定義されることを示している。
+
+\end{CJK}
+\end{document}
