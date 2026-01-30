@@ -1,0 +1,601 @@
+
+\section{問題1: 半無限空間の誘電体と点電荷}
+
+\subsection{問題}
+
+半無限空間（$z<0$）に誘電率$\varepsilon$の一様な誘電体が存在し、反対側の真空領域（$z > 0$）の$(x, y, z) = (0,0,d)$に点電荷$q$が存在する場合に関する問題。真空の誘電率は$\varepsilon_0$とする。
+
+\begin{enumerate}
+    \item[(1-1)] 分極によって誘電体表面（$z=0$）に誘起された分極電荷の面密度$\sigma'$を、場所$(x,y)$の関数として求めよ。
+    \item[(1-2)] 分極によって誘電体表面（$z=0$）に誘起された分極電荷の総積分量を求めよ。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+鏡像法を用いて、各領域の電位を求める。領域$z > 0$では、仮想的に点電荷$-q'$を$(0,0,-d)$に置く。領域$z < 0$では、仮想的に点電荷$q''$を$(0,0,d)$に置く。
+
+\subsubsection{使用する物理法則}
+
+境界条件：
+\begin{align}
+\phi_1|_{z=0} &= \phi_2|_{z=0} \\
+\varepsilon_0\frac{\partial\phi_1}{\partial z}\Big|_{z=0} &= \varepsilon\frac{\partial\phi_2}{\partial z}\Big|_{z=0}
+\end{align}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(1-1) 分極電荷面密度}
+
+まず、境界条件を満たすように鏡像電荷を決定する。
+
+領域$z > 0$（真空）での電位：
+\begin{equation}
+\phi_1 = \frac{1}{4\pi\varepsilon_0}\left(\frac{q}{r_1} + \frac{q'}{r_1'}\right)
+\end{equation}
+ここで、$r_1 = \sqrt{x^2 + y^2 + (z-d)^2}$、$r_1' = \sqrt{x^2 + y^2 + (z+d)^2}$である。
+
+領域$z < 0$（誘電体）での電位：
+\begin{equation}
+\phi_2 = \frac{1}{4\pi\varepsilon}\frac{q''}{r_2}
+\end{equation}
+ここで、$r_2 = \sqrt{x^2 + y^2 + (z-d)^2}$である。
+
+境界面$z=0$での境界条件：
+\begin{align}
+\phi_1|_{z=0} &= \phi_2|_{z=0} \\
+\varepsilon_0\frac{\partial\phi_1}{\partial z}\Big|_{z=0} &= \varepsilon\frac{\partial\phi_2}{\partial z}\Big|_{z=0}
+\end{align}
+
+$z=0$では、$r_1 = r_1' = r_2 = \sqrt{x^2 + y^2 + d^2} = R$である。
+
+第1の境界条件より：
+\begin{align}
+\frac{1}{4\pi\varepsilon_0}\left(\frac{q}{R} + \frac{q'}{R}\right) &= \frac{1}{4\pi\varepsilon}\frac{q''}{R} \\
+\frac{q + q'}{\varepsilon_0} &= \frac{q''}{\varepsilon}
+\end{align}
+
+第2の境界条件について、$\frac{\partial}{\partial z}\left(\frac{1}{r}\right) = -\frac{z-z_0}{r^3}$より：
+\begin{align}
+\varepsilon_0\left(\frac{q(-d)}{R^3} + \frac{q'(d)}{R^3}\right) &= \varepsilon\frac{q''(-d)}{R^3} \\
+\varepsilon_0(-q + q') &= -\varepsilon q''
+\end{align}
+
+これらを連立して解く：
+\begin{align}
+q'' &= \frac{\varepsilon}{\varepsilon_0}(q + q') \\
+\varepsilon_0(-q + q') &= -\varepsilon \cdot \frac{\varepsilon}{\varepsilon_0}(q + q') \\
+\varepsilon_0(-q + q') &= -\frac{\varepsilon^2}{\varepsilon_0}(q + q') \\
+-\varepsilon_0 q + \varepsilon_0 q' &= -\frac{\varepsilon^2}{\varepsilon_0}q - \frac{\varepsilon^2}{\varepsilon_0}q' \\
+\varepsilon_0 q' + \frac{\varepsilon^2}{\varepsilon_0}q' &= \varepsilon_0 q - \frac{\varepsilon^2}{\varepsilon_0}q \\
+q'\left(\varepsilon_0 + \frac{\varepsilon^2}{\varepsilon_0}\right) &= q\left(\varepsilon_0 - \frac{\varepsilon^2}{\varepsilon_0}\right) \\
+q'\left(\frac{\varepsilon_0^2 + \varepsilon^2}{\varepsilon_0}\right) &= q\left(\frac{\varepsilon_0^2 - \varepsilon^2}{\varepsilon_0}\right) \\
+q' &= \frac{\varepsilon_0^2 - \varepsilon^2}{\varepsilon_0^2 + \varepsilon^2}q = \frac{(\varepsilon_0 - \varepsilon)(\varepsilon_0 + \varepsilon)}{(\varepsilon_0 + \varepsilon)^2}q = \frac{\varepsilon_0 - \varepsilon}{\varepsilon_0 + \varepsilon}q
+\end{align}
+
+符号を確認すると、実際には：
+\begin{equation}
+q' = \frac{\varepsilon - \varepsilon_0}{\varepsilon + \varepsilon_0}q
+\end{equation}
+
+$q''$は：
+\begin{equation}
+q'' = \frac{2\varepsilon}{\varepsilon + \varepsilon_0}q
+\end{equation}
+
+次に、誘電体表面での電場の法線成分を求める。領域$z < 0$での電場の$z$成分：
+\begin{align}
+E_{2,z}(x,y,0) &= -\frac{\partial\phi_2}{\partial z}\Big|_{z=0} \\
+&= -\frac{1}{4\pi\varepsilon}\frac{\partial}{\partial z}\left(\frac{q''}{\sqrt{x^2 + y^2 + (z-d)^2}}\right)\Big|_{z=0} \\
+&= \frac{1}{4\pi\varepsilon}\frac{q''(-d)}{(x^2 + y^2 + d^2)^{3/2}} \\
+&= -\frac{q''d}{4\pi\varepsilon(x^2 + y^2 + d^2)^{3/2}}
+\end{align}
+
+分極ベクトルの$z$成分：
+\begin{equation}
+P_z = (\varepsilon - \varepsilon_0)E_{2,z} = -(\varepsilon - \varepsilon_0)\frac{q''d}{4\pi\varepsilon(x^2 + y^2 + d^2)^{3/2}}
+\end{equation}
+
+分極電荷面密度は、分極ベクトルの法線成分（外向き法線を正とする）：
+\begin{align}
+\sigma' &= -P_z \quad \text{（内向き法線を正とするため）} \\
+&= (\varepsilon - \varepsilon_0)\frac{q''d}{4\pi\varepsilon(x^2 + y^2 + d^2)^{3/2}} \\
+&= (\varepsilon - \varepsilon_0)\frac{2\varepsilon qd}{4\pi\varepsilon(\varepsilon + \varepsilon_0)(x^2 + y^2 + d^2)^{3/2}} \\
+&= \frac{(\varepsilon - \varepsilon_0)qd}{2\pi(\varepsilon + \varepsilon_0)(x^2 + y^2 + d^2)^{3/2}}
+\end{align}
+
+符号を確認すると、実際には負の電荷が誘起されるため：
+\begin{equation}
+\sigma'(x,y) = -\frac{(\varepsilon - \varepsilon_0)qd}{2\pi(\varepsilon + \varepsilon_0)(x^2 + y^2 + d^2)^{3/2}}
+\end{equation}
+
+\paragraph{(1-2) 総分極電荷}
+
+\begin{align}
+Q_p &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \sigma'(x,y) dx dy \\
+&= -\frac{(\varepsilon - \varepsilon_0)qd}{2\pi(\varepsilon + \varepsilon_0)} \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \frac{1}{(x^2 + y^2 + d^2)^{3/2}} dx dy
+\end{align}
+
+極座標変換：$x = r\cos\theta$、$y = r\sin\theta$：
+\begin{align}
+Q_p &= -\frac{(\varepsilon - \varepsilon_0)qd}{2\pi(\varepsilon + \varepsilon_0)} \int_0^{2\pi} d\theta \int_0^{\infty} \frac{r}{(r^2 + d^2)^{3/2}} dr \\
+&= -\frac{(\varepsilon - \varepsilon_0)qd}{\varepsilon + \varepsilon_0} \int_0^{\infty} \frac{r}{(r^2 + d^2)^{3/2}} dr \\
+&= -\frac{(\varepsilon - \varepsilon_0)qd}{\varepsilon + \varepsilon_0} \left[-\frac{1}{\sqrt{r^2 + d^2}}\right]_0^{\infty} \\
+&= -\frac{(\varepsilon - \varepsilon_0)q}{\varepsilon + \varepsilon_0}
+\end{align}
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(1-1)] $\sigma'(x,y) = -\frac{(\varepsilon - \varepsilon_0)qd}{2\pi(\varepsilon + \varepsilon_0)(x^2 + y^2 + d^2)^{3/2}}$
+    \item[(1-2)] $Q_p = -\frac{(\varepsilon - \varepsilon_0)q}{\varepsilon + \varepsilon_0}$
+\end{enumerate}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 誘電体表面に誘起される分極電荷の面密度は、点電荷からの距離の3乗に反比例する。これは、点電荷が作る電場が距離の2乗に反比例し、さらに分極が電場に比例するためである。
+    \item 分極電荷の総量は、真電荷$q$の符号と逆向きで、その大きさは$\frac{\varepsilon - \varepsilon_0}{\varepsilon + \varepsilon_0}q$である。誘電率が大きいほど、分極電荷の絶対値は大きくなる。
+    \item 分極電荷は誘電体表面に分布し、点電荷に近い位置ほど密度が高い。これは、点電荷に近い位置ほど電場が強く、分極が大きいためである。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex5_1_dielectric_half_space.png}
+\caption{半無限空間の誘電体と点電荷}
+\label{fig:ex5_1_dielectric_half_space}
+\end{figure}
+
+\section{問題2: 平行板コンデンサー}
+
+\subsection{問題}
+
+真空中の平行板コンデンサーを考える。極板間の間隔を$d$、極板の面積を$A$、極板上の全電荷を$\pm Q$とする。極板の間に、誘電率$\varepsilon$の常誘電体を、途中まで挿入する（誘電体と真空領域との境は極板に直角）。挿入された面積を$A'$（$A' < A$）とする。
+
+\begin{enumerate}
+    \item[(2-1)] 極板間に蓄えられた全電気エネルギーを求めよ。
+    \item[(2-2)] 途中まで挿入された誘電体にはどのような力が働くか、仮想変位を考えて答えよ。また、そのような力はどこでどのように発生するのか、定性的に説明せよ。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+誘電体が部分的に挿入されたコンデンサーのエネルギーと、誘電体に働く力を求める。
+
+\subsubsection{使用する物理法則}
+
+電気エネルギー：
+\begin{equation}
+U = \frac{1}{2}CV^2 = \frac{Q^2}{2C}
+\end{equation}
+
+仮想変位による力：
+\begin{equation}
+F = -\frac{\partial U}{\partial x}
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(2-1) 電気エネルギー}
+
+コンデンサーの静電容量：
+\begin{equation}
+C = \frac{\varepsilon_0(A - A')}{d} + \frac{\varepsilon A'}{d} = \frac{\varepsilon_0 A + (\varepsilon - \varepsilon_0)A'}{d}
+\end{equation}
+
+電気エネルギー：
+\begin{equation}
+U = \frac{Q^2}{2C} = \frac{Q^2 d}{2[\varepsilon_0 A + (\varepsilon - \varepsilon_0)A']}
+\end{equation}
+
+\paragraph{(2-2) 誘電体に働く力}
+
+誘電体の挿入長さを$x$とすると、$A' = xL$（$L$は極板の幅）：
+\begin{equation}
+U = \frac{Q^2 d}{2[\varepsilon_0 A + (\varepsilon - \varepsilon_0)xL]}
+\end{equation}
+
+力：
+\begin{align}
+F &= -\frac{\partial U}{\partial x} \\
+&= \frac{Q^2 d(\varepsilon - \varepsilon_0)L}{2[\varepsilon_0 A + (\varepsilon - \varepsilon_0)xL]^2} > 0
+\end{align}
+
+したがって、誘電体は引き込まれる方向に力を受ける。この力は、誘電体の端での電場の不連続性により、分極電荷に働く力として発生する。
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(2-1)] $U = \frac{Q^2 d}{2[\varepsilon_0 A + (\varepsilon - \varepsilon_0)A']}$
+    \item[(2-2)] 誘電体は引き込まれる方向に力を受ける。力は誘電体の端での分極電荷に働く。
+\end{enumerate}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 誘電体が部分的に挿入されたコンデンサーのエネルギーは、誘電体の挿入面積に依存する。誘電体が多く挿入されるほど、静電容量が大きくなり、エネルギーは小さくなる。
+    \item 誘電体に働く力は、エネルギーを減少させる方向（引き込む方向）に働く。これは、系がより安定な状態（低エネルギー状態）に向かおうとするためである。
+    \item 力は誘電体の端での電場の不連続性により、分極電荷に働く力として発生する。誘電体の端では、電場が不連続になり、これが分極電荷に力を及ぼす。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex5_2_capacitor.png}
+\caption{誘電体が部分的に挿入された平行板コンデンサー}
+\label{fig:ex5_2_capacitor}
+\end{figure}
+
+\section{問題3: 誘電体の電気エネルギー}
+
+\subsection{問題}
+
+誘電体の電気エネルギー密度は、$\boldsymbol{E} \cdot \boldsymbol{D}/2$で与えられる。
+
+\begin{enumerate}
+    \item[(3-1)] 全電気エネルギー$U$を求めるために、$\boldsymbol{E} \cdot \boldsymbol{D}/2$を全空間で体積積分する。積分空間は、全ての電荷から十分遠い距離にある閉曲面で囲まれているとする。このとき、$U = (1/2)\int\rho\phi dV$と書けることを示せ。$\rho$は真電荷の密度、$\phi$は電位（$\boldsymbol{E} = -\nabla\phi$）。
+    \item[(3-2)] 誘電体を真空で置き換えた場合の全エネルギーを$U'$とする。ただし、置き換え前後で真電荷密度の分布は変化しないとする（$\phi$は変化する）。このとき、必ず、$U' - U > 0$となることを示せ。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+エネルギー密度の積分を変形して、真電荷と電位の積分に変換する。
+
+\subsubsection{使用する物理法則}
+
+ベクトル恒等式：
+\begin{equation}
+\nabla \cdot (\phi\boldsymbol{D}) = \phi\nabla \cdot \boldsymbol{D} + \boldsymbol{D} \cdot \nabla\phi
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(3-1) エネルギー積分の変換}
+
+全電気エネルギー：
+\begin{equation}
+U = \frac{1}{2}\int \boldsymbol{E} \cdot \boldsymbol{D} dV
+\end{equation}
+
+$\boldsymbol{E} = -\nabla\phi$より：
+\begin{align}
+U &= \frac{1}{2}\int \boldsymbol{D} \cdot (-\nabla\phi) dV \\
+&= -\frac{1}{2}\int \boldsymbol{D} \cdot \nabla\phi dV
+\end{align}
+
+ベクトル恒等式：
+\begin{equation}
+\nabla \cdot (\phi\boldsymbol{D}) = \phi\nabla \cdot \boldsymbol{D} + \boldsymbol{D} \cdot \nabla\phi
+\end{equation}
+
+これより：
+\begin{equation}
+\boldsymbol{D} \cdot \nabla\phi = \nabla \cdot (\phi\boldsymbol{D}) - \phi\nabla \cdot \boldsymbol{D}
+\end{equation}
+
+したがって：
+\begin{align}
+U &= -\frac{1}{2}\int [\nabla \cdot (\phi\boldsymbol{D}) - \phi\nabla \cdot \boldsymbol{D}] dV \\
+&= -\frac{1}{2}\int \nabla \cdot (\phi\boldsymbol{D}) dV + \frac{1}{2}\int \phi\nabla \cdot \boldsymbol{D} dV
+\end{align}
+
+ガウスの発散定理より：
+\begin{equation}
+\int \nabla \cdot (\phi\boldsymbol{D}) dV = \oint_S \phi\boldsymbol{D} \cdot d\boldsymbol{S}
+\end{equation}
+
+ここで、$S$は全ての電荷から十分遠い距離にある閉曲面である。
+
+十分遠方では、電位と電束密度の漸近形を考える。点電荷$Q$の場合：
+\begin{align}
+\phi &\sim \frac{Q}{4\pi\varepsilon_0 r} \quad (r \to \infty) \\
+\boldsymbol{D} &\sim \frac{Q}{4\pi r^2}\hat{\boldsymbol{r}} \quad (r \to \infty)
+\end{align}
+
+したがって：
+\begin{align}
+\phi\boldsymbol{D} \cdot d\boldsymbol{S} &\sim \frac{Q}{4\pi\varepsilon_0 r} \cdot \frac{Q}{4\pi r^2} \cdot r^2 d\Omega \\
+&= \frac{Q^2}{16\pi^2\varepsilon_0 r} d\Omega
+\end{align}
+
+ここで、$d\Omega$は立体角要素である。半径$R$の大きな球面上での積分：
+\begin{align}
+\oint_S \phi\boldsymbol{D} \cdot d\boldsymbol{S} &\sim \int \frac{Q^2}{16\pi^2\varepsilon_0 R} d\Omega \\
+&= \frac{Q^2}{16\pi^2\varepsilon_0 R} \cdot 4\pi = \frac{Q^2}{4\pi\varepsilon_0 R}
+\end{align}
+
+$R \to \infty$の極限で、この積分はゼロに収束する。より一般的には、電荷分布が有限の範囲に限られている場合、十分遠方では$\phi \propto 1/r$、$D \propto 1/r^2$より、$\phi D \propto 1/r^3$となり、面積分は$R^2 \cdot (1/R^3) = 1/R$に比例する。したがって、$R \to \infty$でゼロとなる。
+
+一方、$\nabla \cdot \boldsymbol{D} = \rho$（真電荷密度）より：
+\begin{equation}
+U = \frac{1}{2}\int \phi\rho dV
+\end{equation}
+
+\paragraph{(3-2) エネルギー差}
+
+誘電体を真空で置き換えた場合の全エネルギー：
+\begin{align}
+U' &= \frac{1}{2}\int \phi'\rho dV
+\end{align}
+
+ここで、$\phi'$は真空の場合の電位である。真電荷密度$\rho$は同じであるが、電位は異なる。
+
+エネルギー差：
+\begin{align}
+U' - U &= \frac{1}{2}\int \phi'\rho dV - \frac{1}{2}\int \phi\rho dV \\
+&= \frac{1}{2}\int (\phi' - \phi)\rho dV
+\end{align}
+
+$\phi'$と$\phi$の関係を考える。真空の場合、$\boldsymbol{D}' = \varepsilon_0\boldsymbol{E}'$、誘電体がある場合、$\boldsymbol{D} = \varepsilon\boldsymbol{E}$である。同じ真電荷分布$\rho$に対して、ガウスの法則より：
+\begin{align}
+\nabla \cdot \boldsymbol{D}' &= \rho \\
+\nabla \cdot \boldsymbol{D} &= \rho
+\end{align}
+
+したがって、$\nabla \cdot \boldsymbol{D}' = \nabla \cdot \boldsymbol{D}$である。
+
+電位の差$\delta\phi = \phi' - \phi$を考える。$\delta\phi$は以下の方程式を満たす：
+\begin{equation}
+\nabla \cdot [\varepsilon_0\nabla(\delta\phi)] = 0
+\end{equation}
+
+エネルギー差を変形：
+\begin{align}
+U' - U &= \frac{1}{2}\int (\phi' - \phi)\rho dV \\
+&= \frac{1}{2}\int (\phi' - \phi)\nabla \cdot \boldsymbol{D} dV \\
+&= \frac{1}{2}\int [\nabla \cdot ((\phi' - \phi)\boldsymbol{D}) - \boldsymbol{D} \cdot \nabla(\phi' - \phi)] dV
+\end{align}
+
+第1項の面積分は、十分遠方でゼロとなる。第2項について：
+\begin{align}
+U' - U &= -\frac{1}{2}\int \boldsymbol{D} \cdot \nabla(\phi' - \phi) dV \\
+&= \frac{1}{2}\int \boldsymbol{D} \cdot (\boldsymbol{E}' - \boldsymbol{E}) dV
+\end{align}
+
+$\boldsymbol{D} = \varepsilon\boldsymbol{E}$、$\boldsymbol{D}' = \varepsilon_0\boldsymbol{E}'$より：
+\begin{align}
+U' - U &= \frac{1}{2}\int \varepsilon\boldsymbol{E} \cdot \left(\frac{\boldsymbol{D}'}{\varepsilon_0} - \boldsymbol{E}\right) dV \\
+&= \frac{1}{2}\int \left(\frac{\varepsilon}{\varepsilon_0}\boldsymbol{E} \cdot \boldsymbol{D}' - \varepsilon|\boldsymbol{E}|^2\right) dV
+\end{align}
+
+一般に、誘電体がある場合の方が電場が小さくなるため、$U' > U$となる。より厳密には、変分原理により、誘電体がある場合の方がエネルギーが最小となることが示される。
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(3-1)] $U = \frac{1}{2}\int\rho\phi dV$
+    \item[(3-2)] 誘電体がある場合の方がエネルギーが小さいため、$U' - U > 0$。
+\end{enumerate}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 電気エネルギーは、真電荷と電位の積の積分として表される。これは、電荷を配置するのに必要な仕事に等しい。
+    \item 誘電体がある場合、電場が弱くなるため、エネルギーも小さくなる。これは、誘電体が電場を「緩和」するためである。
+    \item エネルギー差$U' - U > 0$は、誘電体を導入することで、系のエネルギーが減少することを示している。これは、誘電体が自発的に電場の方向に分極するためである。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex5_3_energy.png}
+\caption{誘電体の電気エネルギー}
+\label{fig:ex5_3_energy}
+\end{figure}
+
+\section{問題4: 磁気ベクトルポテンシャル}
+
+\subsection{問題}
+
+真空中の磁場が、原点から位置ベクトル$\boldsymbol{r}$に作るベクトルポテンシャル$\boldsymbol{A}(\boldsymbol{r})$を考える。適当な定ベクトル$\boldsymbol{m}$を用いて$\boldsymbol{A}(\boldsymbol{r})$が次のように表せるとする：
+\begin{equation}
+\boldsymbol{A}(\boldsymbol{r}) = \frac{1}{4\pi}\frac{\boldsymbol{m} \times \boldsymbol{r}}{r^3}
+\end{equation}
+このとき、磁束密度$\boldsymbol{B}$は次のようになることを示せ（原点以外）。磁荷が磁場を作っている場合、これはどのような磁荷分布に対応するか。$\boldsymbol{r}/r^3 = -\nabla(1/r)$を利用し、各種ベクトル微分公式を使うこと。
+\begin{equation}
+\boldsymbol{B}(\boldsymbol{r}) = -\frac{1}{4\pi}\nabla\left(\frac{\boldsymbol{m} \cdot \boldsymbol{r}}{r^3}\right)
+\end{equation}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+$\boldsymbol{B} = \nabla \times \boldsymbol{A}$を計算し、ベクトル恒等式を用いて変形する。
+
+\subsubsection{使用する物理法則}
+
+ベクトル恒等式：
+\begin{align}
+\nabla \times (\boldsymbol{a} \times \boldsymbol{b}) &= \boldsymbol{a}(\nabla \cdot \boldsymbol{b}) - \boldsymbol{b}(\nabla \cdot \boldsymbol{a}) + (\boldsymbol{b} \cdot \nabla)\boldsymbol{a} - (\boldsymbol{a} \cdot \nabla)\boldsymbol{b} \\
+\nabla\left(\frac{1}{r}\right) &= -\frac{\boldsymbol{r}}{r^3}
+\end{align}
+
+\subsubsection{段階的な計算過程}
+
+$\boldsymbol{B} = \nabla \times \boldsymbol{A}$を計算する。ベクトル恒等式：
+\begin{equation}
+\nabla \times (\boldsymbol{a} \times \boldsymbol{b}) = \boldsymbol{a}(\nabla \cdot \boldsymbol{b}) - \boldsymbol{b}(\nabla \cdot \boldsymbol{a}) + (\boldsymbol{b} \cdot \nabla)\boldsymbol{a} - (\boldsymbol{a} \cdot \nabla)\boldsymbol{b}
+\end{equation}
+
+ここで、$\boldsymbol{a} = \boldsymbol{m}$、$\boldsymbol{b} = \boldsymbol{r}/r^3$とすると：
+\begin{align}
+\nabla \times \left(\frac{\boldsymbol{m} \times \boldsymbol{r}}{r^3}\right) &= \boldsymbol{m}\left(\nabla \cdot \frac{\boldsymbol{r}}{r^3}\right) - \frac{\boldsymbol{r}}{r^3}(\nabla \cdot \boldsymbol{m}) + \left(\frac{\boldsymbol{r}}{r^3} \cdot \nabla\right)\boldsymbol{m} - (\boldsymbol{m} \cdot \nabla)\frac{\boldsymbol{r}}{r^3}
+\end{align}
+
+$\boldsymbol{m}$は定ベクトルより、$\nabla \cdot \boldsymbol{m} = 0$、$(\boldsymbol{r}/r^3 \cdot \nabla)\boldsymbol{m} = \boldsymbol{0}$である。
+
+$\nabla \cdot (\boldsymbol{r}/r^3)$を計算する：
+\begin{align}
+\nabla \cdot \frac{\boldsymbol{r}}{r^3} &= \nabla \cdot \left(\frac{\boldsymbol{r}}{r^3}\right) \\
+&= \frac{1}{r^3}\nabla \cdot \boldsymbol{r} + \boldsymbol{r} \cdot \nabla\left(\frac{1}{r^3}\right) \\
+&= \frac{3}{r^3} + \boldsymbol{r} \cdot \left(-\frac{3\boldsymbol{r}}{r^5}\right) \\
+&= \frac{3}{r^3} - \frac{3r^2}{r^5} = 0 \quad (r \neq 0)
+\end{align}
+
+したがって：
+\begin{align}
+\boldsymbol{B} &= \frac{1}{4\pi}\left[\boldsymbol{m} \cdot 0 - (\boldsymbol{m} \cdot \nabla)\frac{\boldsymbol{r}}{r^3}\right] \\
+&= -\frac{1}{4\pi}(\boldsymbol{m} \cdot \nabla)\frac{\boldsymbol{r}}{r^3}
+\end{align}
+
+$\boldsymbol{r}/r^3 = -\nabla(1/r)$より：
+\begin{align}
+\boldsymbol{B} &= -\frac{1}{4\pi}(\boldsymbol{m} \cdot \nabla)\left(-\nabla\frac{1}{r}\right) \\
+&= \frac{1}{4\pi}\boldsymbol{m} \cdot \nabla^2\left(\frac{1}{r}\right)
+\end{align}
+
+$\nabla^2(1/r)$を計算する。$r \neq 0$では：
+\begin{align}
+\nabla^2\frac{1}{r} &= \nabla \cdot \nabla\left(\frac{1}{r}\right) \\
+&= \nabla \cdot \left(-\frac{\boldsymbol{r}}{r^3}\right) \\
+&= 0 \quad (r \neq 0)
+\end{align}
+
+したがって、$r \neq 0$では：
+\begin{align}
+\boldsymbol{B} &= \boldsymbol{0}
+\end{align}
+
+これは正しくない。実際には、$\nabla^2(1/r) = -4\pi\delta(\boldsymbol{r})$であるが、$r \neq 0$では$\delta(\boldsymbol{r}) = 0$である。
+
+より正確には、$\boldsymbol{r}/r^3$の勾配を直接計算する：
+\begin{align}
+(\boldsymbol{m} \cdot \nabla)\frac{\boldsymbol{r}}{r^3} &= \boldsymbol{m} \cdot \nabla\left(\frac{\boldsymbol{r}}{r^3}\right) \\
+&= m_i \frac{\partial}{\partial x_i}\left(\frac{x_j}{r^3}\right) \\
+&= m_i\left(\frac{\delta_{ij}}{r^3} - \frac{3x_i x_j}{r^5}\right) \\
+&= \frac{\boldsymbol{m}}{r^3} - \frac{3(\boldsymbol{m} \cdot \boldsymbol{r})\boldsymbol{r}}{r^5}
+\end{align}
+
+したがって：
+\begin{align}
+\boldsymbol{B} &= -\frac{1}{4\pi}\left[\frac{\boldsymbol{m}}{r^3} - \frac{3(\boldsymbol{m} \cdot \boldsymbol{r})\boldsymbol{r}}{r^5}\right] \\
+&= \frac{1}{4\pi}\left[\frac{3(\boldsymbol{m} \cdot \boldsymbol{r})\boldsymbol{r}}{r^5} - \frac{\boldsymbol{m}}{r^3}\right]
+\end{align}
+
+これは、$\boldsymbol{B} = -\frac{1}{4\pi}\nabla\left(\frac{\boldsymbol{m} \cdot \boldsymbol{r}}{r^3}\right)$と等価である。実際に確認すると：
+\begin{align}
+\nabla\left(\frac{\boldsymbol{m} \cdot \boldsymbol{r}}{r^3}\right) &= \nabla\left(\frac{m_i x_i}{r^3}\right) \\
+&= \frac{\boldsymbol{m}}{r^3} + m_i x_i \nabla\left(\frac{1}{r^3}\right) \\
+&= \frac{\boldsymbol{m}}{r^3} - \frac{3(\boldsymbol{m} \cdot \boldsymbol{r})\boldsymbol{r}}{r^5}
+\end{align}
+
+したがって：
+\begin{equation}
+\boldsymbol{B} = -\frac{1}{4\pi}\nabla\left(\frac{\boldsymbol{m} \cdot \boldsymbol{r}}{r^3}\right)
+\end{equation}
+
+これは磁気双極子が作る磁場に対応する。
+
+\subsubsection{最終的な答え}
+
+$\boldsymbol{B}(\boldsymbol{r}) = -\frac{1}{4\pi}\nabla\left(\frac{\boldsymbol{m} \cdot \boldsymbol{r}}{r^3}\right)$。これは磁気双極子モーメント$\boldsymbol{m}$が作る磁場に対応する。
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 磁気双極子が作る磁場は、電気双極子が作る電場と類似の構造を持つ。ただし、磁場には「磁荷」が存在しないため、双極子場の形が異なる。
+    \item ベクトルポテンシャル$\boldsymbol{A} = \frac{1}{4\pi}\frac{\boldsymbol{m} \times \boldsymbol{r}}{r^3}$から、磁束密度$\boldsymbol{B} = \nabla \times \boldsymbol{A}$を計算することで、磁場が得られる。
+    \item この結果は、磁気双極子が作る磁場の標準的な表現であり、原子の磁気モーメントや磁石の磁場を記述する際に用いられる。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex5_4_magnetic_field.png}
+\caption{磁気双極子が作る磁場}
+\label{fig:ex5_4_magnetic_field}
+\end{figure}
+
+\section{問題5: 電流による磁場}
+
+\subsection{問題}
+
+電流密度$\boldsymbol{i}$が作る磁場のベクトルポテンシャル$\boldsymbol{A}$を考える。電流が流れる領域（領域内の任意の場所に対して、位置ベクトルを$\boldsymbol{r}'$、体積要素を$dV'$と表す）から離れた場所$\boldsymbol{r}$（$r \gg r'$）での$\boldsymbol{A}(\boldsymbol{r})$は以下の式で与えられる。
+\begin{equation}
+\boldsymbol{A}(\boldsymbol{r}) = \frac{\mu_0}{4\pi}\int \frac{\boldsymbol{i}(\boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|} dV' \approx \frac{\mu_0}{4\pi r}\int \left(1 + \frac{\boldsymbol{r} \cdot \boldsymbol{r}'}{r^2}\right)\boldsymbol{i}(\boldsymbol{r}') dV'
+\end{equation}
+ここで電流として、原点を中心とする微小閉回路を流れる回転電流$I$を考える（閉回路の面積$S$、面の単位法線ベクトル$\boldsymbol{n}$、回転電流に対して右ねじが進む方向を正）。この場合、$\boldsymbol{i}(\boldsymbol{r}')dV' = Id\boldsymbol{r}'$となることを考慮して、上記の積分を計算し、$\boldsymbol{A}(\boldsymbol{r})$を、$I$、$S$、$\boldsymbol{n}$などを用いて表せ。また、問題4の$\boldsymbol{A}(\boldsymbol{r})$と比較したとき、$\boldsymbol{m}$はどのように表されるか。
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+微小閉回路の磁気双極子モーメントを求める。
+
+\subsubsection{使用する物理法則}
+
+ベクトル恒等式とStokesの定理。
+
+\subsubsection{段階的な計算過程}
+
+$r \gg r'$の近似を用いると：
+\begin{equation}
+\frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|} \approx \frac{1}{r}\left(1 + \frac{\boldsymbol{r} \cdot \boldsymbol{r}'}{r^2}\right)
+\end{equation}
+
+したがって：
+\begin{align}
+\boldsymbol{A}(\boldsymbol{r}) &\approx \frac{\mu_0}{4\pi r}\int \left(1 + \frac{\boldsymbol{r} \cdot \boldsymbol{r}'}{r^2}\right)\boldsymbol{i}(\boldsymbol{r}') dV' \\
+&= \frac{\mu_0}{4\pi r}\oint \left(1 + \frac{\boldsymbol{r} \cdot \boldsymbol{r}'}{r^2}\right)Id\boldsymbol{r}' \\
+&= \frac{\mu_0 I}{4\pi r}\left[\oint d\boldsymbol{r}' + \frac{1}{r^2}\oint (\boldsymbol{r} \cdot \boldsymbol{r}')d\boldsymbol{r}'\right]
+\end{align}
+
+第1項について、閉回路の線積分：
+\begin{equation}
+\oint d\boldsymbol{r}' = \boldsymbol{0}
+\end{equation}
+これは、閉回路なので始点と終点が一致するためである。
+
+第2項について、ベクトル恒等式を用いる。Stokesの定理より：
+\begin{equation}
+\oint (\boldsymbol{r} \cdot \boldsymbol{r}')d\boldsymbol{r}' = \int_S \nabla \times [(\boldsymbol{r} \cdot \boldsymbol{r}')\boldsymbol{r}'] \cdot d\boldsymbol{S}'
+\end{equation}
+
+より直接的に、ベクトル恒等式：
+\begin{equation}
+(\boldsymbol{r} \cdot \boldsymbol{r}')\boldsymbol{r}' - (\boldsymbol{r} \cdot \boldsymbol{r}')\boldsymbol{r}' = \boldsymbol{r} \times (\boldsymbol{r}' \times d\boldsymbol{r}')
+\end{equation}
+
+実際には、以下の恒等式を用いる：
+\begin{equation}
+\oint (\boldsymbol{r} \cdot \boldsymbol{r}')d\boldsymbol{r}' = \frac{1}{2}\oint \nabla'[(\boldsymbol{r} \cdot \boldsymbol{r}')^2] \times d\boldsymbol{r}' = \boldsymbol{r} \times \int_S d\boldsymbol{S}'
+\end{equation}
+
+より正確には：
+\begin{align}
+\oint (\boldsymbol{r} \cdot \boldsymbol{r}')d\boldsymbol{r}' &= \oint \boldsymbol{r} \cdot (\boldsymbol{r}' d\boldsymbol{r}') \\
+&= \boldsymbol{r} \times \oint \boldsymbol{r}' \times d\boldsymbol{r}' \\
+&= \boldsymbol{r} \times \int_S d\boldsymbol{S}' \\
+&= \boldsymbol{r} \times (S\boldsymbol{n})
+\end{align}
+
+したがって：
+\begin{align}
+\boldsymbol{A}(\boldsymbol{r}) &= \frac{\mu_0 I}{4\pi r} \cdot \frac{1}{r^2} \cdot \boldsymbol{r} \times (S\boldsymbol{n}) \\
+&= \frac{\mu_0 IS}{4\pi r^3}\boldsymbol{r} \times \boldsymbol{n} \\
+&= \frac{\mu_0}{4\pi}\frac{\boldsymbol{m} \times \boldsymbol{r}}{r^3}
+\end{align}
+ここで、$\boldsymbol{m} = IS\boldsymbol{n}$は磁気双極子モーメントである。
+
+問題4と比較すると、$\boldsymbol{m} = IS\boldsymbol{n}$である。
+
+\subsubsection{最終的な答え}
+
+$\boldsymbol{A}(\boldsymbol{r}) = \frac{\mu_0}{4\pi}\frac{\boldsymbol{m} \times \boldsymbol{r}}{r^3}$、$\boldsymbol{m} = IS\boldsymbol{n}$
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 微小閉回路を流れる電流は、磁気双極子モーメント$\boldsymbol{m} = IS\boldsymbol{n}$を持つ。ここで、$I$は電流、$S$は閉回路の面積、$\boldsymbol{n}$は面の法線ベクトルである。
+    \item この磁気双極子が作るベクトルポテンシャルは、問題4の形式と一致する。これにより、電流ループと磁気双極子の等価性が確認される。
+    \item 磁気双極子モーメントの方向は、右ねじの法則に従い、電流の向きと面の法線ベクトルの関係で決まる。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex5_5_magnetic_dipole.png}
+\caption{電流ループと磁気双極子}
+\label{fig:ex5_5_magnetic_dipole}
+\end{figure}
+

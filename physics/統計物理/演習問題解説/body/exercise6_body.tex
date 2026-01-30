@@ -1,0 +1,173 @@
+% 演習6 (2025/12/19実施)
+\section{演習6 (2025年12月19日実施)}
+
+\subsection{I. 熱力学の関係式}
+
+\subsubsection{この問題で学ぶこと}
+
+熱力学の基本関係式（$T\,dS = dU + p\,dV$、$dF = -S\,dT - p\,dV$）と偏微分の技巧から、内部エネルギーや熱容量に関する重要な関係式を導く。マクスウェル関係式は2階偏微分の対称性から得られる。
+
+\subsubsection{問題}
+
+$T\,dS = dU + p\,dV$、$dF = -S\,dT - p\,dV$ を用いて次を導け。
+\begin{enumerate}
+    \item $\left(\frac{\partial U}{\partial V}\right)_T = T^2 \frac{\partial}{\partial T}\left(\frac{p}{T}\right)_V$
+    \item $C_p = C_V + T\left(\frac{\partial V}{\partial T}\right)_p \left(\frac{\partial p}{\partial T}\right)_V$
+\end{enumerate}
+
+\subsubsection{解答}
+
+\paragraph{前提知識：熱力学の基本関係式}
+
+\textbf{$T\,dS = dU + p\,dV$}：第1法則 $dU = dQ - p\,dV$ と、可逆過程での $dQ_{\mathrm{rev}} = T\,dS$ を組み合わせると、$dU = T\,dS - p\,dV$ すなわち $T\,dS = dU + p\,dV$ を得る。エントロピー $S$ を $U$, $V$ の関数として扱う表現である。
+
+\textbf{$dF = -S\,dT - p\,dV$}：ヘルムホルツの自由エネルギー $F = U - TS$ の全微分は $dF = dU - T\,dS - S\,dT$。$dU = T\,dS - p\,dV$ を代入すると $dF = -S\,dT - p\,dV$。$F$ を $T$, $V$ の関数として扱う表現である。
+
+\textbf{なぜ重要か}：偏微分の関係式（マクスウェル関係式）は、これらの完全微分の性質（2階偏微分の対称性）から導かれる。熱力学の様々な関係式を導くための基本ツールである。
+
+\paragraph{導出の戦略}
+
+マクスウェル関係式は、$F$ の2階偏微分 $\frac{\partial^2 F}{\partial T \partial V} = \frac{\partial^2 F}{\partial V \partial T}$ から $(\partial S/\partial V)_T = (\partial p/\partial T)_V$ を得る。問1は $dU = T\,dS - p\,dV$ を $V$ で偏微分し、マクスウェル関係式を代入。問2は $S(T,V)$ の全微分から $(\partial S/\partial T)_p$ を連鎖律で求める。
+
+\paragraph{マクスウェル関係式の導出}
+
+$dF = -S\,dT - p\,dV$ より、$F$ の2階偏微分の順序交換 $\frac{\partial^2 F}{\partial T \partial V} = \frac{\partial^2 F}{\partial V \partial T}$（滑らかな関数では偏微分の順序は交換可能）から
+\begin{equation}
+\left(\frac{\partial S}{\partial V}\right)_T = \left(\frac{\partial p}{\partial T}\right)_V
+\end{equation}
+が得られる（マクスウェル関係式の1つ）。
+
+\paragraph{問1}
+
+$dU = T\,dS - p\,dV$ より、$T$ を一定にして $V$ で偏微分すると
+\begin{equation}
+\left(\frac{\partial U}{\partial V}\right)_T = T\left(\frac{\partial S}{\partial V}\right)_T - p
+\end{equation}
+マクスウェル関係式 $(\partial S/\partial V)_T = (\partial p/\partial T)_V$ を代入して
+\begin{equation}
+\left(\frac{\partial U}{\partial V}\right)_T = T\left(\frac{\partial p}{\partial T}\right)_V - p
+\end{equation}
+一方、$T^2 \frac{\partial}{\partial T}(p/T)_V = T^2 \cdot \frac{T(\partial p/\partial T)_V - p}{T^2} = T(\partial p/\partial T)_V - p$ なので、与式と一致する。
+
+\paragraph{問2}
+
+$C_p = T(\partial S/\partial T)_p$、$C_V = T(\partial S/\partial T)_V$ である。$S$ を $T, V$ の関数とみて
+\begin{equation}
+dS = \left(\frac{\partial S}{\partial T}\right)_V dT + \left(\frac{\partial S}{\partial V}\right)_T dV
+\end{equation}
+$p$ を一定にしたときの $dS/dT$ は、$dV/dT = (\partial V/\partial T)_p$ を用いて
+\begin{equation}
+\left(\frac{\partial S}{\partial T}\right)_p = \left(\frac{\partial S}{\partial T}\right)_V + \left(\frac{\partial S}{\partial V}\right)_T \left(\frac{\partial V}{\partial T}\right)_p
+\end{equation}
+したがって
+\begin{equation}
+C_p - C_V = T\left(\frac{\partial S}{\partial V}\right)_T \left(\frac{\partial V}{\partial T}\right)_p = T\left(\frac{\partial p}{\partial T}\right)_V \left(\frac{\partial V}{\partial T}\right)_p
+\end{equation}
+（マクスウェル関係式を用いた）。
+
+\textbf{なぜ $C_p > C_V$ なのか（原理的説明）}：定積では体積が変わらないので、加えた熱はすべて内部エネルギーの増加に使われる。定圧では体積が膨張するため、加えた熱の一部が膨張の仕事（$p\Delta V$）に使われる。同じ温度上昇を得るには、定圧の方がより多くの熱が必要であり、$C_p > C_V$ となる。Mayerの関係式 $C_p - C_V = R$（1モルあたり）は、この差が気体定数 $R$ で与えられることを示す。
+
+%--------------------------------------
+\subsection{II. 輪ゴムの熱力学}
+
+\subsubsection{この問題で学ぶこと}
+
+熱力学は気体だけに限らない。輪ゴムのような弾性体にも適用できる。張力 $X$ と変位 $x$ が、気体の $p$ と $V$ に対応する。$k(T)$ が温度に依存すると、内部エネルギーと自由エネルギーの温度依存性が異なる。
+
+\subsubsection{問題}
+
+バネ定数 $k(T) = k_0 + k_1 T$ のバネについて、自由エネルギー $F(T,x)$ と内部エネルギー $U(T,x)$ を求めよ。
+
+\subsubsection{解答}
+
+\paragraph{前提知識：気体との対応}
+
+気体の $p$-$V$ と弾性体の $X$-$x$ の対応：体積 $V \leftrightarrow$ 変位 $x$、圧力 $p \leftrightarrow$ 張力 $-X$。$(\partial F/\partial V)_T = -p$ に対応して $(\partial F/\partial x)_T = -X$ である。
+
+バネの張力 $X = -k(T)x$（フックの法則）。気体の $p$-$V$ に対応して、バネでは $X$-$x$ が「力」と「変位」の組である。$k(T)$ が温度に比例する部分 $k_1 T$ を持つと、温度を上げると張力が増す。輪ゴムを素早く伸ばすと温度が上がる現象は、この温度依存性と整合する。
+
+\paragraph{自由エネルギー}
+
+$\left(\frac{\partial F}{\partial x}\right)_T = -X = k(T)x$ より、$x$ で積分して $F(T,x) = \frac{1}{2}k(T)x^2 + f(T)$。$f(T)$ は $x$ に依らない部分。比熱 $C$ が定数のとき、$F$ の $T$ 依存から $f(T) = -CT(\ln(T/T_0)-1)$ など。$F(T=0, x=0) = 0$ の条件で未定定数を決める。
+
+\paragraph{内部エネルギー}
+
+問Iの式（バネ版）$\left(\frac{\partial U}{\partial x}\right)_T = T^2 \frac{\partial}{\partial T}\left(\frac{X}{T}\right)_x$ を用いる。$X/T = -k(T)x/T = -(k_0/T + k_1)x$。$\frac{\partial}{\partial T}(X/T) = k_0 x/T^2$。よって $\left(\frac{\partial U}{\partial x}\right)_T = k_0 x$。積分して $U = \frac{1}{2}k_0 x^2 + g(T)$。$U(0,0)=0$ などで $g(T)$ を決める。$k_1 T$ の項は $F$ にはあるが $U$ には直接現れず、エントロピーに起因する。
+
+\textbf{なぜ輪ゴムを急に伸ばすと熱くなるのか}：断熱的に（急に）伸ばすと $dQ = 0$。$dU = dQ + dW = dW$（外界がする仕事）。$k(T) = k_0 + k_1 T$ で $k_1 > 0$ なら、伸ばすと張力が増し、エントロピーが減る（秩序が増す）。$dU = T dS + X dx$ で、$dS < 0$、$X dx > 0$（伸ばすとき外界が仕事をする）のとき、$dU > 0$ となり温度が上昇する。輪ゴムを唇に当てて急に伸ばすと温かく感じる、という日常体験と整合する。
+
+%--------------------------------------
+\subsection{III. 理想気体の熱力学関数}
+
+\subsubsection{問題}
+
+$S = NR\ln(T^c V/N) + NS_0$、$U = cNRT$ から化学ポテンシャル $\mu$、ヘルムホルツの自由エネルギー $F$ を求めよ。オイラーの関係式を確認せよ。
+
+\subsubsection{解答}
+
+\textbf{化学ポテンシャルとは}：$\mu = (\partial F/\partial N)_{T,V}$ は、粒子を1つ追加したときの $F$ の増分。相平衡では両相の $\mu$ が等しい。
+
+$F = U - TS = cNRT - T[NR\ln(T^c V/N) + NS_0]$。$\mu = (\partial F/\partial N)_{T,V}$ を計算する。$\ln(T^c V/N)$ の $N$ による微分は $\frac{\partial}{\partial N}\ln(T^c V) - \frac{\partial}{\partial N}\ln N = -1/N$ である。よって
+\begin{equation}
+\mu = cRT - RT\ln(T^c V/N) - RT - TS_0
+\end{equation}
+オイラーの関係式：$S$ が $U,V,N$ の1次同次関数（示量変数）なら $S = (\partial S/\partial U) U + (\partial S/\partial V) V + (\partial S/\partial N) N$。$\partial S/\partial U = 1/T$（$U$ を $S,V,N$ の関数とみたときの逆関係）、$\partial S/\partial V = p/T = NR/V$、$\partial S/\partial N = -\mu/T$。よって $S = U/T + pV/T - \mu N/T$ となり、オイラー関係が成り立つ。化学ポテンシャルの単位はエネルギー/mol（または J/mol）である。
+
+%--------------------------------------
+\subsection{IV--V. 2成分混合気体とポアソン分布}
+
+\subsubsection{この問題で学ぶこと}
+
+異なる種類の気体を混合すると、エントロピーが増加する（混合のエントロピー）。統計力学では、大量の分子がランダムに分布するとき、小さな領域に入る分子数はポアソン分布に従う。二項分布の極限としてポアソン分布を導く。
+
+\subsubsection{問題}
+
+体積 $V$ の容器に $N_1$ mol、$N_2$ mol の2成分理想気体がある。仕切りを外して混合したときのエントロピー変化を求めよ。体積 $v$ に $n$ 個の分子が入る確率がポアソン分布になることを示せ。
+
+\subsubsection{解答}
+
+\paragraph{導出の戦略}
+
+混合のエントロピー：各成分が $V_1$, $V_2$ から $V$ に広がる。理想気体の $S(T,V,N)$ で、$\Delta S = S_{\mathrm{fin}} - S_{\mathrm{init}}$ を計算。ポアソン分布：二項分布 $P(n) = \binom{N}{n} p^n (1-p)^{N-n}$ で $N \to \infty$、$p \to 0$、$Np = a$ 一定の極限をとる。母関数を用いて導出する。
+
+\paragraph{混合のエントロピー}
+
+\textbf{設定}：全体積 $V$ の容器に、動く仕切りで区切られた2つの部分がある。成分1は体積 $V_1$、成分2は体積 $V_2$ を占め、$V_1 + V_2 = V$。温度・圧力は平衡で等しい。仕切りを外すと、両成分が全体積 $V$ に広がる。
+
+初期状態：$S_{\mathrm{init}} = S_1(T, V_1, N_1) + S_2(T, V_2, N_2)$。平衡条件から $V_1/N_1 = V_2/N_2$、また $V_1 + V_2 = V$、$N_1 + N_2 = N$ より $V_1/V = N_1/N$、$V_2/V = N_2/N$。
+
+終状態：各成分が体積 $V$ に広がった理想混合気体。$S_{\mathrm{fin}} = S_1(T, V, N_1) + S_2(T, V, N_2)$（理想気体の混合では、各成分の partial pressure で計算）。エントロピー変化は
+\begin{equation}
+\Delta S_{\mathrm{mix}} = N_1 R \ln\frac{V}{V_1} + N_2 R \ln\frac{V}{V_2} = -N_1 R \ln\frac{N_1}{N} - N_2 R \ln\frac{N_2}{N}
+\end{equation}
+$> 0$（混合は不可逆過程）。
+
+\textbf{なぜ混合でエントロピーが増えるのか}：仕切りを外す前は、成分1は $V_1$ に、成分2は $V_2$ に閉じ込められている。仕切りを外すと、各成分が全体積 $V$ に広がり、「とり得る配置の数」が増える。これは不可逆過程であり、エントロピーが増大する。図\ref{fig:ex6_mixing}を参照。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ex6_mixing.png}
+    \caption{2成分気体の混合。左：仕切りで分離された状態。右：仕切りを外した後の混合状態。混合は不可逆過程で $\Delta S > 0$。}
+    \label{fig:ex6_mixing}
+\end{figure}
+
+\paragraph{ポアソン分布}
+
+体積 $V$ に $N$ 個の分子が一様に分布する。部分体積 $v$ に1分子が入る確率は $p = v/V$。$n$ 個入る確率は二項分布 $P(n) = \binom{N}{n} p^n (1-p)^{N-n}$。
+
+$N \to \infty$、$p \to 0$ で $Np = a$（一定）の極限をとる。母関数 $F(x) = \sum_n x^n P(n) = [(1-p)+px]^N = [1 + (x-1)p]^N$。$p = a/N$ として
+\begin{equation}
+F(x) = \left[1 + \frac{a(x-1)}{N}\right]^N \to e^{a(x-1)} \quad (N \to \infty)
+\end{equation}
+母関数の定義より、$x^n$ の係数が $P(n)$ である。$e^{a(x-1)} = e^{-a} e^{ax} = e^{-a} \sum_{n=0}^{\infty} \frac{(ax)^n}{n!} = e^{-a} \sum_{n=0}^{\infty} \frac{a^n}{n!} x^n$（$e^x$ のテイラー展開）。したがって
+\begin{equation}
+P(n) = \frac{a^n}{n!} e^{-a}, \quad a = \langle n \rangle = Np
+\end{equation}
+これがポアソン分布である。ポアソン分布の性質：平均 $\langle n \rangle = a$、分散も $a$ である。統計力学では、体積 $v$ に $N$ 個の分子がランダムに分布するとき、$v \ll V$ なら $n$ はポアソン分布に従う（希薄な ideal gas の粒子数ゆらぎ）。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ex6_binomial_poisson.png}
+    \caption{二項分布とポアソン分布。$N$ が大きく $p$ が小さいとき、二項分布はポアソン分布に近づく。}
+    \label{fig:ex6_poisson}
+\end{figure}

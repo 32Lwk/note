@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.19)  29 JAN 2026 10:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.19)  30 JAN 2026 18:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -404,11 +404,11 @@ e 191.
 
 
 [5]
-<figures/temperature_plot.png, id=112, 859.0494pt x 498.663pt>
+<figures/temperature_plot.png, id=112, 858.8085pt x 498.663pt>
 File: figures/temperature_plot.png Graphic file (type png)
 <use figures/temperature_plot.png>
 Package pdftex.def Info: figures/temperature_plot.png  used on input line 198.
-(pdftex.def)             Requested size: 323.9978pt x 188.07103pt.
+(pdftex.def)             Requested size: 323.9978pt x 188.1319pt.
 
 
 [6 <./figures/temperature_convergence.png> <./figures/temperature_plot.png>]
@@ -420,15 +420,19 @@ Package pdftex.def Info: figures/temperature_plot.png  used on input line 198.
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
  ) 
 Here is how much of TeX's memory you used:
- 5610 strings out of 474662
- 78189 string characters out of 5751108
+ 5619 strings out of 474662
+ 78280 string characters out of 5751108
  469008 words of memory out of 5000000
- 28205 multiletter control sequences out of 15000+600000
+ 28214 multiletter control sequences out of 15000+600000
  646119 words of font info for 375 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 59i,11n,65p,648b,1085s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 59i,11n,65p,648b,1086s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/yuto/Library/texlive/2025basic/texmf-var/fonts/pk/ljfour/jknappen/ec
 /tcrm1095.600pk></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmbx10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public
@@ -458,7 +462,7 @@ mj/dmjkj.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/wadalab/dmj/d
 mjkk.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/wadalab/dmj/dmjkl
 .pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/wadalab/dmj/dmjsy.pfb
 >
-Output written on problem2_report.pdf (8 pages, 1277731 bytes).
+Output written on problem2_report.pdf (8 pages, 1318819 bytes).
 PDF statistics:
  247 PDF objects out of 1000 (max. 8388607)
  106 compressed objects within 2 object streams

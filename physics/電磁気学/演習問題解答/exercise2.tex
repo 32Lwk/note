@@ -52,6 +52,12 @@
 
 \subsubsection{問題の理解と設定の明確化}
 
+\paragraph{用語の説明（初学者向け）}
+\begin{itemize}
+    \item \textbf{変位電流}：アンペールの法則に現れる$\varepsilon_0 \frac{\partial\boldsymbol{E}}{\partial t}$の項。電流が流れていない領域でも、電場の時間変化が「磁場を生む電流」のように働く、という Maxwell の補正である。
+    \item \textbf{ポインティングベクトル$\boldsymbol{S} = \boldsymbol{E} \times \boldsymbol{H}$}：電磁波や回路において「エネルギーがどの向きにどれだけ流れているか」を表すベクトル。その発散$-\nabla\cdot\boldsymbol{S}$は、単位体積あたりに流入するエネルギー流を表す。
+\end{itemize}
+
 真空中では$\boldsymbol{D} = \varepsilon_0\boldsymbol{E}$、$\boldsymbol{B} = \mu_0\boldsymbol{H}$である。エネルギー密度は：
 \begin{equation}
 W = \frac{1}{2}\varepsilon_0|\boldsymbol{E}|^2 + \frac{1}{2\mu_0}|\boldsymbol{B}|^2
@@ -166,6 +172,9 @@ Maxwell方程式：
 \subsection{解答}
 
 \subsubsection{問題の理解と設定の明確化}
+
+\paragraph{用語の説明（初学者向け）}
+\textbf{Ohm（オーム）の法則}は、導体内の電流密度$\boldsymbol{i}$と電場$\boldsymbol{E}$が比例するという関係$\boldsymbol{i} = \sigma \boldsymbol{E}$である。$\sigma$を電気伝導度という。ここでは、自由電子の運動からこの$\sigma$を導く。
 
 電子の運動方程式：
 \begin{equation}
@@ -499,47 +508,42 @@ E_{\text{induced}} = -E_0
 
 \paragraph{(6-1) 電荷面密度}
 
-導体面上の点$(x, y, 0)$での電場の$z$成分を求める。点電荷$q$と鏡像電荷$-q$が作る電場：
+導体面上の点$(x, y, 0)$での電場の$z$成分を求める。法線は真空側（$+z$方向）に取る。点電荷$q$（$(0,0,d)$）が$(x,y,0)$に作る電場の$z$成分は$\frac{q}{4\pi\varepsilon_0}\frac{0-d}{R^3} = -\frac{qd}{4\pi\varepsilon_0 R^3}$。鏡像電荷$-q$（$(0,0,-d)$）が作る$z$成分は$\frac{-q}{4\pi\varepsilon_0}\frac{0-(-d)}{R^3} = -\frac{qd}{4\pi\varepsilon_0 R^3}$。合計：
 \begin{align}
-E_z(x,y,0) &= \frac{q}{4\pi\varepsilon_0} \cdot \frac{d}{[x^2 + y^2 + d^2]^{3/2}} - \frac{q}{4\pi\varepsilon_0} \cdot \frac{(-d)}{[x^2 + y^2 + d^2]^{3/2}} \\
-&= \frac{qd}{2\pi\varepsilon_0[x^2 + y^2 + d^2]^{3/2}}
+E_z(x,y,0) &= -\frac{qd}{4\pi\varepsilon_0 R^3} - \frac{qd}{4\pi\varepsilon_0 R^3} = -\frac{qd}{2\pi\varepsilon_0[x^2 + y^2 + d^2]^{3/2}}
 \end{align}
-
-導体表面での電場の法線成分と電荷面密度の関係：
+（$R = \sqrt{x^2+y^2+d^2}$。）導体表面では、法線方向（$+z$）の電場の飛びは$\sigma/\varepsilon_0$であり、導体内部では電場ゼロなので$E_z = \sigma/\varepsilon_0$。したがって：
 \begin{equation}
-E_z = \frac{\sigma}{\varepsilon_0}
+\sigma(x,y) = \varepsilon_0 E_z = -\frac{qd}{2\pi[x^2 + y^2 + d^2]^{3/2}}
 \end{equation}
-
-したがって：
-\begin{equation}
-\sigma(x,y) = \frac{qd}{2\pi[x^2 + y^2 + d^2]^{3/2}}
-\end{equation}
+（誘起電荷は負である。）
 
 \paragraph{(6-2) 総電荷}
 
 \begin{align}
 Q &= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \sigma(x,y) dx dy \\
-&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \frac{qd}{2\pi[x^2 + y^2 + d^2]^{3/2}} dx dy
+&= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} \left(-\frac{qd}{2\pi[x^2 + y^2 + d^2]^{3/2}}\right) dx dy
 \end{align}
 
 極座標変換：$x = r\cos\theta$, $y = r\sin\theta$、$dx dy = r dr d\theta$：
 \begin{align}
-Q &= \int_0^{2\pi} d\theta \int_0^{\infty} \frac{qd}{2\pi[r^2 + d^2]^{3/2}} r dr \\
-&= qd \int_0^{\infty} \frac{r}{[r^2 + d^2]^{3/2}} dr
+Q &= -\int_0^{2\pi} d\theta \int_0^{\infty} \frac{qd}{2\pi[r^2 + d^2]^{3/2}} r dr \\
+&= -qd \int_0^{\infty} \frac{r}{[r^2 + d^2]^{3/2}} dr
 \end{align}
 
 $u = r^2 + d^2$とすると、$du = 2r dr$：
 \begin{align}
-Q &= qd \int_{d^2}^{\infty} \frac{1}{2u^{3/2}} du \\
-&= \frac{qd}{2} \left[-\frac{2}{u^{1/2}}\right]_{d^2}^{\infty} \\
-&= \frac{qd}{2} \cdot \frac{2}{d} = q
+Q &= -qd \int_{d^2}^{\infty} \frac{1}{2u^{3/2}} du \\
+&= -\frac{qd}{2} \left[-\frac{2}{u^{1/2}}\right]_{d^2}^{\infty} \\
+&= -\frac{qd}{2} \cdot \frac{2}{d} = -q
 \end{align}
+接地された導体に誘起される総電荷は$-q$であり、点電荷と符号が逆である。
 
 \subsubsection{最終的な答え}
 
 \begin{enumerate}
-    \item[(6-1)] $\sigma(x,y) = \frac{qd}{2\pi[x^2 + y^2 + d^2]^{3/2}}$
-    \item[(6-2)] $Q = -q$（導体は接地されているため、総電荷は$-q$である）
+    \item[(6-1)] $\sigma(x,y) = -\frac{qd}{2\pi[x^2 + y^2 + d^2]^{3/2}}$
+    \item[(6-2)] $Q = -q$（導体は接地されているため、誘起電荷の総量は点電荷と符号が逆で$-q$である）
 \end{enumerate}
 
 \subsubsection{物理的意味の説明}

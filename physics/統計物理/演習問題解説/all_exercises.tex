@@ -1,0 +1,60 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[no-math]{luatexja-fontspec}
+\setmainjfont{Hiragino Mincho ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\setsansjfont{Hiragino Kaku Gothic ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{float}
+\usepackage[draft=false]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdfusetitle=true
+}
+
+\title{統計物理学Ⅰ 演習問題 解答・解説}
+\author{名古屋大学　理学部}
+\date{2025年度}
+
+\begin{document}
+
+% 表紙：1ページ目に直接描画（\maketitle は改ページで空白になることがあるため、カスタム表紙を使用）
+\pagestyle{empty}
+\thispagestyle{empty}
+\begin{center}
+  \vspace*{2cm}
+  {\LARGE 統計物理学Ⅰ 演習問題 解答・解説}\\[3cm]
+  \vfill
+  {\large 名古屋大学　理学部}\\[1em]
+  {\large 2025年度}
+  \vfill
+\end{center}
+\newpage
+\pagestyle{plain}
+
+\tableofcontents
+\newpage
+
+\input{body/exercise1_body}
+\input{body/exercise2_body}
+\input{body/exercise3_body}
+\input{body/exercise4_body}
+\input{body/exercise5_body}
+\input{body/exercise6_body}
+\input{body/exercise7_body}
+
+\end{document}

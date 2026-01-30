@@ -1,0 +1,195 @@
+% 演習4 (2025/11/21実施)
+\section{演習4 (2025年11月21日実施)}
+
+\subsection{I. 最大仕事の原理}
+
+\subsubsection{この問題で学ぶこと}
+
+同じ初期状態から同じ最終状態へ変化させるとき、準静的過程で得られる仕事が最大である。自由膨張では仕事はゼロ、断熱＋等温の2段階でも準静的等温過程より小さい仕事しか得られない。
+
+\subsubsection{問題}
+
+$N$ mol の理想気体を $(T, V_i)$ から $(T, V_f)$（$V_i < V_f$）へ変化させる。
+\begin{enumerate}
+    \item 準静的等温過程でする仕事 $W_{\mathrm{IQS}}$ を求めよ。
+    \item 自由膨張では $W = 0$ で $W \leq W_{\mathrm{IQS}}$ を示せ。
+    \item 準静的断熱過程で $(T', V_f)$ にしたときの仕事 $W_{\mathrm{AQS}}$ を求めよ。
+    \item 断熱壁を除き温度 $T$ の熱源と接触させ $(T, V_f)$ にするときの仕事を求めよ。
+    \item $W_{\mathrm{AQS}} + W' \leq W_{\mathrm{IQS}}$ を示せ。
+\end{enumerate}
+
+\subsubsection{解答}
+
+\paragraph{前提知識：最大仕事の原理}
+
+熱力学第2法則の一つの帰結として、同じ初期状態から同じ最終状態へ変化させるとき、準静的（可逆）過程で得られる仕事が最大である。非準静的過程では、摩擦や乱流などでエネルギーが散逸し、得られる仕事は小さいかゼロになる。
+
+\textbf{直感的な理解}：ゆっくり慎重に膨張させれば、ピストンの動きに伴う仕事を最大限取り出せる。一気に壁を取れば（自由膨張）、気体は仕事をせずに膨張し、$W = 0$。
+
+\paragraph{導出の戦略}
+
+問1：準静的等温では $p = NRT/V$ を積分。問2：自由膨張では $W = 0$、$W_{\mathrm{IQS}} > 0$ だから $W \leq W_{\mathrm{IQS}}$。問3：断熱過程で $W_{\mathrm{AQS}} = -\Delta U$。断熱線 $T V^{\gamma-1} = \mathrm{const}$（準静的断熱で成り立つ）から $T'$ を求める。問4：「断熱壁を除く」とは、熱源（温度 $T$）と接触させて熱平衡にさせる操作。体積 $V_f$ のまま温度が $T'$ から $T$ へ変化する定積過程となり $W' = 0$。問5：$W_{\mathrm{tot}} = W_{\mathrm{AQS}}$ と $W_{\mathrm{IQS}}$ を比較し、不等式を示す。$x = V_i/V_f$ とおき、$f(x)$ の増減を $f'(x)$ の符号で調べる。
+
+\textbf{全体のストーリー}：問1で準静的等温の最大仕事 $W_{\mathrm{IQS}}$ を求める。問2で自由膨張では $W=0$ であることを示す。問3--5で、断熱＋等温の2段階では $W_{\mathrm{AQS}} < W_{\mathrm{IQS}}$ となり、準静的等温より少ない仕事しか得られない。
+
+\paragraph{問1}
+
+準静的等温過程では $p = NRT/V$ より
+\begin{equation}
+W_{\mathrm{IQS}} = \int_{V_i}^{V_f} p\,dV = NRT \int_{V_i}^{V_f} \frac{dV}{V} = NRT \ln\frac{V_f}{V_i}
+\end{equation}
+$V_f > V_i$ なので $W_{\mathrm{IQS}} > 0$。
+
+\paragraph{問2}
+
+自由膨張では気体が仕事をしないので $W = 0$。$W_{\mathrm{IQS}} > 0$ であるから $W \leq W_{\mathrm{IQS}}$ が成り立つ。
+
+\paragraph{問3}
+
+断熱過程では $Q = 0$ なので $\Delta U = -W_{\mathrm{AQS}}$。理想気体で $U = cNRT$ より $W_{\mathrm{AQS}} = cNR(T - T')$。断熱線 $T V^{\gamma-1} = \mathrm{const}$ から $T V_i^{\gamma-1} = T' V_f^{\gamma-1}$、したがって $T' = T (V_i/V_f)^{\gamma-1}$。ゆえに
+\begin{equation}
+W_{\mathrm{AQS}} = cNRT\left[1 - \left(\frac{V_i}{V_f}\right)^{\gamma-1}\right]
+\end{equation}
+$T' < T$ なので $W_{\mathrm{AQS}} > 0$（系は膨張して仕事をする）。
+
+\paragraph{問4}
+
+断熱壁を除いて熱源（温度 $T$）と接触させると、体積 $V_f$ のまま温度が $T'$ から $T$ へ変化する定積過程になる。定積過程では $W' = 0$。
+
+\paragraph{問5}
+
+$W_{\mathrm{tot}} = W_{\mathrm{AQS}} + W' = W_{\mathrm{AQS}}$。$W_{\mathrm{tot}} \leq W_{\mathrm{IQS}}$ を示すには、$cNRT[1 - (V_i/V_f)^{\gamma-1}] \leq NRT \ln(V_f/V_i)$ を示せばよい。$x = V_i/V_f < 1$ とおくと、$1 - x^{\gamma-1} \leq \ln(1/x) = -\ln x$ を示す。$f(x) = -\ln x - (1 - x^{\gamma-1})$ とおくと $f(1) = 0$、$f'(x) = -1/x + (\gamma-1)x^{\gamma-2}$。$x < 1$ で $f'(x) > 0$ のとき $f(x) < 0$、すなわち $1 - x^{\gamma-1} < -\ln x$。単原子気体では $\gamma = 5/3$、$c = 3/2$ で、この不等式が成り立つ。よって $W_{\mathrm{tot}} \leq W_{\mathrm{IQS}}$。
+
+\textbf{なぜ断熱＋等温の2段階では等温1段階より仕事が少ないのか}：断熱膨張では温度が下がり（$T' < T$）、その後の定積加熱では仕事をしない。一方、等温過程では常に熱源から熱を供給しながら膨張するので、各瞬間の圧力が高く保たれ、$p$-$V$ 図上の面積（＝仕事）が最大になる。図\ref{fig:ex4_max_work}のように、等温線の下の面積が得られる仕事を表す。断熱＋等温では、途中で温度が下がる区間があり、その分仕事が取り出しにくくなる。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ex4_max_work.png}
+    \caption{最大仕事の原理。準静的等温過程では曲線下の面積が仕事になる。自由膨張では経路が定義できず $W=0$。}
+    \label{fig:ex4_max_work}
+\end{figure}
+
+%--------------------------------------
+\subsection{II. 熱機関の効率}
+
+\subsubsection{問題}
+
+カルノー機関の効率 $\eta_C$ を $T_H$、$T_L$ で表せ。オットー機関の効率を $T_A, T_B, T_C, T_D$ および $V_1, V_2$ で表し、$\eta < \eta_C$ を示せ。
+
+\subsubsection{解答}
+
+\paragraph{前提知識：熱機関と効率}
+
+\textbf{熱機関}：高温熱源から熱 $Q_H$ を吸収し、一部を仕事 $W$ に変換し、残り $Q_L$ を低温熱源に捨てるサイクル運転。自動車のエンジン、発電所のタービンなどがその例。
+
+\textbf{効率}：$\eta = W/Q_H = 1 - Q_L/Q_H$。吸収した熱のうち、どれだけを仕事に変えられるか。捨てる熱 $Q_L$ が少ないほど効率が高い。
+
+\textbf{カルノーの定理}：同じ2つの熱源の間で動作するあらゆる熱機関のうち、可逆機関（カルノー機関）が最高効率を達成する。その効率は $\eta_C = 1 - T_L/T_H$ であり、熱源の温度だけで決まる。
+
+\textbf{オットー機関}：ガソリンエンジンの理想化。4ストロークサイクルを、A→B（断熱圧縮）、B→C（定積吸熱）、C→D（断熱膨張）、D→A（定積放熱）の4過程で近似する。各過程で何が起こるか：断熱では $Q=0$、定積では $W=0$ で $Q=C_V\Delta T$。高温熱源・低温熱源の温度差が大きいほど効率が上がる（カルノー効率 $\eta_C = 1 - T_L/T_H$ 参照）。
+
+\paragraph{導出の戦略}
+
+カルノー機関：可逆過程では $Q_H/T_H = Q_L/T_L$ が成り立つ。$W = Q_H - Q_L$ から $\eta$ を求める。オットー機関：各過程の $Q$ を $C_V$ と温度で表し、$\eta = 1 - Q_L/Q_H$ を計算。断熱関係 $TV^{\gamma-1} = \mathrm{const}$ で温度比を圧縮比で表す。
+
+\paragraph{カルノー機関}
+
+$\eta_C = 1 - T_L/T_H$。高温熱源温度 $T_H$ と低温熱源温度 $T_L$ だけで決まる。
+
+\paragraph{オットー機関}
+
+図\ref{fig:ex4_cycles}(b) のように、A $\to$ B（断熱圧縮）、B $\to$ C（定積吸熱）、C $\to$ D（断熱膨張）、D $\to$ A（定積放熱）である。吸熱は B $\to$ C で $Q_H = C_V(T_C - T_B)$、放熱は D $\to$ A で $Q_L = C_V(T_D - T_A)$。効率は
+\begin{equation}
+\eta = 1 - \frac{Q_L}{Q_H} = 1 - \frac{T_D - T_A}{T_C - T_B}
+\end{equation}
+断熱過程 A $\to$ B、C $\to$ D で $T V^{\gamma-1} = \mathrm{const}$ より $T_B/T_A = (V_1/V_2)^{\gamma-1}$、$T_C/T_D = (V_1/V_2)^{\gamma-1}$。よって $T_B/T_A = T_C/T_D = r^{\gamma-1}$（$r = V_1/V_2 > 1$）。これより $T_D = T_C/r^{\gamma-1}$、$T_A = T_B/r^{\gamma-1}$。代入して $\eta = 1 - r^{1-\gamma}$。
+
+カルノー機関は $T_H$ と $T_L$ の間で動作するが、オットー機関では吸熱時の温度は $T_B \sim T_C$、放熱時は $T_A \sim T_D$ であり、実質的な動作温度範囲は $T_A$ から $T_C$ まで。カルノー機関を同じ $T_A$、$T_C$ で動作させた場合の効率は $1 - T_A/T_C$。$r > 1$ のとき $r^{1-\gamma} > T_A/T_C$ となるため $\eta < \eta_C$ である。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/ex4_carnot_otto.png}
+    \caption{カルノーサイクルとオットーサイクルのT-V線図。}
+    \label{fig:ex4_cycles}
+\end{figure}
+
+%--------------------------------------
+\subsection{III. 内部エネルギーの方程式}
+
+\subsubsection{問題}
+
+カルノーの定理と熱力学第1法則から $\left(\frac{\partial U}{\partial V}\right)_T = -p + T\left(\frac{\partial p}{\partial T}\right)_V$ を導け。
+
+\subsubsection{解答}
+
+\paragraph{なぜこの式が成り立つのか（導出の原理）}
+
+理想気体では $(\partial U/\partial V)_T = 0$ であるが、ファンデルワールス気体など一般の系では $U$ が $V$ に依存する。この依存性を、熱力学第1法則とカルノーの定理（可逆機関での $Q_H/T_H = Q_L/T_L$）から導く。エントロピー $S$ が状態量であることと、可逆過程で $dS = dQ/T$ が成り立つことから、カルノーの定理が導かれる。
+
+\paragraph{微小カルノーサイクル}
+
+図\ref{fig:ex4_mini_carnot}に示すように、$p$-$V$ 図上で温度 $T$ と $T+dT$ の2本の等温線、および2本の断熱線で囲まれる微小な四角形（実際は曲線で囲まれる）を考える。
+
+$p$-$V$ 図上で、温度 $T$ と $T+dT$ の2本の等温線、および2本の断熱線で囲まれる微小サイクルを考える。頂点を A $\to$ B $\to$ C $\to$ D $\to$ A とする。B $\to$ C が等温（$T+dT$）、D $\to$ A が等温（$T$）とする。
+
+カルノーの定理から $Q_H/(T+dT) = Q_L/T$。$dT$ が小さいとして $Q_H \approx Q_L(1 + dT/T)$、したがって $Q_H - Q_L \approx Q_L \cdot dT/T$。
+
+熱力学第1法則：1サイクルで $\Delta U = 0$ なので、$Q_H - Q_L$ はこのサイクルで系がする正味の仕事 $W_{\mathrm{cyc}}$ に等しい。仕事は $p$-$V$ 図上の面積で、$dT$ の1次で
+\begin{equation}
+W_{\mathrm{cyc}} = Q_H - Q_L \approx dT \int_{V_D}^{V_B} \left(\frac{\partial p}{\partial T}\right)_V dV
+\end{equation}
+（等温線間の圧力差 $\approx (\partial p/\partial T)_V dT$ を体積で積分したもの）。
+
+一方、等温過程 D $\to$ A で系が吸収する熱 $Q_L$ は、$dQ = dU + p\,dV$ より $Q_L = \int_{V_D}^{V_A} (dU + p\,dV)$。等温では $dU = (\partial U/\partial V)_T dV$ だから
+\begin{equation}
+Q_L = \int_{V_D}^{V_A} \left[\left(\frac{\partial U}{\partial V}\right)_T + p\right] dV
+\end{equation}
+$Q_H - Q_L = Q_L \cdot dT/T$ と $W_{\mathrm{cyc}}$ の式を比較し、$dT$ の1次の係数を等置すると
+\begin{equation}
+\left(\frac{\partial U}{\partial V}\right)_T + p = T \left(\frac{\partial p}{\partial T}\right)_V
+\end{equation}
+ゆえに $\displaystyle \left(\frac{\partial U}{\partial V}\right)_T = -p + T\left(\frac{\partial p}{\partial T}\right)_V$。
+
+%--------------------------------------
+\subsection{IV--V. ファンデルワールス気体と断熱線}
+
+\subsubsection{問題}
+
+ファンデルワールス気体の内部エネルギー、断熱線、カルノー効率を求め、2つの断熱線が交わらないことを示せ。
+
+\subsubsection{解答}
+
+\paragraph{内部エネルギー}
+
+$(\partial U/\partial V)_T = aN^2/V^2$ は、分子間引力のポテンシャルエネルギー $-\frac{aN^2}{V}$ を $V$ で微分したものに対応する。$V$ が大きいと引力ポテンシャルは小さく、$U$ の $V$ 依存部分は $-\frac{aN^2}{V}$ となる。
+
+$\left(\frac{\partial U}{\partial V}\right)_T = -p + T\left(\frac{\partial p}{\partial T}\right)_V$ に $p = \frac{NRT}{V-bN} - \frac{aN^2}{V^2}$ を代入する。$\left(\frac{\partial p}{\partial T}\right)_V = \frac{NR}{V-bN}$ だから
+\begin{equation}
+\left(\frac{\partial U}{\partial V}\right)_T = -\left(\frac{NRT}{V-bN} - \frac{aN^2}{V^2}\right) + T \cdot \frac{NR}{V-bN} = \frac{aN^2}{V^2}
+\end{equation}
+$V$ で積分して $U = -\frac{aN^2}{V} + f(T)$。$U$ の $T$ 依存性は理想気体と同様 $cNRT$ なので $U = cNRT - \frac{aN^2}{V} + \mathrm{const}$。
+
+\paragraph{断熱線}
+
+断熱過程では $dU + p\,dV = 0$。$dU = C_V dT + \frac{aN^2}{V^2}dV$、$p\,dV = \left(\frac{NRT}{V-bN} - \frac{aN^2}{V^2}\right)dV$。加えると
+\begin{equation}
+C_V dT + \frac{NRT}{V-bN} dV = 0 \quad \Rightarrow \quad \frac{C_V}{NR} \frac{dT}{T} + \frac{dV}{V-bN} = 0
+\end{equation}
+$c = C_V/(NR)$ とおくと $\frac{dT}{T} + \frac{1}{c}\frac{dV}{V-bN} = 0$。積分して $c \ln T + \ln(V-bN) = \mathrm{const}$、すなわち
+\begin{equation}
+T^c (V - bN) = \mathrm{const}
+\end{equation}
+（$c = C_V/(NR)$ は無次元定数。単原子なら $C_V = \frac{3}{2}NR$ で $c = 3/2$。）
+
+\paragraph{2つの断熱線が交わらないこと}
+
+\textbf{なぜ交わると矛盾するのか}：2つの断熱線が交わると仮定する。交点と等温線で三角形のサイクルを作ることができる（図\ref{fig:ex4_adiabatic}参照）。このサイクルでは、等温過程で熱を吸収し、2つの断熱過程では熱の出入りがない。正味で熱を吸収して仕事をするが、捨てる熱がなく、低温熱源が存在しない。つまり「一つの熱源から熱を取り出して正味の仕事に変える」ことになり、ケルビンの原理（熱力学第2法則の一表現）に反する。よって2つの断熱線は交わらない。
+
+\textbf{物理的考察}：断熱線は $S = \mathrm{const}$ の曲線である。異なる断熱線は異なる $S$ の値に対応する。$S$ は状態 $(T,V)$ の一価関数なので、同じ $(T,V)$ で異なる $S$ は存在せず、2つの断熱線が交わることはない。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ex4_adiabatic_intersection.png}
+    \caption{2つの断熱線が交わると仮定した場合の矛盾（概念図）。}
+    \label{fig:ex4_adiabatic}
+\end{figure}

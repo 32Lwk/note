@@ -36,7 +36,7 @@
     \begin{equation}
         E_0 = N \varepsilon
     \end{equation}
-    \item \textbf{規格化}: $\varepsilon = 1$, $k_B = 1$ として計算
+    \item \textbf{規格化}: $\varepsilon = 1$, $k_B = 1$ として計算する。このためエネルギーは $E = M\varepsilon = M$ となる。
 \end{itemize}
 
 \subsection{実装条件}
@@ -60,19 +60,19 @@
 
 \textbf{微視的状態数}:
 \begin{equation}
-    W(M) = C(N, M) = \frac{N!}{M!(N-M)!}
+    W(M) = C(N, M) = \frac{N!}{M!(N-M)!} \label{eq:W}
 \end{equation}
 
 \textbf{エントロピー}:
 \begin{equation}
-    S(M) = \ln W(M)
+    S(M) = \ln W(M) \label{eq:S}
 \end{equation}
 
 \subsection{実装方法}
 
 数値安定性のため、大きな階乗の直接計算を避け、以下の公式を使用して対数で計算した：
 \begin{equation}
-    \ln C(N, M) = \sum_{k=1}^{M} \ln(N - k + 1) - \sum_{k=1}^{M} \ln k
+    \ln C(N, M) = \sum_{k=1}^{M} \ln(N - k + 1) - \sum_{k=1}^{M} \ln k \label{eq:lnC}
 \end{equation}
 
 各$N$について、すべての$M$ ($0 \leq M \leq N$) について$S(M)$を計算した。
@@ -112,7 +112,7 @@
 
 Stirling近似により、$N \to \infty$ の極限で得られるエントロピー密度：
 \begin{equation}
-    s_{\text{approx}}(x) = -[x \ln x + (1 - x) \ln(1 - x)] \quad (0 < x < 1)
+    s_{\text{approx}}(x) = -[x \ln x + (1 - x) \ln(1 - x)] \quad (0 < x < 1) \label{eq:s_approx}
 \end{equation}
 
 \subsection{結果}
@@ -143,24 +143,24 @@ Stirling近似により、$N \to \infty$ の極限で得られるエントロピ
 \subsection{温度の定義}
 
 \begin{equation}
-    \frac{1}{T} = \left(\frac{\partial S}{\partial E}\right)_N
+    \frac{1}{T} = \left(\frac{\partial S}{\partial E}\right)_N \label{eq:1/T}
 \end{equation}
 
 \subsection{数値微分の実装}
 
-離散データに対して、中心差分法を使用：
+離散データに対して、中心差分法を使用（境界 $M = 0$, $N$ は除外）：
 \begin{equation}
-    \frac{1}{T(M)} \approx \frac{S(M+1) - S(M-1)}{E(M+1) - E(M-1)}
+    \frac{1}{T(M)} \approx \frac{S(M+1) - S(M-1)}{E(M+1) - E(M-1)} \label{eq:center_diff}
 \end{equation}
 
-$E = M$ なので：
+規格化 $\varepsilon = 1$ より $E = M$ なので $E(M+1) - E(M-1) = 2$：
 \begin{equation}
     \frac{1}{T(M)} \approx \frac{S(M+1) - S(M-1)}{2}
 \end{equation}
 
 したがって：
 \begin{equation}
-    T(M) \approx \frac{2}{S(M+1) - S(M-1)}
+    T(M) \approx \frac{2}{S(M+1) - S(M-1)} \label{eq:T}
 \end{equation}
 
 計算範囲は $M = 1, 2, \ldots, N-1$ とし、$M = 0$ と $M = N$ は境界条件により除外した。
@@ -175,7 +175,7 @@ $E = M$ なので：
 
 Stirling近似により得られる温度：
 \begin{equation}
-    T_{\text{th}}(x) = \left[\ln\left(\frac{1-x}{x}\right)\right]^{-1}
+    T_{\text{th}}(x) = \left[\ln\left(\frac{1-x}{x}\right)\right]^{-1} \label{eq:T_th}
 \end{equation}
 
 \subsection{結果}

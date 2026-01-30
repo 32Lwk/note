@@ -1,0 +1,187 @@
+%======================================================================
+% 2025年度 統計物理1 本試験（2025年1月29日 10:30--12:00）
+%======================================================================
+\part{2025年度 本試験}
+\setcounter{section}{0}
+
+\section{問題I：架空の気体（エントロピー $S(U,V)$）}
+
+\subsection{問題}
+
+ある架空の気体を考える。この気体の $N$ モルのエントロピーは、内部エネルギー $U$ と体積 $V$ の関数として以下で与えられるとする（$R$ は気体定数、$S_0$ は定数）：
+\begin{equation}
+S(U,V) = N R \ln\left[\left(\frac{U}{N}\right)^{3/2} \left(\frac{V}{N}\right)^2\right] + N S_0.
+\end{equation}
+以下の問に答えよ。
+
+\begin{enumerate}
+\item 系の温度 $T$ を内部エネルギー $U$ を用いて表せ。
+\item 断熱自由膨張により、系が $(T,V)$ から $(T',V')$ へ変化したとする（$V < V'$）。$T'$ を $T$, $V$, $V'$, $R$, $N$ のいずれかの記号を用いて表せ。
+\item この後、系を準静的断熱過程により $(T',V')$ から $(T'',V)$ ともとの体積 $V$ まで圧縮する。一連の操作における、初期状態 $(T,V)$ と終状態 $(T'',V)$ のエントロピー変化を、$T$, $V$, $V'$, $c$, $R$, $N$ のいずれかの記号を用いて表せ。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{問1：温度 $T$ を $U$ で表す}
+
+熱力学の関係式 $1/T = (\partial S/\partial U)_V$ を用いる。$S = NR \ln[(U/N)^{3/2}(V/N)^2] + N S_0$ より
+\begin{equation}
+\frac{\partial S}{\partial U} = N R \cdot \frac{1}{(U/N)^{3/2}(V/N)^2}
+\cdot \left(\frac{V}{N}\right)^2 \cdot \frac{3}{2}\left(\frac{U}{N}\right)^{1/2} \cdot \frac{1}{N}
+= N R \cdot \frac{3/2}{U/N} \cdot \frac{1}{N} = \frac{3}{2} R \frac{N}{U} \cdot \frac{1}{N} = \frac{3R}{2U}.
+\end{equation}
+（丁寧に：$\ln[(U/N)^{3/2}(V/N)^2] = \frac{3}{2}\ln(U/N) + 2\ln(V/N)$ なので $\frac{\partial S}{\partial U} = NR \cdot \frac{3}{2} \cdot \frac{1}{U/N} \cdot \frac{1}{N} = \frac{3R}{2} \cdot \frac{N}{U}$。）したがって
+\begin{equation}
+\frac{1}{T} = \left(\frac{\partial S}{\partial U}\right)_V = \frac{3R}{2}\cdot\frac{N}{U}
+\quad \Rightarrow \quad
+\boxed{T = \frac{2U}{3NR}}.
+\end{equation}
+（この気体では $U \propto T$ であり、$c=3/2$ の理想気体に相当する。）
+
+\paragraph{なぜ $1/T = \partial S/\partial U$ か（原理的な説明）}
+
+熱力学では、\textbf{温度 $T$ はエントロピー $S$ を内部エネルギー $U$ で偏微分したときの逆数}として定義される：$1/T = (\partial S/\partial U)_V$。体積一定のとき、$dU = T\,dS$ なので、$U$ を増やすには熱を加える必要があり、その「熱の入りやすさ」の逆が $T$ である。$S = NR\ln[(U/N)^{3/2}(V/N)^2] + NS_0$ を $U$ で微分すると $\partial S/\partial U = (3/2)NR/U$ となり、$1/T = (3/2)NR/U$、すなわち $T = 2U/(3NR)$ が得られる。単原子理想気体の $U = (3/2)NRT$ と比較すると、この架空の気体は $c=3/2$ の理想気体と同じ $U$-$T$ 関係を持つ。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/past2025_ex1_why_T.png}
+\caption{問題I：$1/T = (\partial S/\partial U)_V$ の意味。$S(U,V)$ の $U$ による傾きの逆数が温度である。}
+\label{fig:past2025_ex1_why_T}
+\end{figure}
+
+\paragraph{問2：断熱自由膨張後の温度 $T'$}
+
+断熱自由膨張では $\Delta U = 0$ なので $U' = U$。$T = 2U/(3NR)$ より $T$ は $U$ のみに依存するので、$U' = U$ なら $T' = T$。したがって
+\begin{equation}
+\boxed{T' = T}.
+\end{equation}
+
+\paragraph{問3：一連の操作のエントロピー変化}
+
+準静的断熱過程 $(T',V') \to (T'',V)$ ではエントロピーは一定。$S(U,V)$ の形から、断熱可逆過程では $U^{3/2} V^2$ が一定（または $T^{3/2} V^2$ が一定）になることを用いる。$U = (3/2)N R T$ なので $U^{3/2} \propto T^{3/2}$。$S$ が一定なら $(U/N)^{3/2}(V/N)^2$ が一定、すなわち $U^{3/2} V^2$ が一定。$U \propto T$ なので $T^{3/2} V^2 = \mathrm{const}$。したがって $T'' (V)^{2/3} = T' (V')^{2/3}$、$T'=T$ より
+\begin{equation}
+T'' = T \left(\frac{V'}{V}\right)^{2/3}.
+\end{equation}
+エントロピー変化は、初期 $S_{\mathrm{i}} = NR\ln[(U/N)^{3/2}(V/N)^2] + NS_0$、終状態 $S_{\mathrm{f}} = NR\ln[(U''/N)^{3/2}(V/N)^2] + NS_0$。$U'' = (3/2)N R T''$ なので
+\begin{equation}
+\Delta S = S_{\mathrm{f}} - S_{\mathrm{i}}
+= N R \ln\frac{(U''/N)^{3/2}}{(U/N)^{3/2}}
+= N R \cdot \frac{3}{2} \ln\frac{T''}{T}
+= \frac{3}{2} N R \ln\frac{T''}{T}.
+\end{equation}
+$T''/T = (V'/V)^{2/3}$ を代入して
+\begin{equation}
+\Delta S = \frac{3}{2} N R \ln\left(\frac{V'}{V}\right)^{2/3}
+= N R \ln\frac{V'}{V}.
+\end{equation}
+よって
+\begin{equation}
+\boxed{\Delta S = N R \ln\frac{V'}{V}}.
+\end{equation}
+（$V' > V$ なので $\Delta S > 0$。断熱自由膨張は不可逆過程である。）
+
+\paragraph{なぜ一連の操作で $\Delta S = N R \ln(V'/V)$ か（物理的考察）}
+
+問2より断熱自由膨張では $T' = T$ なので内部エネルギーは不変。準静的断熱過程 $(T',V') \to (T'',V)$ ではエントロピーは一定なので、\textbf{全体のエントロピー増加は断熱自由膨張の段階だけで生じる}。$S(U,V)$ の形から、体積 $V$ から $V'$ に不可逆に膨張したときのエントロピー増加は $NR\ln(V'/V)$ である。2024年度問題Iと同様に、気体がより広い体積に広がったことによる「配置の無秩序さ」の増加がエントロピー増大の原因である。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/past2025_ex1_entropy.png}
+\caption{問題I：架空の気体の $S(U,V)$ と断熱自由膨張の経路。}
+\label{fig:past2025_ex1}
+\end{figure}
+
+%----------------------------------------------------------------------
+\section{問題II：2種類の理想気体（断熱壁で仕切られた容器）}
+%----------------------------------------------------------------------
+
+\subsection{問題}
+
+右図のように、容器が壁で左右に仕切られており、左には温度 $T_L$ の理想気体Aが 1 モル、右には温度 $T_R$ の理想気体Bが 2 モル入っている。左右の部屋の体積はそれぞれ $V_L$, $V_R$ とする。仕切り壁は断熱壁であり、$T_L \neq T_R$ とする。容器全体は外界から孤立している。
+
+体積 $V$ の容器に入った $N$ モルの理想気体のエントロピーは、内部エネルギー $U$ と体積 $V$ の関数として
+\begin{equation}
+S(U,V) = N R \ln\left[\left(\frac{U}{N}\right)^c \left(\frac{V}{N}\right)\right] + N S_0
+\end{equation}
+で与えられる（$R$ は気体定数、$c$ は物質に依存する定数、$S_0$ は定数）。理想気体Aの $c$ は $c_A = 3$、理想気体Bの $c$ は $c_B = 3/2$ とする。以下の問に答えよ。
+
+\begin{enumerate}
+\item 左右を隔てる断熱壁を（気体の移動がないように）透熱壁に置き換えた。十分に時間が経過したあと、左右の気体の温度は等しくなった。この終状態の温度 $T$ を求めよ。
+\item 問1の終状態における、容器全体のエントロピーは、初期状態におけるそれと比べてどれだけ変化したか。$R$, $T_L$, $T_R$, $V_L$, $V_R$, $S_0$ のいずれかの記号を用いて示せ。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{記号の整理}
+
+左室：気体A、$N_A = 1$ モル、$c_A = 3$、初期温度 $T_L$、体積 $V_L$。右室：気体B、$N_B = 2$ モル、$c_B = 3/2$、初期温度 $T_R$、体積 $V_R$。内部エネルギーは $U = c N R T$ で与えられる（理想気体）。
+
+\paragraph{問1：終状態の温度 $T$}
+
+孤立系なので全内部エネルギーは保存する。初期の全内部エネルギーは
+\begin{equation}
+U_{\mathrm{initial}} = c_A N_A R T_L + c_B N_B R T_R
+= 3 \cdot 1 \cdot R \cdot T_L + \frac{3}{2} \cdot 2 \cdot R \cdot T_R
+= 3 R T_L + 3 R T_R = 3R(T_L + T_R).
+\end{equation}
+終状態では左室の温度は $T$、右室の温度も $T$ なので
+\begin{equation}
+U_{\mathrm{final}} = c_A N_A R T + c_B N_B R T
+= 3 R T + 3 R T = 6 R T.
+\end{equation}
+$U_{\mathrm{initial}} = U_{\mathrm{final}}$ より $3R(T_L + T_R) = 6 R T$、したがって
+\begin{equation}
+\boxed{T = \frac{T_L + T_R}{2}}.
+\end{equation}
+
+\paragraph{なぜこの温度になるか（原理的な説明）}
+
+透熱壁に替えると、高温の左室（$T_L$）から低温の右室（$T_R$）へ熱が流れる。孤立系なので全内部エネルギーは保存する。左室の内部エネルギーは $U_A = c_A N_A R T = 3 R T$（$N_A=1$, $c_A=3$）、右室は $U_B = c_B N_B R T = 3 R T$（$N_B=2$, $c_B=3/2$）なので、終状態では両室とも $3RT$ ずつ持つ。初期の全内部エネルギーは $3 R T_L + 3 R T_R = 3R(T_L+T_R)$ なので、保存則 $6 R T = 3R(T_L+T_R)$ より $T = (T_L+T_R)/2$ である。\textbf{両室の熱容量が等しい}（$c_A N_A = c_B N_B = 3$）ため、単純な算術平均になる。熱容量が異なる場合は加重平均 $T = (c_A N_A T_L + c_B N_B T_R)/(c_A N_A + c_B N_B)$ となる（2023再問題Iと同様）。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/past2025_ex2_energy_balance.png}
+\caption{問題II：透熱壁を通して熱が流れ、全内部エネルギー保存から終状態の温度 $T$ が決まる。}
+\label{fig:past2025_ex2_energy}
+\end{figure}
+
+\paragraph{問2：エントロピー変化}
+
+初期状態のエントロピーは、左室が $S_L^{\mathrm{i}} = N_A R \ln[(U_L/N_A)^{c_A}(V_L/N_A)] + N_A S_0$。$U_L = c_A N_A R T_L = 3 R T_L$ なので
+\begin{equation}
+S_L^{\mathrm{i}} = R \ln[(3RT_L)^3 V_L] + S_0.
+\end{equation}
+右室は $U_R = c_B N_B R T_R = 3 R T_R$、$N_B = 2$ なので
+\begin{equation}
+S_R^{\mathrm{i}} = 2 R \ln\left[\left(\frac{3RT_R}{2}\right)^{3/2} \frac{V_R}{2}\right] + 2 S_0.
+\end{equation}
+終状態では左室：温度 $T$、体積 $V_L$、$U_L' = 3 R T$。右室：温度 $T$、体積 $V_R$、$U_R' = 3 R T$。したがって
+\begin{equation}
+S_L^{\mathrm{f}} = R \ln[(3RT)^{3} V_L] + S_0, \quad
+S_R^{\mathrm{f}} = 2 R \ln\left[\left(\frac{3RT}{2}\right)^{3/2} \frac{V_R}{2}\right] + 2 S_0.
+\end{equation}
+エントロピー変化は
+\begin{align}
+\Delta S &= (S_L^{\mathrm{f}} - S_L^{\mathrm{i}}) + (S_R^{\mathrm{f}} - S_R^{\mathrm{i}}) \notag \\
+&= R \ln\frac{(3RT)^3}{(3RT_L)^3}
++ 2R \ln\frac{(3RT/2)^{3/2}}{(3RT_R/2)^{3/2}}
+= 3R \ln\frac{T}{T_L} + 3R \ln\frac{T}{T_R}
+= 3R \ln\frac{T^2}{T_L T_R}.
+\end{align}
+$T = (T_L + T_R)/2$ を代入して
+\begin{equation}
+\boxed{\Delta S = 3R \ln\frac{T^2}{T_L T_R}
+= 3R \ln\frac{(T_L+T_R)^2}{4 T_L T_R}}.
+\end{equation}
+（$T_L \neq T_R$ のとき $(T_L+T_R)^2 > 4 T_L T_R$ なので $\Delta S > 0$。熱が高温から低温に流れる不可逆過程である。）
+
+\paragraph{なぜ $\Delta S > 0$ か（物理的考察）}
+
+$T = (T_L+T_R)/2$ のとき、左室では $T_L \to T$、右室では $T_R \to T$ と変化する。$T_L > T_R$ とすると、左室は熱を失いエントロピーが減り、右室は熱を得てエントロピーが増える。熱力学第二法則により、不可逆過程（熱が高温から低温へ流れる）では全エントロピーは増大するので、右室の増加が左室の減少を上回り $\Delta S > 0$ となる。式 $(T_L+T_R)^2 \ge 4 T_L T_R$（等号は $T_L=T_R$ のとき）から、$T_L \neq T_R$ なら $\Delta S = 3R \ln[(T_L+T_R)^2/(4 T_L T_R)] > 0$ である。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/past2025_ex2_setup.png}
+\caption{問題IIの設定：左に気体A 1モル（$T_L,V_L$）、右に気体B 2モル（$T_R,V_R$）。仕切りは断熱壁。}
+\label{fig:past2025_ex2}
+\end{figure}

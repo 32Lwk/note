@@ -133,6 +133,43 @@ def fig_ex1_1_geometry():
     plt.close()
     print(f"生成: {OUTPUT_DIR}/ex1_1_geometry.png")
 
+def fig_ex1_2_poisson():
+    """問題2: ポアソン方程式の解における観測点と積分変数"""
+    fig, ax = plt.subplots(figsize=(8, 8))
+    a, b = 2.0, 1.0
+    # 球殻の断面（円）
+    theta = np.linspace(0, 2*np.pi, 200)
+    ax.plot(a*np.cos(theta), a*np.sin(theta), 'b-', linewidth=2, label='$r\' = a$（外側）')
+    ax.plot(b*np.cos(theta), b*np.sin(theta), 'r-', linewidth=2, label='$r\' = b$（内側，電荷領域）')
+    # 観測点（例: r < b の内部）
+    r_obs, th_obs = 0.5, np.pi/4
+    x_obs, y_obs = r_obs*np.cos(th_obs), r_obs*np.sin(th_obs)
+    ax.plot(x_obs, y_obs, 'ko', markersize=12, label='観測点 $\\boldsymbol{r}$')
+    ax.annotate('$\\boldsymbol{r}$', (x_obs, y_obs), xytext=(0.3, 0.2), fontsize=14,
+                arrowprops=dict(arrowstyle='->', color='k'))
+    # 積分する源点の例
+    r_src, th_src = 1.5, np.pi/3
+    x_src, y_src = r_src*np.cos(th_src), r_src*np.sin(th_src)
+    ax.plot(x_src, y_src, 'gs', markersize=10, label='源点 $\\boldsymbol{r}\'$（積分変数）')
+    ax.annotate('$\\boldsymbol{r}\'$', (x_src, y_src), xytext=(1.8, 1.6), fontsize=14,
+                arrowprops=dict(arrowstyle='->', color='green'))
+    # ベクトル r - r'
+    ax.arrow(x_src, y_src, x_obs - x_src, y_obs - y_src, head_width=0.15, head_length=0.1,
+             fc='purple', ec='purple', alpha=0.7, linewidth=2)
+    ax.text((x_src + x_obs)/2 - 0.4, (y_src + y_obs)/2, '$|\\boldsymbol{r}-\\boldsymbol{r}\'|$', fontsize=12, color='purple')
+    ax.set_xlim(-2.5, 2.5)
+    ax.set_ylim(-2.5, 2.5)
+    ax.set_aspect('equal')
+    ax.set_xlabel('$x$', fontsize=14)
+    ax.set_ylabel('$y$', fontsize=14)
+    ax.set_title('ポアソン方程式の解：観測点$\\boldsymbol{r}$と積分変数$\\boldsymbol{r}\'$', fontsize=14)
+    ax.legend(loc='upper right', fontsize=10)
+    ax.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(os.path.join(OUTPUT_DIR, 'ex1_2_poisson.png'), dpi=DPI, bbox_inches='tight')
+    plt.close()
+    print(f"生成: {OUTPUT_DIR}/ex1_2_poisson.png")
+
 def fig_ex1_4_circular_current():
     """問題4-1: 円形電流が作る磁場"""
     fig = plt.figure(figsize=(10, 8))
@@ -305,6 +342,7 @@ def main():
     fig_ex1_1_electric_field()
     fig_ex1_1_potential()
     fig_ex1_1_geometry()
+    fig_ex1_2_poisson()
     fig_ex1_4_circular_current()
     fig_ex1_4_solenoid()
     fig_ex1_5_coaxial()

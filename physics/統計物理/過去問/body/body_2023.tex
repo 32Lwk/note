@@ -1,0 +1,401 @@
+%======================================================================
+% 2023年度 統計物理1 再試験（2023年2月8日 10:45--11:45）
+%======================================================================
+\part{2023年度 再試験}
+\setcounter{section}{0}
+
+\section{問題I：理想気体の混合}
+
+\subsection{問題}
+
+体積 $V$ の容器に入った $N$ モルの理想気体のエントロピー $S(T,V)$ と内部エネルギー $U(T,V)$ は以下で与えられる（$T$ は温度、$V$ は体積、$R$ は気体定数、$c$ と $S_0$ は定数）：
+\begin{align}
+S(T,V) &= NR \ln\left(\frac{T^c V}{N}\right) + N S_0, \\
+U(T,V) &= c N R T.
+\end{align}
+
+容器が壁で左右に仕切られている。左側には温度 $T_A$ の理想気体が 1 モル入っており体積は $V_A$、右側には温度 $T_B$ の理想気体が 2 モル入っており体積は $V_B$ である。仕切り壁は断熱壁であり、$T_A > T_B$ とする。容器全体は外界から断熱壁で覆われ、孤立している。
+
+\begin{enumerate}
+\item 左右を隔てる断熱壁を（気体の移動がないように）透熱壁に置き換えた。十分に時間が経過し、左右の気体の温度が等しくなったときの終状態の温度 $T$ を求めよ。
+\item 問1の終状態における容器全体のエントロピーが、初期状態に比べてどれだけ変化したか。$c$, $R$, $T_A$, $T_B$, $V_A$, $V_B$, $S_0$ の記号を用いて示せ。
+\item 問2で計算した全エントロピー変化が正であることを証明せよ。
+\item 同じ初期状態から出発し、最終的に温度が等しくなる状態 $\{(T,V_A),(T,V_B)\}$ を達成する操作のうち、仕切り壁を動かしたり透熱壁に交換したりできるとする。終状態の左右の体積は $V_A$, $V_B$ のまま、左右の部屋の間で気体の移動はないとする。この操作で達成できる最低温度 $T_{\mathrm{min}}$ を求めよ。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{この問題のポイント（初学者向け）}
+
+この問題では、\textbf{孤立系で内部エネルギーが保存すること}と、\textbf{エントロピーが不可逆過程で増大すること}を理解することが大切です。問1は「熱が流れたあと、両方の部屋の温度がどうなるか」を内部エネルギー保存から求めます。問2はそのときのエントロピー変化、問3はその変化が正であることの証明、問4は「うまく操作すればどこまで温度を下げられるか」という発展です。
+
+\paragraph{解き方の流れ}
+
+\begin{enumerate}
+\item 問1：孤立系なので全内部エネルギー $U_{\mathrm{total}}$ は一定。初期と終状態で $U_{\mathrm{total}}$ を書き、等号で結んで $T$ を求める。
+\item 問2：与えられた $S(T,V)$ の式で、初期（左室 $T_A,V_A$、右室 $T_B,V_B$）と終状態（両室とも $T$、体積は $V_A,V_B$ のまま）のエントロピーを計算し、差をとる。
+\item 問3：$\Delta S > 0$ を、対数の不等式 $\ln t \le t-1$ または熱力学第二法則から示す。
+\item 問4：可逆操作では $S_{\mathrm{f}} \ge S_{\mathrm{i}}$ の等号が成り立つ。それを満たす最小の $T$ が $T_{\mathrm{min}}$。
+\end{enumerate}
+
+\paragraph{用語の説明}
+\begin{itemize}
+\item \textbf{透熱壁}：熱のみを通し、気体は通さない壁。十分時間が経つと両側の温度が等しくなる（\textbf{熱平衡}）。
+\item \textbf{断熱壁}：熱も気体も通さない壁。両側の温度は独立に保たれる。
+\item \textbf{孤立系}：外界と仕事・熱のやりとりがない系。熱力学第一法則より、全体の内部エネルギーは保存する。
+\item \textbf{可逆・不可逆}：可逆過程では外界を含めた全エントロピーが変わらない。不可逆過程（例：熱が高温から低温へ一方向に流れる）では全エントロピーは増大する。
+\item \textbf{加重平均}：重みをつけた平均。問1の $T = (N_A T_A + N_B T_B)/(N_A+N_B)$ は、モル数 $N_A$, $N_B$ を重みとした温度の平均である。
+\end{itemize}
+
+\paragraph{記号の整理}
+左室：モル数 $N_A = 1$、初期温度 $T_A$、体積 $V_A$。右室：モル数 $N_B = 2$、初期温度 $T_B$、体積 $V_B$。透熱壁に替えた後の共通温度を $T$ とする。
+
+\paragraph{問1：終状態の温度 $T$}
+
+\paragraph{使用する物理法則}
+孤立系では外界と仕事・熱のやりとりがないため、\textbf{熱力学第一法則}より全内部エネルギー $U_{\mathrm{total}}$ は一定である。理想気体では $U = c N R T$ であり、$U$ は温度 $T$ のみに依存し体積には依存しない。
+
+\paragraph{計算のステップ}
+内部エネルギー保存則を用いる。気体の移動はないので左室のモル数は $N_A$、右室は $N_B$ のまま。左室の内部エネルギーは $U_A = c N_A R T$、右室は $U_B = c N_B R T$ であり、理想気体では $U$ は $T$ のみに依存する。
+
+\textbf{ステップ1：}初期状態の全内部エネルギーを書く。
+\begin{equation}
+U_{\mathrm{initial}} = c N_A R T_A + c N_B R T_B = cR(N_A T_A + N_B T_B).
+\end{equation}
+
+\textbf{ステップ2：}終状態では両室とも温度 $T$ なので
+\begin{equation}
+U_{\mathrm{final}} = c N_A R T + c N_B R T = c R (N_A + N_B) T.
+\end{equation}
+孤立系なので $U_{\mathrm{initial}} = U_{\mathrm{final}}$ より
+\begin{equation}
+c R (N_A + N_B) T = c R (N_A T_A + N_B T_B).
+\end{equation}
+$cR \neq 0$ で割り、
+\begin{equation}
+\boxed{T = \frac{N_A T_A + N_B T_B}{N_A + N_B} = \frac{T_A + 2T_B}{3}}.
+\end{equation}
+
+\paragraph{なぜこのように求まるか（原理的な説明）}
+
+透熱壁に替えると、左室（高温 $T_A$）と右室（低温 $T_B$）の間で熱が流れる。熱力学第零法則により、十分時間が経つと両側の温度は等しくなる。その最終温度を決めるのが\textbf{内部エネルギー保存則}である。孤立系では外界との仕事・熱のやりとりがないため、全内部エネルギー $U_{\mathrm{total}}$ は一定である。理想気体では $U = c N R T$ で $U$ は $T$ のみに依存するので、「左室の $U$ の減少量」と「右室の $U$ の増加量」が等しくなるように熱が左から右に流れ、結果として $T$ が $T_A$ と $T_B$ のモル数で重みづけた平均（加重平均）になる。$T_A > T_B$ のとき、高温側から低温側へ熱が流れるため、必ず $T_B < T < T_A$ が成り立つ。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/past2023_ex1_energy_flow.png}
+\caption{問1の物理：透熱壁を通して熱 $Q$ が高温側から低温側へ流れ、両室の温度が $T$ で一致する。内部エネルギー保存により $T$ が一意に決まる。}
+\label{fig:past2023_ex1_energy_flow}
+\end{figure}
+
+\paragraph{問2：エントロピー変化}
+
+初期状態のエントロピーは、左室が $S_A^{\mathrm{i}} = N_A R \ln(T_A^c V_A / N_A) + N_A S_0$、右室が $S_B^{\mathrm{i}} = N_B R \ln(T_B^c V_B / N_B) + N_B S_0$ なので
+\begin{equation}
+S_{\mathrm{initial}} = N_A R \ln\frac{T_A^c V_A}{N_A} + N_A S_0 + N_B R \ln\frac{T_B^c V_B}{N_B} + N_B S_0.
+\end{equation}
+終状態では両室とも温度 $T$、体積は $V_A$, $V_B$ のままなので
+\begin{equation}
+S_{\mathrm{final}} = N_A R \ln\frac{T^c V_A}{N_A} + N_A S_0 + N_B R \ln\frac{T^c V_B}{N_B} + N_B S_0.
+\end{equation}
+エントロピー変化は
+\begin{align}
+\Delta S &= S_{\mathrm{final}} - S_{\mathrm{initial}} \notag \\
+&= N_A R \ln\frac{T^c}{T_A^c} + N_B R \ln\frac{T^c}{T_B^c}
+= N_A R \ln\frac{T}{T_A} + N_B R \ln\frac{T}{T_B}.
+\end{align}
+したがって
+\begin{equation}
+\boxed{\Delta S = N_A R \ln\frac{T}{T_A} + N_B R \ln\frac{T}{T_B}
+= R \ln\frac{T}{T_A} + 2R \ln\frac{T}{T_B}
+= R \ln\frac{T^3}{T_A T_B^2}}.
+\end{equation}
+
+\paragraph{なぜこの式になるか（物理的考察）}
+
+エントロピー $S = NR\ln(T^c V/N) + NS_0$ では、温度が $T_A \to T$ または $T_B \to T$ に変わることで $S$ が変化する。左室では $T_A > T$ なので $T/T_A < 1$、$\ln(T/T_A) < 0$ であり、高温だった左室のエントロピーは\textbf{減少}する（熱を失うため）。右室では $T_B < T$ なので $T/T_B > 1$、$\ln(T/T_B) > 0$ であり、低温だった右室のエントロピーは\textbf{増加}する（熱を得るため）。熱力学第二法則から、不可逆過程（熱が高温から低温へ一方向に流れる）では全エントロピーは増大するので、右室の増加量が左室の減少量を上回り、$\Delta S > 0$ となる。式の形 $\Delta S = N_A R \ln(T/T_A) + N_B R \ln(T/T_B)$ は、各室の「温度比の対数」にモル数と $R$ をかけた寄与の和であり、$T$ が問1で求めた平衡温度であることから一意に定まる。
+
+\paragraph{問3：$\Delta S > 0$ の証明}
+
+$T$ は $T_A$ と $T_B$ の加重平均なので、$T_B < T < T_A$ である。$x = T/T_A$, $y = T/T_B$ とおくと $x < 1$, $y > 1$ である。$\Delta S / R = \ln(T/T_A) + 2\ln(T/T_B) = \ln x + 2\ln y$。ここで $T = (T_A + 2T_B)/3$ より
+\begin{equation}
+\frac{T}{T_A} = \frac{1}{3}\left(1 + 2\frac{T_B}{T_A}\right), \quad
+\frac{T}{T_B} = \frac{1}{3}\left(\frac{T_A}{T_B} + 2\right).
+\end{equation}
+不等式 $\ln t \le t-1$（$t>0$、等号は $t=1$ のみ）を用いる。$t = T_A/T$ とすると $T_A > T$ より $t > 1$ なので $\ln(T_A/T) \ge (T_A/T)-1$、すなわち $\ln(T/T_A) \le (T/T_A)-1$。同様に $t = T/T_B$ とすると $t > 1$ なので $\ln(T/T_B) \le (T/T_B)-1$。よって
+\begin{align}
+\frac{\Delta S}{R} &= \ln\frac{T}{T_A} + 2\ln\frac{T}{T_B}
+\le \left(\frac{T}{T_A}-1\right) + 2\left(\frac{T}{T_B}-1\right) \notag \\
+&= \frac{T}{T_A} + \frac{2T}{T_B} - 3.
+\end{align}
+$T = (N_A T_A + N_B T_B)/(N_A+N_B)$ を代入すると
+\begin{equation}
+\frac{N_A T_A + N_B T_B}{N_A+N_B}\cdot\frac{1}{T_A}
++ 2\cdot\frac{N_A T_A + N_B T_B}{N_A+N_B}\cdot\frac{1}{T_B}
+= \frac{N_A + N_B}{N_A+N_B} + \frac{N_B T_A/T_B + N_A T_B/T_A}{N_A+N_B} \quad \text{（計算すると）}
+\end{equation}
+より、等号成立は $T_A = T_B$ のときのみ。今 $T_A \neq T_B$ なので $\Delta S > 0$。あるいは、エントロピーは不可逆過程（熱が高温から低温に流れる）で増大するという熱力学第二法則から、$\Delta S > 0$ である。
+
+\paragraph{物理的意味}
+
+熱が高温 $T_A$ から低温 $T_B$ へ流れる過程は\textbf{不可逆}である。自然に逆方向（低温から高温へ熱が流れる）には戻らない。熱力学第二法則は「孤立系のエントロピーは減少しない」であり、この過程で $\Delta S > 0$ となることは、その数学的な反映である。不等式 $\ln t \le t-1$ を用いた証明は、対数関数の性質から $\Delta S$ の正性を代数的に導いている。
+
+\paragraph{問4：達成できる最低温度 $T_{\mathrm{min}}$}
+
+体積 $V_A$, $V_B$ は固定、気体の移動なし、終状態で両室の温度を $T$ に揃える。可逆操作のみ許すとき、全エントロピーは減少しない。最低温度を達成するのは、エントロピーを一定に保つ可逆過程で、終状態の温度をできるだけ低くした場合である。
+
+初期エントロピーは
+\begin{equation}
+S_{\mathrm{i}} = N_A R \ln\frac{T_A^c V_A}{N_A} + N_A S_0 + N_B R \ln\frac{T_B^c V_B}{N_B} + N_B S_0.
+\end{equation}
+終状態の温度を $T$ としたときのエントロピーは
+\begin{equation}
+S_{\mathrm{f}}(T) = N_A R \ln\frac{T^c V_A}{N_A} + N_A S_0 + N_B R \ln\frac{T^c V_B}{N_B} + N_B S_0.
+\end{equation}
+$S_{\mathrm{f}}(T) \ge S_{\mathrm{i}}$ でなければならない。$S_{\mathrm{f}}(T) - S_{\mathrm{i}} = N_A R \ln(T/T_A) + N_B R \ln(T/T_B) \ge 0$ より
+\begin{equation}
+\left(\frac{T}{T_A}\right)^{N_A} \left(\frac{T}{T_B}\right)^{N_B} \ge 1
+\quad \Rightarrow \quad
+T^{N_A+N_B} \ge T_A^{N_A} T_B^{N_B}.
+\end{equation}
+したがって $T \ge (T_A^{N_A} T_B^{N_B})^{1/(N_A+N_B)}$。等号は可逆過程で達成されるので、
+\begin{equation}
+\boxed{T_{\mathrm{min}} = T_A^{N_A/(N_A+N_B)} T_B^{N_B/(N_A+N_B)}
+= T_A^{1/3} T_B^{2/3}}.
+\end{equation}
+
+\paragraph{なぜ幾何平均が最低温度か（原理的な説明）}
+
+問1の操作（透熱壁に替えるだけ）では、終状態の温度は\textbf{算術平均の重みづけ} $T = (N_A T_A + N_B T_B)/(N_A+N_B)$ で決まった。一方、仕切り壁を動かしたり透熱・断熱を切り替えたりする\textbf{可逆操作}を許すと、エントロピーを増やさない範囲で終状態の温度を変えられる。可逆過程では $S_{\mathrm{f}} = S_{\mathrm{i}}$ とできるので、$S_{\mathrm{f}}(T) \ge S_{\mathrm{i}}$ の等号が成り立つような最小の $T$ が $T_{\mathrm{min}}$ である。条件 $(T/T_A)^{N_A}(T/T_B)^{N_B} = 1$ を解くと $T$ は $T_A$ と $T_B$ の\textbf{重みづけ幾何平均}になる。幾何平均は算術平均より小さくなる（$T_A \neq T_B$ のとき）ので、$T_{\mathrm{min}} < T_{\mathrm{問1}}$ であり、可逆操作を駆使すれば問1より低い終温度を実現できる。逆に、可逆操作で最高温度を目指すと算術平均より高い温度も実現可能である。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/past2023_ex1_Tmin.png}
+\caption{問4：終状態の温度 $T$ の取り得る範囲。$T_{\mathrm{min}}$（幾何平均）は問1の $T$（算術平均）より低い。}
+\label{fig:past2023_ex1_Tmin}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/past2023_ex1_setup.png}
+\caption{問題Iの設定：左右に仕切られた容器。左は 1 モル・$T_A,V_A$、右は 2 モル・$T_B,V_B$。}
+\label{fig:past2023_ex1_setup}
+\end{figure}
+
+%----------------------------------------------------------------------
+\section{問題II：変な気体（エントロピー $S(T,V)=\sigma T^3 V$）}
+%----------------------------------------------------------------------
+
+\subsection{問題}
+
+体積 $V$ の中に、ある気体が入っている。この系のエントロピーが
+\begin{equation}
+S(T,V) = \sigma T^3 V
+\end{equation}
+で与えられるとする（$\sigma$ は正の定数）。以下の問に答えよ。
+
+\begin{enumerate}
+\item この系の内部エネルギー $E(T,V)$ を、$\sigma$, $T$, $V$ を用いて表わせ。ただし $E(T=0,V)=0$ とする。
+\item この系の圧力 $p(T,V)$ を、$\sigma$, $T$, $V$ を用いて表わせ。
+\item この気体が温度 $T$ の熱源と接して熱平衡にあり、体積 $V$ は一定とする。このときの揺らぎの分散 $\langle \delta E^2 \rangle$ を、ボルツマン定数 $k_B$、$\sigma$、$T$、$V$ を用いて表わせ。ここで $\delta E = E - \langle E \rangle$ である。
+\end{enumerate}
+
+ヒント：定積比熱は $C_V = (\partial E/\partial T)_V = T(\partial S/\partial T)_V$ とも書ける。$S$ を $T,V$ の関数とみなすと $T\,dS = C_V\,dT + \bigl((\partial E/\partial V)_T + p\bigr)\,dV$ と書ける。
+
+\subsection{解答}
+
+\paragraph{問1：内部エネルギー $E(T,V)$}
+
+熱力学の基本関係式 $T\,dS = dE + p\,dV$ より、体積一定では $dS = (1/T)\,dE$、すなわち $(\partial S/\partial T)_V = (1/T)(\partial E/\partial T)_V$。したがって
+\begin{equation}
+C_V = \left(\frac{\partial E}{\partial T}\right)_V = T\left(\frac{\partial S}{\partial T}\right)_V.
+\end{equation}
+$S = \sigma T^3 V$ より $(\partial S/\partial T)_V = 3\sigma T^2 V$ なので
+\begin{equation}
+C_V = T \cdot 3\sigma T^2 V = 3\sigma T^3 V.
+\end{equation}
+$E(T=0,V)=0$ として、$E(T,V) = \int_0^T C_V(T',V)\,dT'$ を計算する：
+\begin{equation}
+E(T,V) = \int_0^T 3\sigma (T')^3 V\,dT' = 3\sigma V \left[\frac{(T')^4}{4}\right]_0^T = \frac{3}{4}\sigma T^4 V.
+\end{equation}
+よって
+\begin{equation}
+\boxed{E(T,V) = \frac{3}{4}\sigma T^4 V}.
+\end{equation}
+
+\paragraph{なぜこのように求まるか（原理的な説明）}
+
+熱力学の基本関係式 $T\,dS = dE + p\,dV$ より、体積一定では $dE = T\,dS$ である。したがって $(\partial E/\partial T)_V = T(\partial S/\partial T)_V = C_V$ が成り立つ。つまり\textbf{定積比熱 $C_V$ は、温度 $T$ でエントロピーの温度微分 $(\partial S/\partial T)_V$ をかけたもの}である。$S = \sigma T^3 V$ を $T$ で微分すると $3\sigma T^2 V$ なので、$C_V = 3\sigma T^3 V$ となり、$E(T,V)$ は $T$ について $0$ から $T$ まで積分して $E = (3/4)\sigma T^4 V$ を得る。$E(T=0,V)=0$ としたのは、絶対零度では内部エネルギーを 0 に取る慣習に従うためである。この「変な気体」では $E \propto T^4 V$ であり、理想気体の $E \propto T$ とは異なる。放射場（黒体放射）のエネルギー密度が $T^4$ に比例するのと類似した振る舞いである。
+
+\paragraph{問2：圧力 $p(T,V)$}
+
+$T\,dS = dE + p\,dV$ で、$T$ を一定にすると $T(\partial S/\partial V)_T = (\partial E/\partial V)_T + p$。$S = \sigma T^3 V$ より $(\partial S/\partial V)_T = \sigma T^3$。$E = (3/4)\sigma T^4 V$ より $(\partial E/\partial V)_T = (3/4)\sigma T^4$。したがって
+\begin{equation}
+T \cdot \sigma T^3 = \frac{3}{4}\sigma T^4 + p
+\quad \Rightarrow \quad
+\sigma T^4 = \frac{3}{4}\sigma T^4 + p
+\quad \Rightarrow \quad
+p = \sigma T^4 - \frac{3}{4}\sigma T^4 = \frac{1}{4}\sigma T^4.
+\end{equation}
+よって
+\begin{equation}
+\boxed{p(T,V) = \frac{1}{4}\sigma T^4}.
+\end{equation}
+（$p$ は $V$ に依存しない。この「変な気体」の状態方程式に相当する。）
+
+\paragraph{なぜ圧力が $V$ に依存しないか（物理的考察）}
+
+$T\,dS = dE + p\,dV$ で $T$ 一定とすると $T(\partial S/\partial V)_T = (\partial E/\partial V)_T + p$ である。$S = \sigma T^3 V$ より $(\partial S/\partial V)_T = \sigma T^3$、$E = (3/4)\sigma T^4 V$ より $(\partial E/\partial V)_T = (3/4)\sigma T^4$。代入すると $p = \sigma T^4 - (3/4)\sigma T^4 = (1/4)\sigma T^4$ となり、$p$ は $T$ のみの関数で $V$ に依存しない。理想気体では $p \propto T/V$ だったが、この「変な気体」では $p \propto T^4$ であり、体積を変えても圧力は変わらない。黒体放射の圧力 $p = u/3$（$u$ はエネルギー密度）と同様の $T^4$ 依存性である。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/past2023_ex2_E_p.png}
+\caption{問題II：変な気体の $E(T,V)$ と $p(T,V)$。$E \propto T^4 V$、$p \propto T^4$（$V$ に依存しない）。}
+\label{fig:past2023_ex2_E_p}
+\end{figure}
+
+\paragraph{問3：揺らぎの分散 $\langle \delta E^2 \rangle$}
+
+ヒントより、$C_V = T(\partial S/\partial T)_V$ はすでに用いた。統計力学では、熱源と接触した系で内部エネルギー $E$ の分散は
+\begin{equation}
+\langle \delta E^2 \rangle = k_B T^2 C_V
+\end{equation}
+で与えられる（カノニカル分布の性質）。$C_V = 3\sigma T^3 V$ を代入して
+\begin{equation}
+\boxed{\langle \delta E^2 \rangle = k_B T^2 \cdot 3\sigma T^3 V = 3\sigma k_B T^5 V}.
+\end{equation}
+
+（導出の補足：ボルツマンの原理 $S = k_B \ln W(E)$ と $W(E) \propto e^{S/k_B}$ から、熱浴と合わせた孤立系のエネルギー保存と状態数の最大条件により、$P(E) \propto e^{S(E)/k_B} e^{-\beta E}$ の形になり、$\langle (\Delta E)^2 \rangle = k_B T^2 C_V$ が得られる。）
+
+\paragraph{なぜ揺らぎが $k_B T^2 C_V$ か（物理的考察）}
+
+熱源と接触した系では、ミクロには内部エネルギー $E$ は一定ではなく、熱の出入りによって揺らいでいる。カノニカル分布では、エネルギー $E$ を取る確率は $P(E) \propto W(E)\,e^{-\beta E}$ で与えられ、その分散は $\langle \delta E^2 \rangle = k_B T^2 C_V$ となる。$C_V$ が大きいほど「熱容量が大きい」＝温度を少し変えるのに多くの熱が必要であり、その分だけエネルギーの揺らぎも大きくなる。$T^2$ が効くのは、高温になるほど熱のやりとりが活発になり揺らぎが増すためである。この「変な気体」では $C_V = 3\sigma T^3 V$ なので、$\langle \delta E^2 \rangle = 3\sigma k_B T^5 V$ となり、$T^5$ に比例する。
+
+%----------------------------------------------------------------------
+\section{問題III：N個の独立な調和振動子}
+%----------------------------------------------------------------------
+
+\subsection{問題}
+
+$N$ 個の独立な調和振動子を量子的に扱う。$i$ 番目の振動子のエネルギーは $E_i = \hbar\omega m_i$（$m_i = 0,1,2,\ldots$）とし、$\omega$ は振動子の角振動数である。この系が温度 $T$ の大きな熱源と接しているとき、系が量子状態 $i$ にある確率は分配関数 $Z_N$ を用いて $P(i) = e^{-\beta E_i}/Z_N$ で与えられる。ここで $\beta = 1/(k_B T)$ である。状態 $i$ は量子数の組 $(m_1,\ldots,m_N)$ で指定され、全エネルギーは $E_i = \hbar\omega(m_1+\cdots+m_N) \equiv \hbar\omega M$、$M = m_1+\cdots+m_N$ とする。
+
+\begin{enumerate}
+\item $N=1$ のとき $Z_1$ を計算せよ。
+\item $N=1$ のときエネルギーの平均値 $\langle E \rangle$ を計算せよ。
+\item $Z_N$ を計算せよ。
+\item $Z_N$ を用いてエネルギーの平均値 $\langle E \rangle$ を計算せよ。
+\item $Z_N = \sum_{M=0}^\infty W_N(M)\,e^{-\beta\hbar\omega M}$ とする。$W_N(M)$ を $N$ と $M$ で表せ。
+\item 系がエネルギー $E$ を取る確率は $P(E) \propto W_N(M)\,e^{-\beta E}$ であり、$E^*$ で鋭いピークを持つ。$M \gg 1$ かつ $N \gg 1$ として、$E^*$ を $\beta$, $\hbar\omega$, $N$ などで表せ。必要ならスターリングの公式 $\ln N! \approx N\ln N - N$ を用いてよい。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{問1：$Z_1$}
+
+1 個の振動子では $m_1 = 0,1,2,\ldots$ に対し $E = \hbar\omega m_1$ なので
+\begin{equation}
+Z_1 = \sum_{m_1=0}^\infty e^{-\beta\hbar\omega m_1}
+= \sum_{m=0}^\infty (e^{-\beta\hbar\omega})^m.
+\end{equation}
+$|e^{-\beta\hbar\omega}|<1$ のとき等比級数として
+\begin{equation}
+\boxed{Z_1 = \frac{1}{1 - e^{-\beta\hbar\omega}}}.
+\end{equation}
+
+\paragraph{なぜこの形になるか（原理的な説明）}
+
+量子調和振動子のエネルギーは $E_m = \hbar\omega m$（$m = 0,1,2,\ldots$）と離散的である。カノニカル分布では、状態 $m$ を取る確率は $P(m) \propto e^{-\beta E_m} = e^{-\beta\hbar\omega m}$ である。分配関数 $Z_1 = \sum_{m=0}^\infty e^{-\beta\hbar\omega m}$ は、$x = e^{-\beta\hbar\omega}$ とおくと $1 + x + x^2 + \cdots$ という等比級数になり、$|x|<1$（$\beta\hbar\omega>0$）のとき和は $1/(1-x) = 1/(1-e^{-\beta\hbar\omega})$ である。つまり、\textbf{すべてのエネルギー固有状態についてボルツマン因子 $e^{-\beta E}$ を足し合わせたもの}が分配関数であり、確率の規格化定数になっている。
+
+\paragraph{問2：$N=1$ のときの $\langle E \rangle$}
+
+$\langle E \rangle = -\frac{\partial}{\partial\beta}\ln Z_1$ を用いる。
+\begin{equation}
+\ln Z_1 = -\ln(1 - e^{-\beta\hbar\omega})
+\quad \Rightarrow \quad
+\frac{\partial \ln Z_1}{\partial \beta} = -\frac{(-\hbar\omega)\,e^{-\beta\hbar\omega}}{1-e^{-\beta\hbar\omega}}
+= \frac{\hbar\omega\,e^{-\beta\hbar\omega}}{1-e^{-\beta\hbar\omega}}.
+\end{equation}
+したがって
+\begin{equation}
+\langle E \rangle = -\frac{\partial \ln Z_1}{\partial \beta}
+= \frac{\hbar\omega}{e^{\beta\hbar\omega}-1}.
+\end{equation}
+よって
+\begin{equation}
+\boxed{\langle E \rangle = \frac{\hbar\omega}{e^{\beta\hbar\omega}-1}}.
+\end{equation}
+
+\paragraph{なぜ $\langle E \rangle = -\partial\ln Z/\partial\beta$ か（原理的な説明）}
+
+カノニカル分布では、エネルギーの平均は $\langle E \rangle = \sum_i E_i P(i) = (1/Z)\sum_i E_i e^{-\beta E_i}$ で与えられる。一方、$\ln Z = \ln\sum_i e^{-\beta E_i}$ を $\beta$ で微分すると $\frac{\partial \ln Z}{\partial \beta} = -\frac{1}{Z}\sum_i E_i e^{-\beta E_i} = -\langle E \rangle$ となる。したがって \textbf{$\langle E \rangle = -\frac{\partial}{\partial\beta}\ln Z$} が成り立つ。これは分配関数 $Z$ さえ求まれば、微分するだけで平均エネルギーが得られることを意味する。$T \to 0$（$\beta \to \infty$）のとき $\langle E \rangle \to 0$（基底状態）、$T \to \infty$（$\beta \to 0$）のとき $\langle E \rangle \sim k_B T$（等分配則に近づく）となる。
+
+\paragraph{問3：$Z_N$}
+
+各振動子が独立なので、分配関数は積になる：
+\begin{equation}
+Z_N = (Z_1)^N = \boxed{\left(\frac{1}{1-e^{-\beta\hbar\omega}}\right)^N}.
+\end{equation}
+
+\paragraph{問4：$Z_N$ を用いた $\langle E \rangle$}
+
+$\langle E \rangle = -\frac{\partial}{\partial\beta}\ln Z_N = -N \frac{\partial}{\partial\beta}\ln Z_1$ より、問2の結果を $N$ 倍して
+\begin{equation}
+\boxed{\langle E \rangle = N\,\frac{\hbar\omega}{e^{\beta\hbar\omega}-1}}.
+\end{equation}
+
+\paragraph{問5：状態数 $W_N(M)$}
+
+$M = m_1 + m_2 + \cdots + m_N$ を満たす非負整数の組 $(m_1,\ldots,m_N)$ の個数を数える。$M$ 個のボールを $N$ 個の箱に分ける重複組合せに等しい（各 $m_i$ が箱 $i$ のボール数）。その数は
+\begin{equation}
+\binom{M+N-1}{N-1} = \frac{(M+N-1)!}{(N-1)!\,M!}.
+\end{equation}
+よって
+\begin{equation}
+\boxed{W_N(M) = \frac{(M+N-1)!}{(N-1)!\,M!}}.
+\end{equation}
+
+\paragraph{なぜこの組み合わせになるか（物理的考察）}
+
+$M = m_1 + m_2 + \cdots + m_N$ を満たす非負整数の組 $(m_1,\ldots,m_N)$ の個数は、「$M$ 個の区別できないボールを $N$ 個の区別できる箱に分ける方法の数」に等しい。これは\textbf{重複組合せ}であり、$N$ 個の仕切りと $M$ 個のボールを一列に並べる並べ方の数 $\binom{M+N-1}{N-1}$ で与えられる。各振動子が独立に $m_i = 0,1,2,\ldots$ を取れるので、全エネルギー $E = \hbar\omega M$ に対する状態数が $W_N(M)$ であり、$M$ が大きいほど多くの組み合わせがある（エントロピー $S = k_B \ln W_N(M)$ が $M$ について増加する）。
+
+\paragraph{問6：最確エネルギー $E^*$}
+
+$P(E) \propto W_N(M)\,e^{-\beta E}$（$E = \hbar\omega M$）が最大になる $M$ を求める。$f(M) = \ln W_N(M) - \beta\hbar\omega M$ の極大で $\partial f/\partial M = 0$ とおく。スターリングの公式 $\ln n! \approx n\ln n - n$ を用いて
+\begin{align}
+\ln W_N(M) &\approx (M+N-1)\ln(M+N-1) - (M+N-1) - (N-1)\ln(N-1) + (N-1) - M\ln M + M \notag \\
+&\approx (M+N)\ln(M+N) - (N-1)\ln(N-1) - M\ln M - N + 1 \quad (M,N\gg1).
+\end{align}
+$M$ で微分すると（$M,N\gg1$ のとき $(M+N-1)\approx (M+N)$ として）
+\begin{equation}
+\frac{\partial}{\partial M}\ln W_N(M) \approx \ln(M+N) + 1 - \ln M - 1 = \ln\frac{M+N}{M}.
+\end{equation}
+したがって $\frac{\partial f}{\partial M} = \ln\frac{M+N}{M} - \beta\hbar\omega = 0$ より
+\begin{equation}
+\frac{M+N}{M} = e^{\beta\hbar\omega}
+\quad \Rightarrow \quad
+1 + \frac{N}{M} = e^{\beta\hbar\omega}
+\quad \Rightarrow \quad
+M = \frac{N}{e^{\beta\hbar\omega}-1}.
+\end{equation}
+$E^* = \hbar\omega M^*$ なので
+\begin{equation}
+\boxed{E^* = \frac{N\hbar\omega}{e^{\beta\hbar\omega}-1}}.
+\end{equation}
+これは問4の $\langle E \rangle$ と一致する（熱力学極限でピークが平均に一致する）。
+
+\paragraph{なぜ $E^*$ が平均 $\langle E \rangle$ と一致するか（物理的考察）}
+
+系がエネルギー $E = \hbar\omega M$ を取る確率は $P(E) \propto W_N(M)\,e^{-\beta E}$ である。$W_N(M)$ は $M$ の増加とともに増え（状態数が増える）、$e^{-\beta E}$ は $E$ の増加とともに減る（ボルツマン因子）。その積が最大になる $E^*$ が最確エネルギーである。$N \gg 1$、$M \gg 1$ の熱力学極限では、$P(E)$ は $E^*$ のまわりに鋭いピークを持ち、相対的な揺らぎ $\sqrt{\langle \delta E^2 \rangle}/\langle E \rangle$ は $1/\sqrt{N}$ のオーダーで小さくなる。そのため、\textbf{最確値 $E^*$ と平均値 $\langle E \rangle$ が一致し}、マクロな観測ではどちらも同じ「平衡のエネルギー」を表す。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/past2023_ex3_W_P.png}
+\caption{問題III：$P(E) \propto W_N(M)\,e^{-\beta E}$ は $E^*$ で鋭いピークを持つ。$N$ が大きいほどピークは鋭くなり、$E^* = \langle E \rangle$ に一致する。}
+\label{fig:past2023_ex3_W_P}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/past2023_oscillator_Z.png}
+\caption{調和振動子の分配関数と平均エネルギー（概念図）。}
+\label{fig:past2023_oscillator}
+\end{figure}

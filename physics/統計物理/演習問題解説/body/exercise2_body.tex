@@ -1,0 +1,345 @@
+% 演習2 (2025/10/24実施)
+\section{演習2 (2025年10月24日実施)}
+
+\subsection{I. ファンデルワールスの状態方程式}
+
+\subsubsection{この問題で学ぶこと}
+
+実在気体を理想気体より精密に記述するファンデルワールス方程式の性質。希薄極限で理想気体に帰着すること、臨界点の求め方、無次元化により物質に依存しない普遍形が得られること。
+
+\subsubsection{問題}
+
+ファンデルワールスの状態方程式
+\begin{equation}
+p = \frac{NRT}{V - bN} - \frac{aN^2}{V^2}
+\end{equation}
+について、$a$, $b$ は正の定数とする。
+\begin{enumerate}
+    \item 密度 $N/V \ll 1$ のとき、理想気体の状態方程式になることを示せ。
+    \item 臨界温度 $T_c$、臨界体積 $V_c$、臨界圧力 $p_c$ を $R, N, a, b$ で表せ。
+    \item 無次元化 $\tilde{p} = p/p_c$、$\tilde{V} = V/V_c$、$\tilde{T} = T/T_c$ で $\tilde{p} = \frac{8\tilde{T}}{3\tilde{V}-1} - \frac{3}{\tilde{V}^2}$ となることを示せ。
+\end{enumerate}
+
+\subsubsection{解答}
+
+\paragraph{前提知識：理想気体と実在気体}
+
+高校物理で学んだ理想気体の状態方程式 $pV = nRT$ を思い出してください。理想気体では、分子の大きさを無視し、分子間の引力も無視します。しかし実在の気体（窒素、酸素、二酸化炭素など）では、分子には有限の大きさがあり、分子同士には引き合う力（ファンデルワールス力）があります。
+
+\textbf{ファンデルワールス方程式の直感的な理解：}
+
+\begin{itemize}
+    \item \textbf{第1項の $V - bN$}：分子自身の体積を考慮した補正。分子は「場所を取る」ので、実際に気体が動き回れる体積は $V$ より小さい。$b$ は1モルあたりの「排除体積」で、$bN$ だけ有効体積が減る。箱の中にボールを詰めると、ボールの体積分だけ空きスペースが減る、というイメージ。
+    \item \textbf{第2項の $-aN^2/V^2$}：分子間引力の補正。分子同士が引き合うため、壁に衝突する際の勢いが弱まる（内側に引っ張られる）。その結果、理想気体より圧力は小さくなる。引力は互いに近い分子のペアに働くので、密度の2乗 $(N/V)^2$ に比例する。
+\end{itemize}
+
+\paragraph{導出の戦略}
+
+問1では、密度 $N/V \ll 1$（希薄な気体）のとき、$bN/V$ と $aN^2/V^2$ が無視でき、理想気体に戻ることを示す。テイラー展開 $\frac{1}{1-x} \approx 1+x$ を用いる。
+
+問2では、臨界点を $p$-$V$ 曲線の変曲点として求める。計算の都合で $x=1/V$ と置くと見通しが良くなる。
+
+問3では、臨界量で無次元化することで、物質によらない普遍形が得られることを示す。
+
+\paragraph{用語の説明}
+
+\begin{itemize}
+    \item \textbf{臨界点}：気体と液体の区別がなくなる点。$p$-$V$ 図で、$T$ が高いときは $p(V)$ は単調減少だが、$T$ を下げていくとある温度で「変曲点」が現れ、それ以下では極大・極小を持つ「S字形」になる。臨界点は、変曲点がちょうど現れる温度・圧力・体積（$T_c$, $p_c$, $V_c$）である。
+    \item \textbf{変曲点の条件}：曲線の傾きの変化がゼロになる点。数学的には $\frac{dp}{dV}=0$ かつ $\frac{d^2p}{dV^2}=0$（または $V$ の代わりに $x=1/V$ を使った形）。
+\end{itemize}
+
+\paragraph{問1: 理想気体への帰着}
+
+密度 $n = N/V \ll 1$ のとき、気体は希薄で分子間の相互作用や分子の体積の影響が無視できる。この極限で理想気体の式 $pV = NRT$ に戻ることを示す。
+
+\textbf{ステップ1}：$bN/V \ll 1$ なので、$(1 - bN/V)^{-1}$ を $bN/V$ の1次までテイラー展開する。$|x| \ll 1$ のとき $\frac{1}{1-x} = 1 + x + x^2 + \cdots \approx 1 + x$ である。
+\begin{equation}
+\frac{1}{V - bN} = \frac{1}{V(1 - bN/V)} = \frac{1}{V} \cdot \frac{1}{1 - bN/V} \approx \frac{1}{V}\left(1 + \frac{bN}{V}\right)
+\end{equation}
+
+\textbf{ステップ2}：第1項を展開し、第2項と合わせる。
+\begin{align}
+p &\approx \frac{NRT}{V}\left(1 + \frac{bN}{V}\right) - \frac{aN^2}{V^2} \\
+&= \frac{NRT}{V} + \frac{NRT \cdot bN}{V^2} - \frac{aN^2}{V^2} = \frac{NRT}{V} + \frac{N^2}{V^2}(RTb - a)
+\end{align}
+密度 $N/V \ll 1$ のとき、$N^2/V^2 = (N/V)^2$ は $O((N/V)^2)$ であり、第1項の $NRT/V$ は $O(N/V)$ である。$N/V \ll 1$ なら $(N/V)^2 \ll N/V$ なので、第2項以降を無視し、
+\begin{equation}
+p \approx \frac{NRT}{V}
+\end{equation}
+となり、理想気体の状態方程式 $pV = NRT$ に帰着する。
+
+\paragraph{問2: 臨界点}
+
+\textbf{幾何学的意味}：$p$ を $V$ の関数としてみると、$T$ が高いときは $p(V)$ は単調減少である。$T$ を下げていくと、ある温度で $p(V)$ に変曲点が現れ、それ以上下げると極大・極小が生じて「S字形」になる。臨界点は、この変曲点がちょうど現れる温度・圧力・体積である。
+
+計算の都合上 $x = 1/V$ とおく。$V = 1/x$ を代入して
+\begin{equation}
+p = \frac{NRT x}{1 - bNx} - aN^2 x^2
+\end{equation}
+臨界点では、$x$ を変数とするとき
+\begin{equation}
+\left(\frac{\partial p}{\partial x}\right)_T = 0, \quad \left(\frac{\partial^2 p}{\partial x^2}\right)_T = 0
+\end{equation}
+（$p$-$V$ 図の変曲点条件を $x = 1/V$ で書き直したものである。）
+
+\textbf{第1式}：$\frac{\partial}{\partial x}\left(\frac{x}{1-bNx}\right) = \frac{1 \cdot (1-bNx) - x \cdot (-bN)}{(1-bNx)^2} = \frac{1}{(1-bNx)^2}$ より
+\begin{equation}
+\frac{\partial p}{\partial x} = \frac{NRT}{(1-bNx)^2} - 2aN^2 x = 0 \quad \Rightarrow \quad NRT = 2aN^2 x (1-bNx)^2
+\end{equation}
+
+\textbf{第2式}：$\frac{\partial^2 p}{\partial x^2} = \frac{2NRT \cdot bN}{(1-bNx)^3} - 2aN^2 = 0$ より
+\begin{equation}
+NRT \cdot bN = aN^2 (1-bNx)^3
+\end{equation}
+
+第1式を第2式に代入：$2aN^2 x (1-bNx)^2 \cdot bN = aN^2 (1-bNx)^3$。$aN^2 \neq 0$、$1-bNx \neq 0$ で割って
+\begin{equation}
+2bN x (1-bNx) = (1-bNx)^2 \quad \Rightarrow \quad 2bN x = 1 - bNx \quad \Rightarrow \quad 3bN x_c = 1
+\end{equation}
+よって $x_c = 1/(3bN)$、すなわち $V_c = 1/x_c = 3bN$。
+
+また $1 - bNx_c = 1 - 1/3 = 2/3$。第1式から
+\begin{equation}
+T_c = \frac{2aN^2 x_c (1-bNx_c)^2}{NR} = \frac{2aN \cdot (1/3) \cdot (2/3)^2}{R} = \frac{8a}{27Rb}
+\end{equation}
+$p_c$ は $x_c$、$T_c$ を元の式に代入して
+\begin{equation}
+p_c = \frac{NRT_c x_c}{1-bNx_c} - aN^2 x_c^2 = \frac{NRT_c/(3bN)}{2/3} - \frac{aN^2}{9b^2 N^2} = \frac{RT_c}{2b} - \frac{a}{9b^2}
+\end{equation}
+$T_c = 8a/(27Rb)$ を代入して
+\begin{equation}
+p_c = \frac{R}{2b} \cdot \frac{8a}{27Rb} - \frac{a}{9b^2} = \frac{4a}{27b^2} - \frac{3a}{27b^2} = \frac{a}{27b^2}
+\end{equation}
+
+\textbf{答}：$T_c = \frac{8a}{27Rb}$、$V_c = 3bN$、$p_c = \frac{a}{27b^2}$
+
+\paragraph{問3: 無次元化}
+
+$V = \tilde{V} V_c = \tilde{V} \cdot 3bN$、$T = \tilde{T} T_c = \tilde{T} \cdot 8a/(27Rb)$、$p = \tilde{p} p_c = \tilde{p} \cdot a/(27b^2)$ を代入する。
+\begin{align}
+\tilde{p} \frac{a}{27b^2} &= \frac{NR \cdot \tilde{T} \cdot 8a/(27Rb)}{\tilde{V} \cdot 3bN - bN} - \frac{aN^2}{(\tilde{V} \cdot 3bN)^2} \\
+&= \frac{8a\tilde{T} N/(27Rb)}{bN(3\tilde{V}-1)} - \frac{a}{9\tilde{V}^2 b^2} = \frac{8a\tilde{T}}{27Rb^2(3\tilde{V}-1)} - \frac{a}{9\tilde{V}^2 b^2}
+\end{align}
+両辺に $27b^2/a$ をかけると
+\begin{equation}
+\tilde{p} = \frac{8\tilde{T}}{3\tilde{V}-1} - \frac{3}{\tilde{V}^2}
+\end{equation}
+物質によらない普遍的な形になる。
+
+\textbf{直感的な理解}：無次元化により、水素でも二酸化炭素でも、$\tilde{p}$, $\tilde{V}$, $\tilde{T}$ で表せば同じ方程式に従う。この「対応状態の原理」は、異なる物質の振る舞いを比較するときに便利である。
+
+\textbf{物理的意味と考察}：ファンデルワールス方程式は、理想気体の2つの欠点（分子の大きさ・分子間引力）をそれぞれ $b$, $a$ で補正したものである。臨界点以上の温度では気体と液体の区別がつかず、臨界点以下で凝縮が起こる。$a$, $b$ の典型的な値は、水（$H_2O$）で $a \sim 0.55\,\mathrm{Pa{\cdot}m^6/mol^2}$、$b \sim 30 \times 10^{-6}\,\mathrm{m^3/mol}$ のオーダーである。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{figures/ex2_van_der_waals.png}
+    \caption{ファンデルワールス状態方程式の無次元化。$\tilde{T} > 1$ で単調、$\tilde{T} \approx 1$ で変曲点、$\tilde{T} < 1$ で極値が現れる。}
+    \label{fig:ex2_vdw}
+\end{figure}
+
+%--------------------------------------
+\subsection{II. 気体のする仕事}
+
+\subsubsection{この問題で学ぶこと}
+
+気体が膨張するときにする仕事の計算方法。$p$-$V$ 図上で、経路に沿った積分 $W = \int p\,dV$ が仕事を表すこと。準静的過程ではこの積分が可能であること。ファンデルワールス気体では、条件によって「変な答え」が出る理由を理解する。
+
+\subsubsection{問題}
+
+$N$ mol の理想気体が準静的等温過程で $V_1$ から $V_2$（$V_1 < V_2$）まで膨張するときの仕事 $W$ を求めよ。次にファンデルワールス気体で同様の計算をし、「変な答え」になる場合の意味を説明せよ。
+
+\subsubsection{解答}
+
+\paragraph{前提知識：仕事と $p$-$V$ 図}
+
+力学で学んだ「仕事 $=$ 力 $\times$ 変位」を思い出してください。気体がピストンを押して膨張するとき、気体がする仕事は $W = \int F\,dx = \int p S\,dx = \int p\,dV$ である（$S$ は断面積、$dV = S\,dx$）。
+
+\textbf{準静的過程とは？}
+
+変化が無限にゆっくりで、途中のどの瞬間も平衡状態とみなせる過程。このとき、圧力 $p$ が各瞬間で一意的に定まり、$p$-$V$ 図上の曲線に沿って積分できる。急速な膨張では、途中の状態が非平衡になり、単純な積分はできない。
+
+\textbf{符号の確認}：膨張（$V_2 > V_1$）のとき $dV > 0$、$W = \int p\,dV > 0$。気体は外界に仕事をする（ピストンを押す）。
+
+\paragraph{導出の戦略}
+
+理想気体では $p = NRT/V$ を代入して積分する。$\int dV/V = \ln V$ を用いる。ファンデルワールス気体では、$p$ の式をそのまま積分する。「変な答え」の2つのケース（$V < bN$、相転移領域）を、物理的に説明する。
+
+\paragraph{理想気体}
+
+$p = NRT/V$ より。初学者向けに $\int dV/V = \ln V$ である（$\frac{d}{dV}\ln V = 1/V$ の逆）。
+\begin{equation}
+W = \int_{V_1}^{V_2} p\,dV = NRT \int_{V_1}^{V_2} \frac{dV}{V} = NRT \left[\ln V\right]_{V_1}^{V_2} = NRT \ln\frac{V_2}{V_1}
+\end{equation}
+
+\paragraph{ファンデルワールス気体}
+
+$p = \frac{NRT}{V-bN} - \frac{aN^2}{V^2}$ を積分する。
+\begin{align}
+W &= \int_{V_1}^{V_2} \frac{NRT}{V-bN}\,dV - \int_{V_1}^{V_2} \frac{aN^2}{V^2}\,dV \\
+&= NRT \left[\ln(V-bN)\right]_{V_1}^{V_2} - aN^2 \left[-\frac{1}{V}\right]_{V_1}^{V_2} \\
+&= NRT \ln\frac{V_2-bN}{V_1-bN} + aN^2\left(\frac{1}{V_2} - \frac{1}{V_1}\right)
+\end{align}
+$V_2 > V_1$ のとき $1/V_2 - 1/V_1 < 0$ なので、第2項は負。分子間引力の補正により、理想気体より取り出せる仕事は少なくなる。
+
+\paragraph{「変な答え」の意味}
+
+\begin{enumerate}
+    \item \textbf{$V < bN$ の範囲}：$V - bN < 0$ だと式が意味を持たない（$\ln(V-bN)$ が定義されない）。体積が分子の排除体積より小さい状態は、この模型では考えない。実際には液体や固体の領域である。
+    \item \textbf{相転移領域}：$T < T_c$ のとき、$p(V)$ は単調でなく極大・極小を持つ「S字形」になる。しかし実在の気体では、気体と液体が共存する区間では圧力は一定（蒸気圧）であり、$p$-$V$ 図には水平線が現れる。ファンデルワールス式のS字形部分をそのまま積分すると、$V$ が増えるのに $p$ が減る区間があり、負の寄与が出て「変な答え」になる。正しくはマクスウェルの構成で水平線に置き換える必要がある。
+\end{enumerate}
+
+\textbf{直感的な理解}：$p$-$V$ 図で、曲線の下の面積が仕事である。理想気体の等温線は単調減少なので、面積は正。ファンデルワールスのS字形では、$V$ を増やす区間で $p$ が一時的に増える部分があり、その区間の「面積」が負になり得る。
+
+\textbf{物理的意味と考察}：準静的過程では、気体は平衡状態の連続を経由する。相転移が起こる場合、気液共存状態では圧力が一定であり、ファンデルワールス式はその区間を正しく記述しない。実際の等温圧縮では、ある体積で凝縮が始まり、液体が増えていく間は圧力が変わらない。
+
+%--------------------------------------
+\subsection{III. 圧力の高さ依存性}
+
+\subsubsection{この問題で学ぶこと}
+
+大気圧が高度とともに減少する理由を、力のつり合いから理解する。理想気体の状態方程式と組み合わせて、指数関数的な圧力分布（ barometric formula）を導く。変数分離による微分方程式の解法の典型例である。
+
+\subsubsection{問題}
+
+細長い容器に空気を入れ、地上に垂直に立てる。温度一定として、高さ $z$ における圧力 $p(z)$ の表式を導け。$p(z) = p_0 e^{-Mgz/(RT)}$ となることを示し、$T=290\,\mathrm{K}$ で圧力が半分になる高さを求めよ。
+
+\subsubsection{解答}
+
+\paragraph{前提知識：圧力と力のつり合い}
+
+圧力 $p$ は「単位面積あたりに働く力」である。断面積 $S$ の面には、$pS$ の力が垂直に働く。静止している流体では、任意の部分に働く力の合力はゼロでなければならない（力のつり合い）。
+
+\textbf{日常的な例}：プールに潜ると、深いほど耳が痛くなる。これは水深が増すと、その上の水の重さがのしかかり、圧力が増すためである。空気の柱も同様に、高い位置ほど「上の空気の重さ」が少ないので、圧力は低くなる。
+
+\paragraph{導出の戦略}
+
+\begin{enumerate}
+    \item 高さ $z$ から $z+dz$ の薄い空気の層を考え、力のつり合いから $dp/dz = -\rho g$ を得る。
+    \item 理想気体の状態方程式から $\rho = Mp/(RT)$ を導き、$dp/dz$ を $p$ の式で表す。
+    \item 変数分離して積分し、$p(z) = p_0 e^{-Mgz/(RT)}$ を得る。
+    \item $p(z)/p_0 = 1/2$ の条件から、圧力が半分になる高さを求める。
+\end{enumerate}
+
+\paragraph{問題の理解}
+
+\textbf{なぜ高さで圧力が変わるか}：容器内の空気の柱を考える。高さ $z$ の位置にある空気には、その上の空気の重さがのしかかる。下にあるほど「上にのしかかる空気」が多いので、圧力は下の方が高くなる。微小な厚さ $dz$ の空気の層について、上向きの力（下面の圧力）と下向きの力（上面の圧力＋層の重さ）のつり合いから微分方程式を立て、積分して $p(z)$ を求める。
+
+\paragraph{力のつり合い}
+
+図\ref{fig:ex2_pressure_concept}のように、高さ $z$ から $z+dz$ の薄い円筒（断面積 $S$）を考える。
+\begin{itemize}
+    \item 下面には上向きに $p(z) S$ の力
+    \item 上面には下向きに $p(z+dz) S$ の力
+    \item 円筒内の空気の質量 $m = \rho(z) S\,dz$ に重力 $mg$ が下向きに働く
+\end{itemize}
+つり合いの式：$p(z)S = p(z+dz)S + \rho(z) S\,dz \cdot g$。$p(z+dz) - p(z) \approx \frac{dp}{dz} dz$ より
+\begin{equation}
+-\frac{dp}{dz} = \rho(z) g
+\end{equation}
+
+\paragraph{密度の表式}
+
+理想気体の状態方程式 $pV = NRT$ より、単位体積あたりのモル数は $n = N/V = p/(RT)$。密度 $\rho$ は質量/体積であり、$\rho = n M = (p/RT) \cdot M = M p/(RT)$（$M$ はモル質量）。したがって
+\begin{equation}
+-\frac{dp}{dz} = \frac{Mg}{RT} p
+\end{equation}
+変数分離して $\frac{dp}{p} = -\frac{Mg}{RT} dz$。両辺を積分し、$z=0$ で $p = p_0$ とすると
+\begin{equation}
+\ln\frac{p(z)}{p_0} = -\frac{Mg}{RT} z \quad \Rightarrow \quad p(z) = p_0 \exp\left(-\frac{Mgz}{RT}\right)
+\end{equation}
+
+\paragraph{圧力が半分になる高さ}
+
+$p(z)/p_0 = 1/2$ のとき $\exp(-Mgz/(RT)) = 1/2$。両辺の自然対数をとり
+\begin{equation}
+-\frac{Mgz}{RT} = \ln\frac{1}{2} = -\ln 2 \quad \Rightarrow \quad z = \frac{RT}{Mg} \ln 2
+\end{equation}
+$R = 8.3\,\mathrm{J/(mol{\cdot}K)}$、$T = 290\,\mathrm{K}$、$M = 29 \times 10^{-3}\,\mathrm{kg/mol}$、$g = 9.8\,\mathrm{m/s}^2$、$\ln 2 \approx 0.693$ を代入：
+\begin{equation}
+z = \frac{8.3 \times 290}{0.029 \times 9.8} \times 0.693 \approx 5840\,\mathrm{m} \approx 5.8\,\mathrm{km}
+\end{equation}
+
+\textbf{答}：約 5.8 km
+
+\textbf{感覚}：5.8 km は富士山（約 3.8 km）より高く、成層圏（約 11 km）より低い。中程度の高山で気圧が半分程度になる目安である。
+
+\textbf{補足}：実際の大気では温度が高度とともに変化するため、この結果とはずれる。高山の気圧が低いのは、上空の空気の重さが小さいためである。富士山（約 3.8 km）では気圧は約 0.6 気圧程度になる。
+
+\textbf{変数分離の操作}：$\frac{dp}{p} = -\frac{Mg}{RT} dz$ で、左辺は $p$ のみ、右辺は $z$ のみの関数なので、両辺を積分できる。$\int \frac{dp}{p} = \ln p$、$\int dz = z$ である。積分定数は、境界条件 $z=0$ で $p=p_0$ から決める。
+
+\textbf{直感的な理解}：指数関数 $e^{-Mgz/(RT)}$ は、$z$ が増えると減少する。$Mg/(RT)$ が大きい（分子が重い、温度が低い）ほど、圧力の減衰は速い。高山では気圧が低く、登山時に息が切れる一因である。
+
+\textbf{物理的意味と考察}：約 5.8 km で圧力が半分になる。富士山（3776 m）では約 0.6 気圧、エベレスト（8849 m）では約 0.3 気圧程度である。実際の大気では温度が高度で変化するため、この単純な式とはずれる。対流圏では約 6.5 K/km の割合で温度が下がる（演習3-IV 参照）。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ex2_pressure_height.png}
+    \caption{圧力の高さ依存性 $p(z) = p_0 e^{-Mgz/(RT)}$。}
+    \label{fig:ex2_pressure}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/ex2_pressure_concept.png}
+    \caption{微小円筒に作用する力。上下の圧力差が、円筒内の空気の重さとつり合う。}
+    \label{fig:ex2_pressure_concept}
+\end{figure}
+
+%--------------------------------------
+\subsection{IV. 示量変数と示強変数}
+
+\subsubsection{この問題で学ぶこと}
+
+熱力学で重要な「示量変数」と「示強変数」の違い。示量変数が「1次同次」であることから、オイラーの関係式 $F = \sum_i f_i X_i$ が導かれる。偏微分で得られる $f_i$ が示強変数であることを示す。
+
+\subsubsection{問題}
+
+示量変数 $F$ が $\lambda F(X_1,\ldots,X_n,x_1,\ldots) = F(\lambda X_1,\ldots,\lambda X_n,x_1,\ldots)$ を満たすとき、オイラーの関係式 $F = \sum_i f_i X_i$（$f_i = \partial F/\partial X_i$）を示せ。また $f_i$ が示強変数であることを示せ。
+
+\subsubsection{解答}
+
+\paragraph{前提知識：示量変数と示強変数の違い}
+
+熱力学では、系の性質を表す変数を2種類に分ける。
+
+\textbf{示量変数（extensive）}：系の「大きさ」に比例する量。例：体積 $V$、内部エネルギー $U$、エントロピー $S$、粒子数 $N$。同じ物質の系を2つ合わせると、示量変数は2倍になる。コップの水を2つ合わせると、体積も質量も2倍になる。
+
+\textbf{示強変数（intensive）}：系の「大きさ」によらない量。例：圧力 $p$、温度 $T$、化学ポテンシャル $\mu$、密度。平衡にある同じ物質どうしを接触させても、これらの値は変わらない。2つのコップの水を接触させても、温度は等しいまま（熱平衡）。
+
+\textbf{数学的な定義}：示量変数 $F$ が $X_1,\ldots,X_n$ に依存するとき、$X_i$ をすべて $\lambda$ 倍にすると $F$ も $\lambda$ 倍になる：$F(\lambda X_1,\ldots,\lambda X_n, x_1,\ldots) = \lambda F(X_1,\ldots,X_n, x_1,\ldots)$。これを「1次同次」という。
+
+\paragraph{導出の戦略}
+
+オイラー関係式：1次同次関数 $F$ を $\lambda$ で微分し、$\lambda=1$ とおく。合成関数の微分と連鎖律を用いる。
+
+$f_i$ が示強であること：$F(\lambda X) = \lambda F(X)$ を $X_j$ で偏微分し、$f_j(\lambda X) = f_j(X)$ を示す。
+
+\paragraph{オイラーの関係式の導出}
+
+$F(\lambda X_1,\ldots,\lambda X_n, x_1,\ldots) = \lambda F(X_1,\ldots,X_n, x_1,\ldots)$ の両辺を $\lambda$ で微分する。左辺は合成関数の微分により
+\begin{equation}
+\sum_{i=1}^n X_i \frac{\partial F}{\partial (\lambda X_i)}\bigg|_{(\lambda X_1,\ldots)} = \frac{\partial}{\partial \lambda}\left[\lambda F(X_1,\ldots,X_n)\right] = F(X_1,\ldots,X_n)
+\end{equation}
+$\lambda = 1$ とおくと $\frac{\partial F}{\partial (\lambda X_i)}\big|_{\lambda=1} = \frac{\partial F}{\partial X_i}$ なので
+\begin{equation}
+\sum_{i=1}^n X_i \frac{\partial F}{\partial X_i} = F
+\end{equation}
+$f_i = \frac{\partial F}{\partial X_i}$ とおけば $F = \sum_i f_i X_i$（オイラーの関係式）。
+
+\paragraph{$f_i$ が示強変数であること}
+
+示強変数は、$X_j$ を $\lambda$ 倍にしたとき値が変わらないものである。$f_i = \frac{\partial F}{\partial X_i}$ について、$F$ の示量性 $F(\lambda X) = \lambda F(X)$ を $X_j$ で偏微分すると
+\begin{equation}
+\lambda \frac{\partial F}{\partial (\lambda X_j)}\bigg|_{(\lambda X)} = \lambda \frac{\partial F}{\partial X_j}\bigg|_{(X)}
+\end{equation}
+左辺は $\frac{\partial F}{\partial X_j}\big|_{(\lambda X)}$ に等しい。よって $\frac{\partial F}{\partial X_j}(\lambda X) = \frac{\partial F}{\partial X_j}(X)$。すなわち $f_j$ は $X$ を $\lambda$ 倍しても変わらないから、示強変数である。
+
+\paragraph{問3の具体例}
+
+(i) $F = \sqrt{XY}$：$f_X = \frac{\sqrt{Y}}{2\sqrt{X}}$、$f_Y = \frac{\sqrt{X}}{2\sqrt{Y}}$。$f_X X + f_Y Y = \frac{1}{2}\sqrt{XY} + \frac{1}{2}\sqrt{XY} = \sqrt{XY} = F$。$F(\lambda X, \lambda Y) = \sqrt{\lambda X \cdot \lambda Y} = \lambda \sqrt{XY} = \lambda F$ なので示量変数。
+
+(ii) $F = \ln(X/Y)$：$F(\lambda X, \lambda Y) = \ln(\lambda X/(\lambda Y)) = \ln(X/Y) = F(X,Y)$ より、$F$ は $\lambda$ 倍しても変わらない。これは示強変数である（示量変数の定義 $F(\lambda X) = \lambda F(X)$ は満たさない）。
+
+(iii) $F = X^2/\sqrt{X^2+Y^2}$：$f_X = \frac{2X(X^2+Y^2)^{1/2} - X^2 \cdot X(X^2+Y^2)^{-1/2}}{X^2+Y^2} = \frac{X(X^2+2Y^2)}{(X^2+Y^2)^{3/2}}$ など。$f_X X + f_Y Y = F$ の確認は計算により行う。$F(\lambda X, \lambda Y) = \lambda^2 F(X,Y)/\lambda = \lambda F(X,Y)$ なので示量変数。
+
+\textbf{物理的意味と考察}：熱力学では $U = TS - pV + \mu N$ がオイラー関係の例である（$S$, $V$, $N$ が示量、$T$, $-p$, $\mu$ が示強）。示量変数は「強度×示量」の和で表せる、という構造が熱力学の基礎にある。

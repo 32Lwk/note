@@ -1,0 +1,1041 @@
+
+\section{問題1: 球殻内外の電場と電位}
+
+\subsection{問題}
+
+真空中に、外半径$a$、内半径$b$の球殻があり、球殻内（$b \leq r \leq a$）に一様な電荷密度$\rho$が分布している状況を考える。
+
+\begin{enumerate}
+    \item その内外（$r < b$, $b \leq r \leq a$, $r > a$）に生じる電場$\boldsymbol{E}$をガウスの法則$\nabla \cdot \boldsymbol{E} = \rho/\varepsilon_0$を用いて求めよ。
+    \item 無限遠で電位$\phi = 0$とするとき、球殻中心の電位$\phi$を求めよ。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+\paragraph{用語の説明（初学者向け）}
+\begin{itemize}
+    \item \textbf{ガウスの法則}：閉曲面を貫く電場の flux（湧き出し）は、その曲面の内側の全電荷を$\varepsilon_0$で割ったものに等しい、という静電気の基本法則である。
+    \item \textbf{ガウス面}：法則を適用するために考える「仮想的な閉曲面」のこと。対称性を活かして、電場が一定になる面（ここでは半径$r$の球面）を選ぶと計算が簡単になる。
+    \item \textbf{$Q_{\text{enc}}$}：ガウス面の\emph{内側}に含まれる電荷の合計（enc = enclosed）。
+    \item \textbf{電位$\phi$}：単位電荷を無限遠からその点まで運ぶときに外力がする仕事。電場$\boldsymbol{E}$と$\boldsymbol{E} = -\nabla\phi$で結ばれ、無限遠で$\phi=0$と定めることが多い。
+\end{itemize}
+
+球対称な電荷分布を考える。座標系として、球殻の中心を原点とする球座標系$(r, \theta, \phi)$を採用する。電荷密度は以下のように与えられる：
+\begin{equation}
+\rho(r) = \begin{cases}
+\rho & (b \leq r \leq a) \\
+0 & (r < b, r > a)
+\end{cases}
+\end{equation}
+
+球対称性により、電場$\boldsymbol{E}$は動径方向のみを向き、その大きさは$r$のみに依存する。すなわち、$\boldsymbol{E}(\boldsymbol{r}) = E(r)\hat{\boldsymbol{r}}$と書ける。
+
+\subsubsection{使用する物理法則}
+
+ガウスの法則（積分形）：
+\begin{equation}
+\oint_S \boldsymbol{E} \cdot d\boldsymbol{S} = \frac{Q_{\text{enc}}}{\varepsilon_0}
+\end{equation}
+ここで、$Q_{\text{enc}}$は閉曲面$S$内に含まれる全電荷である。左辺は「ガウス面$S$上での電場の法線成分の面積分」であり、球対称のときは電場の大きさ$E(r)$と球の表面積$4\pi r^2$の積になる。
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{領域1: $r < b$}
+
+この領域では、閉曲面内に電荷は存在しない。半径$r$の球面をガウス面として選ぶと：
+\begin{equation}
+\oint_S \boldsymbol{E} \cdot d\boldsymbol{S} = E(r) \cdot 4\pi r^2 = \frac{0}{\varepsilon_0} = 0
+\end{equation}
+したがって、
+\begin{equation}
+E(r) = 0 \quad (r < b)
+\end{equation}
+
+\paragraph{領域2: $b \leq r \leq a$}
+
+この領域では、半径$r$の球面内に含まれる電荷は、内半径$b$から半径$r$までの球殻部分の電荷である：
+\begin{align}
+Q_{\text{enc}}(r) &= \int_b^r \rho \cdot 4\pi r'^2 dr' \\
+&= 4\pi\rho \int_b^r r'^2 dr' \\
+&= 4\pi\rho \left[\frac{r'^3}{3}\right]_b^r \\
+&= \frac{4\pi\rho}{3}(r^3 - b^3)
+\end{align}
+
+ガウスの法則より：
+\begin{align}
+E(r) \cdot 4\pi r^2 &= \frac{1}{\varepsilon_0} \cdot \frac{4\pi\rho}{3}(r^3 - b^3) \\
+E(r) &= \frac{\rho}{3\varepsilon_0 r^2}(r^3 - b^3) \\
+&= \frac{\rho}{3\varepsilon_0}\left(r - \frac{b^3}{r^2}\right) \quad (b \leq r \leq a)
+\end{align}
+
+\paragraph{領域3: $r > a$}
+
+この領域では、半径$r$の球面内に含まれる電荷は、球殻全体の電荷である：
+\begin{align}
+Q_{\text{enc}}(r) &= \int_b^a \rho \cdot 4\pi r'^2 dr' \\
+&= 4\pi\rho \int_b^a r'^2 dr' \\
+&= \frac{4\pi\rho}{3}(a^3 - b^3)
+\end{align}
+
+ガウスの法則より：
+\begin{align}
+E(r) \cdot 4\pi r^2 &= \frac{1}{\varepsilon_0} \cdot \frac{4\pi\rho}{3}(a^3 - b^3) \\
+E(r) &= \frac{\rho(a^3 - b^3)}{3\varepsilon_0 r^2} \quad (r > a)
+\end{align}
+
+\subsubsection{電位の計算}
+
+電位は$\boldsymbol{E} = -\nabla\phi$の関係から、以下のように定義される：
+\begin{equation}
+\phi(\boldsymbol{r}) = -\int_{\infty}^{\boldsymbol{r}} \boldsymbol{E} \cdot d\boldsymbol{l}
+\end{equation}
+（無限遠を基準にしたとき、位置$\boldsymbol{r}$の電位＝単位正電荷を無限遠から$\boldsymbol{r}$まで運ぶときに静電気力に逆らってする仕事。）
+
+無限遠で$\phi = 0$という境界条件を用いる。球対称なので、積分経路は動径方向に沿ってよい：
+\begin{equation}
+\phi(r) = -\int_{\infty}^{r} E(r') dr'
+\end{equation}
+
+\paragraph{領域3: $r > a$}
+
+\begin{align}
+\phi(r) &= -\int_{\infty}^{r} \frac{\rho(a^3 - b^3)}{3\varepsilon_0 r'^2} dr' \\
+&= -\frac{\rho(a^3 - b^3)}{3\varepsilon_0} \int_{\infty}^{r} \frac{1}{r'^2} dr' \\
+&= -\frac{\rho(a^3 - b^3)}{3\varepsilon_0} \left[-\frac{1}{r'}\right]_{\infty}^{r} \\
+&= \frac{\rho(a^3 - b^3)}{3\varepsilon_0 r} \quad (r > a)
+\end{align}
+
+\paragraph{領域2: $b \leq r \leq a$}
+
+\begin{align}
+\phi(r) &= \phi(a) - \int_a^{r} E(r') dr' \\
+&= \frac{\rho(a^3 - b^3)}{3\varepsilon_0 a} - \int_a^{r} \frac{\rho}{3\varepsilon_0}\left(r' - \frac{b^3}{r'^2}\right) dr' \\
+&= \frac{\rho(a^3 - b^3)}{3\varepsilon_0 a} - \frac{\rho}{3\varepsilon_0} \int_a^{r} \left(r' - \frac{b^3}{r'^2}\right) dr' \\
+&= \frac{\rho(a^3 - b^3)}{3\varepsilon_0 a} - \frac{\rho}{3\varepsilon_0} \left[\frac{r'^2}{2} + \frac{b^3}{r'}\right]_a^{r} \\
+&= \frac{\rho(a^3 - b^3)}{3\varepsilon_0 a} - \frac{\rho}{3\varepsilon_0} \left(\frac{r^2}{2} + \frac{b^3}{r} - \frac{a^2}{2} - \frac{b^3}{a}\right) \\
+&= \frac{\rho}{3\varepsilon_0} \left[\frac{a^3 - b^3}{a} - \frac{r^2}{2} - \frac{b^3}{r} + \frac{a^2}{2} + \frac{b^3}{a}\right] \\
+&= \frac{\rho}{3\varepsilon_0} \left[\frac{a^2}{2} - \frac{r^2}{2} + \frac{(a^3-b^3)+b^3}{a} - \frac{b^3}{r}\right] \quad \text{（第3・4項をまとめると$\frac{a^3}{a}=a^2$）} \\
+&= \frac{\rho}{3\varepsilon_0} \left[\frac{a^2 - r^2}{2} + a^2 - \frac{b^3}{r}\right] \\
+&= \frac{\rho}{3\varepsilon_0} \left[\frac{3a^2 - r^2}{2} - \frac{b^3}{r}\right] \quad (b \leq r \leq a)
+\end{align}
+
+\paragraph{領域1: $r < b$}
+
+\begin{align}
+\phi(r) &= \phi(b) - \int_b^{r} E(r') dr' \\
+&= \phi(b) - \int_b^{r} 0 \cdot dr' \\
+&= \phi(b) \\
+&= \frac{\rho}{3\varepsilon_0} \left[\frac{3a^2 - b^2}{2} - \frac{b^3}{b}\right] \\
+&= \frac{\rho}{3\varepsilon_0} \left[\frac{3a^2 - b^2}{2} - b^2\right] \\
+&= \frac{\rho}{3\varepsilon_0} \left[\frac{3a^2 - b^2 - 2b^2}{2}\right] \\
+&= \frac{\rho}{3\varepsilon_0} \left[\frac{3a^2 - 3b^2}{2}\right] \\
+&= \frac{\rho(a^2 - b^2)}{2\varepsilon_0} \quad (r < b)
+\end{align}
+
+\subsubsection{最終的な答え}
+
+電場：
+\begin{equation}
+\boldsymbol{E}(\boldsymbol{r}) = \begin{cases}
+\boldsymbol{0} & (r < b) \\
+\frac{\rho}{3\varepsilon_0}\left(r - \frac{b^3}{r^2}\right)\hat{\boldsymbol{r}} & (b \leq r \leq a) \\
+\frac{\rho(a^3 - b^3)}{3\varepsilon_0 r^2}\hat{\boldsymbol{r}} & (r > a)
+\end{cases}
+\end{equation}
+
+電位（球殻中心）：
+\begin{equation}
+\phi(0) = \frac{\rho(a^2 - b^2)}{2\varepsilon_0}
+\end{equation}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item $r < b$の領域では電荷が存在しないため、電場はゼロである。
+    \item $b \leq r \leq a$の領域では、内側の電荷が作る電場と外側の電荷が作る電場が打ち消し合うため、電場は$r$に依存する。
+    \item $r > a$の領域では、球殻全体が点電荷のように振る舞い、電場は$1/r^2$に比例する。
+    \item 電位は連続であり、無限遠でゼロとなる境界条件を満たしている。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex1_1_electric_field.png}
+\caption{球殻内外の電場の大きさの$r$依存性}
+\label{fig:ex1_1_electric_field}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex1_1_potential.png}
+\caption{球殻内外の電位の$r$依存性}
+\label{fig:ex1_1_potential}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex1_1_geometry.png}
+\caption{球殻の幾何学的構造}
+\label{fig:ex1_1_geometry}
+\end{figure}
+
+\section{問題2: ポアソン方程式の解を用いた電位の導出}
+
+\subsection{問題}
+
+電荷密度$\rho(\boldsymbol{r})$で分布する電荷が作る電位$\phi(\boldsymbol{r})$は、無限遠で$\phi = 0$という境界条件のポアソン方程式の解として、次式で与えられる：
+\begin{equation}
+\phi(\boldsymbol{r}) = \frac{1}{4\pi\varepsilon_0} \int \frac{\rho(\boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|} dV'
+\end{equation}
+
+この式を用いて、問題1と同じ設定（外半径$a$、内半径$b$の球殻に挟まれた領域に一様な電荷密度$\rho$が分布）における電位$\phi(\boldsymbol{r})$を求めよ（中心を$\boldsymbol{r} = \boldsymbol{0}$とする）。また、球殻中心での電位が問題1の解と一致することを確認せよ。
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+\paragraph{用語の説明（初学者向け）}
+\textbf{ポアソン方程式}は、電荷密度$\rho$が与えられたときの電位$\phi$を決める式$\nabla^2\phi = -\rho/\varepsilon_0$である。その解が、無限遠で$\phi=0$のとき、問題文中の積分形で与えられる（クーロンポテンシャルの重ね合わせ）。
+
+球座標系$(r, \theta, \phi)$を用い、電荷密度は：
+\begin{equation}
+\rho(\boldsymbol{r}') = \begin{cases}
+\rho & (b \leq r' \leq a) \\
+0 & (r' < b, r' > a)
+\end{cases}
+\end{equation}
+
+積分は球殻領域全体にわたって行う。
+
+\subsubsection{使用する物理法則}
+
+ポアソン方程式の解：
+\begin{equation}
+\phi(\boldsymbol{r}) = \frac{1}{4\pi\varepsilon_0} \int \frac{\rho(\boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|} dV'
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+球座標系での体積要素は$dV' = r'^2 \sin\theta' dr' d\theta' d\phi'$である（半径$r'$の球面上の「幅$dr'$・角度$d\theta'$・$d\phi'$」の微小体積）。
+
+\paragraph{領域1: $r < b$}
+
+観測点$\boldsymbol{r}$が球殻内部にある場合。球座標系で、$\boldsymbol{r}$を$z$軸方向に選ぶと、$\boldsymbol{r} = (0, 0, r)$とできる。
+
+$|\boldsymbol{r} - \boldsymbol{r}'|$の計算：
+\begin{align}
+|\boldsymbol{r} - \boldsymbol{r}'|^2 &= r^2 + r'^2 - 2rr'\cos\theta' \\
+|\boldsymbol{r} - \boldsymbol{r}'| &= \sqrt{r^2 + r'^2 - 2rr'\cos\theta'}
+\end{align}
+
+積分を実行する：
+\begin{align}
+\phi(r) &= \frac{1}{4\pi\varepsilon_0} \int_b^a \int_0^{\pi} \int_0^{2\pi} \frac{\rho}{\sqrt{r^2 + r'^2 - 2rr'\cos\theta'}} r'^2 \sin\theta' dr' d\theta' d\phi' \\
+&= \frac{\rho}{4\pi\varepsilon_0} \int_b^a r'^2 dr' \int_0^{\pi} \frac{\sin\theta'}{\sqrt{r^2 + r'^2 - 2rr'\cos\theta'}} d\theta' \int_0^{2\pi} d\phi'
+\end{align}
+
+$\theta'$に関する積分を計算する。$u = \cos\theta'$と変数変換すると、$du = -\sin\theta' d\theta'$：
+\begin{align}
+\int_0^{\pi} \frac{\sin\theta'}{\sqrt{r^2 + r'^2 - 2rr'\cos\theta'}} d\theta' &= \int_{-1}^{1} \frac{1}{\sqrt{r^2 + r'^2 - 2rr'u}} du \\
+&= \frac{1}{rr'} \left[\sqrt{r^2 + r'^2 - 2rr'u}\right]_{-1}^{1} \\
+&= \frac{1}{rr'} \left(\sqrt{r^2 + r'^2 - 2rr'} - \sqrt{r^2 + r'^2 + 2rr'}\right) \\
+&= \frac{1}{rr'} \left(|r' - r| - |r' + r|\right)
+\end{align}
+
+$r < b \leq r' \leq a$より、$r' > r$であるから：
+\begin{align}
+|r' - r| - |r' + r| &= (r' - r) - (r' + r) = -2r
+\end{align}
+
+したがって：
+\begin{align}
+\int_0^{\pi} \frac{\sin\theta'}{\sqrt{r^2 + r'^2 - 2rr'\cos\theta'}} d\theta' &= \frac{-2r}{rr'} = -\frac{2}{r'}
+\end{align}
+
+積分を続ける：
+\begin{align}
+\phi(r) &= \frac{\rho}{4\pi\varepsilon_0} \int_b^a r'^2 dr' \cdot \left(-\frac{2}{r'}\right) \cdot 2\pi \\
+&= \frac{\rho}{4\pi\varepsilon_0} \cdot (-4\pi) \int_b^a r' dr' \\
+&= -\frac{\rho}{\varepsilon_0} \left[\frac{r'^2}{2}\right]_b^a \\
+&= -\frac{\rho}{2\varepsilon_0}(a^2 - b^2)
+\end{align}
+
+これは負の値となってしまう。符号を再確認する必要がある。原因は、$\theta'$積分の結果$\frac{1}{rr'}\left((r+r') - |r-r'|\right)$において、$r < r'$のとき$|r-r'| = r'-r$なので$(r+r')-(r'-r) = 2r$となり、$\frac{2r}{rr'} = \frac{2}{r'}$（正）であって、$-\frac{2}{r'}$ではないことである。以下で正しい計算を行う。
+
+正しい計算：
+\begin{align}
+\int_0^{\pi} \frac{\sin\theta'}{\sqrt{r^2 + r'^2 - 2rr'\cos\theta'}} d\theta' &= \int_{-1}^{1} \frac{1}{\sqrt{r^2 + r'^2 - 2rr'u}} du
+\end{align}
+
+$v = r^2 + r'^2 - 2rr'u$とすると、$dv = -2rr' du$：
+\begin{align}
+\int_{-1}^{1} \frac{1}{\sqrt{r^2 + r'^2 - 2rr'u}} du &= \frac{1}{2rr'} \int_{(r+r')^2}^{(r-r')^2} \frac{1}{\sqrt{v}} (-dv) \\
+&= \frac{1}{2rr'} \int_{(r-r')^2}^{(r+r')^2} \frac{1}{\sqrt{v}} dv \\
+&= \frac{1}{2rr'} \left[2\sqrt{v}\right]_{(r-r')^2}^{(r+r')^2} \\
+&= \frac{1}{rr'} \left(\sqrt{(r+r')^2} - \sqrt{(r-r')^2}\right) \\
+&= \frac{1}{rr'} \left((r+r') - |r-r'|\right)
+\end{align}
+
+$r < r'$の場合、$|r-r'| = r' - r$より：
+\begin{align}
+\frac{1}{rr'} \left((r+r') - (r' - r)\right) &= \frac{1}{rr'} \cdot 2r = \frac{2}{r'}
+\end{align}
+
+したがって：
+\begin{align}
+\phi(r) &= \frac{\rho}{4\pi\varepsilon_0} \int_b^a r'^2 dr' \cdot \frac{2}{r'} \cdot 2\pi \\
+&= \frac{\rho}{\varepsilon_0} \int_b^a r' dr' \\
+&= \frac{\rho}{2\varepsilon_0}(a^2 - b^2) \quad (r < b)
+\end{align}
+
+これは問題1の結果と一致する。
+
+\paragraph{領域2: $b \leq r \leq a$}
+
+この場合、積分領域を$b \leq r' < r$と$r < r' \leq a$に分ける必要がある。
+
+$r' < r$の部分：
+\begin{align}
+\int_0^{\pi} \frac{\sin\theta'}{\sqrt{r^2 + r'^2 - 2rr'\cos\theta'}} d\theta' &= \frac{1}{rr'} \left((r+r') - |r-r'|\right) \\
+&= \frac{1}{rr'} \left((r+r') - (r-r')\right) = \frac{2r'}{rr'} = \frac{2}{r}
+\end{align}
+
+$r' > r$の部分：
+\begin{align}
+\int_0^{\pi} \frac{\sin\theta'}{\sqrt{r^2 + r'^2 - 2rr'\cos\theta'}} d\theta' &= \frac{2}{r'}
+\end{align}
+
+したがって：
+\begin{align}
+\phi(r) &= \frac{\rho}{4\pi\varepsilon_0} \left[\int_b^r r'^2 dr' \cdot \frac{2}{r} \cdot 2\pi + \int_r^a r'^2 dr' \cdot \frac{2}{r'} \cdot 2\pi\right] \\
+&= \frac{\rho}{\varepsilon_0} \left[\frac{1}{r} \int_b^r r'^2 dr' + \int_r^a r' dr'\right] \\
+&= \frac{\rho}{\varepsilon_0} \left[\frac{1}{r} \cdot \frac{r^3 - b^3}{3} + \frac{a^2 - r^2}{2}\right] \\
+&= \frac{\rho}{\varepsilon_0} \left[\frac{r^2}{3} - \frac{b^3}{3r} + \frac{a^2 - r^2}{2}\right] \\
+&= \frac{\rho}{6\varepsilon_0} \left[2r^2 - \frac{2b^3}{r} + 3a^2 - 3r^2\right] \\
+&= \frac{\rho}{6\varepsilon_0} \left[3a^2 - r^2 - \frac{2b^3}{r}\right] \quad (b \leq r \leq a)
+\end{align}
+
+\paragraph{領域3: $r > a$}
+
+$r > r'$より：
+\begin{align}
+\int_0^{\pi} \frac{\sin\theta'}{\sqrt{r^2 + r'^2 - 2rr'\cos\theta'}} d\theta' &= \frac{2}{r}
+\end{align}
+
+したがって：
+\begin{align}
+\phi(r) &= \frac{\rho}{4\pi\varepsilon_0} \int_b^a r'^2 dr' \cdot \frac{2}{r} \cdot 2\pi \\
+&= \frac{\rho}{\varepsilon_0 r} \int_b^a r'^2 dr' \\
+&= \frac{\rho}{\varepsilon_0 r} \cdot \frac{a^3 - b^3}{3} \\
+&= \frac{\rho(a^3 - b^3)}{3\varepsilon_0 r} \quad (r > a)
+\end{align}
+
+\subsubsection{球殻中心での電位の確認}
+
+$r = 0$の場合：
+\begin{align}
+\phi(0) &= \frac{\rho}{2\varepsilon_0}(a^2 - b^2)
+\end{align}
+
+これは問題1の結果と完全に一致する。
+
+\subsubsection{最終的な答え}
+
+ポアソン方程式の解として得られた電位：
+\begin{equation}
+\phi(\boldsymbol{r}) = \begin{cases}
+\frac{\rho(a^2 - b^2)}{2\varepsilon_0} & (r < b) \\
+\frac{\rho}{6\varepsilon_0}\left[3a^2 - r^2 - \frac{2b^3}{r}\right] & (b \leq r \leq a) \\
+\frac{\rho(a^3 - b^3)}{3\varepsilon_0 r} & (r > a)
+\end{cases}
+\end{equation}
+
+球殻中心での電位：
+\begin{equation}
+\phi(0) = \frac{\rho(a^2 - b^2)}{2\varepsilon_0}
+\end{equation}
+
+これは問題1の結果と一致する。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/ex1_2_poisson.png}
+\caption{ポアソン方程式の解：観測点$\boldsymbol{r}$と積分変数$\boldsymbol{r}'$（球殻断面）。電位は$\boldsymbol{r}'$を$b \leq r' \leq a$で積分して求める。}
+\label{fig:ex1_2_poisson}
+\end{figure}
+
+\section{問題3: ベクトルポテンシャルとビオ・サバールの法則}
+
+\subsection{問題}
+
+電流密度$\boldsymbol{i}$が作る磁束密度$\boldsymbol{B}$を考える。$\boldsymbol{B} = \nabla \times \boldsymbol{A}$で定義されるベクトルポテンシャル$\boldsymbol{A}$が$\nabla \cdot \boldsymbol{A} = 0$を満たすとする。
+
+\begin{enumerate}
+    \item $\boldsymbol{A}$に対して微分方程式$\nabla^2\boldsymbol{A} = -\mu_0\boldsymbol{i}$が成り立つことを示せ（ヒント: $\nabla \times (\nabla \times \boldsymbol{A}) = \nabla(\nabla \cdot \boldsymbol{A}) - \nabla^2\boldsymbol{A}$を用いる）。
+    \item 無限遠で$\boldsymbol{A} = \boldsymbol{0}$という境界条件のもとで、上の微分方程式の解を求めよ（ヒント: ポアソン方程式との類似性に着目し、問題2の式を利用する）。
+    \item その解を$\boldsymbol{B} = \nabla \times \boldsymbol{A}$に代入して、次のビオ・サバールの法則が導かれることを示せ：
+    \begin{equation}
+    \boldsymbol{B}(\boldsymbol{r}) = \frac{\mu_0}{4\pi} \int \frac{\boldsymbol{i}(\boldsymbol{r}') \times (\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3} dV'
+    \end{equation}
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+\paragraph{用語の説明（初学者向け）}
+\begin{itemize}
+    \item \textbf{ベクトルポテンシャル$\boldsymbol{A}$}：磁束密度を$\boldsymbol{B} = \nabla \times \boldsymbol{A}$と表したときの$\boldsymbol{A}$。スカラーポテンシャルと同様、一意には決まらないが、$\nabla \cdot \boldsymbol{A} = 0$（クーロンゲージ）を課すと微分方程式が簡単になる。
+    \item \textbf{ビオ・サバールの法則}：電流分布が作る磁束密度$\boldsymbol{B}$を、空間積分で与える式。ここでは$\boldsymbol{A}$を先に求め、その回転として$\boldsymbol{B}$を導く。
+\end{itemize}
+
+アンペールの法則（変位電流を含む）：
+\begin{equation}
+\nabla \times \boldsymbol{B} = \mu_0\boldsymbol{i} + \mu_0\varepsilon_0\frac{\partial\boldsymbol{E}}{\partial t}
+\end{equation}
+
+定常電流の場合、$\frac{\partial\boldsymbol{E}}{\partial t} = \boldsymbol{0}$より：
+\begin{equation}
+\nabla \times \boldsymbol{B} = \mu_0\boldsymbol{i}
+\end{equation}
+
+\subsubsection{使用する物理法則}
+
+ベクトル恒等式：
+\begin{equation}
+\nabla \times (\nabla \times \boldsymbol{A}) = \nabla(\nabla \cdot \boldsymbol{A}) - \nabla^2\boldsymbol{A}
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(3-1) 微分方程式の導出}
+
+$\boldsymbol{B} = \nabla \times \boldsymbol{A}$をアンペールの法則に代入：
+\begin{align}
+\nabla \times (\nabla \times \boldsymbol{A}) &= \mu_0\boldsymbol{i}
+\end{align}
+
+ベクトル恒等式を用いると：
+\begin{align}
+\nabla(\nabla \cdot \boldsymbol{A}) - \nabla^2\boldsymbol{A} &= \mu_0\boldsymbol{i}
+\end{align}
+
+$\nabla \cdot \boldsymbol{A} = 0$（クーロンゲージ）の条件を用いると：
+\begin{equation}
+-\nabla^2\boldsymbol{A} = \mu_0\boldsymbol{i}
+\end{equation}
+
+したがって：
+\begin{equation}
+\nabla^2\boldsymbol{A} = -\mu_0\boldsymbol{i}
+\end{equation}
+
+\paragraph{(3-2) 微分方程式の解}
+
+ポアソン方程式$\nabla^2\phi = -\rho/\varepsilon_0$の解が：
+\begin{equation}
+\phi(\boldsymbol{r}) = \frac{1}{4\pi\varepsilon_0} \int \frac{\rho(\boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|} dV'
+\end{equation}
+で与えられることと同様に、各成分について：
+\begin{equation}
+A_i(\boldsymbol{r}) = \frac{\mu_0}{4\pi} \int \frac{i_i(\boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|} dV'
+\end{equation}
+
+ベクトルとして書くと：
+\begin{equation}
+\boldsymbol{A}(\boldsymbol{r}) = \frac{\mu_0}{4\pi} \int \frac{\boldsymbol{i}(\boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|} dV'
+\end{equation}
+
+\paragraph{(3-3) ビオ・サバールの法則の導出}
+
+$\boldsymbol{B} = \nabla \times \boldsymbol{A}$より：
+\begin{align}
+\boldsymbol{B}(\boldsymbol{r}) &= \nabla \times \left[\frac{\mu_0}{4\pi} \int \frac{\boldsymbol{i}(\boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|} dV'\right]
+\end{align}
+
+積分と微分の順序を交換できると仮定すると：
+\begin{align}
+\boldsymbol{B}(\boldsymbol{r}) &= \frac{\mu_0}{4\pi} \int \nabla \times \left[\frac{\boldsymbol{i}(\boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|}\right] dV'
+\end{align}
+
+$\boldsymbol{i}(\boldsymbol{r}')$は$\boldsymbol{r}$に依存しないため、$\nabla$は$\boldsymbol{r}$に関する微分のみを意味する。ベクトル恒等式：
+\begin{equation}
+\nabla \times (f\boldsymbol{v}) = f\nabla \times \boldsymbol{v} + \nabla f \times \boldsymbol{v}
+\end{equation}
+
+ここで、$f = 1/|\boldsymbol{r} - \boldsymbol{r}'|$、$\boldsymbol{v} = \boldsymbol{i}(\boldsymbol{r}')$とすると、$\nabla \times \boldsymbol{i}(\boldsymbol{r}') = \boldsymbol{0}$（$\boldsymbol{i}(\boldsymbol{r}')$は$\boldsymbol{r}$に依存しない）より：
+\begin{align}
+\nabla \times \left[\frac{\boldsymbol{i}(\boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|}\right] &= \nabla\left(\frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|}\right) \times \boldsymbol{i}(\boldsymbol{r}')
+\end{align}
+
+$\nabla(1/|\boldsymbol{r} - \boldsymbol{r}'|)$を計算する：
+\begin{align}
+\nabla\left(\frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|}\right) &= \nabla\left(\frac{1}{\sqrt{(x-x')^2 + (y-y')^2 + (z-z')^2}}\right) \\
+&= -\frac{1}{2}\frac{1}{|\boldsymbol{r} - \boldsymbol{r}'|^3} \cdot 2(\boldsymbol{r} - \boldsymbol{r}') \\
+&= -\frac{\boldsymbol{r} - \boldsymbol{r}'}{|\boldsymbol{r} - \boldsymbol{r}'|^3}
+\end{align}
+
+したがって：
+\begin{align}
+\nabla \times \left[\frac{\boldsymbol{i}(\boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|}\right] &= -\frac{\boldsymbol{r} - \boldsymbol{r}'}{|\boldsymbol{r} - \boldsymbol{r}'|^3} \times \boldsymbol{i}(\boldsymbol{r}') \\
+&= \frac{\boldsymbol{i}(\boldsymbol{r}') \times (\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3}
+\end{align}
+
+外積の性質$\boldsymbol{a} \times \boldsymbol{b} = -\boldsymbol{b} \times \boldsymbol{a}$を用いた。
+
+したがって：
+\begin{equation}
+\boldsymbol{B}(\boldsymbol{r}) = \frac{\mu_0}{4\pi} \int \frac{\boldsymbol{i}(\boldsymbol{r}') \times (\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3} dV'
+\end{equation}
+
+これがビオ・サバールの法則である。
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item $\nabla^2\boldsymbol{A} = -\mu_0\boldsymbol{i}$が成り立つ。
+    \item $\boldsymbol{A}(\boldsymbol{r}) = \frac{\mu_0}{4\pi} \int \frac{\boldsymbol{i}(\boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|} dV'$
+    \item $\boldsymbol{B}(\boldsymbol{r}) = \frac{\mu_0}{4\pi} \int \frac{\boldsymbol{i}(\boldsymbol{r}') \times (\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3} dV'$
+\end{enumerate}
+
+\section{問題4: ビオ・サバールの法則の応用}
+
+\subsection{問題}
+
+問題3で導出したビオ・サバールの法則において、電流$I$、電流の向きの単位ベクトル$\boldsymbol{t}$、線素$d\boldsymbol{l}'$とすると、$\boldsymbol{i}(\boldsymbol{r}')dV' = I\boldsymbol{t}(\boldsymbol{r}')d\boldsymbol{l}'$と表せることを利用する。
+
+\begin{enumerate}
+    \item[(4-1)] 半径$a$の円形回路に電流$I$が流れているとき、円の中心軸上の高さ$z$での磁束密度を求めよ。
+    \item[(4-2)] 半径$a$、単位長さの巻数$n$の無限に長い円筒コイルがある。前問の結果を用いて、中心軸上の磁束密度を求めよ。また、アンペールの法則から求めた結果と一致することを確認せよ。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+円形回路は$xy$平面にあり、中心が原点、半径が$a$とする。電流は反時計回りに流れるとする。観測点は$z$軸上の$(0, 0, z)$とする。
+
+\subsubsection{使用する物理法則}
+
+ビオ・サバールの法則（線電流版）：
+\begin{equation}
+\boldsymbol{B}(\boldsymbol{r}) = \frac{\mu_0 I}{4\pi} \oint \frac{d\boldsymbol{l}' \times (\boldsymbol{r} - \boldsymbol{r}')}{|\boldsymbol{r} - \boldsymbol{r}'|^3}
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(4-1) 円形回路の中心軸上の磁束密度}
+
+円形回路上の点を極座標で表す：
+\begin{equation}
+\boldsymbol{r}' = (a\cos\phi', a\sin\phi', 0)
+\end{equation}
+
+線素ベクトル：
+\begin{equation}
+d\boldsymbol{l}' = (-a\sin\phi', a\cos\phi', 0) d\phi'
+\end{equation}
+
+観測点：
+\begin{equation}
+\boldsymbol{r} = (0, 0, z)
+\end{equation}
+
+したがって：
+\begin{align}
+\boldsymbol{r} - \boldsymbol{r}' &= (-a\cos\phi', -a\sin\phi', z) \\
+|\boldsymbol{r} - \boldsymbol{r}'| &= \sqrt{a^2 + z^2}
+\end{align}
+
+外積を計算：
+\begin{align}
+d\boldsymbol{l}' \times (\boldsymbol{r} - \boldsymbol{r}') &= \begin{vmatrix}
+\hat{\boldsymbol{x}} & \hat{\boldsymbol{y}} & \hat{\boldsymbol{z}} \\
+-a\sin\phi' & a\cos\phi' & 0 \\
+-a\cos\phi' & -a\sin\phi' & z
+\end{vmatrix} \\
+&= \hat{\boldsymbol{x}}(a\cos\phi' \cdot z - 0 \cdot (-a\sin\phi')) \\
+&\quad - \hat{\boldsymbol{y}}(-a\sin\phi' \cdot z - 0 \cdot (-a\cos\phi')) \\
+&\quad + \hat{\boldsymbol{z}}(-a\sin\phi' \cdot (-a\sin\phi') - a\cos\phi' \cdot (-a\cos\phi')) \\
+&= a z \cos\phi' \hat{\boldsymbol{x}} + a z \sin\phi' \hat{\boldsymbol{y}} + a^2 \hat{\boldsymbol{z}}
+\end{align}
+
+したがって：
+\begin{align}
+\boldsymbol{B}(z) &= \frac{\mu_0 I}{4\pi} \int_0^{2\pi} \frac{a z \cos\phi' \hat{\boldsymbol{x}} + a z \sin\phi' \hat{\boldsymbol{y}} + a^2 \hat{\boldsymbol{z}}}{(a^2 + z^2)^{3/2}} d\phi' \\
+&= \frac{\mu_0 I}{4\pi(a^2 + z^2)^{3/2}} \left[a z \int_0^{2\pi} \cos\phi' d\phi' \hat{\boldsymbol{x}} + a z \int_0^{2\pi} \sin\phi' d\phi' \hat{\boldsymbol{y}} + a^2 \int_0^{2\pi} d\phi' \hat{\boldsymbol{z}}\right] \\
+&= \frac{\mu_0 I}{4\pi(a^2 + z^2)^{3/2}} \cdot 2\pi a^2 \hat{\boldsymbol{z}} \\
+&= \frac{\mu_0 I a^2}{2(a^2 + z^2)^{3/2}} \hat{\boldsymbol{z}}
+\end{align}
+
+\paragraph{(4-2) 無限に長い円筒コイル}
+
+単位長さあたり$n$回巻きのコイルを考える。$z$軸方向に長さ$dz'$の部分が作る磁場は、前問の結果を用いて：
+\begin{equation}
+d\boldsymbol{B} = \frac{\mu_0 (n I dz') a^2}{2(a^2 + (z-z')^2)^{3/2}} \hat{\boldsymbol{z}}
+\end{equation}
+
+全長にわたって積分：
+\begin{align}
+\boldsymbol{B} &= \int_{-\infty}^{\infty} \frac{\mu_0 n I a^2}{2(a^2 + (z-z')^2)^{3/2}} dz' \hat{\boldsymbol{z}}
+\end{align}
+
+$u = z - z'$と変数変換すると、$du = -dz'$：
+\begin{align}
+\boldsymbol{B} &= \frac{\mu_0 n I a^2}{2} \int_{-\infty}^{\infty} \frac{1}{(a^2 + u^2)^{3/2}} du \hat{\boldsymbol{z}}
+\end{align}
+
+$u = a\tan\theta$と変数変換すると、$du = a\sec^2\theta d\theta$、$a^2 + u^2 = a^2\sec^2\theta$：
+\begin{align}
+\int_{-\infty}^{\infty} \frac{1}{(a^2 + u^2)^{3/2}} du &= \int_{-\pi/2}^{\pi/2} \frac{a\sec^2\theta}{a^3\sec^3\theta} d\theta \\
+&= \frac{1}{a^2} \int_{-\pi/2}^{\pi/2} \cos\theta d\theta \\
+&= \frac{1}{a^2} [\sin\theta]_{-\pi/2}^{\pi/2} \\
+&= \frac{2}{a^2}
+\end{align}
+
+したがって：
+\begin{equation}
+\boldsymbol{B} = \frac{\mu_0 n I a^2}{2} \cdot \frac{2}{a^2} \hat{\boldsymbol{z}} = \mu_0 n I \hat{\boldsymbol{z}}
+\end{equation}
+
+\paragraph{アンペールの法則による確認}
+
+アンペールの法則を適用する。中心軸上で、半径$r$の円形ループを考える。$r < a$の場合、ループ内を貫く電流は$n I \times 2\pi r$（実際には、コイルの巻き方によって異なるが、理想的な場合を考える）。
+
+実際には、無限に長いソレノイドの場合、内部では磁場は一様で、外部ではゼロである。アンペールの法則を適用する。軸に平行な長さ$L$の長方形ループを考え、一辺をソレノイド内部に取る。ループを貫く電流は、単位長さあたり$n$回巻きで1巻きあたり$I$だから、$n L I$である。したがって：
+\begin{equation}
+B \cdot L = \mu_0 n L I
+\end{equation}
+より$B = \mu_0 n I$が得られる。これは前の結果と一致する。
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(4-1)] 円形回路の中心軸上：
+    \begin{equation}
+    \boldsymbol{B}(z) = \frac{\mu_0 I a^2}{2(a^2 + z^2)^{3/2}} \hat{\boldsymbol{z}}
+    \end{equation}
+    
+    \item[(4-2)] 無限に長い円筒コイルの中心軸上：
+    \begin{equation}
+    \boldsymbol{B} = \mu_0 n I \hat{\boldsymbol{z}}
+    \end{equation}
+    これはアンペールの法則から求めた結果と一致する。
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex1_4_circular_current.png}
+\caption{円形電流が作る磁場}
+\label{fig:ex1_4_circular_current}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex1_4_solenoid.png}
+\caption{無限ソレノイドの磁場分布}
+\label{fig:ex1_4_solenoid}
+\end{figure}
+
+\section{問題5: 抵抗体内のポインティングベクトルと発熱量}
+
+\subsection{問題}
+
+外半径$a$、内半径$b$の同軸円筒の細長い抵抗体に、軸に平行に電流密度$\boldsymbol{i}$の直流電流が一様に流れている。抵抗体は$a$と$b$間に詰まっており、その電気伝導率は$\sigma$である。
+
+\begin{enumerate}
+    \item[(5-1)] 抵抗体の軸からの距離を$r$として、抵抗体内部のポインティングベクトル$(\boldsymbol{E} \times \boldsymbol{H})$の大きさと方向を求めよ。
+    \item[(5-2)] 抵抗体の単位長さ、単位時間当たりの発熱量を求めよ。前問で求めたポインティングベクトルとどのような関係になっているかを述べよ。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+同軸円筒の中心軸を$z$軸とする。電流は$z$方向に一様に流れる。抵抗体は$b \leq r \leq a$の領域にある。
+
+\subsubsection{使用する物理法則}
+
+オームの法則：
+\begin{equation}
+\boldsymbol{i} = \sigma \boldsymbol{E}
+\end{equation}
+
+アンペールの法則：
+\begin{equation}
+\oint \boldsymbol{H} \cdot d\boldsymbol{l} = I_{\text{enc}}
+\end{equation}
+
+ポインティングベクトル：
+\begin{equation}
+\boldsymbol{S} = \boldsymbol{E} \times \boldsymbol{H}
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(5-1) ポインティングベクトル}
+
+電流密度は一様で、$z$方向を向いている：
+\begin{equation}
+\boldsymbol{i} = i \hat{\boldsymbol{z}}
+\end{equation}
+
+オームの法則より：
+\begin{equation}
+\boldsymbol{E} = \frac{\boldsymbol{i}}{\sigma} = \frac{i}{\sigma} \hat{\boldsymbol{z}}
+\end{equation}
+
+磁場$\boldsymbol{H}$を求める。アンペールの法則を、半径$r$の円形ループに適用：
+\begin{equation}
+\oint \boldsymbol{H} \cdot d\boldsymbol{l} = H(r) \cdot 2\pi r = I_{\text{enc}}(r)
+\end{equation}
+
+$b \leq r \leq a$の領域では、内側の円筒（$r < b$）を貫く電流は存在しないため、$I_{\text{enc}} = 0$。実際には、電流は抵抗体全体に一様に分布している。
+
+単位長さあたりの全電流：
+\begin{equation}
+I_{\text{total}} = i \cdot \pi(a^2 - b^2)
+\end{equation}
+
+半径$r$の円内を貫く電流（単位長さあたり）：
+\begin{equation}
+I_{\text{enc}}(r) = i \cdot \pi(r^2 - b^2) \quad (b \leq r \leq a)
+\end{equation}
+
+したがって：
+\begin{equation}
+H(r) = \frac{I_{\text{enc}}(r)}{2\pi r} = \frac{i(r^2 - b^2)}{2r} \quad (b \leq r \leq a)
+\end{equation}
+
+磁場の方向は、電流の右ねじの方向、すなわち$\hat{\boldsymbol{\phi}}$方向（円周方向）である。
+
+ポインティングベクトル：
+\begin{align}
+\boldsymbol{S} &= \boldsymbol{E} \times \boldsymbol{H} \\
+&= \frac{i}{\sigma} \hat{\boldsymbol{z}} \times \frac{i(r^2 - b^2)}{2r} \hat{\boldsymbol{\phi}} \\
+&= \frac{i^2(r^2 - b^2)}{2\sigma r} \hat{\boldsymbol{z}} \times \hat{\boldsymbol{\phi}} \\
+&= -\frac{i^2(r^2 - b^2)}{2\sigma r} \hat{\boldsymbol{r}}
+\end{align}
+
+したがって、ポインティングベクトルは動径方向内向き（$-\hat{\boldsymbol{r}}$方向）で、その大きさは：
+\begin{equation}
+|\boldsymbol{S}| = \frac{i^2(r^2 - b^2)}{2\sigma r}
+\end{equation}
+
+\paragraph{(5-2) 発熱量}
+
+単位体積あたりの発熱量（ジュール熱）：
+\begin{equation}
+w = \boldsymbol{i} \cdot \boldsymbol{E} = \sigma |\boldsymbol{E}|^2 = \sigma \left(\frac{i}{\sigma}\right)^2 = \frac{i^2}{\sigma}
+\end{equation}
+
+単位長さ、単位時間あたりの発熱量：
+\begin{align}
+W &= \int_b^a w \cdot 2\pi r dr \\
+&= \int_b^a \frac{i^2}{\sigma} \cdot 2\pi r dr \\
+&= \frac{2\pi i^2}{\sigma} \int_b^a r dr \\
+&= \frac{2\pi i^2}{\sigma} \cdot \frac{a^2 - b^2}{2} \\
+&= \frac{\pi i^2(a^2 - b^2)}{\sigma}
+\end{align}
+
+ポインティングベクトルとの関係：
+
+ポインティングベクトルの発散を計算する。球座標系での発散：
+\begin{equation}
+\nabla \cdot \boldsymbol{F} = \frac{1}{r}\frac{\partial}{\partial r}(rF_r) + \frac{1}{r\sin\theta}\frac{\partial}{\partial\theta}(\sin\theta F_\theta) + \frac{1}{r\sin\theta}\frac{\partial F_\phi}{\partial\phi}
+\end{equation}
+
+$\boldsymbol{S} = S_r\hat{\boldsymbol{r}}$（動径方向のみ）より：
+\begin{align}
+\nabla \cdot \boldsymbol{S} &= \frac{1}{r}\frac{\partial}{\partial r}(rS_r) \\
+&= \frac{1}{r}\frac{\partial}{\partial r}\left(r \cdot \left(-\frac{i^2(r^2 - b^2)}{2\sigma r}\right)\right) \\
+&= \frac{1}{r}\frac{\partial}{\partial r}\left(-\frac{i^2(r^2 - b^2)}{2\sigma}\right)
+\end{align}
+
+$r$に関する微分を実行：
+\begin{align}
+\frac{\partial}{\partial r}\left(-\frac{i^2(r^2 - b^2)}{2\sigma}\right) &= -\frac{i^2}{2\sigma}\frac{\partial}{\partial r}(r^2 - b^2) \\
+&= -\frac{i^2}{2\sigma} \cdot 2r \\
+&= -\frac{i^2 r}{\sigma}
+\end{align}
+
+したがって：
+\begin{align}
+\nabla \cdot \boldsymbol{S} &= \frac{1}{r} \cdot \left(-\frac{i^2 r}{\sigma}\right) \\
+&= -\frac{i^2}{\sigma}
+\end{align}
+
+したがって：
+\begin{equation}
+-\nabla \cdot \boldsymbol{S} = \frac{i^2}{\sigma} = w
+\end{equation}
+
+これは、ポインティングベクトルの発散の負の値が、単位体積あたりの発熱量に等しいことを示している。すなわち、エネルギーはポインティングベクトルの流れとして外部から供給され、それがジュール熱として消費される。
+
+単位長さあたりでは：
+\begin{equation}
+-\int_b^a \nabla \cdot \boldsymbol{S} \cdot 2\pi r dr = \int_b^a w \cdot 2\pi r dr = W
+\end{equation}
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(5-1)] ポインティングベクトル：
+    \begin{equation}
+    \boldsymbol{S} = -\frac{i^2(r^2 - b^2)}{2\sigma r} \hat{\boldsymbol{r}}
+    \end{equation}
+    大きさ：$|\boldsymbol{S}| = \frac{i^2(r^2 - b^2)}{2\sigma r}$、方向：動径方向内向き
+    
+    \item[(5-2)] 単位長さ、単位時間あたりの発熱量：
+    \begin{equation}
+    W = \frac{\pi i^2(a^2 - b^2)}{\sigma}
+    \end{equation}
+    
+    ポインティングベクトルとの関係：$-\nabla \cdot \boldsymbol{S} = w$（単位体積あたりの発熱量）
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex1_5_coaxial.png}
+\caption{同軸円筒抵抗体の構造とポインティングベクトル}
+\label{fig:ex1_5_coaxial}
+\end{figure}
+
+\section{問題6: 電磁波の波動方程式}
+
+\subsection{問題}
+
+\begin{enumerate}
+    \item[(6-1)] 真空中（$\rho=0$, $\boldsymbol{i}=\boldsymbol{0}$）の電場に対して、Maxwell方程式から、$\nabla^2\boldsymbol{E} - \varepsilon_0\mu_0 \frac{\partial^2\boldsymbol{E}}{\partial t^2} = \boldsymbol{0}$の波動方程式が成り立つことを示せ。
+    \item[(6-2)] 上記の解が、$z$軸方向に進む平面波$\boldsymbol{E} = \boldsymbol{E}_0 \exp[i(kz - \omega t)]$（$k > 0$, $\omega > 0$）で表せるとき、波数$k$と角振動数$\omega$の間に成り立つ関係を求めよ。このとき、波の位相速度および群速度を求めよ。
+    \item[(6-3)] 導体中（$\rho=0$, $\boldsymbol{i}=\sigma\boldsymbol{E}$）の電場を考える。このとき、前問の$\boldsymbol{E}$が満たす方程式、および、波数$k$と角振動数$\omega$の関係式がどのように変化するか。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+Maxwell方程式：
+\begin{align}
+\nabla \cdot \boldsymbol{E} &= \frac{\rho}{\varepsilon_0} \\
+\nabla \times \boldsymbol{E} &= -\frac{\partial\boldsymbol{B}}{\partial t} \\
+\nabla \cdot \boldsymbol{B} &= 0 \\
+\nabla \times \boldsymbol{B} &= \mu_0\boldsymbol{i} + \mu_0\varepsilon_0\frac{\partial\boldsymbol{E}}{\partial t}
+\end{align}
+
+\subsubsection{使用する物理法則}
+
+ベクトル恒等式：
+\begin{equation}
+\nabla \times (\nabla \times \boldsymbol{E}) = \nabla(\nabla \cdot \boldsymbol{E}) - \nabla^2\boldsymbol{E}
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(6-1) 波動方程式の導出}
+
+ファラデーの法則：
+\begin{equation}
+\nabla \times \boldsymbol{E} = -\frac{\partial\boldsymbol{B}}{\partial t}
+\end{equation}
+
+両辺の回転を取る：
+\begin{align}
+\nabla \times (\nabla \times \boldsymbol{E}) &= \nabla \times \left(-\frac{\partial\boldsymbol{B}}{\partial t}\right) \\
+&= -\frac{\partial}{\partial t}(\nabla \times \boldsymbol{B})
+\end{align}
+
+時間微分と空間微分は交換可能であるため、$\nabla \times \frac{\partial\boldsymbol{B}}{\partial t} = \frac{\partial}{\partial t}(\nabla \times \boldsymbol{B})$である。
+
+ベクトル恒等式：
+\begin{equation}
+\nabla \times (\nabla \times \boldsymbol{E}) = \nabla(\nabla \cdot \boldsymbol{E}) - \nabla^2\boldsymbol{E}
+\end{equation}
+
+したがって：
+\begin{align}
+\nabla(\nabla \cdot \boldsymbol{E}) - \nabla^2\boldsymbol{E} &= -\frac{\partial}{\partial t}(\nabla \times \boldsymbol{B})
+\end{align}
+
+アンペールの法則（変位電流を含む）：
+\begin{equation}
+\nabla \times \boldsymbol{B} = \mu_0\boldsymbol{i} + \mu_0\varepsilon_0\frac{\partial\boldsymbol{E}}{\partial t}
+\end{equation}
+
+これを代入：
+\begin{align}
+\nabla(\nabla \cdot \boldsymbol{E}) - \nabla^2\boldsymbol{E} &= -\frac{\partial}{\partial t}\left(\mu_0\boldsymbol{i} + \mu_0\varepsilon_0\frac{\partial\boldsymbol{E}}{\partial t}\right) \\
+&= -\mu_0\frac{\partial\boldsymbol{i}}{\partial t} - \mu_0\varepsilon_0\frac{\partial^2\boldsymbol{E}}{\partial t^2}
+\end{align}
+
+真空中では、$\rho = 0$、$\boldsymbol{i} = \boldsymbol{0}$より：
+\begin{align}
+\nabla \cdot \boldsymbol{E} &= \frac{\rho}{\varepsilon_0} = 0 \\
+\frac{\partial\boldsymbol{i}}{\partial t} &= \boldsymbol{0}
+\end{align}
+
+したがって：
+\begin{align}
+\nabla(0) - \nabla^2\boldsymbol{E} &= -\mu_0 \cdot \boldsymbol{0} - \mu_0\varepsilon_0\frac{\partial^2\boldsymbol{E}}{\partial t^2} \\
+-\nabla^2\boldsymbol{E} &= -\mu_0\varepsilon_0\frac{\partial^2\boldsymbol{E}}{\partial t^2} \\
+\nabla^2\boldsymbol{E} - \varepsilon_0\mu_0\frac{\partial^2\boldsymbol{E}}{\partial t^2} &= \boldsymbol{0}
+\end{align}
+
+これが電場の波動方程式である。同様に、磁場$\boldsymbol{B}$についても波動方程式が成り立つ。
+
+\paragraph{(6-2) 分散関係と速度}
+
+平面波解$\boldsymbol{E} = \boldsymbol{E}_0 \exp[i(kz - \omega t)]$を波動方程式に代入する。ここで、$\boldsymbol{E}_0$は定ベクトルである。
+
+ラプラシアン$\nabla^2\boldsymbol{E}$を計算する：
+\begin{align}
+\nabla^2\boldsymbol{E} &= \frac{\partial^2\boldsymbol{E}}{\partial x^2} + \frac{\partial^2\boldsymbol{E}}{\partial y^2} + \frac{\partial^2\boldsymbol{E}}{\partial z^2}
+\end{align}
+
+平面波は$z$方向にのみ依存するため：
+\begin{align}
+\frac{\partial^2\boldsymbol{E}}{\partial x^2} &= \boldsymbol{0} \\
+\frac{\partial^2\boldsymbol{E}}{\partial y^2} &= \boldsymbol{0} \\
+\frac{\partial^2\boldsymbol{E}}{\partial z^2} &= \frac{\partial^2}{\partial z^2}[\boldsymbol{E}_0 \exp[i(kz - \omega t)]] \\
+&= \boldsymbol{E}_0 (ik)^2 \exp[i(kz - \omega t)] \\
+&= -k^2\boldsymbol{E}
+\end{align}
+
+したがって：
+\begin{equation}
+\nabla^2\boldsymbol{E} = -k^2\boldsymbol{E}
+\end{equation}
+
+時間に関する2階微分：
+\begin{align}
+\frac{\partial^2\boldsymbol{E}}{\partial t^2} &= \frac{\partial^2}{\partial t^2}[\boldsymbol{E}_0 \exp[i(kz - \omega t)]] \\
+&= \boldsymbol{E}_0 (-i\omega)^2 \exp[i(kz - \omega t)] \\
+&= -\omega^2\boldsymbol{E}
+\end{align}
+
+波動方程式に代入：
+\begin{align}
+\nabla^2\boldsymbol{E} - \varepsilon_0\mu_0\frac{\partial^2\boldsymbol{E}}{\partial t^2} &= -k^2\boldsymbol{E} - \varepsilon_0\mu_0(-\omega^2\boldsymbol{E}) \\
+&= (-k^2 + \varepsilon_0\mu_0\omega^2)\boldsymbol{E} = \boldsymbol{0}
+\end{align}
+
+$\boldsymbol{E} \neq \boldsymbol{0}$より：
+\begin{align}
+-k^2 + \varepsilon_0\mu_0\omega^2 &= 0 \\
+k^2 &= \varepsilon_0\mu_0\omega^2
+\end{align}
+
+$k > 0$、$\omega > 0$より：
+\begin{equation}
+k = \omega\sqrt{\varepsilon_0\mu_0} = \frac{\omega}{c}
+\end{equation}
+ここで、$c = 1/\sqrt{\varepsilon_0\mu_0}$は光速である。
+
+位相速度の定義：
+\begin{equation}
+v_p = \frac{\omega}{k}
+\end{equation}
+
+$k = \omega/c$より：
+\begin{equation}
+v_p = \frac{\omega}{\omega/c} = c
+\end{equation}
+
+群速度の定義：
+\begin{equation}
+v_g = \frac{d\omega}{dk}
+\end{equation}
+
+$k = \omega/c$より、$\omega = ck$であるから：
+\begin{equation}
+v_g = \frac{d(ck)}{dk} = c
+\end{equation}
+
+真空中では位相速度と群速度は等しく、ともに光速$c$である。これは、真空中の電磁波が分散を持たないことを示している。
+
+\paragraph{(6-3) 導体中の電磁波}
+
+導体中では$\rho = 0$、$\boldsymbol{i} = \sigma\boldsymbol{E}$（Ohmの法則）である。
+
+前問と同様の計算を行う。アンペールの法則：
+\begin{equation}
+\nabla \times \boldsymbol{B} = \mu_0\boldsymbol{i} + \mu_0\varepsilon_0\frac{\partial\boldsymbol{E}}{\partial t} = \mu_0\sigma\boldsymbol{E} + \mu_0\varepsilon_0\frac{\partial\boldsymbol{E}}{\partial t}
+\end{equation}
+
+ファラデーの法則から：
+\begin{align}
+\nabla(\nabla \cdot \boldsymbol{E}) - \nabla^2\boldsymbol{E} &= -\frac{\partial}{\partial t}(\nabla \times \boldsymbol{B}) \\
+&= -\frac{\partial}{\partial t}\left(\mu_0\sigma\boldsymbol{E} + \mu_0\varepsilon_0\frac{\partial\boldsymbol{E}}{\partial t}\right) \\
+&= -\mu_0\sigma\frac{\partial\boldsymbol{E}}{\partial t} - \mu_0\varepsilon_0\frac{\partial^2\boldsymbol{E}}{\partial t^2}
+\end{align}
+
+$\rho = 0$より$\nabla \cdot \boldsymbol{E} = 0$であるから：
+\begin{align}
+-\nabla^2\boldsymbol{E} &= -\mu_0\sigma\frac{\partial\boldsymbol{E}}{\partial t} - \mu_0\varepsilon_0\frac{\partial^2\boldsymbol{E}}{\partial t^2} \\
+\nabla^2\boldsymbol{E} - \mu_0\sigma\frac{\partial\boldsymbol{E}}{\partial t} - \varepsilon_0\mu_0\frac{\partial^2\boldsymbol{E}}{\partial t^2} &= \boldsymbol{0}
+\end{align}
+
+これが導体中の電場の波動方程式である。
+
+平面波解$\boldsymbol{E} = \boldsymbol{E}_0 \exp[i(kz - \omega t)]$を代入：
+\begin{align}
+\nabla^2\boldsymbol{E} &= -k^2\boldsymbol{E} \\
+\frac{\partial\boldsymbol{E}}{\partial t} &= -i\omega\boldsymbol{E} \\
+\frac{\partial^2\boldsymbol{E}}{\partial t^2} &= -\omega^2\boldsymbol{E}
+\end{align}
+
+したがって：
+\begin{align}
+-k^2\boldsymbol{E} - \mu_0\sigma(-i\omega\boldsymbol{E}) - \varepsilon_0\mu_0(-\omega^2\boldsymbol{E}) &= \boldsymbol{0} \\
+-k^2 + i\mu_0\sigma\omega + \varepsilon_0\mu_0\omega^2 &= 0 \\
+k^2 &= \varepsilon_0\mu_0\omega^2 + i\mu_0\sigma\omega
+\end{align}
+
+$k$は複素数となる。$k = k_r + ik_i$（$k_r, k_i$は実数）とすると：
+\begin{align}
+k^2 &= (k_r + ik_i)^2 = k_r^2 - k_i^2 + 2ik_rk_i \\
+&= \varepsilon_0\mu_0\omega^2 + i\mu_0\sigma\omega
+\end{align}
+
+実部と虚部を比較：
+\begin{align}
+k_r^2 - k_i^2 &= \varepsilon_0\mu_0\omega^2 \quad \text{(1)} \\
+2k_rk_i &= \mu_0\sigma\omega \quad \text{(2)}
+\end{align}
+
+(2)より$k_i = \frac{\mu_0\sigma\omega}{2k_r}$。これを(1)に代入して$k_r$を求めると、導体中では電磁波が減衰し、$k$は複素数となる。減衰係数$k_i$は、電気伝導度$\sigma$に比例する。
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(6-1)] 波動方程式：
+    \begin{equation}
+    \nabla^2\boldsymbol{E} - \varepsilon_0\mu_0\frac{\partial^2\boldsymbol{E}}{\partial t^2} = \boldsymbol{0}
+    \end{equation}
+    
+    \item[(6-2)] 分散関係：$k = \omega/c$、位相速度：$v_p = c$、群速度：$v_g = c$
+    
+    \item[(6-3)] 導体中の波動方程式：
+    \begin{equation}
+    \nabla^2\boldsymbol{E} - \mu_0\sigma\frac{\partial\boldsymbol{E}}{\partial t} - \varepsilon_0\mu_0\frac{\partial^2\boldsymbol{E}}{\partial t^2} = \boldsymbol{0}
+    \end{equation}
+    分散関係：$k^2 = \varepsilon_0\mu_0\omega^2 + i\mu_0\sigma\omega$（$k$は複素数）
+\end{enumerate}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 真空中の電磁波は、Maxwell方程式から波動方程式が導かれ、その解は平面波として表される。波数$k$と角振動数$\omega$の関係は$k = \omega/c$であり、これは線形分散関係である。
+    \item 真空中では位相速度と群速度が等しく、ともに光速$c$である。これは、真空中の電磁波が分散を持たないことを示している。
+    \item 導体中では、電流によるエネルギー散逸により、電磁波が減衰する。減衰は、波数の虚部$k_i$によって記述され、$k_i$は電気伝導度$\sigma$に比例する。
+    \item 導体中の電磁波の減衰長（減衰が$1/e$になる距離）は、$1/k_i$で与えられる。導電性が高いほど、減衰は速い。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex1_6_wave.png}
+\caption{電磁波の進行}
+\label{fig:ex1_6_wave}
+\end{figure}
+

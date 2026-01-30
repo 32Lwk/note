@@ -1,0 +1,154 @@
+% 演習7 (2026/01/09実施)
+\section{演習7 (2026年1月9日実施)}
+
+\subsection{I. スターリングの公式}
+
+\subsubsection{この問題で学ぶこと}
+
+$\Gamma$ 関数の被積分関数が鋭いピークを持つとき、その近傍だけで積分するラプラス近似の考え方。$N!$ の大きい $N$ での振る舞いを、$\sqrt{2\pi N} N^N e^{-N}$ で近似できる。統計力学で $\ln N!$ が頻出するため、この近似は必須である。
+
+\subsubsection{問題}
+
+$N! \approx \sqrt{2\pi N} N^N e^{-N}$ を証明せよ。$\Gamma(x+1)$ の被積分関数 $t^x e^{-t}$ の概形を描き、$x \gg 1$ でラプラス近似を用いて導け。
+
+\subsubsection{解答}
+
+\paragraph{前提知識：ラプラス近似とは}
+
+大きな $N$ に対して $N!$ を計算するのは困難である。しかし統計力学では $\ln N!$ が頻出し、$N \gg 1$ のとき $\ln N! \approx N \ln N - N$ という近似（スターリング近似）が使われる。この近似を、$\Gamma$ 関数の積分表示にラプラス近似を適用して導く。
+
+\textbf{ラプラス近似の直感的な考え方}：積分 $I = \int e^{-f(t)} dt$ で、$f(t)$ が $t = t^*$ で鋭い最小を持つとき、被積分関数 $e^{-f(t)}$ は $t^*$ 付近で大きな値を持つ。$t^*$ から離れると急激に小さくなるので、積分への主要な寄与は $t^*$ の近傍から来る。$f(t)$ を $t^*$ の周りで2次まで展開すると、被積分関数はガウス型になり、積分が実行できる。結果として $I \approx \sqrt{2\pi/f''(t^*)} \, e^{-f(t^*)}$ となる。
+
+\paragraph{$\Gamma(x+1)$ への適用}
+
+$\Gamma(x+1) = \int_0^{\infty} t^x e^{-t} dt = \int_0^{\infty} e^{-(x\ln t - t)} dt$。$f(t) = t - x\ln t$ とおくと被積分関数は $e^{-f(t)}$。$f'(t) = 1 - x/t = 0$ より $t^* = x$。$f''(t) = x/t^2$、$f''(t^*) = 1/x$。$f(t^*) = x - x\ln x$。ラプラス近似より
+\begin{equation}
+\Gamma(x+1) \approx \sqrt{\frac{2\pi}{f''(t^*)}} e^{-f(t^*)} = \sqrt{2\pi x} \, e^{-(x - x\ln x)} = \sqrt{2\pi x} \, x^x e^{-x}
+\end{equation}
+$x = N$（自然数）のとき $\Gamma(N+1) = N!$（演習1-Vで示した）。よって $N! \approx \sqrt{2\pi N} N^N e^{-N}$（スターリングの公式）。より精密には $N! \approx \sqrt{2\pi N} N^N e^{-N} (1 + 1/(12N) + \cdots)$ のように次の項もあるが、$N \gg 1$ では第1項で十分である。
+
+\textbf{なぜピークは $t = x$ にできるのか}：$f(t) = t - x\ln t$ を $t$ で微分すると $f'(t) = 1 - x/t$。$f'(t) = 0$ より $t^* = x$。$t < x$ では $\ln t$ が小さく $f$ は大きく、$t > x$ では $t$ の増大より $-x\ln t$ の減少が効き $f$ は大きくなる。$t = x$ で $f$ が最小となり、$e^{-f(t)}$ が最大になる。図\ref{fig:ex7_gamma}のように、$x$ が大きいほどピークは鋭くなる。
+
+\textbf{物理的考察}：$\ln N! \approx N\ln N - N$ は、$N$ 個のものを並べる方法の数が $e^{N\ln N - N} = (N/e)^N$ のオーダーであることを示す。統計力学では、$N$ 個の同種粒子の分配関数に $1/N!$ が現れる（不可弁別性）。$\ln Z$ に $\ln N!$ が含まれるため、スターリング近似は必須である。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/ex7_gamma_integrand.png}
+    \caption{$\Gamma(x+1)$ の被積分関数 $t^x e^{-t}$。$x$ が大きいほど $t = x$ 付近に鋭いピークができる。}
+    \label{fig:ex7_gamma}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/ex7_stirling_error.png}
+    \caption{スターリング近似の相対誤差。$N$ が大きいほど精度が上がる。}
+    \label{fig:ex7_stirling}
+\end{figure}
+
+%--------------------------------------
+\subsection{II. D次元球の体積}
+
+\subsubsection{問題}
+
+$V_D(R) = \frac{\pi^{D/2} R^D}{\Gamma(D/2 + 1)}$ をガウス積分から導け。
+
+\subsubsection{解答}
+
+\paragraph{ガウス積分}
+
+$I_D = \int_{-\infty}^{\infty} \cdots \int_{-\infty}^{\infty} e^{-(x_1^2 + \cdots + x_D^2)} dx_1 \cdots dx_D$。各変数が独立なので $I_D = \left(\int_{-\infty}^{\infty} e^{-y^2} dy\right)^D = (\sqrt{\pi})^D = \pi^{D/2}$。
+
+\paragraph{球座標への変換}
+
+被積分関数は $r = \sqrt{x_1^2 + \cdots + x_D^2}$ のみの関数（動径方向にのみ依存）。したがって、半径 $r$ から $r+dr$ の球殻（厚さ $dr$）の体積を $C_D r^{D-1} dr$ と書くと、$C_D$ は半径1の $D$ 次元球の表面積である。$D=2$ のとき周長 $2\pi$、$D=3$ のとき表面積 $4\pi$ に対応する。よって
+\begin{equation}
+I_D = C_D \int_0^{\infty} r^{D-1} e^{-r^2} dr
+\end{equation}
+$u = r^2$ とおくと $du = 2r\,dr$、$r^{D-1} dr = \frac{1}{2} u^{(D/2)-1} du$。$\int_0^{\infty} u^{(D/2)-1} e^{-u} du = \Gamma(D/2)$ なので
+\begin{equation}
+I_D = C_D \cdot \frac{1}{2} \Gamma(D/2)
+\end{equation}
+$I_D = \pi^{D/2}$ より $C_D = \frac{2\pi^{D/2}}{\Gamma(D/2)}$。半径 $R$ の球の表面積は $S_D(R) = C_D R^{D-1}$、体積は
+\begin{equation}
+V_D(R) = \int_0^R S_D(r) dr = C_D \int_0^R r^{D-1} dr = \frac{C_D R^D}{D} = \frac{2\pi^{D/2} R^D}{D \, \Gamma(D/2)}
+\end{equation}
+$\Gamma(D/2 + 1) = (D/2) \Gamma(D/2)$ より $\frac{1}{D\,\Gamma(D/2)} = \frac{1}{2\Gamma(D/2+1)}$。したがって
+\begin{equation}
+V_D(R) = \frac{\pi^{D/2} R^D}{\Gamma(D/2 + 1)}
+\end{equation}
+
+\textbf{具体例の確認}：$D=2$ のとき $\Gamma(2)=1$ より $V_2(R) = \pi R^2$（円の面積）。$D=3$ のとき $\Gamma(5/2) = (3/2)(1/2)\sqrt{\pi} = (3/4)\sqrt{\pi}$ より $V_3(R) = \pi^{3/2} R^3 / [(3/4)\sqrt{\pi}] = (4/3)\pi R^3$（球の体積）。公式が正しいことが確認できる。
+
+\textbf{なぜ統計力学で重要か}：$N$ 個の粒子の運動量空間は $3N$ 次元である。エネルギー $E$ 以下の状態数は、$3N$ 次元球の体積に比例する。本問の公式で $D = 3N$ とおくと、状態数の体積依存性が求まる。
+
+%--------------------------------------
+\subsection{III. 調和振動子の分配関数}
+
+\subsubsection{この問題で学ぶこと}
+
+統計力学の核心的概念である分配関数 $Z$。系が状態 $i$ にある確率は $e^{-\beta E_i}/Z$（ボルツマン分布）で与えられる。調和振動子（量子力学的）の分配関数を計算し、平均エネルギーを求める。固体の比熱（アインシュタイン模型）の基礎となる。
+
+\subsubsection{問題}
+
+$N$ 個の独立な調和振動子のエネルギー準位 $E = \hbar\omega(M + N/2)$（$M = 0,1,2,\ldots$）について、分配関数 $Z_N$ と平均エネルギー $\langle E \rangle$ を求めよ。
+
+\subsubsection{解答}
+
+\paragraph{前提知識：分配関数とは}
+
+熱平衡状態で、系が状態 $i$（エネルギー $E_i$）にある確率は、ボルツマン分布 $P(i) = e^{-\beta E_i}/Z$ で与えられる。ここで $\beta = 1/(k_B T)$ であり、$Z = \sum_i e^{-\beta E_i}$ は確率の規格化定数で、分配関数と呼ばれる。熱力学におけるヘルムホルツの自由エネルギーは $F = -k_B T \ln Z$ で与えられる。
+
+\paragraph{1個の振動子}
+
+$Z_1 = \sum_{m=0}^{\infty} e^{-\beta\hbar\omega(m+1/2)} = e^{-\beta\hbar\omega/2} \sum_{m=0}^{\infty} (e^{-\beta\hbar\omega})^m$。等比級数 $\sum_{m=0}^{\infty} x^m = 1/(1-x)$（$|x|<1$）を用いる。$|e^{-\beta\hbar\omega}| < 1$ は $T>0$ で常に成り立つ（収束条件）。よって $Z_1 = \frac{e^{-\beta\hbar\omega/2}}{1 - e^{-\beta\hbar\omega}}$。独立な $N$ 個では $Z_N = Z_1^N$。
+
+\paragraph{平均エネルギー}
+
+$\langle E \rangle = \frac{1}{Z} \sum_i E_i e^{-\beta E_i} = -\frac{\partial}{\partial\beta} \ln Z$。$Z_N = Z_1^N$ より
+\begin{equation}
+\langle E \rangle = -\frac{\partial}{\partial\beta}(N \ln Z_1) = N \hbar\omega\left(\frac{1}{2} + \frac{1}{e^{\beta\hbar\omega}-1}\right)
+\end{equation}
+
+%--------------------------------------
+\subsection{IV. 古典理想気体}
+
+\subsubsection{この問題で学ぶこと}
+
+古典統計力学における理想気体の分配関数。位相空間の積分から $Z_N$ を計算し、ヘルムホルツの自由エネルギー $F = -k_B T \ln Z_N$ が熱力学と一致することを確認する。また、状態数 $W_N(E)$ とエントロピー $S = k_B \ln W_N(E)$ の関係（ボルツマンの原理）を理解する。
+
+\subsubsection{問題}
+
+古典理想気体の分配関数を計算し、$F = -k_B T \ln Z_N$ が熱力学の式と一致することを確かめよ。また $W_N(E)$ を求め、$S = k_B \ln W_N(E)$ がエントロピーと一致することを示せ。
+
+\subsubsection{解答}
+
+\paragraph{導出の戦略}
+
+分配関数 $Z_N = (1/N!h^{3N})\int e^{-\beta H} d\Gamma$。$H = \sum p^2/(2m)$ なので、運動量積分はガウス積分、位置積分は $V^N$。$W_N(E)$ は位相空間で $H \leq E$ の体積に比例し、$E^{3N/2}$ のオーダー。$E = (3/2)Nk_B T$ を代入して $S$ が熱力学と一致することを示す。
+
+\paragraph{分配関数の計算}
+
+$Z_N = \frac{1}{N! h^{3N}} \int d\Gamma \, e^{-\beta H}$。$H = \sum_{i,\alpha} \frac{p_{i\alpha}^2}{2m}$。運動量積分は各自由度で $\int_{-\infty}^{\infty} e^{-\beta p^2/(2m)} dp = \sqrt{2\pi m k_B T}$。$3N$ 自由度で $(\sqrt{2\pi m k_B T})^{3N}$。位置積分は $V^N$。したがって
+\begin{equation}
+Z_N = \frac{V^N}{N!} \left(\frac{2\pi m k_B T}{h^2}\right)^{3N/2} = \frac{1}{N!}\left(\frac{V}{\lambda^3}\right)^N
+\end{equation}
+$\lambda = h/\sqrt{2\pi m k_B T}$ は熱的ド・ブロイ波長。$F = -k_B T \ln Z_N$ にスターリング近似 $\ln N! \approx N\ln N - N$ を適用すると、熱力学の式 $F = Nk_B T[\ln(n\lambda^3) - 1]$（$n = N/V$）と一致する。
+
+\paragraph{状態数 $W_N(E)$}
+
+エネルギー $E$ 以下の状態数は、位相空間で $H \leq E$ の体積に比例する。$H = p^2/(2m)$（$p^2 = \sum p_{i\alpha}^2$）なので、$p^2 \leq 2mE$ の $3N$ 次元球の体積。$W_N(E) \propto V^N \cdot (2mE)^{3N/2}$。したがって $W_N(E) \propto E^{3N/2}$（微分として $dW/dE \propto E^{3N/2 - 1}$）。$S = k_B \ln W_N(E)$ に $E = \frac{3}{2}Nk_B T$ を代入すると、熱力学のエントロピーと一致する。
+
+\textbf{なぜ $1/N!$ が必要か}：同種粒子は区別できない。$N$ 個の粒子の入れ替えは同じ状態なので、位相空間の体積を $N!$ で割る必要がある（ギブスのパラドックスを避ける）。
+
+\textbf{なぜ $h^{3N}$ で割るか}：位相空間の「1状態」が占有する体積は $h$（プランク定数）のオーダーである。これは不確定性関係 $\Delta q \Delta p \sim h$ に起因する。量子統計との対応を正しくするために必要である。
+
+\textbf{熱的ド・ブロイ波長 $\lambda$ の意味}：$\lambda = h/\sqrt{2\pi m k_B T}$ は、温度 $T$ での典型的な運動量 $\sim \sqrt{m k_B T}$ に対応するド・ブロイ波長である。$\lambda \ll$（粒子間距離）のとき古典近似が成り立つ。$n\lambda^3 \ll 1$ のとき理想気体の近似が有効である。
+
+\textbf{図\ref{fig:ex7_W}の物理的意味}：$W_N(E) e^{-\beta E}$ のピーク位置 $E^*$ が、熱力学的な内部エネルギーに対応する。このピークが鋭いこと（$N \gg 1$）が、熱力学がよく定義される理由である。微正準集団と正準集団の等価性は、このピークの鋭さに基づく。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/ex7_W_exp_betaE.png}
+    \caption{被積分関数 $W_N(E) e^{-\beta E}$ は鋭いピークを持つ。ピーク位置 $E^*$ で $S$ と $E$ の関係が熱力学的な対応を与える。}
+    \label{fig:ex7_W}
+\end{figure}

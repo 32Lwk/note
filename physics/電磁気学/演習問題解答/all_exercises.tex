@@ -1,0 +1,98 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[no-math]{luatexja-fontspec}
+\setmainjfont{Hiragino Mincho ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\setsansjfont{Hiragino Kaku Gothic ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\mathtoolsset{showonlyrefs=true}  % 参照されている数式にのみ番号を付ける
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{float}
+\usepackage[draft=false]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdfusetitle=true
+}
+% 目次の行間を詰める
+\usepackage{setspace}
+
+\title{電磁気学演習問題 解答・解説 第1回〜第7回 合冊}
+\author{名古屋大学　理学部物理学科}
+\date{2025年}
+
+\begin{document}
+
+% 表紙：1ページ目に直接描画（center 内のみ中央揃え、本文は左揃えのまま）
+\pagestyle{empty}
+\thispagestyle{empty}
+\begin{center}
+  \vspace*{2cm}
+  {\LARGE 電磁気学演習問題 解答・解説}\\[1.5em]
+  {\Large 第1回〜第7回 合冊}\\[3cm]
+  \vfill
+  {\large 名古屋大学　理学部物理学科}\\[1em]
+  {\large 2025年}
+  \vfill
+\end{center}
+\newpage
+\pagestyle{plain}
+
+% 目次：問題・解答の subsection は出さず section のみ（行間を詰めて表示）
+\setcounter{tocdepth}{1}
+\begin{spacing}{0.85}
+  \tableofcontents
+\end{spacing}
+\newpage
+
+% 「第○部」を出さず、回ごとの見出しのみ（\part を使わないカスタム見出し）
+\newcommand{\exercisepart}[1]{%
+  \phantomsection
+  \addcontentsline{toc}{section}{#1}%
+  \begin{center}
+    \Large\bfseries #1
+  \end{center}
+  \vspace{0.5em}
+}
+
+\exercisepart{第1回 (2025年10月3日)}
+\input{body/exercise1_body}
+
+\clearpage
+\exercisepart{第2回 (2025年10月17日)}
+\input{body/exercise2_body}
+
+\clearpage
+\exercisepart{第3回 (2025年10月31日)}
+\input{body/exercise3_body}
+
+\clearpage
+\exercisepart{第4回 (2025年11月14日)}
+\input{body/exercise4_body}
+
+\clearpage
+\exercisepart{第5回 (2025年11月28日)}
+\input{body/exercise5_body}
+
+\clearpage
+\exercisepart{第6回 (2025年12月12日)}
+\input{body/exercise6_body}
+
+\clearpage
+\exercisepart{第7回 (2025年12月26日)}
+\input{body/exercise7_body}
+
+\end{document}

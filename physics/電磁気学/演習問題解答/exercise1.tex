@@ -51,6 +51,14 @@
 
 \subsubsection{問題の理解と設定の明確化}
 
+\paragraph{用語の説明（初学者向け）}
+\begin{itemize}
+    \item \textbf{ガウスの法則}：閉曲面を貫く電場の flux（湧き出し）は、その曲面の内側の全電荷を$\varepsilon_0$で割ったものに等しい、という静電気の基本法則である。
+    \item \textbf{ガウス面}：法則を適用するために考える「仮想的な閉曲面」のこと。対称性を活かして、電場が一定になる面（ここでは半径$r$の球面）を選ぶと計算が簡単になる。
+    \item \textbf{$Q_{\text{enc}}$}：ガウス面の\emph{内側}に含まれる電荷の合計（enc = enclosed）。
+    \item \textbf{電位$\phi$}：単位電荷を無限遠からその点まで運ぶときに外力がする仕事。電場$\boldsymbol{E}$と$\boldsymbol{E} = -\nabla\phi$で結ばれ、無限遠で$\phi=0$と定めることが多い。
+\end{itemize}
+
 球対称な電荷分布を考える。座標系として、球殻の中心を原点とする球座標系$(r, \theta, \phi)$を採用する。電荷密度は以下のように与えられる：
 \begin{equation}
 \rho(r) = \begin{cases}
@@ -67,7 +75,7 @@
 \begin{equation}
 \oint_S \boldsymbol{E} \cdot d\boldsymbol{S} = \frac{Q_{\text{enc}}}{\varepsilon_0}
 \end{equation}
-ここで、$Q_{\text{enc}}$は閉曲面$S$内に含まれる全電荷である。
+ここで、$Q_{\text{enc}}$は閉曲面$S$内に含まれる全電荷である。左辺は「ガウス面$S$上での電場の法線成分の面積分」であり、球対称のときは電場の大きさ$E(r)$と球の表面積$4\pi r^2$の積になる。
 
 \subsubsection{段階的な計算過程}
 
@@ -120,8 +128,9 @@ E(r) &= \frac{\rho(a^3 - b^3)}{3\varepsilon_0 r^2} \quad (r > a)
 \begin{equation}
 \phi(\boldsymbol{r}) = -\int_{\infty}^{\boldsymbol{r}} \boldsymbol{E} \cdot d\boldsymbol{l}
 \end{equation}
+（無限遠を基準にしたとき、位置$\boldsymbol{r}$の電位＝単位正電荷を無限遠から$\boldsymbol{r}$まで運ぶときに静電気力に逆らってする仕事。）
 
-無限遠で$\phi = 0$という境界条件を用いる。動径方向に沿って積分する：
+無限遠で$\phi = 0$という境界条件を用いる。球対称なので、積分経路は動径方向に沿ってよい：
 \begin{equation}
 \phi(r) = -\int_{\infty}^{r} E(r') dr'
 \end{equation}
@@ -144,7 +153,7 @@ E(r) &= \frac{\rho(a^3 - b^3)}{3\varepsilon_0 r^2} \quad (r > a)
 &= \frac{\rho(a^3 - b^3)}{3\varepsilon_0 a} - \frac{\rho}{3\varepsilon_0} \left[\frac{r'^2}{2} + \frac{b^3}{r'}\right]_a^{r} \\
 &= \frac{\rho(a^3 - b^3)}{3\varepsilon_0 a} - \frac{\rho}{3\varepsilon_0} \left(\frac{r^2}{2} + \frac{b^3}{r} - \frac{a^2}{2} - \frac{b^3}{a}\right) \\
 &= \frac{\rho}{3\varepsilon_0} \left[\frac{a^3 - b^3}{a} - \frac{r^2}{2} - \frac{b^3}{r} + \frac{a^2}{2} + \frac{b^3}{a}\right] \\
-&= \frac{\rho}{3\varepsilon_0} \left[\frac{a^2}{2} - \frac{r^2}{2} + \frac{a^3}{a} - \frac{b^3}{r} + \frac{b^3}{a} - \frac{b^3}{a}\right] \\
+&= \frac{\rho}{3\varepsilon_0} \left[\frac{a^2}{2} - \frac{r^2}{2} + \frac{(a^3-b^3)+b^3}{a} - \frac{b^3}{r}\right] \quad \text{（第3・4項をまとめると$\frac{a^3}{a}=a^2$）} \\
 &= \frac{\rho}{3\varepsilon_0} \left[\frac{a^2 - r^2}{2} + a^2 - \frac{b^3}{r}\right] \\
 &= \frac{\rho}{3\varepsilon_0} \left[\frac{3a^2 - r^2}{2} - \frac{b^3}{r}\right] \quad (b \leq r \leq a)
 \end{align}
@@ -223,6 +232,9 @@ E(r) &= \frac{\rho(a^3 - b^3)}{3\varepsilon_0 r^2} \quad (r > a)
 
 \subsubsection{問題の理解と設定の明確化}
 
+\paragraph{用語の説明（初学者向け）}
+\textbf{ポアソン方程式}は、電荷密度$\rho$が与えられたときの電位$\phi$を決める式$\nabla^2\phi = -\rho/\varepsilon_0$である。その解が、無限遠で$\phi=0$のとき、問題文中の積分形で与えられる（クーロンポテンシャルの重ね合わせ）。
+
 球座標系$(r, \theta, \phi)$を用い、電荷密度は：
 \begin{equation}
 \rho(\boldsymbol{r}') = \begin{cases}
@@ -242,7 +254,7 @@ E(r) &= \frac{\rho(a^3 - b^3)}{3\varepsilon_0 r^2} \quad (r > a)
 
 \subsubsection{段階的な計算過程}
 
-球座標系での体積要素は$dV' = r'^2 \sin\theta' dr' d\theta' d\phi'$である。
+球座標系での体積要素は$dV' = r'^2 \sin\theta' dr' d\theta' d\phi'$である（半径$r'$の球面上の「幅$dr'$・角度$d\theta'$・$d\phi'$」の微小体積）。
 
 \paragraph{領域1: $r < b$}
 
@@ -286,9 +298,7 @@ $r < b \leq r' \leq a$より、$r' > r$であるから：
 &= -\frac{\rho}{2\varepsilon_0}(a^2 - b^2)
 \end{align}
 
-これは負の値となってしまう。符号を再確認する必要がある。
-
-実際には、$r < r'$の場合、$|\boldsymbol{r} - \boldsymbol{r}'| = r' - r$（$r'$が大きい場合）となるが、積分の符号を正しく扱う必要がある。
+これは負の値となってしまう。符号を再確認する必要がある。原因は、$\theta'$積分の結果$\frac{1}{rr'}\left((r+r') - |r-r'|\right)$において、$r < r'$のとき$|r-r'| = r'-r$なので$(r+r')-(r'-r) = 2r$となり、$\frac{2r}{rr'} = \frac{2}{r'}$（正）であって、$-\frac{2}{r'}$ではないことである。以下で正しい計算を行う。
 
 正しい計算：
 \begin{align}
@@ -338,7 +348,7 @@ $r' > r$の部分：
 \phi(r) &= \frac{\rho}{4\pi\varepsilon_0} \left[\int_b^r r'^2 dr' \cdot \frac{2}{r} \cdot 2\pi + \int_r^a r'^2 dr' \cdot \frac{2}{r'} \cdot 2\pi\right] \\
 &= \frac{\rho}{\varepsilon_0} \left[\frac{1}{r} \int_b^r r'^2 dr' + \int_r^a r' dr'\right] \\
 &= \frac{\rho}{\varepsilon_0} \left[\frac{1}{r} \cdot \frac{r^3 - b^3}{3} + \frac{a^2 - r^2}{2}\right] \\
-&= \frac{\rho}{\varepsilon_0} \left[\frac{r^2 - b^3/r}{3} + \frac{a^2 - r^2}{2}\right] \\
+&= \frac{\rho}{\varepsilon_0} \left[\frac{r^2}{3} - \frac{b^3}{3r} + \frac{a^2 - r^2}{2}\right] \\
 &= \frac{\rho}{6\varepsilon_0} \left[2r^2 - \frac{2b^3}{r} + 3a^2 - 3r^2\right] \\
 &= \frac{\rho}{6\varepsilon_0} \left[3a^2 - r^2 - \frac{2b^3}{r}\right] \quad (b \leq r \leq a)
 \end{align}
@@ -385,6 +395,13 @@ $r = 0$の場合：
 
 これは問題1の結果と一致する。
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/ex1_2_poisson.png}
+\caption{ポアソン方程式の解：観測点$\boldsymbol{r}$と積分変数$\boldsymbol{r}'$（球殻断面）。電位は$\boldsymbol{r}'$を$b \leq r' \leq a$で積分して求める。}
+\label{fig:ex1_2_poisson}
+\end{figure}
+
 \section{問題3: ベクトルポテンシャルとビオ・サバールの法則}
 
 \subsection{問題}
@@ -403,6 +420,12 @@ $r = 0$の場合：
 \subsection{解答}
 
 \subsubsection{問題の理解と設定の明確化}
+
+\paragraph{用語の説明（初学者向け）}
+\begin{itemize}
+    \item \textbf{ベクトルポテンシャル$\boldsymbol{A}$}：磁束密度を$\boldsymbol{B} = \nabla \times \boldsymbol{A}$と表したときの$\boldsymbol{A}$。スカラーポテンシャルと同様、一意には決まらないが、$\nabla \cdot \boldsymbol{A} = 0$（クーロンゲージ）を課すと微分方程式が簡単になる。
+    \item \textbf{ビオ・サバールの法則}：電流分布が作る磁束密度$\boldsymbol{B}$を、空間積分で与える式。ここでは$\boldsymbol{A}$を先に求め、その回転として$\boldsymbol{B}$を導く。
+\end{itemize}
 
 アンペールの法則（変位電流を含む）：
 \begin{equation}
@@ -617,9 +640,9 @@ $u = a\tan\theta$と変数変換すると、$du = a\sec^2\theta d\theta$、$a^2 
 
 アンペールの法則を適用する。中心軸上で、半径$r$の円形ループを考える。$r < a$の場合、ループ内を貫く電流は$n I \times 2\pi r$（実際には、コイルの巻き方によって異なるが、理想的な場合を考える）。
 
-実際には、無限に長いソレノイドの場合、内部では磁場は一様で、外部ではゼロである。アンペールの法則を適用すると、内部では：
+実際には、無限に長いソレノイドの場合、内部では磁場は一様で、外部ではゼロである。アンペールの法則を適用する。軸に平行な長さ$L$の長方形ループを考え、一辺をソレノイド内部に取る。ループを貫く電流は、単位長さあたり$n$回巻きで1巻きあたり$I$だから、$n L I$である。したがって：
 \begin{equation}
-B \cdot 2\pi r = \mu_0 n I \cdot 2\pi r
+B \cdot L = \mu_0 n L I
 \end{equation}
 より$B = \mu_0 n I$が得られる。これは前の結果と一致する。
 

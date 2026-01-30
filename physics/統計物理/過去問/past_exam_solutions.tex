@@ -1,0 +1,53 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[no-math]{luatexja-fontspec}
+\setmainjfont{Hiragino Mincho ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\setsansjfont{Hiragino Kaku Gothic ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{float}
+\usepackage[draft=false]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdfusetitle=true
+}
+
+\title{統計物理1 過去問 解答・解説}
+\author{名古屋大学　理学部}
+\date{2023年度・2024年度・2025年度}
+
+% 目次には \section まで表示（「問題」「解答」の \subsection は出さない）
+\setcounter{tocdepth}{1}
+
+\begin{document}
+
+% 表紙：空白ページを出さずに1ページ目に表題を配置
+\begin{center}
+\vspace*{1.5cm}
+{\LARGE 統計物理1 過去問 解答・解説}\\[1.2cm]
+{\large 名古屋大学　理学部}\\[0.8cm]
+2023年度・2024年度・2025年度\\[1.5cm]
+\end{center}
+
+\tableofcontents
+\newpage
+
+\input{body/body_2023}
+\input{body/body_2024}
+\input{body/body_2025}
+
+\end{document}

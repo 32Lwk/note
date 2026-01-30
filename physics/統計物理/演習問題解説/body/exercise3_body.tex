@@ -1,0 +1,316 @@
+% 演習3 (2025/11/07実施)
+\section{演習3 (2025年11月7日実施)}
+
+\subsection{I. 理想気体の2状態を結ぶ3つの経路}
+
+\subsubsection{この問題で学ぶこと}
+
+状態量（内部エネルギー $U$）と過程量（仕事 $W$、熱 $Q$）の違い。$\Delta U$ は経路に依らないが、$W$ と $Q$ は経路で異なる。熱力学第1法則 $\Delta U = Q - W$ の適用。
+
+\subsubsection{問題}
+
+状態1 $(T_1, p_1, V_1)$ から状態2 $(T_2, p_2, V_2)$ へ至る3つの経路について、$\Delta U$、$W$、$Q$ を求めよ。
+\begin{enumerate}
+    \item 経路1：定積過程 $1 \to A$、定圧過程 $A \to 2$
+    \item 経路2：等温過程 $1 \to B$、定積過程 $B \to 2$
+    \item 経路3：断熱過程 $1 \to C$、定積過程 $C \to 2$
+\end{enumerate}
+
+\subsubsection{解答}
+
+\paragraph{前提知識：熱力学第1法則と状態量・過程量}
+
+エネルギー保存則の熱力学版が第1法則である。系の内部エネルギー $U$ の変化 $\Delta U$ は、系が吸収した熱 $Q$ から系が外界にした仕事 $W$ を引いたものに等しい：
+\begin{equation}
+\Delta U = Q - W
+\end{equation}
+\textbf{符号の慣習}：$Q > 0$ は系が熱を吸収、$W > 0$ は系が外界に仕事をする（膨張でピストンを押す場合）。
+
+\textbf{状態量と過程量の違い（重要）}：
+
+\begin{itemize}
+    \item \textbf{状態量}：現在の状態（$T$, $p$, $V$ など）だけで決まり、そこへ至る経路に依存しない。内部エネルギー $U$、エントロピー $S$ は状態量。
+    \item \textbf{過程量}：どの経路で変化したかに依存する。熱 $Q$ と仕事 $W$ は過程量。同じ状態1から状態2へ行くのに、経路が違えば $Q$ と $W$ は異なる。しかし $Q - W = \Delta U$ は常に同じ（$\Delta U$ が状態量だから）。
+\end{itemize}
+
+\paragraph{用語の説明}
+
+\begin{itemize}
+    \item \textbf{定積過程}：体積一定。$dV = 0$ より $W = \int p\,dV = 0$。ピストンを固定したまま加熱するイメージ。
+    \item \textbf{定圧過程}：圧力一定。$W = p \Delta V$。大気圧にさらして膨張・圧縮させる。
+    \item \textbf{等温過程}：温度一定。理想気体では $U$ が $T$ のみに依存するので $\Delta U = 0$、よって $Q = W$。
+    \item \textbf{断熱過程}：熱の出入りなし。$Q = 0$、したがって $\Delta U = -W$。断熱材で囲んだ変化。
+\end{itemize}
+
+\paragraph{導出の戦略}
+
+理想気体では $U = cNRT$ なので、$\Delta U = cNR(T_2 - T_1)$ は経路に依らない。各経路で、中間点の状態を状態方程式から求め、各過程の $W$, $Q$ を第1法則と過程の定義から計算する。
+
+\paragraph{基本事項}
+
+理想気体では $U = c N R T$（$c$ は $C_V/(NR)$ に相当する無次元定数、単原子なら $c = 3/2$）であり、$U$ は温度 $T$ のみの関数である。したがって、どの経路を通っても状態1から状態2への内部エネルギー変化は
+\begin{equation}
+\Delta U = cNR(T_2 - T_1)
+\end{equation}
+で、経路に依存しない。一方、$Q$ と $W$ は過程により異なる。
+
+\paragraph{経路1：定積 $\to$ 定圧}
+
+中間点Aは $V_A = V_1$（状態1と同じ体積）、$T_A = T_2$（状態2と同じ温度）。状態方程式 $pV = NRT$ より $p_A = NR T_2 / V_1$。
+
+\textbf{過程 $1 \to A$（定積）}：$W_{1A} = 0$。第1法則より $Q_{1A} = \Delta U_{1A} = cNR(T_2 - T_1)$。
+
+\textbf{過程 $A \to 2$（定圧）}：$W_{A2} = p_2(V_2 - V_1)$。$\Delta U_{A2} = cNR(T_2 - T_2) = 0$ なので $Q_{A2} = W_{A2} = p_2(V_2 - V_1)$。
+
+\textbf{合計}：$W_{(1)} = p_2(V_2 - V_1)$、$Q_{(1)} = cNR(T_2 - T_1) + p_2(V_2 - V_1)$。
+
+\textbf{なぜ $V_A=V_1$、$T_A=T_2$ か}：経路1の定義は「定積過程 $1\to A$、定圧過程 $A\to 2$」。定積では体積を変えないので $V_A = V_1$。次に定圧で $A\to 2$ とするので、$A$ では圧力 $p_A$ で、状態2に至る。状態2の温度は $T_2$ なので、定積 $1\to A$ の終点 $A$ では $T_A = T_2$ とするのが自然（定積で $T_1$ から $T_2$ まで温める）。
+
+\paragraph{経路2：等温 $\to$ 定積}
+
+中間点Bは $T_B = T_1$、$p_B = p_2$。$V_B = NR T_1 / p_2$。
+
+\textbf{過程 $1 \to B$（等温）}：$\Delta U_{1B} = 0$。$W_{1B} = \int_{V_1}^{V_B} p\,dV = NRT_1 \int_{V_1}^{V_B} \frac{dV}{V} = NRT_1 \ln(V_B/V_1)$。$pV = NRT$ より $V_B/V_1 = p_1/p_2$ なので $W_{1B} = NRT_1 \ln(p_1/p_2)$。$Q_{1B} = W_{1B}$。
+
+\textbf{過程 $B \to 2$（定積）}：$W_{B2} = 0$。$Q_{B2} = \Delta U_{B2} = cNR(T_2 - T_1)$。
+
+\textbf{合計}：$W_{(2)} = NRT_1 \ln(p_1/p_2)$、$Q_{(2)} = NRT_1 \ln(p_1/p_2) + cNR(T_2 - T_1)$。
+
+\textbf{なぜ $T_B=T_1$、$p_B=p_2$ か}：経路2は「等温過程 $1\to B$、定積過程 $B\to 2$」。等温では温度一定なので $T_B = T_1$。次に定積で $B\to 2$ なので、$B$ の体積は状態2の体積 $V_2$ に等しい。また、定積過程で状態2（$p_2,V_2,T_2$）に至るため、$B$ では $p_B = p_2$、$V_B = V_2$ である。状態方程式から $V_B = NRT_B/p_B = NRT_1/p_2$。
+
+\paragraph{経路3：断熱 $\to$ 定積}
+
+中間点Cは $V_C = V_2$、$T_C = T_2$（断熱過程の終点が状態2の体積・温度である）。断熱線 $T V^{\gamma-1} = \mathrm{const}$ より $T_1 V_1^{\gamma-1} = T_2 V_2^{\gamma-1}$ が成り立つ（状態1と2の関係によっては、経路が存在しない場合もあるが、ここでは状態2が断熱線上にあると仮定）。
+
+\textbf{過程 $1 \to C$（断熱）}：$Q_{1C} = 0$。$\Delta U_{1C} = cNR(T_2 - T_1)$ より $W_{1C} = -\Delta U_{1C} = -cNR(T_2 - T_1)$（系は膨張して仕事をしている）。
+
+\textbf{過程 $C \to 2$（定積）}：$W_{C2} = 0$。$Q_{C2} = \Delta U_{C2} = cNR(T_2 - T_2) = 0$（Cと2は同じ状態）。
+
+\textbf{合計}：$W_{(3)} = -cNR(T_2 - T_1)$、$Q_{(3)} = cNR(T_2 - T_1)$。
+
+\textbf{確認}：いずれの経路でも $\Delta U = cNR(T_2 - T_1)$ であり、$Q - W = \Delta U$ が成り立つ。$W$ と $Q$ は経路により異なるが、その差 $Q - W$ は常に $\Delta U$ に等しい。
+
+\textbf{まとめ}：内部エネルギー $U$ は状態量（経路に依存しない）であり、仕事 $W$ と熱 $Q$ は過程量（経路に依存する）である。この対比が本問題の教育的意図である。
+
+\textbf{比較表}：各経路の $W$、$Q$、$\Delta U$ をまとめると次のようになる。
+
+\begin{center}
+\begin{tabular}{lccc}
+\hline
+経路 & $W$ & $Q$ & $\Delta U$ \\
+\hline
+経路1（定積→定圧） & $p_2(V_2-V_1)$ & $cNR(T_2-T_1)+p_2(V_2-V_1)$ & $cNR(T_2-T_1)$ \\
+経路2（等温→定積） & $NRT_1\ln(p_1/p_2)$ & $NRT_1\ln(p_1/p_2)+cNR(T_2-T_1)$ & $cNR(T_2-T_1)$ \\
+経路3（断熱→定積） & $-cNR(T_2-T_1)$ & $cNR(T_2-T_1)$ & $cNR(T_2-T_1)$ \\
+\hline
+\end{tabular}
+\end{center}
+いずれも $\Delta U$ は同じで、$Q - W = \Delta U$ が成り立つ。図\ref{fig:ex3_paths}では経路1が緑、経路2が青、経路3が赤で示されている。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ex3_pv_paths.png}
+    \caption{3つの経路のT-V図。経路1は緑、経路2は青、経路3は赤。}
+    \label{fig:ex3_paths}
+\end{figure}
+
+%--------------------------------------
+\subsection{II. 2つの理想気体の熱接触}
+
+\subsubsection{この問題で学ぶこと}
+
+温度の異なる2つの系が熱接触すると、熱が高温から低温へ流れ、最終的に両者の温度が等しくなる（熱平衡）。断熱条件では全エネルギーが保存するため、平衡温度が決まる。
+
+\subsubsection{問題}
+
+2つの理想気体（系1: $(T_1, V)$、系2: $(T_2, V)$）が断熱壁で隔てられている。透熱壁に置き換えた後の平衡温度 $T$ を求めよ。
+
+\subsubsection{解答}
+
+\paragraph{前提知識：透熱壁と断熱壁}
+
+\textbf{断熱壁}：熱を通さない壁。2つの系を隔てると、熱のやりとりは起こらない。
+
+\textbf{透熱壁}：熱を通す壁。2つの系を接触させると、温度の高い方から低い方へ熱が流れる（第2法則）。やがて両方の温度が等しくなり、熱平衡に達する。
+
+\textbf{日常的な例}：熱いお茶と冷たい水を混ぜると、ぬるい温度になる。これは熱が高温側から低温側へ流れ、全体のエネルギーが保存しながら平衡に達するためである。
+
+\paragraph{導出の戦略}
+
+全体は断熱されているので、系1と系2の内部エネルギーの和は変化しない。平衡では両者の温度が $T$ に等しくなる。$U_1 + U_2 =$ 一定、かつ $U = cNRT$ の形から、$T$ を求める。
+
+\paragraph{エネルギー保存}
+
+系1のモル数を $N_1$、系2のモル数を $N_2$ とする。各系とも $U = cNR T$ の形だから、平衡温度を $T$ とすると
+\begin{equation}
+U_1 + U_2 = cN_1 R T_1 + cN_2 R T_2 = c(N_1 + N_2) R T
+\end{equation}
+両方の系が同じモル数 $N$、同じ体積 $V$ の場合、$N_1 = N_2 = N$ として
+\begin{equation}
+2cNR T = cNR(T_1 + T_2) \quad \Rightarrow \quad T = \frac{T_1 + T_2}{2}
+\end{equation}
+
+\textbf{答}：$T = \frac{T_1 + T_2}{2}$
+
+\textbf{設定の確認}：$N_1 = N_2 = N$、両系とも体積 $V$ が同じ、$c$ も同じと仮定している。比熱が異なる場合は $T = (c_1 N_1 T_1 + c_2 N_2 T_2)/(c_1 N_1 + c_2 N_2)$ となる。
+
+\textbf{平衡に達するまで}：熱接触直後は非平衡であるが、本問では最終的な平衡状態のみを扱う。熱は高温から低温へ流れる（第2法則）。この過程でエントロピーは増大する（演習5で詳述）。
+
+\textbf{直感的な理解}：$T_1 > T_2$ なら、系1から系2へ熱が流れ、系1は冷え系2は温まる。平衡温度 $T$ は $T_2 < T < T_1$ の範囲にあり、同じモル数・同じ $c$ のときは算術平均になる。
+
+\textbf{物理的意味と考察}：モル数や比熱が異なる場合は $T = (c_1 N_1 T_1 + c_2 N_2 T_2)/(c_1 N_1 + c_2 N_2)$ となる。熱容量が大きい系ほど、平衡温度への寄与が大きい。
+
+%--------------------------------------
+\subsection{III. Mayerサイクル}
+
+\subsubsection{この問題で学ぶこと}
+
+Mayerサイクルは、自由断熱膨張・等圧圧縮・等積加熱の3過程からなる。1サイクルで $\Delta U = 0$ であることと、各過程のエネルギー収支から、$C_p - C_V = R$（Mayerの関係式）を導く。
+
+\subsubsection{問題}
+
+自由断熱膨張 $1 \to 2$、等圧過程 $2 \to 3$、等積過程 $3 \to 1$ からなるMayerサイクルについて、各過程の $W$、$Q$、$\Delta U$ を求め、$C_p = C_V + R$ を確認せよ。
+
+\subsubsection{解答}
+
+\paragraph{前提知識：自由断熱膨張}
+
+\textbf{自由膨張}：壁を瞬間的に取り除き、気体が真空に膨張する。準静的ではなく、途中は非平衡。気体は外界に仕事をしない（真空を押しても仕事はゼロ）ので $W = 0$。断熱なので $Q = 0$。第1法則より $\Delta U = 0$。理想気体では $U$ が $T$ のみに依存するので、$T$ は不変。
+
+\textbf{サイクル}：状態1に戻る閉じた経路。1サイクルで $\Delta U_{\mathrm{tot}} = 0$（出発点と到着点が同じだから）。
+
+\paragraph{導出の戦略}
+
+各過程の $W$, $Q$, $\Delta U$ を個別に求める。1サイクルで $Q_{23} + Q_{31} = W_{\mathrm{cyc}}$ が成り立つ（$\Delta U = 0$ より）。$Q_{23}$, $Q_{31}$ を $C_p$, $C_V$ で表し、$W_{\mathrm{cyc}}$ を状態方程式から求めて、$C_p - C_V = R$ を得る。
+
+\paragraph{$C_p$ と $C_V$ の定義}
+
+定圧熱容量 $C_p = (\partial Q/\partial T)_p$：圧力一定で温度を $dT$ 上げるのに必要な熱 $dQ$。定積熱容量 $C_V = (\partial Q/\partial T)_V$：体積一定で温度を $dT$ 上げるのに必要な熱。理想気体では $C_V = cNR$（$c=3/2$ で単原子、$c=5/2$ で二原子分子常温）。
+
+\paragraph{過程の整理}
+
+状態1: $(p_1, V_1, T_1)$、状態2: $(p_2, V_2, T_1)$（$V_2 > V_1$、自由膨張で温度不変）、状態3: $(p_2, V_1, T_3)$。状態3は等圧圧縮 $2\to 3$ で体積を $V_2$ から $V_1$ に戻した点であり、$p_2$、$V_1$ を満たす。$1 \to 2$ は自由膨張（瞬間的、非準静的）、$2 \to 3$ は等圧圧縮、$3 \to 1$ は等積加熱。
+
+\paragraph{各過程の $W$、$Q$、$\Delta U$}
+
+\textbf{$1 \to 2$（自由断熱膨張）}：ピストンを一気に引くので、気体は仕事をしない（$W = 0$）。断熱なので $Q = 0$。第1法則より $\Delta U = 0$。理想気体では $U$ が $T$ のみに依存するので、$T_2 = T_1$ である。
+
+\textbf{$2 \to 3$（等圧過程）}：$W_{23} = p_2(V_1 - V_2) < 0$（外界が気体に仕事）。$\Delta U_{23} = cNR(T_3 - T_2) = cNR(T_3 - T_1)$。$Q_{23} = \Delta U_{23} + W_{23}$。定圧過程では $Q_{23} = C_p(T_3 - T_2) = C_p(T_3 - T_1)$。
+
+\textbf{$3 \to 1$（等積過程）}：$W_{31} = 0$。$\Delta U_{31} = cNR(T_1 - T_3)$。$Q_{31} = C_V(T_1 - T_3)$。
+
+\paragraph{$C_p = C_V + R$ の導出}
+
+1サイクルで $\Delta U_{\mathrm{tot}} = 0$ なので $Q_{23} + Q_{31} = W_{\mathrm{cyc}}$（外界がした正味の仕事）。また、系が吸収する熱の正味は $Q_{23} + Q_{31}$ である。
+
+$Q_{23} = C_p(T_3 - T_1)$、$Q_{31} = C_V(T_1 - T_3) = -C_V(T_3 - T_1)$。よって $Q_{23} + Q_{31} = (C_p - C_V)(T_3 - T_1)$。
+
+\textbf{$T_3 < T_1$ の理由}：状態2と3で $p_2$ が同じ。$p_2 V_1 = NR T_3$、$p_2 V_2 = NR T_1$。$V_1 < V_2$ だから $T_3 < T_1$ である。
+
+$T_3$ と $T_1$ の関係を求める。状態2と3で $p_2 V_1 = NR T_3$、$p_2 V_2 = NR T_2 = NR T_1$。したがって $T_3/T_1 = V_1/V_2 < 1$、つまり $T_3 < T_1$。ゆえに $T_3 - T_1 < 0$。
+
+1サイクルの仕事：$W_{\mathrm{cyc}} = W_{23} + W_{31} = p_2(V_1 - V_2)$。$Q_{23} + Q_{31} = W_{\mathrm{cyc}}$ より
+\begin{equation}
+(C_p - C_V)(T_3 - T_1) = p_2(V_1 - V_2)
+\end{equation}
+$p_2(V_1 - V_2) = NR(T_1 - T_3)$（状態2,3の $pV = NRT$ から）なので
+\begin{equation}
+(C_p - C_V)(T_3 - T_1) = NR(T_1 - T_3) = -NR(T_3 - T_1)
+\end{equation}
+$T_3 \neq T_1$ で割って $C_p - C_V = NR$。1モルあたりでは $C_p - C_V = R$。すなわち $C_p = C_V + R$（Mayerの関係式）。
+
+\textbf{直感的な理解}：定圧で温めると、体積も膨張する。その膨張に伴う仕事分、定積で温めるより多くの熱が必要。これが $C_p > C_V$ の理由である。
+
+\textbf{物理的意味と考察}：Mayerの関係式 $C_p = C_V + R$ は、1モルあたりの定圧熱容量が定積熱容量より気体定数 $R$ だけ大きいことを示す。単原子気体では $C_V = \frac{3}{2}R$、$C_p = \frac{5}{2}R$。二原子分子（常温）では $C_V = \frac{5}{2}R$、$C_p = \frac{7}{2}R$。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ex3_mayer_cycle.png}
+    \caption{Mayerサイクル。$1 \to 2$ は自由断熱膨張、$2 \to 3$ は等圧、$3 \to 1$ は等積。}
+    \label{fig:ex3_mayer}
+\end{figure}
+
+%--------------------------------------
+\subsection{IV. 大気の断熱減率}
+
+\subsubsection{この問題で学ぶこと}
+
+空気の塊が上昇して膨張するとき、周囲と熱交換がなければ断熱過程となる。断熱膨張で温度が下がる（断熱減率）。ポアソンの式 $pV^\gamma = \mathrm{const}$ と気圧の高度依存を組み合わせて、温度の高度勾配を導く。
+
+\subsubsection{問題}
+
+断熱過程で $pV^\gamma = \mathrm{const}$、$T p^{1/\gamma - 1} = \mathrm{const}$ が成り立つことを示し、気圧の式と組み合わせて $dT/dz = -(\gamma-1)Mg/(\gamma R)$ を導け。$\gamma = 1.41$ のとき、高度1kmあたりの温度低下を見積もれ。
+
+\subsubsection{解答}
+
+\paragraph{前提知識：断熱減率とは}
+
+\textbf{なぜ山頂は寒いか}：地表で温められた空気が上昇すると、気圧が下がり膨張する。膨張するとき気体は仕事をするが、周囲との熱交換がなければ（断熱）、内部エネルギーが減って温度が下がる。これが「断熱減率」の直感的な理由である。
+
+\textbf{比熱比 $\gamma$}：$\gamma = C_p/C_V$。単原子理想気体では $\gamma = 5/3$、二原子分子（常温）では $\gamma \approx 1.4$。
+
+\paragraph{導出の戦略}
+
+\begin{enumerate}
+    \item 断熱過程で $dQ = 0$、第1法則 $dU = -p\,dV$ と $dU = C_V dT$ から、$TV^{\gamma-1} = \mathrm{const}$ および $pV^\gamma = \mathrm{const}$（ポアソン式）を導く。
+    \item 状態方程式で $V$ を消し、$T p^{1/\gamma - 1} = \mathrm{const}$ を得る。
+    \item この式を $z$ で微分し、$dp/dz = -Mgp/(RT)$ を代入して $dT/dz$ を求める。
+\end{enumerate}
+
+\paragraph{ポアソンの式 $pV^\gamma = \mathrm{const}$ の導出}
+
+断熱過程では $dQ = 0$ なので、第1法則 $dU = dQ - p\,dV$ より $dU = -p\,dV$。理想気体で $dU = C_V dT$、$p = NRT/V$ だから
+\begin{equation}
+C_V dT = -\frac{NRT}{V} dV \quad \Rightarrow \quad \frac{dT}{T} + \frac{NR}{C_V} \frac{dV}{V} = 0
+\end{equation}
+$\gamma - 1 = C_p/C_V - 1 = (C_p - C_V)/C_V = R/C_V$（1モルあたり。Mayerの関係 $C_p - C_V = R$ を用いた）。$N$ モルでは $\frac{NR}{C_V} = \gamma - 1$。積分して
+\begin{equation}
+\ln T + (\gamma - 1) \ln V = \mathrm{const} \quad \Rightarrow \quad T V^{\gamma-1} = \mathrm{const}
+\end{equation}
+$pV = NRT$ より $T = pV/(NR)$ を代入すると $p V^{\gamma} = \mathrm{const}$（ポアソンの式）。
+
+\paragraph{$T p^{1/\gamma - 1} = \mathrm{const}$}
+
+$pV^\gamma = \mathrm{const}$ と $pV = NRT$ から $V$ を消す。$V = NRT/p$ なので $(NRT/p) \cdot p^\gamma = \mathrm{const}$、すなわち $T p^{\gamma-1}/p = T p^{\gamma-2} = \mathrm{const}$？ 正しくは $p V^\gamma = p (NRT/p)^\gamma = p^{1-\gamma} (NRT)^\gamma = \mathrm{const}$。$T^\gamma p^{1-\gamma} = \mathrm{const}$。両辺を $1/\gamma$ 乗して $T p^{(1-\gamma)/\gamma} = \mathrm{const}$。$(1-\gamma)/\gamma = 1/\gamma - 1$ なので $T p^{1/\gamma - 1} = \mathrm{const}$。
+
+\paragraph{微分形}
+
+$\ln T + (1/\gamma - 1) \ln p = \mathrm{const}$ を $z$ で微分して
+\begin{equation}
+\frac{1}{T} \frac{dT}{dz} + \left(\frac{1}{\gamma} - 1\right) \frac{1}{p} \frac{dp}{dz} = 0
+\end{equation}
+気圧の式 $dp/dz = -Mgp/(RT)$ を代入して
+\begin{equation}
+\frac{dT}{dz} = -T \left(\frac{1}{\gamma} - 1\right) \frac{1}{p} \cdot \left(-\frac{Mgp}{RT}\right) = \frac{(\gamma-1)Mg}{\gamma R} \cdot \frac{T}{p} \cdot \frac{p}{RT} \cdot \ldots
+\end{equation}
+計算：$T p^{(1-\gamma)/\gamma} = \mathrm{const}$ の両辺の対数をとり $z$ で微分する。
+\begin{equation}
+\frac{1}{T} \frac{dT}{dz} + \frac{1-\gamma}{\gamma} \cdot \frac{1}{p} \frac{dp}{dz} = 0
+\end{equation}
+気圧の式 $\frac{dp}{dz} = -\frac{Mgp}{RT}$ より $\frac{1}{p}\frac{dp}{dz} = -\frac{Mg}{RT}$。代入して
+\begin{equation}
+\frac{1}{T} \frac{dT}{dz} = -\frac{1-\gamma}{\gamma} \cdot \left(-\frac{Mg}{RT}\right) = \frac{1-\gamma}{\gamma} \cdot \frac{Mg}{RT}
+\end{equation}
+$1-\gamma < 0$ なので右辺は負。よって $\frac{dT}{dz} = T \cdot \frac{1-\gamma}{\gamma} \cdot \frac{Mg}{RT} = \frac{(1-\gamma)Mg}{\gamma R} = -\frac{(\gamma-1)Mg}{\gamma R}$
+\begin{equation}
+\frac{dT}{dz} = -\frac{(\gamma-1)Mg}{\gamma R}
+\end{equation}
+
+\paragraph{数値計算}
+
+$\gamma = 1.41$、$M = 28.9 \times 10^{-3}\,\mathrm{kg/mol}$、$g = 9.8\,\mathrm{m/s}^2$、$R = 8.32\,\mathrm{J/(mol{\cdot}K)}$ として
+\begin{equation}
+\left|\frac{dT}{dz}\right| = \frac{0.41 \times 28.9 \times 10^{-3} \times 9.8}{1.41 \times 8.32} \approx 9.8 \times 10^{-3}\,\mathrm{K/m} \approx 9.8\,\mathrm{K/km}
+\end{equation}
+高度が1 km 上がるごとに、約 10 K 温度が下がる。
+
+\paragraph{現実との対応}
+
+\textbf{環境減率と断熱減率の違い}：環境減率（約 6.5 K/km）は実際の大気の観測値。断熱減率（約 10 K/km）は、空気の塊が断熱的に上昇したときの理論値。水蒸気の凝結による潜熱放出で、実際の大気は断熱減率よりゆるやかに温度が下がる。実際の大気の「環境 lapse rate」は約 6.5 K/km で、断熱減率（約 10 K/km）より小さい。これは、水蒸気の凝結による潜熱放出や、地表からの放射などが影響するためである。それでも、乾いた空気の塊が上昇するときの冷却の目安として断熱減率は重要である。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/ex3_adiabatic_lapse.png}
+    \caption{大気の断熱減率に従う温度の高度分布。}
+    \label{fig:ex3_adiabatic}
+\end{figure}

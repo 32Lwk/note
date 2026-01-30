@@ -1,0 +1,181 @@
+% 演習5 (2025/12/05実施)
+\section{演習5 (2025年12月5日実施)}
+
+\subsection{I. 理想気体のエントロピー}
+
+\subsubsection{この問題で学ぶこと}
+
+エントロピー $S$ が状態量であり、経路に依らないこと。経路Aと経路Bで計算した結果が一致することで、$S$ が $(T,V)$ の一価関数であることを確認する。断熱自由膨張では $T$ は不変だが $S$ は増大する（不可逆過程）。
+
+\subsubsection{問題}
+
+$N$ mol の理想気体について、基準状態 $(T^*, V^*)$ のエントロピーを $S^*$ とする。
+\begin{enumerate}
+    \item 経路A（等温→断熱）で状態 $(T, V)$ に至るエントロピーを求めよ。
+    \item 経路B（断熱→等温）で同様に求め、一致することを確かめよ。
+    \item $dS = dU/T + (p/T)dV$ を積分して $S(T,V)$ を求めよ。
+    \item 断熱自由膨張で体積 $V_{\mathrm{final}}$ になった後の温度を求めよ。
+    \item 問4でエントロピーが増大することを示せ。
+\end{enumerate}
+
+\subsubsection{解答}
+
+\paragraph{前提知識：エントロピーとは}
+
+エントロピー $S$ は、熱力学第2法則に登場する状態量である。「乱雑さ」や不可逆性の度合いを表す。可逆過程では $dS = dQ_{\mathrm{rev}}/T$ で定義され、経路によらず一意的に定まる（状態量であることの数学的表現）。
+
+\textbf{なぜ経路に依存しないか}：$dS$ が $dQ/T$ の形で、可逆過程では $dQ$ が $T$ と $dV$ などで表せるため、$dS$ は完全微分になる。積分が経路に依らない。
+
+\textbf{断熱自由膨張}：壁を瞬間的に取り除いて膨張させる。$Q = 0$、$W = 0$ の不可逆過程。理想気体では $U$ が $T$ のみに依存するので温度は不変。しかし体積が増え、同じ温度・より大きい体積の状態は、より多くの「微視的状態」に対応する。エントロピーは増大する（クラウジウスの不等式 $dS \geq dQ/T$ で、$dQ=0$ のとき $dS > 0$）。
+
+\paragraph{導出の戦略}
+
+問1・2：経路Aと経路Bで $S(T,V)$ を計算し、一致することを確認する。経路Aは等温→断熱、経路Bは断熱→定積加熱。各区間で $dS = dQ/T$ を積分する。問3：$dS = dU/T + (p/T)dV$ を直接積分する。問4・5：断熱自由膨張では $\Delta U = 0$ だから $T$ 不変。エントロピーは $S(T,V)$ で $V$ が増えるから増大。
+
+\paragraph{問1: 経路A}
+
+経路A：$(T^*, V^*) \xrightarrow{\mathrm{等温}} (T^*, V') \xrightarrow{\mathrm{断熱}} (T, V)$。
+
+第1区間（等温）：等温では $dU=0$ なので $dQ = p\,dV$。$dS = dQ/T = p\,dV/T$。理想気体で $p/T = NR/V$ だから $dS = NR\,dV/V$。積分して $\Delta S_1 = NR \ln(V'/V^*)$。
+
+第2区間（断熱）：$dQ = 0$ なので $dS = 0$、$\Delta S_2 = 0$。
+
+$V'$ は、$(T^*, V')$ から $(T, V)$ への断熱線上の点である。断熱線 $T V^{\gamma-1} = \mathrm{const}$ より $T^* (V')^{\gamma-1} = T V^{\gamma-1}$、したがって $V' = V (T/T^*)^{1/(\gamma-1)}$。
+
+よって
+\begin{equation}
+S - S^* = NR \ln\frac{V'}{V^*} = NR \ln\left[\frac{V}{V^*}\left(\frac{T}{T^*}\right)^{\frac{1}{\gamma-1}}\right]
+\end{equation}
+$\gamma - 1 = R/C_V = 1/c$（$c = C_V/(NR)$）を用いると
+\begin{equation}
+S - S^* = NR \ln\frac{V}{V^*} + NR \cdot c \ln\frac{T}{T^*} = NR\left[\ln\frac{V}{V^*} + c \ln\frac{T}{T^*}\right]
+\end{equation}
+
+\paragraph{問2: 経路B}
+
+経路B：$(T^*, V^*) \xrightarrow{\mathrm{断熱}} (T', V) \xrightarrow{\text{定積加熱}} (T, V)$。
+
+第1区間（断熱）：$dS = 0$、$\Delta S_1 = 0$。
+
+第2区間：体積 $V$ を一定にしたまま、温度を $T'$ から $T$ まで変化させる。\textbf{注意}：この区間は「等温過程」ではなく、定積過程である。$dQ = C_V dT$、$dS = C_V dT/T$。積分して $\Delta S_2 = C_V \ln(T/T') = NRc \ln(T/T')$。
+
+断熱線 $T V^{\gamma-1} = \mathrm{const}$ より $T^*(V^*)^{\gamma-1} = T' V^{\gamma-1}$、したがって $T' = T^* (V^*/V)^{\gamma-1}$。
+
+$\ln(T/T') = \ln(T/T^*) - (\gamma-1)\ln(V^*/V) = \ln(T/T^*) + (\gamma-1)\ln(V/V^*)$ である。
+
+$\Delta S_2 = C_V \ln(T/T') = C_V \ln(T/T^*) + C_V(\gamma-1)\ln(V/V^*)$。ここで $C_V = cNR$、$C_V(\gamma-1) = C_V \cdot (C_p-C_V)/C_V = C_p - C_V = R$（1 mol あたり）だから、$N$ mol では $C_V(\gamma-1) = NR$。したがって
+\begin{equation}
+\Delta S_2 = NRc \ln\frac{T}{T^*} + NR \ln\frac{V}{V^*}
+\end{equation}
+ゆえに $S - S^* = NR\left[c \ln\frac{T}{T^*} + \ln\frac{V}{V^*}\right]$。経路Aの結果と一致する。
+
+\paragraph{問3: 直接積分}
+
+$dS = \frac{dU}{T} + \frac{p}{T}dV$。理想気体では $dU = C_V dT$、$p/T = NR/V$ だから
+\begin{equation}
+dS = \frac{C_V}{T}dT + \frac{NR}{V}dV
+\end{equation}
+積分して（$C_V = cNR$ を用い）
+\begin{equation}
+S - S^* = cNR \ln\frac{T}{T^*} + NR \ln\frac{V}{V^*}
+\end{equation}
+
+\paragraph{問4: 断熱自由膨張後の温度}
+
+断熱自由膨張では $Q = 0$、$W = 0$ なので $\Delta U = 0$。理想気体では $U$ が $T$ のみの関数だから $T$ は不変。膨張後の温度は $T$ のままである。
+
+\paragraph{問5: エントロピー増大}
+
+膨張前 $(T, V)$、膨張後 $(T, V_{\mathrm{f}})$（$V_{\mathrm{f}} > V$）。問3の結果より
+\begin{equation}
+\Delta S = S(T, V_{\mathrm{f}}) - S(T, V) = NR \ln\frac{V_{\mathrm{f}}}{V} > 0
+\end{equation}
+不可逆過程ではエントロピーが増大する（クラウジウスの不等式）。
+
+\textbf{なぜ経路が違っても $S$ が同じなのか}：エントロピー $S$ は状態 $(T, V)$ の関数であり、どの可逆経路で計算しても同じ値になる。これは $dS = dQ/T$ が完全微分であることの帰結である。経路A（等温→断熱）と経路B（断熱→定積加熱）は異なる経路だが、出発点と到着点が同じなので、積分 $\int dS$ は等しい。図\ref{fig:ex5_paths}の2つの経路で計算した $S - S^*$ が一致することは、$S$ が状態量であることの確認である。
+
+\textbf{なぜ断熱自由膨張でエントロピーが増えるのか}：$Q = 0$ なので可逆的な $dS = dQ/T$ では $dS = 0$ だが、自由膨張は不可逆過程である。クラウジウスの不等式 $dS > dQ/T$（不可逆では不等号）より、$dQ = 0$ のときでも $dS > 0$ となり得る。微視的には、気体が広い領域に広がることで「とり得る配置の数」が増え、エントロピー（乱雑さの尺度）が増大する。図\ref{fig:ex5_free_expansion}を参照。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{figures/ex5_entropy_paths.png}
+    \caption{エントロピー計算の2つの経路（T-V図）。経路Aは赤（等温→断熱）、経路Bは緑（断熱→定積加熱）。どちらで計算しても $S(T,V)$ は同じ。}
+    \label{fig:ex5_paths}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/ex5_free_expansion.png}
+    \caption{断熱自由膨張の概念図。壁を瞬間的に取り除くと、気体は真空に膨張する。$Q=0$、$W=0$ なので $\Delta U=0$。理想気体では $T$ 不変だが、体積が増えるため $S$ は増大する。}
+    \label{fig:ex5_free_expansion}
+\end{figure}
+
+%--------------------------------------
+\subsection{II. 自由断熱膨張とエントロピー}
+
+\subsubsection{この問題で学ぶこと}
+
+一般の系（理想気体でなくても）で、断熱自由膨張が不可逆であることを、エネルギーとエントロピーから示す。自由膨張後、同じ体積に準静的断熱で戻すと、内部エネルギーが増加する。エントロピーが温度の増加関数であることから、$\Delta S > 0$ が導かれる。
+
+\subsubsection{問題}
+
+一般の系で断熱自由膨張 $(T,V) \to (T', V')$ の後、準静的断熱過程で $(T'', V)$ に戻す。$U(T'', V) > U(T', V')$、したがって $T'' > T'$ を示し、エントロピーが温度の増加関数であることから $\Delta S > 0$ を導け。
+
+\subsubsection{解答}
+
+\paragraph{導出の戦略}
+
+自由膨張では $Q=0$, $W=0$ だから $\Delta U = 0$。準静的断熱圧縮では、外界が系に仕事をするので系の $U$ は増加。$U$ が $T$ の増加関数なら $T'' > T'$。可逆断熱では $dS=0$、自由膨張は不可逆なので $S(T',V') > S(T,V)$。$S$ が $T$ の増加関数なら $S(T'',V) > S(T',V')$ と合わせて、自由膨張で $\Delta S > 0$。
+
+\paragraph{計算の詳細}
+
+断熱自由膨張では $\Delta U = 0$ なので $U(T', V') = U(T, V)$。準静的断熱圧縮 $(T', V') \to (T'', V)$ では、外界が系に仕事をするので $W > 0$（系が受け取る仕事）。断熱なので $Q = 0$、第1法則より $\Delta U = W > 0$。したがって $U(T'', V) > U(T', V')$。内部エネルギーが $T$ の増加関数なら $T'' > T'$。エントロピーも $T$ の増加関数なので $S(T'', V) > S(T', V')$。自由膨張 $(T,V) \to (T', V')$ は不可逆過程であり、可逆な断熱過程ではエントロピーは不変なので、$S(T', V') > S(T, V)$ が成り立つ。すなわち $\Delta S > 0$。
+
+%--------------------------------------
+\subsection{III--IV. 2つの系の熱接触とエントロピー}
+
+\subsubsection{この問題で学ぶこと}
+
+温度の異なる2つの系が熱接触して平衡に達するとき、エントロピーは増大する（不可逆過程）。相加・相乗平均の関係から $\Delta S \geq 0$ を示す。また、系が熱源と接触して温度変化するとき、クラウジウスの不等式 $\Delta S - Q/T \geq 0$ が成り立つ。
+
+\subsubsection{問題}
+
+2つの理想気体（各1mol、体積$V$、温度 $T_1$、$T_2$）が断熱壁で隔てられている。透熱壁に置き換えた後の平衡温度 $T_3$、全エントロピーの増加を求めよ。また熱源との接触でのエントロピー増大則 $\Delta S_A - Q/T > 0$ を確認せよ。
+
+\subsubsection{解答}
+
+\paragraph{導出の戦略}
+
+平衡温度はエネルギー保存から $T_3 = (T_1 + T_2)/2$。エントロピー変化は、理想気体の $S(T,V)$ を用いて、終状態と初期状態の差を計算する。$T_3^2 \geq T_1 T_2$（相加・相乗平均）から $\Delta S \geq 0$ を示す。熱源との接触では、系の $\Delta S_A$ と熱源のエントロピー変化 $-Q/T$ の和が正であることを確認する。
+
+\paragraph{平衡温度}
+
+エネルギー保存より $T_3 = (T_1 + T_2)/2$。
+
+\paragraph{エントロピー増加}
+
+エントロピー $S = NR\ln(T^c V/N) + NS_0$ を用いる。初期：$S_{\mathrm{init}} = S(T_1, V) + S(T_2, V)$。終期：$S_{\mathrm{fin}} = 2S(T_3, V)$。$\Delta S = 2S(T_3) - S(T_1) - S(T_2) = 2NRc \ln T_3 - NRc(\ln T_1 + \ln T_2) = NRc \ln(T_3^2/(T_1 T_2))$。$T_3 = (T_1 + T_2)/2$ のとき、相加・相乗平均の関係から $T_3^2 \geq T_1 T_2$（等号は $T_1 = T_2$ のみ）。よって $\Delta S \geq 0$。
+
+\paragraph{熱源との接触}
+
+系が温度 $T$ の熱源と接触して $T_A$ から $T$ へ変化するとき、系のエントロピー変化は $\Delta S_A = NRc \ln(T/T_A)$、吸収する熱は $Q = C_V(T - T_A) = cNR(T - T_A)$。クラウジウスの不等式は $\Delta S_{\mathrm{tot}} = \Delta S_A - Q/T > 0$（熱源のエントロピー変化が $-Q/T$）。計算すると $\Delta S_A - Q/T = NRc\left(\ln\frac{T}{T_A} - \frac{T-T_A}{T}\right)$。$x = T/T_A > 1$ とおくと $\ln x - (x-1)/x > 0$ が成り立つ（$f(x) = \ln x - (x-1)/x$ は $f(1) = 0$、$f'(x) > 0$ for $x > 1$）。
+
+%--------------------------------------
+\subsection{V. ファンデルワールス気体}
+
+\subsubsection{問題}
+
+ファンデルワールス気体のエントロピーを求め、断熱自由膨張後の温度 $T'$ および $\Delta S$ を計算せよ。
+
+\subsubsection{解答}
+
+\textbf{方針}：$dS = dU/T + (p/T)dV$ に $U = cNRT - aN^2/V$、$p = NRT/(V-bN) - aN^2/V^2$ を代入する。$dU = cNR\,dT + (aN^2/V^2)dV$、$p/T = NR/(V-bN) - aN^2/(TV^2)$。これらを代入すると $dS$ が $dT$ と $dV$ の線形結合になり、全微分となる（積分可能）。積分してあるいは断熱線 $T^c(V-bN) = \mathrm{const}$ に沿って $dS = 0$ を用い、等温線に沿う寄与を積分する。結果は
+\begin{equation}
+S = NRc \ln T + NR \ln(V - bN) + \mathrm{const}
+\end{equation}
+
+断熱自由膨張で $U$ は不変。$U = cNRT - aN^2/V$ より $cNRT - aN^2/V = cNRT' - aN^2/V'$。$V' > V$ のとき $aN^2(1/V - 1/V') > 0$ なので $T' > T$（分子間引力のポテンシャルエネルギーが増えるため、運動エネルギー＝温度が上がる）。
+
+$\Delta S = S(T', V') - S(T, V) = NRc \ln(T'/T) + NR \ln\frac{V'-bN}{V-bN}$。$T' > T$ かつ $V' > V$ なので $\Delta S > 0$。
+
+\textbf{なぜファンデルワールス気体では自由膨張で温度が上がるのか}：理想気体では $U$ が $T$ のみの関数なので $\Delta U = 0$ から $T$ 不変。ファンデルワールス気体では $U = cNRT - aN^2/V$ であり、$V$ が増えると $-aN^2/V$ の項（分子間引力のポテンシャルエネルギー）が増える。$U$ が不変なので、運動エネルギー（$\propto T$）が増えて温度が上昇する。これはジュール・トムソン効果の一例である。

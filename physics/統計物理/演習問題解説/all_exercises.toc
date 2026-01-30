@@ -1,0 +1,234 @@
+\contentsline {section}{\numberline {1}演習1 (2025年10月10日実施)}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}I. 部屋を温めるための熱}{4}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}問題}{4}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}解答}{4}{subsubsection.1.1.2}%
+\contentsline {paragraph}{この問題で学ぶこと}{4}{section*.2}%
+\contentsline {paragraph}{解き方の流れ}{4}{section*.3}%
+\contentsline {paragraph}{用語の説明（初学者向け）}{4}{section*.4}%
+\contentsline {paragraph}{問題の理解と設定}{4}{section*.5}%
+\contentsline {paragraph}{使用する物理法則}{4}{section*.6}%
+\contentsline {paragraph}{問1: 必要な熱量の計算}{5}{section*.7}%
+\contentsline {paragraph}{物理的意味}{5}{section*.8}%
+\contentsline {paragraph}{問2: 暖房にかかる時間}{5}{section*.9}%
+\contentsline {subsection}{\numberline {1.2}II. 理想気体の状態方程式の絵}{6}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}この問題で学ぶこと}{6}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}問題}{6}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}解答}{6}{subsubsection.1.2.3}%
+\contentsline {paragraph}{用語の説明}{6}{section*.10}%
+\contentsline {paragraph}{軸の対応}{7}{section*.11}%
+\contentsline {paragraph}{図の説明}{7}{section*.12}%
+\contentsline {subsection}{\numberline {1.3}III. 気体分子の速さ}{8}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}この問題で学ぶこと}{8}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}問題}{8}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}解答}{8}{subsubsection.1.3.3}%
+\contentsline {paragraph}{用語の説明}{8}{section*.13}%
+\contentsline {paragraph}{問1: 分子の速さ}{9}{section*.14}%
+\contentsline {paragraph}{問2: 音速}{9}{section*.15}%
+\contentsline {paragraph}{物理的意味・補足}{10}{section*.16}%
+\contentsline {subsection}{\numberline {1.4}IV. ガウス積分}{10}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}この問題で学ぶこと}{10}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}問題}{10}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.3}解答}{10}{subsubsection.1.4.3}%
+\contentsline {paragraph}{用語の説明}{10}{section*.17}%
+\contentsline {paragraph}{問1: 正規化定数 $C$}{11}{section*.18}%
+\contentsline {paragraph}{問2: 平均 $\langle x \rangle $}{11}{section*.19}%
+\contentsline {paragraph}{問3: 分散}{11}{section*.20}%
+\contentsline {subsection}{\numberline {1.5}V. ガンマ関数}{13}{subsection.1.5}%
+\contentsline {subsubsection}{\numberline {1.5.1}この問題で学ぶこと}{13}{subsubsection.1.5.1}%
+\contentsline {subsubsection}{\numberline {1.5.2}問題}{13}{subsubsection.1.5.2}%
+\contentsline {subsubsection}{\numberline {1.5.3}解答}{13}{subsubsection.1.5.3}%
+\contentsline {paragraph}{用語の説明}{13}{section*.21}%
+\contentsline {paragraph}{証明の方針}{13}{section*.22}%
+\contentsline {paragraph}{部分積分の実行}{13}{section*.23}%
+\contentsline {paragraph}{帰納的な計算}{13}{section*.24}%
+\contentsline {section}{\numberline {2}演習2 (2025年10月24日実施)}{14}{section.2}%
+\contentsline {subsection}{\numberline {2.1}I. ファンデルワールスの状態方程式}{14}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}この問題で学ぶこと}{14}{subsubsection.2.1.1}%
+\contentsline {subsubsection}{\numberline {2.1.2}問題}{14}{subsubsection.2.1.2}%
+\contentsline {subsubsection}{\numberline {2.1.3}解答}{14}{subsubsection.2.1.3}%
+\contentsline {paragraph}{前提知識：理想気体と実在気体}{14}{section*.25}%
+\contentsline {paragraph}{導出の戦略}{14}{section*.26}%
+\contentsline {paragraph}{用語の説明}{14}{section*.27}%
+\contentsline {paragraph}{問1: 理想気体への帰着}{15}{section*.28}%
+\contentsline {paragraph}{問2: 臨界点}{15}{section*.29}%
+\contentsline {paragraph}{問3: 無次元化}{16}{section*.30}%
+\contentsline {subsection}{\numberline {2.2}II. 気体のする仕事}{17}{subsection.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.1}この問題で学ぶこと}{17}{subsubsection.2.2.1}%
+\contentsline {subsubsection}{\numberline {2.2.2}問題}{17}{subsubsection.2.2.2}%
+\contentsline {subsubsection}{\numberline {2.2.3}解答}{17}{subsubsection.2.2.3}%
+\contentsline {paragraph}{前提知識：仕事と $p$-$V$ 図}{17}{section*.31}%
+\contentsline {paragraph}{導出の戦略}{17}{section*.32}%
+\contentsline {paragraph}{理想気体}{18}{section*.33}%
+\contentsline {paragraph}{ファンデルワールス気体}{18}{section*.34}%
+\contentsline {paragraph}{「変な答え」の意味}{18}{section*.35}%
+\contentsline {subsection}{\numberline {2.3}III. 圧力の高さ依存性}{18}{subsection.2.3}%
+\contentsline {subsubsection}{\numberline {2.3.1}この問題で学ぶこと}{18}{subsubsection.2.3.1}%
+\contentsline {subsubsection}{\numberline {2.3.2}問題}{18}{subsubsection.2.3.2}%
+\contentsline {subsubsection}{\numberline {2.3.3}解答}{19}{subsubsection.2.3.3}%
+\contentsline {paragraph}{前提知識：圧力と力のつり合い}{19}{section*.36}%
+\contentsline {paragraph}{導出の戦略}{19}{section*.37}%
+\contentsline {paragraph}{問題の理解}{19}{section*.38}%
+\contentsline {paragraph}{力のつり合い}{19}{section*.39}%
+\contentsline {paragraph}{密度の表式}{19}{section*.40}%
+\contentsline {paragraph}{圧力が半分になる高さ}{19}{section*.41}%
+\contentsline {subsection}{\numberline {2.4}IV. 示量変数と示強変数}{21}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}この問題で学ぶこと}{21}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}問題}{21}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}解答}{21}{subsubsection.2.4.3}%
+\contentsline {paragraph}{前提知識：示量変数と示強変数の違い}{21}{section*.42}%
+\contentsline {paragraph}{導出の戦略}{21}{section*.43}%
+\contentsline {paragraph}{オイラーの関係式の導出}{22}{section*.44}%
+\contentsline {paragraph}{$f_i$ が示強変数であること}{22}{section*.45}%
+\contentsline {paragraph}{問3の具体例}{22}{section*.46}%
+\contentsline {section}{\numberline {3}演習3 (2025年11月7日実施)}{22}{section.3}%
+\contentsline {subsection}{\numberline {3.1}I. 理想気体の2状態を結ぶ3つの経路}{22}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}この問題で学ぶこと}{22}{subsubsection.3.1.1}%
+\contentsline {subsubsection}{\numberline {3.1.2}問題}{22}{subsubsection.3.1.2}%
+\contentsline {subsubsection}{\numberline {3.1.3}解答}{23}{subsubsection.3.1.3}%
+\contentsline {paragraph}{前提知識：熱力学第1法則と状態量・過程量}{23}{section*.47}%
+\contentsline {paragraph}{用語の説明}{23}{section*.48}%
+\contentsline {paragraph}{導出の戦略}{23}{section*.49}%
+\contentsline {paragraph}{基本事項}{23}{section*.50}%
+\contentsline {paragraph}{経路1：定積 $\to $ 定圧}{23}{section*.51}%
+\contentsline {paragraph}{経路2：等温 $\to $ 定積}{23}{section*.52}%
+\contentsline {paragraph}{経路3：断熱 $\to $ 定積}{24}{section*.53}%
+\contentsline {subsection}{\numberline {3.2}II. 2つの理想気体の熱接触}{25}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}この問題で学ぶこと}{25}{subsubsection.3.2.1}%
+\contentsline {subsubsection}{\numberline {3.2.2}問題}{25}{subsubsection.3.2.2}%
+\contentsline {subsubsection}{\numberline {3.2.3}解答}{25}{subsubsection.3.2.3}%
+\contentsline {paragraph}{前提知識：透熱壁と断熱壁}{25}{section*.54}%
+\contentsline {paragraph}{導出の戦略}{25}{section*.55}%
+\contentsline {paragraph}{エネルギー保存}{26}{section*.56}%
+\contentsline {subsection}{\numberline {3.3}III. Mayerサイクル}{26}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}この問題で学ぶこと}{26}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}問題}{26}{subsubsection.3.3.2}%
+\contentsline {subsubsection}{\numberline {3.3.3}解答}{26}{subsubsection.3.3.3}%
+\contentsline {paragraph}{前提知識：自由断熱膨張}{26}{section*.57}%
+\contentsline {paragraph}{導出の戦略}{26}{section*.58}%
+\contentsline {paragraph}{$C_p$ と $C_V$ の定義}{26}{section*.59}%
+\contentsline {paragraph}{過程の整理}{26}{section*.60}%
+\contentsline {paragraph}{各過程の $W$、$Q$、$\Delta U$}{27}{section*.61}%
+\contentsline {paragraph}{$C_p = C_V + R$ の導出}{27}{section*.62}%
+\contentsline {subsection}{\numberline {3.4}IV. 大気の断熱減率}{28}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}この問題で学ぶこと}{28}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}問題}{28}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}解答}{28}{subsubsection.3.4.3}%
+\contentsline {paragraph}{前提知識：断熱減率とは}{28}{section*.63}%
+\contentsline {paragraph}{導出の戦略}{28}{section*.64}%
+\contentsline {paragraph}{ポアソンの式 $pV^\gamma = \mathrm {const}$ の導出}{29}{section*.65}%
+\contentsline {paragraph}{$T p^{1/\gamma - 1} = \mathrm {const}$}{29}{section*.66}%
+\contentsline {paragraph}{微分形}{29}{section*.67}%
+\contentsline {paragraph}{数値計算}{29}{section*.68}%
+\contentsline {paragraph}{現実との対応}{30}{section*.69}%
+\contentsline {section}{\numberline {4}演習4 (2025年11月21日実施)}{30}{section.4}%
+\contentsline {subsection}{\numberline {4.1}I. 最大仕事の原理}{30}{subsection.4.1}%
+\contentsline {subsubsection}{\numberline {4.1.1}この問題で学ぶこと}{30}{subsubsection.4.1.1}%
+\contentsline {subsubsection}{\numberline {4.1.2}問題}{30}{subsubsection.4.1.2}%
+\contentsline {subsubsection}{\numberline {4.1.3}解答}{31}{subsubsection.4.1.3}%
+\contentsline {paragraph}{前提知識：最大仕事の原理}{31}{section*.70}%
+\contentsline {paragraph}{導出の戦略}{31}{section*.71}%
+\contentsline {paragraph}{問1}{31}{section*.72}%
+\contentsline {paragraph}{問2}{31}{section*.73}%
+\contentsline {paragraph}{問3}{31}{section*.74}%
+\contentsline {paragraph}{問4}{31}{section*.75}%
+\contentsline {paragraph}{問5}{31}{section*.76}%
+\contentsline {subsection}{\numberline {4.2}II. 熱機関の効率}{32}{subsection.4.2}%
+\contentsline {subsubsection}{\numberline {4.2.1}問題}{32}{subsubsection.4.2.1}%
+\contentsline {subsubsection}{\numberline {4.2.2}解答}{32}{subsubsection.4.2.2}%
+\contentsline {paragraph}{前提知識：熱機関と効率}{32}{section*.77}%
+\contentsline {paragraph}{導出の戦略}{33}{section*.78}%
+\contentsline {paragraph}{カルノー機関}{33}{section*.79}%
+\contentsline {paragraph}{オットー機関}{33}{section*.80}%
+\contentsline {subsection}{\numberline {4.3}III. 内部エネルギーの方程式}{33}{subsection.4.3}%
+\contentsline {subsubsection}{\numberline {4.3.1}問題}{33}{subsubsection.4.3.1}%
+\contentsline {subsubsection}{\numberline {4.3.2}解答}{33}{subsubsection.4.3.2}%
+\contentsline {paragraph}{なぜこの式が成り立つのか（導出の原理）}{33}{section*.81}%
+\contentsline {paragraph}{微小カルノーサイクル}{34}{section*.82}%
+\contentsline {subsection}{\numberline {4.4}IV--V. ファンデルワールス気体と断熱線}{34}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}問題}{34}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}解答}{34}{subsubsection.4.4.2}%
+\contentsline {paragraph}{内部エネルギー}{34}{section*.83}%
+\contentsline {paragraph}{断熱線}{35}{section*.84}%
+\contentsline {paragraph}{2つの断熱線が交わらないこと}{35}{section*.85}%
+\contentsline {section}{\numberline {5}演習5 (2025年12月5日実施)}{35}{section.5}%
+\contentsline {subsection}{\numberline {5.1}I. 理想気体のエントロピー}{35}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}この問題で学ぶこと}{35}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}問題}{36}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}解答}{36}{subsubsection.5.1.3}%
+\contentsline {paragraph}{前提知識：エントロピーとは}{36}{section*.86}%
+\contentsline {paragraph}{導出の戦略}{36}{section*.87}%
+\contentsline {paragraph}{問1: 経路A}{36}{section*.88}%
+\contentsline {paragraph}{問2: 経路B}{36}{section*.89}%
+\contentsline {paragraph}{問3: 直接積分}{37}{section*.90}%
+\contentsline {paragraph}{問4: 断熱自由膨張後の温度}{37}{section*.91}%
+\contentsline {paragraph}{問5: エントロピー増大}{37}{section*.92}%
+\contentsline {subsection}{\numberline {5.2}II. 自由断熱膨張とエントロピー}{38}{subsection.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.1}この問題で学ぶこと}{38}{subsubsection.5.2.1}%
+\contentsline {subsubsection}{\numberline {5.2.2}問題}{39}{subsubsection.5.2.2}%
+\contentsline {subsubsection}{\numberline {5.2.3}解答}{39}{subsubsection.5.2.3}%
+\contentsline {paragraph}{導出の戦略}{39}{section*.93}%
+\contentsline {paragraph}{計算の詳細}{39}{section*.94}%
+\contentsline {subsection}{\numberline {5.3}III--IV. 2つの系の熱接触とエントロピー}{39}{subsection.5.3}%
+\contentsline {subsubsection}{\numberline {5.3.1}この問題で学ぶこと}{39}{subsubsection.5.3.1}%
+\contentsline {subsubsection}{\numberline {5.3.2}問題}{39}{subsubsection.5.3.2}%
+\contentsline {subsubsection}{\numberline {5.3.3}解答}{39}{subsubsection.5.3.3}%
+\contentsline {paragraph}{導出の戦略}{39}{section*.95}%
+\contentsline {paragraph}{平衡温度}{39}{section*.96}%
+\contentsline {paragraph}{エントロピー増加}{39}{section*.97}%
+\contentsline {paragraph}{熱源との接触}{40}{section*.98}%
+\contentsline {subsection}{\numberline {5.4}V. ファンデルワールス気体}{40}{subsection.5.4}%
+\contentsline {subsubsection}{\numberline {5.4.1}問題}{40}{subsubsection.5.4.1}%
+\contentsline {subsubsection}{\numberline {5.4.2}解答}{40}{subsubsection.5.4.2}%
+\contentsline {section}{\numberline {6}演習6 (2025年12月19日実施)}{40}{section.6}%
+\contentsline {subsection}{\numberline {6.1}I. 熱力学の関係式}{40}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}この問題で学ぶこと}{40}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}問題}{40}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}解答}{41}{subsubsection.6.1.3}%
+\contentsline {paragraph}{前提知識：熱力学の基本関係式}{41}{section*.99}%
+\contentsline {paragraph}{導出の戦略}{41}{section*.100}%
+\contentsline {paragraph}{マクスウェル関係式の導出}{41}{section*.101}%
+\contentsline {paragraph}{問1}{41}{section*.102}%
+\contentsline {paragraph}{問2}{41}{section*.103}%
+\contentsline {subsection}{\numberline {6.2}II. 輪ゴムの熱力学}{42}{subsection.6.2}%
+\contentsline {subsubsection}{\numberline {6.2.1}この問題で学ぶこと}{42}{subsubsection.6.2.1}%
+\contentsline {subsubsection}{\numberline {6.2.2}問題}{42}{subsubsection.6.2.2}%
+\contentsline {subsubsection}{\numberline {6.2.3}解答}{42}{subsubsection.6.2.3}%
+\contentsline {paragraph}{前提知識：気体との対応}{42}{section*.104}%
+\contentsline {paragraph}{自由エネルギー}{42}{section*.105}%
+\contentsline {paragraph}{内部エネルギー}{42}{section*.106}%
+\contentsline {subsection}{\numberline {6.3}III. 理想気体の熱力学関数}{43}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {6.3.1}問題}{43}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {6.3.2}解答}{43}{subsubsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.4}IV--V. 2成分混合気体とポアソン分布}{43}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {6.4.1}この問題で学ぶこと}{43}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {6.4.2}問題}{43}{subsubsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {6.4.3}解答}{43}{subsubsection.6.4.3}%
+\contentsline {paragraph}{導出の戦略}{43}{section*.107}%
+\contentsline {paragraph}{混合のエントロピー}{43}{section*.108}%
+\contentsline {paragraph}{ポアソン分布}{44}{section*.109}%
+\contentsline {section}{\numberline {7}演習7 (2026年1月9日実施)}{45}{section.7}%
+\contentsline {subsection}{\numberline {7.1}I. スターリングの公式}{45}{subsection.7.1}%
+\contentsline {subsubsection}{\numberline {7.1.1}この問題で学ぶこと}{45}{subsubsection.7.1.1}%
+\contentsline {subsubsection}{\numberline {7.1.2}問題}{45}{subsubsection.7.1.2}%
+\contentsline {subsubsection}{\numberline {7.1.3}解答}{45}{subsubsection.7.1.3}%
+\contentsline {paragraph}{前提知識：ラプラス近似とは}{45}{section*.110}%
+\contentsline {paragraph}{$\Gamma (x+1)$ への適用}{45}{section*.111}%
+\contentsline {subsection}{\numberline {7.2}II. D次元球の体積}{47}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}問題}{47}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}解答}{47}{subsubsection.7.2.2}%
+\contentsline {paragraph}{ガウス積分}{47}{section*.112}%
+\contentsline {paragraph}{球座標への変換}{47}{section*.113}%
+\contentsline {subsection}{\numberline {7.3}III. 調和振動子の分配関数}{48}{subsection.7.3}%
+\contentsline {subsubsection}{\numberline {7.3.1}この問題で学ぶこと}{48}{subsubsection.7.3.1}%
+\contentsline {subsubsection}{\numberline {7.3.2}問題}{48}{subsubsection.7.3.2}%
+\contentsline {subsubsection}{\numberline {7.3.3}解答}{48}{subsubsection.7.3.3}%
+\contentsline {paragraph}{前提知識：分配関数とは}{48}{section*.114}%
+\contentsline {paragraph}{1個の振動子}{48}{section*.115}%
+\contentsline {paragraph}{平均エネルギー}{48}{section*.116}%
+\contentsline {subsection}{\numberline {7.4}IV. 古典理想気体}{48}{subsection.7.4}%
+\contentsline {subsubsection}{\numberline {7.4.1}この問題で学ぶこと}{48}{subsubsection.7.4.1}%
+\contentsline {subsubsection}{\numberline {7.4.2}問題}{49}{subsubsection.7.4.2}%
+\contentsline {subsubsection}{\numberline {7.4.3}解答}{49}{subsubsection.7.4.3}%
+\contentsline {paragraph}{導出の戦略}{49}{section*.117}%
+\contentsline {paragraph}{分配関数の計算}{49}{section*.118}%
+\contentsline {paragraph}{状態数 $W_N(E)$}{49}{section*.119}%

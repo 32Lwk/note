@@ -10,6 +10,8 @@ import os
 
 def main():
     """すべての図生成スクリプトを実行"""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    parent_dir = os.path.dirname(script_dir)  # 演習問題解答
     scripts = [
         'generate_figures_ex1.py',
         'generate_figures_ex2.py',
@@ -21,12 +23,13 @@ def main():
     ]
     
     for script in scripts:
-        if os.path.exists(script):
+        script_path = os.path.join(script_dir, script)
+        if os.path.exists(script_path):
             print(f"\n{'='*60}")
             print(f"実行中: {script}")
             print(f"{'='*60}")
             try:
-                subprocess.run([sys.executable, script], check=True)
+                subprocess.run([sys.executable, script_path], check=True, cwd=parent_dir)
             except subprocess.CalledProcessError as e:
                 print(f"エラー: {script} の実行に失敗しました: {e}")
         else:

@@ -1,0 +1,227 @@
+%======================================================================
+% 2024年度 統計物理1 本試験（2024年1月24日 10:30--12:00）
+%======================================================================
+\part{2024年度 本試験}
+\setcounter{section}{0}
+
+\section{問題I：断熱自由膨張とエントロピー変化}
+
+\subsection{問題}
+
+$N$ モルの理想気体のエントロピー $S(T,V)$ と内部エネルギー $U(T,V)$ は以下で与えられる（$T$：温度、$V$：体積、$R$：気体定数、$c$, $S_0$：定数）：
+\begin{align}
+S(T,V) &= NR \ln\left(\frac{T^c V}{N}\right) + N S_0, \\
+U(T,V) &= c N R T.
+\end{align}
+
+\begin{enumerate}
+\item 系が断熱自由膨張により状態 $(T,V)$ から $(T',V')$ へ変化したとする（$V < V'$）。$T'$ を $T$, $V$, $V'$, $c$, $R$, $N$ のいずれかの記号を用いて表せ。
+\item 問1の後、系を準静的断熱過程により $(T',V')$ から $(T'',V)$ ともとの体積 $V$ まで圧縮する。一連の操作
+\[
+(T,V) \xrightarrow{\text{断熱自由膨張}} (T',V')
+\xrightarrow{\text{準静的断熱過程}} (T'',V)
+\]
+における、初期状態 $(T,V)$ と終状態 $(T'',V)$ のエントロピー変化を、$T$, $V$, $V'$, $c$, $R$, $N$ のいずれかの記号を用いて表せ。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{用語の説明}
+\begin{itemize}
+\item \textbf{断熱自由膨張}：外界と熱のやりとりがなく（断熱）、外から仕事もされない条件下で気体が膨張する過程。非準静的で不可逆。内部エネルギーは変化しない（$Q=0$, $W=0$ より $\Delta U=0$）。
+\item \textbf{準静的断熱過程}：断熱しながら無限にゆっくり変化させる過程。可逆とみなせる。このときエントロピーは一定。
+\end{itemize}
+
+\paragraph{問1：断熱自由膨張後の温度 $T'$}
+
+断熱自由膨張では $Q=0$, $W=0$ なので $\Delta U = 0$。理想気体では $U = c N R T$ であり、$U$ は $T$ のみに依存するので、$U$ が変わらなければ $T$ も変わらない。したがって
+\begin{equation}
+\boxed{T' = T}.
+\end{equation}
+
+\paragraph{なぜ温度が変わらないか（原理的な説明）}
+
+断熱自由膨張では、外界と熱のやりとりがなく（$Q=0$）、また気体が外に仕事をしない（$W=0$）。熱力学第一法則 $dU = \delta Q - \delta W$ より $\Delta U = 0$ である。理想気体では内部エネルギー $U$ は温度 $T$ のみの関数（$U = c N R T$）であり、体積 $V$ には依存しない。したがって、体積が $V$ から $V'$ に増えても $U$ が一定なら $T$ も不変である。\textbf{理想気体の断熱自由膨張では温度は変化しない}。これは理想気体の仮定（分子間力なし）に基づく結果であり、実在気体ではジュールの実験でわかるようにわずかに温度が変化する場合がある。
+
+\paragraph{問2：一連の操作のエントロピー変化}
+
+初期状態のエントロピーは $S_{\mathrm{i}} = NR\ln(T^c V/N) + N S_0$。終状態 $(T'',V)$ のエントロピーは $S_{\mathrm{f}} = NR\ln((T'')^c V/N) + N S_0$。したがって
+\begin{equation}
+\Delta S = S_{\mathrm{f}} - S_{\mathrm{i}}
+= NR \ln\frac{(T'')^c}{T^c}
+= N R c \ln\frac{T''}{T}.
+\end{equation}
+問1より $T' = T$。準静的断熱過程 $(T',V') \to (T'',V)$ ではエントロピーが一定なので、理想気体の断熱過程の関係式 $T V^{R/c_N} = \mathrm{const}$（または $T^{(c)} V^{(\cdots)} = \mathrm{const}$）を用いる。理想気体の断熱過程では $T V^{\gamma-1} = \mathrm{const}$ であり、$c$ は $U = c N R T$ の係数なので、$C_V = c N R$、$C_p = (c+1) N R$、$\gamma = (c+1)/c$。よって $T V^{\gamma-1} = T' (V')^{\gamma-1}$、すなわち $T'' V^{(\gamma-1)} = T' (V')^{(\gamma-1)}$。$T' = T$ なので
+\begin{equation}
+T'' = T \left(\frac{V'}{V}\right)^{\gamma-1} = T \left(\frac{V'}{V}\right)^{1/c}.
+\end{equation}
+（$U = c N R T$ より $dU = c N R \,dT$、断熱で $dU = -p\,dV$、$p = NRT/V$ より $c N R \,dT = -(NRT/V)\,dV$、積分して $c \ln T = -\ln V + \mathrm{const}$、つまり $T^c V = \mathrm{const}$。したがって $T'' (V)^1 = T' (V')^1$ ではなく、正しくは $T^c V$ が一定：$(T')^c V' = (T'')^c V$。$T'=T$ なので $T^c V' = (T'')^c V$、よって $T'' = T (V'/V)^{1/c}$。）
+
+これを $\Delta S$ に代入する：
+\begin{equation}
+\Delta S = N R c \ln\frac{T''}{T}
+= N R c \ln\left(\frac{V'}{V}\right)^{1/c}
+= N R \ln\frac{V'}{V}.
+\end{equation}
+よって
+\begin{equation}
+\boxed{\Delta S = N R \ln\frac{V'}{V}}.
+\end{equation}
+（$V' > V$ なので $\Delta S > 0$。断熱自由膨張は不可逆過程のため、エントロピーが増大する。）
+
+\paragraph{なぜエントロピーが増大するか（物理的考察）}
+
+一連の操作のうち、\textbf{断熱自由膨張} $(T,V) \to (T',V')$ は不可逆過程である。気体が急に膨張するため、途中の状態は平衡ではなく、同じ体積変化を準静的に行う経路と比べて「無秩序に」広がる。熱力学第二法則により、孤立系の不可逆過程ではエントロピーは増大する。準静的断熱過程 $(T',V') \to (T'',V)$ ではエントロピーは一定なので、\textbf{全体の $\Delta S$ は断熱自由膨張の段階で生じたエントロピー増加} $N R \ln(V'/V)$ に等しい。$V' > V$ なので $\ln(V'/V) > 0$ であり、気体がより広い体積に広がった分だけ「配置の無秩序さ」が増し、エントロピーが増えたと解釈できる。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/past2024_ex1_why_entropy.png}
+\caption{問題I：断熱自由膨張で気体が $V \to V'$ に広がるとエントロピーが増大する。準静的断熱圧縮では $S$ 一定。}
+\label{fig:past2024_ex1_why_entropy}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/past2024_ex1_path.png}
+\caption{問題Iの過程：$(T,V) \to (T',V')$（断熱自由膨張）、$(T',V') \to (T'',V)$（準静的断熱圧縮）。}
+\label{fig:past2024_ex1_path}
+\end{figure}
+
+%----------------------------------------------------------------------
+\section{問題II：左右に仕切られた容器内の理想気体}
+%----------------------------------------------------------------------
+
+\subsection{問題}
+
+体積 $V$ の断熱壁の容器が、中央で左右に仕切られた透熱壁で分かれている。透熱壁は左右に自由に動ける。系の温度を $T$ とする。左に $N_A$ モル、右に $N_B$ モルの単原子分子理想気体が入っており、左右の圧力は釣り合い、熱平衡にある。
+
+$N_A$ モルと $N_B$ モルの2種類の（単原子）理想気体からなる混合系のエントロピーは
+\begin{equation}
+S(T,V,N_A,N_B) = N_A R \ln\frac{T^c V}{N_A} + N_A S_{0,A}
++ N_B R \ln\frac{T^c V}{N_B} + N_B S_{0,B}
+\end{equation}
+で与えられる（$c$, $S_{0,A}$, $S_{0,B}$ は定数）。
+
+\begin{enumerate}
+\item 左右が同一種の気体の場合、左右を隔てる壁を静かに取り外した。十分時間が経った後の全エントロピー変化 $\Delta S$ を、$T$, $R$, $c$, $N_A$, $N_B$ で表せ。
+\item 左右が異なる種類の気体の場合、壁にかかる圧力 $p$ を、$T$, $R$, $c$, $V$, $N_A$, $N_B$ で表せ。
+\item 問2の状況で壁を静かに取り外した。十分時間が経った後のエントロピー変化 $\Delta S$ を、$V$ を用いずに表せ。
+\item 問3で求めた全エントロピー変化が非負であることを示せ。
+\item 問3の終状態における気体Aの化学ポテンシャル $\mu_A$ を導け。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{記号と設定}
+
+左室：体積 $V_A$、モル数 $N_A$、圧力 $p$。右室：体積 $V_B$、モル数 $N_B$、圧力 $p$。透熱壁で温度 $T$ が共通。圧力釣り合い：$p V_A = N_A R T$、$p V_B = N_B R T$。全体の体積は $V = V_A + V_B$。
+
+\paragraph{問1：同一種で壁を取り外したときの $\Delta S$}
+
+初期：左室 $S_A^{\mathrm{i}} = N_A R \ln(T^c V_A/N_A) + N_A S_0$、右室 $S_B^{\mathrm{i}} = N_B R \ln(T^c V_B/N_B) + N_B S_0$（同一種なので $S_{0,A}=S_{0,B}=S_0$）。終状態：全体で体積 $V$、モル数 $N_A+N_B$、温度 $T$。混合後のエントロピーは、単一の理想気体として
+\begin{equation}
+S_{\mathrm{f}} = (N_A+N_B) R \ln\frac{T^c V}{N_A+N_B} + (N_A+N_B) S_0.
+\end{equation}
+初期の全エントロピーは
+\begin{equation}
+S_{\mathrm{i}} = N_A R \ln\frac{T^c V_A}{N_A} + N_A S_0
++ N_B R \ln\frac{T^c V_B}{N_B} + N_B S_0.
+\end{equation}
+変化は
+\begin{align}
+\Delta S &= (N_A+N_B) R \ln\frac{T^c V}{N_A+N_B}
+- N_A R \ln\frac{T^c V_A}{N_A}
+- N_B R \ln\frac{T^c V_B}{N_B} \notag \\
+&= N_A R \ln\frac{V}{V_A}\frac{N_A}{N_A+N_B}
++ N_B R \ln\frac{V}{V_B}\frac{N_B}{N_A+N_B}.
+\end{align}
+$V_A/N_A = V_B/N_B = RT/p$（同一温度・同一圧力で同一種なのでモル比で体積が分かれる）より $V_A = V N_A/(N_A+N_B)$、$V_B = V N_B/(N_A+N_B)$。したがって
+\begin{equation}
+\frac{V}{V_A} = \frac{N_A+N_B}{N_A}, \quad
+\frac{V}{V_B} = \frac{N_A+N_B}{N_B}.
+\end{equation}
+$V_A = V N_A/(N_A+N_B)$、$V_B = V N_B/(N_A+N_B)$ を代入すると、
+$\frac{V}{V_A}\frac{N_A}{N_A+N_B} = \frac{N_A+N_B}{N_A}\cdot\frac{N_A}{N_A+N_B} = 1$、同様に $\frac{V}{V_B}\frac{N_B}{N_A+N_B} = 1$。したがって
+\begin{equation}
+\Delta S = N_A R \ln 1 + N_B R \ln 1 = 0.
+\end{equation}
+同一種で圧力・温度が釣り合っているとき、壁を取り外してもマクロな状態は変わらず可逆である。よって
+\begin{equation}
+\boxed{\Delta S = 0}.
+\end{equation}
+
+\paragraph{なぜ同一種では $\Delta S = 0$ か（物理的考察）}
+
+左右が同一種の気体で、透熱壁で温度 $T$ が共通、圧力も釣り合っているとき、左室の体積 $V_A$ と右室の体積 $V_B$ の比は $V_A : V_B = N_A : N_B$ である。壁を取り外すと、両方の気体が全体積 $V = V_A + V_B$ に広がるが、\textbf{同一種なので区別がつかず}、マクロには「$N_A+N_B$ モルの同一気体が体積 $V$ にある」という1つの平衡状態になる。初期状態も、圧力・温度が同じなので、実質同じマクロ状態を別の仕切り方で表現しているに過ぎない。したがって可逆的に壁を元に戻せ、$\Delta S = 0$ である。
+
+\paragraph{問2：異なる種類のとき壁にかかる圧力 $p$}
+
+左室の状態方程式：$p V_A = N_A R T$（単原子理想気体）。右室：$p V_B = N_B R T$。壁にかかる圧力は左右で等しく、釣り合いのとき左から $p$、右から $p$ なので、壁に働く正味の力は 0。壁にかかる圧力の「大きさ」は $p$ である。左室の体積を $V_A$ とすると $p V_A = N_A R T$、$V_A + V_B = V$、$p V_B = N_B R T$ より $p(V_A+V_B) = (N_A+N_B) R T$、よって $p = (N_A+N_B) R T / V$。したがって
+\begin{equation}
+\boxed{p = \frac{(N_A+N_B) R T}{V}}.
+\end{equation}
+
+\paragraph{問3：異なる種類で壁を取り外したときの $\Delta S$（$V$ を用いずに）}
+
+初期：左室 $N_A$ モル・体積 $V_A$・温度 $T$、右室 $N_B$ モル・体積 $V_B$・温度 $T$。$V_A + V_B = V$。終状態：混合気体、体積 $V$、温度 $T$、$N_A$ モルの気体Aと $N_B$ モルの気体Bが同じ体積 $V$ を占める。
+
+初期エントロピー：
+\begin{equation}
+S_{\mathrm{i}} = N_A R \ln\frac{T^c V_A}{N_A} + N_A S_{0,A}
++ N_B R \ln\frac{T^c V_B}{N_B} + N_B S_{0,B}.
+\end{equation}
+終状態：気体Aは体積 $V_A$ から $V$ に、気体Bは $V_B$ から $V$ に広がる。混合系のエントロピーは（各成分が体積 $V$ を持つとして）
+\begin{equation}
+S_{\mathrm{f}} = N_A R \ln\frac{T^c V}{N_A} + N_A S_{0,A}
++ N_B R \ln\frac{T^c V}{N_B} + N_B S_{0,B}.
+\end{equation}
+よって
+\begin{equation}
+\Delta S = N_A R \ln\frac{V}{V_A} + N_B R \ln\frac{V}{V_B}.
+\end{equation}
+$V$ を用いずに表すには、$p V_A = N_A R T$、$p V_B = N_B R T$、$p V = (N_A+N_B) R T$ より $V_A = N_A R T/p$、$V = (N_A+N_B) R T/p$、したがって $V/V_A = (N_A+N_B)/N_A$、同様に $V/V_B = (N_A+N_B)/N_B$。よって
+\begin{equation}
+\boxed{\Delta S = N_A R \ln\frac{N_A+N_B}{N_A} + N_B R \ln\frac{N_A+N_B}{N_B}}.
+\end{equation}
+
+\paragraph{問4：$\Delta S \ge 0$ の証明}
+
+$x_A = N_A/(N_A+N_B)$、$x_B = N_B/(N_A+N_B)$ とおく（$x_A+x_B=1$）。すると
+\begin{equation}
+\frac{\Delta S}{R} = -(N_A+N_B)(x_A \ln x_A + x_B \ln x_B).
+\end{equation}
+$0 < x_A, x_B < 1$ のとき $x_A \ln x_A \le 0$、$x_B \ln x_B \le 0$（等号は $x=1$ のときのみ）なので $\Delta S \ge 0$。等号は $x_A=1$ または $x_B=1$、すなわち一方だけが存在するとき。
+
+\paragraph{なぜ異種混合で $\Delta S > 0$ か（物理的考察）}
+
+異なる種類の気体（例：ネオンとアルゴン）が壁を取り外して混合すると、\textbf{各気体が相手の領域にも広がる}。気体Aは体積 $V_A$ から $V$ に、気体Bは $V_B$ から $V$ に広がり、両方が同じ空間を占める。異種なので「どちらがどちらか」は区別でき、この「混合」は不可逆である（自然には分離しない）。配置の取り方が増えた分だけエントロピーが増大し、$\Delta S = N_A R \ln[(N_A+N_B)/N_A] + N_B R \ln[(N_A+N_B)/N_B] > 0$ となる。熱力学第二法則（孤立系のエントロピーは減少しない）の反映である。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/past2024_ex2_entropy_same_diff.png}
+\caption{問題II：同一種で壁を取り外すと $\Delta S = 0$（可逆）。異種で混合すると $\Delta S > 0$（不可逆）。}
+\label{fig:past2024_ex2_entropy}
+\end{figure}
+
+\paragraph{問5：終状態の気体Aの化学ポテンシャル $\mu_A$}
+
+化学ポテンシャルは $\mu_A = (\partial G/\partial N_A)_{T,p,N_B}$ または、ギブス自由エネルギー $G = U - TS + pV$ から、理想気体では $\mu_A = \mu_A^0(T) + R T \ln(p_A/p^0)$。終状態では気体Aの分圧は $p_A = p \cdot N_A/(N_A+N_B) = (N_A/(N_A+N_B)) \cdot (N_A+N_B) R T / V = N_A R T / V$。標準状態を $p^0$ とすると
+\begin{equation}
+\mu_A = \mu_A^0(T) + R T \ln\frac{p_A}{p^0}
+= \mu_A^0(T) + R T \ln\frac{N_A R T}{V p^0}.
+\end{equation}
+あるいは、モル分率 $x_A = N_A/(N_A+N_B)$ と全圧 $p$ を用いて $p_A = x_A p$ なので
+\begin{equation}
+\boxed{\mu_A = \mu_A^0(T) + R T \ln\frac{x_A p}{p^0}}.
+\end{equation}
+
+\paragraph{化学ポテンシャルの物理的意味}
+
+化学ポテンシャル $\mu_A$ は、成分Aの粒子を1モル追加したときのギブス自由エネルギー $G$ の増分である。理想気体では $\mu_A = \mu_A^0(T) + R T \ln(p_A/p^0)$ となり、\textbf{分圧 $p_A$ が高いほど $\mu_A$ は大きい}。混合後の終状態では、気体Aは全圧 $p$ のうち分圧 $p_A = x_A p$ で存在する。$x_A < 1$ なので $p_A < p$ であり、純粋なAだけのときより $\mu_A$ は低くなる。これは「混合によってAの化学ポテンシャルが下がり、拡散が進む」という直感と一致する。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/past2024_ex2_setup.png}
+\caption{問題IIの設定：透熱壁で仕切られた容器。左 $N_A$ モル、右 $N_B$ モル。}
+\label{fig:past2024_ex2_setup}
+\end{figure}

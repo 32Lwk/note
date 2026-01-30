@@ -1,0 +1,413 @@
+% 演習1 (2025/10/10実施)
+\section{演習1 (2025年10月10日実施)}
+
+\subsection{I. 部屋を温めるための熱}
+
+\subsubsection{問題}
+
+体積 $V = 27\,\mathrm{m}^3$、1気圧、天井の高さ2mの部屋を考える。空気の定積比熱 $C_v = 0.7\,\mathrm{J/(g{\cdot}deg)}$（定数と仮定）、空気の密度 $\rho = 1.3 \times 10^{-3}\,\mathrm{g/cm}^3$ とする。
+
+\begin{enumerate}
+    \item 0℃の部屋を20℃まで温めるのに必要な熱量（J）を求めよ。定積条件下とする。
+    \item 問1の熱量を供給するのにかかる時間を求めよ。エアコンの暖房能力を $P = 2000\,\mathrm{W}$ と仮定する。
+\end{enumerate}
+
+\subsubsection{解答}
+
+\paragraph{この問題で学ぶこと}
+
+熱量計算の基本（質量、比熱、温度変化から熱量を求める）と、単位の換算・整合性の確認。定積条件のもとで、供給した熱がすべて内部エネルギーの増加に使われる。
+
+\paragraph{解き方の流れ}
+
+\begin{enumerate}
+    \item 密度と体積から空気の質量を求める（単位換算に注意）
+    \item 定積比熱の式 $Q = m C_v \Delta T$ に代入して熱量を計算
+    \item 問2：仕事率 $P$ を用いて、時間 $t = Q/P$ を求める
+\end{enumerate}
+
+\paragraph{用語の説明（初学者向け）}
+
+\begin{itemize}
+    \item \textbf{定積比熱 $C_v$}：体積を一定に保ったまま、物質の単位質量（1 g）の温度を1 K（または1 ℃）上げるのに必要な熱量である。単位は $\mathrm{J/(g{\cdot}K)}$ や $\mathrm{J/(g{\cdot}deg)}$。
+    \item \textbf{なぜ定積条件か}：部屋の空気を温めるとき、窓や壁がしっかりしていれば体積はほぼ一定とみなせる。現実には多少の膨張はあるが、近似として定積を仮定する。
+    \item \textbf{定積過程}：体積 $V$ を変えずに行う状態変化。このとき気体は仕事をしない（$W = 0$）ので、供給した熱量はすべて内部エネルギーの増加に使われる。
+    \item \textbf{セルシウスとケルビン}：温度の差を考えるとき、0℃と20℃の差は20 Kである。熱力学では絶対温度（ケルビン）を用いる。$T(\mathrm{K}) = T(℃) + 273.15$ であり、$\Delta T = 20\,\mathrm{K}$ である。
+\end{itemize}
+
+\paragraph{問題の理解と設定}
+
+部屋の空気を 0℃（273 K）から 20℃（293 K）まで温めるのに必要な熱量を求める。部屋の体積と空気の密度から空気の質量を求め、定積比熱の定義を用いて熱量を計算する。
+
+\paragraph{使用する物理法則}
+
+定積比熱の定義：
+\begin{equation}
+C_v = \frac{1}{m}\left(\frac{\partial Q}{\partial T}\right)_V
+\end{equation}
+添字 $_V$ は「体積 $V$ を固定して」という意味である。つまり、体積を変えずに温度だけを微小に $dT$ 変化させたとき、必要な熱量は $dQ = m C_v \, dT$ である。
+
+\textbf{$Q = m C_v \Delta T$ が成り立つ条件}：$C_v$ が定数と仮定されているとき、$dQ = m C_v \, dT$ を温度 $T_1$ から $T_2$ まで積分すると、この式が得られる。$C_v$ が温度に依存する場合は、積分 $\int m C_v(T)\,dT$ が必要になる。
+
+$C_v$ が定数と仮定されているので、温度 $T_1$ から $T_2$ まで積分すると
+\begin{equation}
+Q = \int_{T_1}^{T_2} m C_v \, dT = m C_v (T_2 - T_1) = m C_v \Delta T
+\end{equation}
+が成り立つ。
+
+\paragraph{問1: 必要な熱量の計算}
+
+\textbf{ステップ1：単位の換算}
+
+密度の単位を SI 系に揃える。$1\,\mathrm{g} = 10^{-3}\,\mathrm{kg}$、$1\,\mathrm{cm} = 10^{-2}\,\mathrm{m}$ より $1\,\mathrm{cm}^3 = 10^{-6}\,\mathrm{m}^3$ である。したがって
+\begin{equation}
+\rho = 1.3 \times 10^{-3}\,\frac{\mathrm{g}}{\mathrm{cm}^3}
+= 1.3 \times 10^{-3} \times \frac{10^{-3}\,\mathrm{kg}}{10^{-6}\,\mathrm{m}^3}
+= 1.3 \times 10^{-3} \times 10^{3}\,\frac{\mathrm{kg}}{\mathrm{m}^3}
+= 1.3\,\frac{\mathrm{kg}}{\mathrm{m}^3}
+\end{equation}
+（$1\,\mathrm{g/cm}^3 = 1000\,\mathrm{kg/m}^3$ を用いた。）すなわち、$1\,\mathrm{m}^3$ の空気の質量は 1.3 kg である。
+
+\textbf{ステップ2：空気の質量}
+
+\begin{equation}
+m = \rho V = 1.3\,\frac{\mathrm{kg}}{\mathrm{m}^3} \times 27\,\mathrm{m}^3 = 35.1\,\mathrm{kg} = 3.51 \times 10^4\,\mathrm{g}
+\end{equation}
+
+\textbf{ステップ3：熱量}
+
+$\Delta T = 293 - 273 = 20\,\mathrm{K}$ として
+\begin{align}
+Q &= m C_v \Delta T = 3.51 \times 10^4\,\mathrm{g} \times 0.7\,\frac{\mathrm{J}}{\mathrm{g{\cdot}K}} \times 20\,\mathrm{K} \\
+&= 4.914 \times 10^5\,\mathrm{J} \approx 4.9 \times 10^5\,\mathrm{J} = 490\,\mathrm{kJ}
+\end{align}
+
+\textbf{答}：約 $4.9 \times 10^5\,\mathrm{J}$（約 490 kJ）
+
+\paragraph{物理的意味}
+
+490 kJ は、1 kWh $= 3.6 \times 10^6\,\mathrm{J}$ の約 0.14 倍である。したがって、約 0.14 kWh の電気エネルギーに相当する。家庭用エアコンで数分程度の消費量である。
+
+\textbf{単位のチェック}：$m$ は g または kg、$C_v$ は J/(g$\cdot$K)、$\Delta T$ は K。$m C_v \Delta T$ の単位は $\mathrm{g} \cdot \mathrm{J/(g{\cdot}K)} \cdot \mathrm{K} = \mathrm{J}$ となり、熱量の単位と一致する。
+
+\paragraph{問2: 暖房にかかる時間}
+
+仕事率 $P$ は単位時間あたりのエネルギーで、$P = dQ/dt$ と定義される。次元は $\mathrm{J/s} = \mathrm{W}$（ワット）である。熱量 $Q$ を仕事率 $P$ で供給するのに要する時間は
+\begin{equation}
+t = \frac{Q}{P} = \frac{4.914 \times 10^5\,\mathrm{J}}{2000\,\mathrm{W}} = \frac{4.914 \times 10^5}{2000}\,\mathrm{s} = 245.7\,\mathrm{s} \approx 4.1\,\mathrm{分}
+\end{equation}
+（$\mathrm{J/W} = \mathrm{J/(J/s)} = \mathrm{s}$ である。）
+
+\textbf{答}：約 4.1 分
+
+\textbf{補足}：実際の暖房では、壁や窓からの熱損失があるため、部屋を一定温度に保つには継続的に熱を供給する必要があり、温めるだけでも通常はもう少し時間がかかる場合がある。
+
+\textbf{なぜ $Q = m C_v \Delta T$ で求まるのか}：定積比熱 $C_v$ の定義は「単位質量を1 K温めるのに必要な熱量」である。質量 $m$ を $\Delta T$ K 温めるには、その積 $m \times C_v \times \Delta T$ が必要になる。これは線形関係（比例）であり、図\ref{fig:ex1_heat_capacity}のように $Q$-$T$ グラフでは傾き $m C_v$ の直線になる。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ex1_heat_capacity.png}
+    \caption{定積条件での熱量と温度変化の関係。$Q = m C_v \Delta T$ は比例関係であり、直線の傾きが $m C_v$ である。}
+    \label{fig:ex1_heat_capacity}
+\end{figure}
+
+%--------------------------------------
+\subsection{II. 理想気体の状態方程式の絵}
+
+\subsubsection{この問題で学ぶこと}
+
+状態方程式 $pV = NRT$ が $(p, V, T)$ 空間に曲面を定めること。等温線・等圧線・等積線は、その曲面を異なる方向で切った切り口である。後の熱力学（エントロピー、経路）の議論の基礎となる可視化である。
+
+\subsubsection{問題}
+
+理想気体の状態方程式 $pV = NRT$ において、$V$ を $x$ 軸、$p$ を $y$ 軸、$T$ を $z$ 軸とする3次元図をスケッチせよ。等温線、等圧線、等積線を書き入れよ。
+
+\subsubsection{解答}
+
+\paragraph{用語の説明}
+
+\begin{itemize}
+    \item \textbf{状態方程式}：気体の圧力 $p$、体積 $V$、温度 $T$ の間に成り立つ関係式。理想気体では $pV = NRT$（$N$ はモル数、$R$ は気体定数）。$N$ と $R$ を一定とすると、この式は「$p,V,T$ のうち2つを決めれば残り1つが決まる」ことを意味し、平衡状態を一意に定める。
+    \item \textbf{等温線}：温度 $T$ を一定にしたときの $p$ と $V$ の関係。$pV = NRT = \mathrm{const}$ なので、$p = \mathrm{const}/V$ となり、$p$-$V$ 平面では直角双曲線（反比例のグラフ）になる。
+    \item \textbf{等圧線}：圧力 $p$ を一定にしたときの $V$ と $T$ の関係。$V = (NR/p)T$ なので $V \propto T$ の直線。
+    \item \textbf{等積線}：体積 $V$ を一定にしたときの $p$ と $T$ の関係。$p = (NR/V)T$ なので $p \propto T$ の直線。
+\end{itemize}
+
+\textbf{各変数の物理的意味}：$p$ は圧力（単位面積あたりの力）、$V$ は体積、$T$ は絶対温度（K）、$N$ はモル数、$R$ は気体定数。$N$ と $R$ が一定のとき、$p,V,T$ のうち2つを決めると残り1つが決まる。
+
+\textbf{2次元への投影}：$p$-$V$ 図は $T$ を固定した断面（等温線が双曲線）、$T$-$V$ 図は $p$ を固定した断面（等圧線が直線）である。
+
+\paragraph{軸の対応}
+
+問題文の指定によると、$V$ を $x$ 軸、$p$ を $y$ 軸、$T$ を $z$ 軸とする。3次元空間 $(V, p, T)$ において、状態方程式 $pV = NRT$ を満たす点の集合が曲面をなす。
+
+\paragraph{図の説明}
+
+図\ref{fig:ex1_ideal_gas_3d}に、この曲面と、その上に描かれた等温線・等圧線の例を示す。
+
+\begin{itemize}
+    \item \textbf{等温線}（赤）：$T = 300\,\mathrm{K}$ などの「水平面」（$T$ 一定の面）で曲面を切った切り口。$p$ と $V$ は反比例する双曲線になる。
+    \item \textbf{等圧線}（青）：$p = 1\,\mathrm{気圧}$ などの「垂直面」（$p$ 一定の面）で曲面を切った切り口。$V$ が増えると $T$ も増える直線になる。
+    \item \textbf{等積線}：$V$ を固定した「縦方向」の線（$V$ 一定の直線）。この線上では $p$ と $T$ が比例する。
+\end{itemize}
+
+\textbf{見やすくする工夫}：異なる温度（例：200 K、300 K、400 K）で複数の等温線を、異なる圧力で複数の等圧線を描き入れると、曲面の形が把握しやすくなる。
+
+\textbf{なぜ等温線は双曲線になるのか}：高校数学で学んだ反比例 $y = k/x$ を思い出してください。$T$ を固定すると $pV = NRT = \mathrm{const}$ より $p = \mathrm{const}/V$。つまり $p$ は $V$ に反比例するので、$p$-$V$ 平面では直角双曲線になる。同様に、等圧線では $V \propto T$（比例）、等積線では $p \propto T$（比例）である。
+
+\textbf{物理的考察}：この曲面の上の任意の1点が、気体の1つの平衡状態を表す。状態変化はこの曲面上を動く経路として表される。等温膨張は曲面に沿った水平な曲線、断熱膨張は別の曲線になる（演習3、5で詳しく扱う）。
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{figures/ex1_ideal_gas_3d.png}
+    \caption{理想気体の状態方程式 $pV = NRT$ の3次元表示。曲面上の曲線が等温線・等圧線の例である。}
+    \label{fig:ex1_ideal_gas_3d}
+\end{figure}
+
+%--------------------------------------
+\subsection{III. 気体分子の速さ}
+
+\subsubsection{この問題で学ぶこと}
+
+等分配則 $\langle \frac{1}{2}m v_x^2 \rangle = \frac{1}{2}k_B T$ から分子の速度の目安を求める。音速が圧縮率と密度で決まる理由を理解する。分子運動論とマクロな量（温度、音速）のつながりを体得する。
+
+\subsubsection{問題}
+
+分子の運動エネルギーについて $\langle \frac{1}{2}m v_x^2 \rangle = \frac{1}{2}k_B T$ が成り立つ。空気分子を平均質量 $M$ の1成分気体と近似し、$T = 290\,\mathrm{K}$ における $\sqrt{\langle v_x^2 \rangle}$（m/s）を見積もれ。また、音速 $c_s = 1/\sqrt{\rho \chi}$（$\chi$ は等温圧縮率）を見積もれ。$R = 8.3\,\mathrm{J/(mol{\cdot}deg)}$、$N_A = 6.0 \times 10^{23}$、空気の分子量 $M = 29$、密度 $\rho = 1.3\,\mathrm{kg/m}^3$ を用いる。
+
+\subsubsection{解答}
+
+\paragraph{用語の説明}
+
+\begin{itemize}
+    \item \textbf{$\langle \cdots \rangle$}：アンサンブル平均または熱平衡における期待値。多くの分子についての平均を表す。
+    \item \textbf{ボルツマン定数 $k_B$}：$k_B = R/N_A \approx 1.38 \times 10^{-23}\,\mathrm{J/K}$。気体定数 $R$ をアボガドロ数 $N_A$ で割ったもので、1分子あたりの気体定数といえる。
+    \item \textbf{等分配則}：熱平衡にある系では、各自由度（$x,y,z$ 各方向の運動など）に平均して $\frac{1}{2} k_B T$ の運動エネルギーが配分される。ここでは $x$ 方向の1自由度に注目し、$\langle \frac{1}{2}m v_x^2 \rangle = \frac{1}{2}k_B T$ が成り立つ。
+    \item \textbf{注意}：$v_x$ は速度の $x$ 成分であり、速さ $v = \sqrt{v_x^2 + v_y^2 + v_z^2}$ とは異なる。$\sqrt{\langle v_x^2 \rangle}$ は $x$ 方向の速さの「二乗平均平方根（RMS）」であり、速さの目安として用いる。
+    \item \textbf{圧縮率 $\chi$}：物質の「押し縮めやすさ」。$\chi = -\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_T$ で定義される。バネの「柔らかさ」の逆数のような量。音波は媒質の密度の疎密波なので、圧縮率が小さい（かたい）ほど、疎密が速く伝わり音速は大きい。
+\end{itemize}
+
+\paragraph{問1: 分子の速さ}
+
+与えられた関係式 $\langle \frac{1}{2}m v_x^2 \rangle = \frac{1}{2}k_B T$ の両辺を $m/2$ で割ると
+\begin{equation}
+\langle v_x^2 \rangle = \frac{k_B T}{m}
+\end{equation}
+1分子の質量 $m$：モル質量 $M$（kg/mol）をアボガドロ数 $N_A$ で割ると、1分子あたりの質量になる。$m = M/N_A$。ボルツマン定数 $k_B$：気体定数 $R$ は1 mol あたりの定数なので、$R$ を $N_A$ で割ると1分子あたりの定数 $k_B = R/N_A$ となる。したがって
+\begin{equation}
+\langle v_x^2 \rangle = \frac{k_B T}{m} = \frac{(R/N_A) T}{M/N_A} = \frac{RT}{M}
+\end{equation}
+$M = 29\,\mathrm{g/mol} = 29 \times 10^{-3}\,\mathrm{kg/mol}$、$T = 290\,\mathrm{K}$、$R = 8.3\,\mathrm{J/(mol{\cdot}K)}$ を代入。単位の約分：$\mathrm{J/(mol{\cdot}K)} \times \mathrm{K} / (\mathrm{kg/mol}) = \mathrm{J/kg} = \mathrm{m}^2/\mathrm{s}^2$（$\mathrm{J} = \mathrm{kg{\cdot}m^2/s^2}$ より）。
+\begin{align}
+\langle v_x^2 \rangle &= \frac{8.3 \times 290}{29 \times 10^{-3}} = \frac{2407}{0.029} \approx 8.30 \times 10^4\,\mathrm{m}^2/\mathrm{s}^2
+\end{align}
+したがって
+\begin{equation}
+\sqrt{\langle v_x^2 \rangle} = \sqrt{8.30 \times 10^4} \approx 288\,\mathrm{m/s}
+\end{equation}
+これは $x$ 方向の速さの「二乗平均平方根」（RMS）であり、速さの目安として用いる。
+
+\textbf{答}：約 288 m/s
+
+\textbf{感覚}：288 m/s は時速約 1000 km であり、音速（約 340 m/s）に近い。空気分子は非常に速く運動している。
+
+\paragraph{問2: 音速}
+
+\textbf{ステップ1：等温圧縮率}
+
+等温圧縮率は $\chi = -\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_T$ で定義される。理想気体の状態方程式 $pV = NRT$ より、$T$ 一定のとき $V = NRT/p$ なので
+\begin{equation}
+\left(\frac{\partial V}{\partial p}\right)_T = -\frac{NRT}{p^2} = -\frac{V}{p}
+\end{equation}
+よって $\chi = -\frac{1}{V} \cdot \left(-\frac{V}{p}\right) = \frac{1}{p}$。
+
+\textbf{ステップ2：音速の公式}
+
+音波は媒質の密度の疎密（粗密）の波である。連続体力学の波動方程式から、音速は
+\begin{equation}
+c_s = \frac{1}{\sqrt{\rho \chi}}
+\end{equation}
+で与えられる。導出の概略：密度 $\rho$ と圧縮率 $\chi$ が、波動の伝播速度に $\sqrt{1/(\rho\chi)}$ の形で入る。密度が大きく押し縮めやすい（$\chi$ が大きい）ほど、疎密が伝わりにくく、音速は遅くなる。
+
+\textbf{ステップ3：数値計算}
+
+$p = 1.013 \times 10^5\,\mathrm{Pa}$（1気圧）、$\rho = 1.3\,\mathrm{kg/m}^3$ として
+\begin{equation}
+c_s = \sqrt{\frac{1}{\rho \chi}} = \sqrt{\frac{p}{\rho}} = \sqrt{\frac{1.013 \times 10^5}{1.3}} \approx \sqrt{7.79 \times 10^4} \approx 279\,\mathrm{m/s}
+\end{equation}
+
+\textbf{答}：約 280 m/s
+
+\paragraph{物理的意味・補足}
+
+\textbf{等温と断熱の違い}：実際の音波は、圧縮・膨張が非常に速いため、周囲との熱交換がなく断熱過程として伝わる。そのため音速の計算には断熱圧縮率を用いる。理想気体では $c_s = \sqrt{\gamma p/\rho} \approx 343\,\mathrm{m/s}$（$\gamma = 1.4$）となり、実測値に近い。本問で用いた等温圧縮率による 280 m/s は、音速のオーダー（数百 m/s）を理解するための見積もりである。断熱圧縮率の方が小さいため、断熱で計算した音速は等温より大きくなる。
+
+\textbf{なぜ $\sqrt{\langle v_x^2 \rangle}$ と音速が同程度なのか}：音速は媒質の分子の運動と密接に関係する。粗いイメージでは、音波は分子の衝突によって隣へ運動が伝わる「連鎖」であり、分子の熱運動の速さと同じオーダーで伝播する。$\sqrt{\langle v_x^2 \rangle} \approx 288\,\mathrm{m/s}$ と音速 $\approx 340\,\mathrm{m/s}$ が同程度なのは偶然ではなく、同じ物理（分子の運動）に根ざしている。
+
+%--------------------------------------
+\subsection{IV. ガウス積分}
+
+\subsubsection{この問題で学ぶこと}
+
+ガウス分布の正規化定数、平均、分散の計算。変数変換とガウス積分 $I = \sqrt{\pi}$ の導出技法。奇関数の積分がゼロになることを利用する。統計力学ではゆらぎの分布として頻出する。
+
+\subsubsection{問題}
+
+ガウス分布 $P(x) = C e^{-(x-\mu)^2/(2\sigma^2)}$（$-\infty < x < \infty$）について、
+\begin{enumerate}
+    \item 正規化条件 $\int_{-\infty}^{\infty} P(x)\,dx = 1$ から $C$ を求めよ。
+    \item 平均 $\langle x \rangle = \int_{-\infty}^{\infty} x P(x)\,dx$ を計算せよ。
+    \item 分散 $\langle \delta x^2 \rangle = \langle (x - \langle x \rangle)^2 \rangle$ を計算せよ。
+\end{enumerate}
+
+\subsubsection{解答}
+
+\paragraph{用語の説明}
+
+\begin{itemize}
+    \item \textbf{正規化条件}：確率分布では、すべての事象の確率の合計が 1 でなければならない。そうでないと確率として意味を持たない。連続変数の場合、$\int_{-\infty}^{\infty} P(x)\,dx = 1$ を満たすように定数 $C$ を決める。この操作を正規化という。
+    \item \textbf{$\mu$（平均）}：分布の「中心」の位置。問2で求めるように、この分布では $\langle x \rangle = \mu$ である。
+    \item \textbf{$\sigma$（標準偏差）}：分布の「広がり」の目安。問3で求めるように、$\langle (x-\mu)^2 \rangle = \sigma^2$ であり、$\sigma$ が大きいほど分布は幅広くなる。
+\end{itemize}
+
+\textbf{統計力学での意義}：ガウス分布（正規分布）は、中心極限定理により多くの独立な変数の和が従う分布であり、平衡状態におけるゆらぎの分布として統計力学で繰り返し現れる。
+
+\paragraph{問1: 正規化定数 $C$}
+
+正規化条件より
+\begin{equation}
+\int_{-\infty}^{\infty} C e^{-(x-\mu)^2/(2\sigma^2)}\,dx = 1
+\end{equation}
+変数変換 $y = \frac{x - \mu}{\sqrt{2}\sigma}$ を行う。この変換を選ぶ理由は、指数の肩 $(x-\mu)^2/(2\sigma^2)$ を $-y^2$ の形にし、標準的なガウス積分に帰着させるためである。このとき $x = \mu + \sqrt{2}\sigma y$、$dx = \sqrt{2}\sigma\,dy$ であり、$x \to \pm\infty$ のとき $y \to \pm\infty$ である。したがって
+\begin{align}
+1 &= C \int_{-\infty}^{\infty} e^{-y^2} \cdot \sqrt{2}\sigma\,dy = C\sqrt{2}\sigma \int_{-\infty}^{\infty} e^{-y^2}\,dy
+\end{align}
+ここで、ガウス積分 $I = \int_{-\infty}^{\infty} e^{-y^2}\,dy = \sqrt{\pi}$ を用いる。
+
+\textbf{ガウス積分の導出}：積分 $I = \int_{-\infty}^{\infty} e^{-y^2}\,dy$ を直接求めるのは困難なので、$I^2$ を計算する「2乗するテクニック」を用いる。$I^2 = \left(\int_{-\infty}^{\infty} e^{-y^2}\,dy\right)^2 = \int_{-\infty}^{\infty} \int_{-\infty}^{\infty} e^{-(y^2 + z^2)}\,dy\,dz$ とおく。$y$-$z$ 平面で極座標 $y = r\cos\theta$、$z = r\sin\theta$ に変換する。ヤコビアンは $r$ であり、$dy\,dz = r\,dr\,d\theta$、$y^2 + z^2 = r^2$ である。したがって
+\begin{equation}
+I^2 = \int_0^{2\pi} d\theta \int_0^{\infty} e^{-r^2} r\,dr = 2\pi \left[-\frac{1}{2}e^{-r^2}\right]_0^{\infty} = 2\pi \cdot \frac{1}{2} = \pi
+\end{equation}
+ゆえに $I = \sqrt{\pi}$（$I > 0$ より）。
+
+したがって
+\begin{equation}
+1 = C\sqrt{2}\sigma \cdot \sqrt{\pi} = C\sqrt{2\pi}\sigma \quad \Rightarrow \quad C = \frac{1}{\sqrt{2\pi}\sigma}
+\end{equation}
+
+\textbf{答}：$C = \frac{1}{\sqrt{2\pi}\sigma}$
+
+\paragraph{問2: 平均 $\langle x \rangle$}
+
+$x = (x - \mu) + \mu$ と分解する。被積分関数は
+\begin{equation}
+x P(x) = [(x-\mu) + \mu] \cdot C e^{-(x-\mu)^2/(2\sigma^2)}
+\end{equation}
+\begin{itemize}
+    \item $(x-\mu)$ の項：$(x-\mu) e^{-(x-\mu)^2/(2\sigma^2)}$ は $x = \mu$ に関して奇関数（$x-\mu$ を $- (x-\mu)$ に置き換えると符号が反転する）。$-\infty$ から $\infty$ までの積分は 0 である。
+    \item $\mu$ の項：$\mu \cdot C e^{-(x-\mu)^2/(2\sigma^2)}$ の積分は、正規化条件より $\mu \cdot 1 = \mu$ である。
+\end{itemize}
+よって
+\begin{equation}
+\langle x \rangle = \int_{-\infty}^{\infty} x P(x)\,dx = 0 + \mu = \mu
+\end{equation}
+
+\textbf{答}：$\langle x \rangle = \mu$
+
+\paragraph{問3: 分散}
+
+分散は $\langle \delta x^2 \rangle = \langle (x - \langle x \rangle)^2 \rangle$ で定義される。$(x - \langle x \rangle)^2 = x^2 - 2\langle x \rangle x + \langle x \rangle^2$ を展開し、平均をとると $\langle x^2 \rangle - 2\langle x \rangle^2 + \langle x \rangle^2 = \langle x^2 \rangle - \langle x \rangle^2$ となる。$\langle x \rangle = \mu$ なので $\langle \delta x^2 \rangle = \langle x^2 \rangle - \mu^2$ である。
+
+$\langle x^2 \rangle$ を計算する。変数変換 $y = (x-\mu)/(\sqrt{2}\sigma)$、すなわち $x = \mu + \sqrt{2}\sigma y$、$dx = \sqrt{2}\sigma\,dy$ を用いると
+\begin{align}
+\langle x^2 \rangle &= C \int_{-\infty}^{\infty} x^2 e^{-(x-\mu)^2/(2\sigma^2)}\,dx \\
+&= \frac{1}{\sqrt{\pi}} \int_{-\infty}^{\infty} (\mu + \sqrt{2}\sigma y)^2 e^{-y^2}\,dy
+\end{align}
+$(a+b)^2 = a^2 + 2ab + b^2$ と展開する。
+\begin{itemize}
+    \item $\mu^2$ の項：$\frac{\mu^2}{\sqrt{\pi}} \int_{-\infty}^{\infty} e^{-y^2}\,dy = \mu^2 \cdot 1 = \mu^2$
+    \item $2\mu\sqrt{2}\sigma y$ の項：$y e^{-y^2}$ は奇関数なので積分は 0
+    \item $2\sigma^2 y^2$ の項：$\frac{2\sigma^2}{\sqrt{\pi}} \int_{-\infty}^{\infty} y^2 e^{-y^2}\,dy$ を計算する
+\end{itemize}
+$y^2 e^{-y^2}$ の積分は、部分積分を用いる。$u = y$、$dv = y e^{-y^2} dy$ とおく（$y e^{-y^2}$ は $-\frac{1}{2}e^{-y^2}$ の微分なので積分しやすい。$u=y$ を微分すると $du=dy$ で次数が下がる）。$du = dy$、$v = -\frac{1}{2} e^{-y^2}$ であり、
+\begin{align}
+\int_{-\infty}^{\infty} y^2 e^{-y^2}\,dy &= \left[-\frac{y}{2}e^{-y^2}\right]_{-\infty}^{\infty} + \frac{1}{2}\int_{-\infty}^{\infty} e^{-y^2}\,dy = 0 + \frac{\sqrt{\pi}}{2} = \frac{\sqrt{\pi}}{2}
+\end{align}
+したがって
+\begin{equation}
+\langle x^2 \rangle = \mu^2 + \frac{2\sigma^2}{\sqrt{\pi}} \cdot \frac{\sqrt{\pi}}{2} = \mu^2 + \sigma^2
+\end{equation}
+よって
+\begin{equation}
+\langle \delta x^2 \rangle = \langle x^2 \rangle - \mu^2 = \sigma^2
+\end{equation}
+
+\textbf{答}：$\langle \delta x^2 \rangle = \sigma^2$
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/ex1_gaussian.png}
+    \caption{ガウス分布 $P(x) = \frac{1}{\sqrt{2\pi}\sigma} e^{-(x-\mu)^2/(2\sigma^2)}$ の概形。$\mu$ が中心、$\sigma$ が広がりを表す。}
+    \label{fig:ex1_gaussian}
+\end{figure}
+
+\textbf{なぜ奇関数の積分は0なのか}：$f(-y) = -f(y)$ を満たす奇関数を $-\infty$ から $\infty$ まで積分すると、正の部分と負の部分が打ち消し合う。$(x-\mu) e^{-(x-\mu)^2/(2\sigma^2)}$ は $x=\mu$ に関して対称に符号が反転するため、全体の積分は0である。
+
+\textbf{物理的考察}：$\mu$ は分布の中心（最頻値かつ平均）、$\sigma$ はゆらぎの典型的な幅である。$|\Delta x| \sim \sigma$ の範囲に約68\%の確率が含まれる。統計力学では、熱平衡でのエネルギーや粒子数のゆらぎがガウス型になることが多い。
+
+%--------------------------------------
+\subsection{V. ガンマ関数}
+
+\subsubsection{この問題で学ぶこと}
+
+階乗 $n!$ を積分で表す。部分積分により $\Gamma(n+1) = n \Gamma(n)$ という漸化式が得られ、$\Gamma(1)=1$ から帰納的に $n!$ が求まる。統計力学の状態数計算で必須の道具である。
+
+\subsubsection{問題}
+
+$n! = \int_0^{\infty} t^n e^{-t}\,dt$ が成り立つことを示せ。
+
+\subsubsection{解答}
+
+\paragraph{用語の説明}
+
+\begin{itemize}
+    \item \textbf{ガンマ関数 $\Gamma(z)$}：$\Gamma(z) = \int_0^{\infty} t^{z-1} e^{-t}\,dt$ で定義される。$z$ が正の整数 $n+1$ のとき $\Gamma(n+1) = n!$ となり、階乗 $n!$ の実数（さらには複素数）への一般化を与える。$n$ が自然数でない場合にも「階乗らしい」量を定義できる。
+\end{itemize}
+
+\textbf{統計力学での利用}：状態数の計算やスターリング近似（演習7）で $\Gamma$ 関数が現れる。
+
+\paragraph{証明の方針}
+
+$\Gamma(n+1) = \int_0^{\infty} t^n e^{-t}\,dt$ とおき、部分積分を繰り返して $\Gamma(n+1) = n!$ を示す。
+
+\paragraph{部分積分の実行}
+
+$u = t^n$、$dv = e^{-t} dt$ とおくと、$du = n t^{n-1} dt$、$v = -e^{-t}$ である。部分積分の公式 $\int u\,dv = uv - \int v\,du$ より
+\begin{align}
+\Gamma(n+1) &= \int_0^{\infty} t^n e^{-t}\,dt = \left[-t^n e^{-t}\right]_0^{\infty} - \int_0^{\infty} (-e^{-t}) \cdot n t^{n-1}\,dt \\
+&= \left[-t^n e^{-t}\right]_0^{\infty} + n \int_0^{\infty} t^{n-1} e^{-t}\,dt = n \Gamma(n)
+\end{align}
+
+\textbf{境界項について}：$t \to 0$ のとき $t^n e^{-t} \to 0$（$n \geq 1$ のとき）。$t \to \infty$ のとき、指数関数 $e^{-t}$ の減衰が $t^n$ の増大より速いため、$t^n e^{-t} \to 0$ である。よって $\left[-t^n e^{-t}\right]_0^{\infty} = 0 - 0 = 0$。
+
+\paragraph{帰納的な計算}
+
+$\Gamma(1) = \int_0^{\infty} e^{-t}\,dt = \left[-e^{-t}\right]_0^{\infty} = 0 - (-1) = 1$ である。
+
+$n=1$ のとき：$\Gamma(2) = 1 \cdot \Gamma(1) = 1 = 1!$
+
+$n=2$ のとき：$\Gamma(3) = 2 \cdot \Gamma(2) = 2 \cdot 1 = 2 = 2!$
+
+$n=3$ のとき：$\Gamma(4) = 3 \cdot \Gamma(3) = 3 \cdot 2 = 6 = 3!$
+
+一般の $n$ に対して、漸化式 $\Gamma(n+1) = n \Gamma(n)$ を繰り返し用いると
+\begin{equation}
+\Gamma(n+1) = n \cdot \Gamma(n) = n \cdot (n-1) \cdot \Gamma(n-1) = \cdots = n \cdot (n-1) \cdots 2 \cdot 1 \cdot \Gamma(1) = n!
+\end{equation}
+となる（帰納法：$\Gamma(k+1)=k!$ なら $\Gamma(k+2)=(k+1)\Gamma(k+1)=(k+1)!$）。
+
+\textbf{$n=0$ の場合}：$0!$ は通常 1 と定義される。$\Gamma(1)=1$ なので、$\Gamma(0+1)=0!$ は 1 と整合する。
+
+\textbf{なぜ部分積分で $u=t^n$, $dv=e^{-t}dt$ を選ぶのか}：$e^{-t}$ は積分しても $e^{-t}$ のまま（符号変化のみ）で扱いやすい。$t^n$ は微分すると次数が1つ減る。これを繰り返すと $t^{n-1}$, $t^{n-2}$ ... と下がり、最終的に $\Gamma(1) = \int e^{-t}dt = 1$ に帰着する。この「次数を下げる」戦略が漸化式 $\Gamma(n+1) = n\Gamma(n)$ を生む。
+
+\textbf{物理的考察}：$\Gamma$ 関数は、$n$ が自然数でない場合（例：$n=1/2$ のとき $\Gamma(3/2)=\sqrt{\pi}/2$）にも意味を持つ。統計力学の分配関数や状態数の計算で、非整数の $n$ に対する「階乗らしい量」が必要になる場面がある。

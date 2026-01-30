@@ -1,0 +1,504 @@
+
+\section{問題1: 誘電体の内部電場}
+
+\subsection{問題}
+
+巨視的な内部電場が$\boldsymbol{E}$、強さ$P$で一様に分極した誘電体を考える。
+
+\begin{enumerate}
+    \item[(1-1)] 誘電体を構成する格子（原子）の一つに着目する。その原子を中心に、半径$a$の球形部分（格子間隔よりも十分に大きい）を取り出して空洞を作るとき、内面に表われる分極電荷により、中心の原子の位置に生じる電場を求めよ。
+    \item[(1-2)] 誘電体の原子位置での微視的な電場$\boldsymbol{E}_m$は、前問で求めた電場と、巨視的な内部電場$\boldsymbol{E}$の和で表されるとする（つまり、仮想的にくりぬいた球内部に含まれる、格子点の双極子による電場への寄与をゼロとする）。このとき、原子の分極率$\alpha$、格子（原子）の数密度$n$、誘電体の誘電率$\varepsilon$の間に、$(2\varepsilon_0 + \varepsilon)n\alpha = 3\varepsilon_0(\varepsilon - \varepsilon_0)$の関係が成り立つことを示せ。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+\paragraph{用語の説明（初学者向け）}
+\textbf{分極}とは、誘電体内部で正負の電荷の重心がずれ、巨視的に「双極子」が並んだ状態のこと。\textbf{空洞電場}は、誘電体の一部を球形にくりぬいたとき、その内面に現れた分極電荷が空洞中心に作る電場である。
+
+球形空洞内面の分極電荷が作る電場を求める。分極ベクトル$\boldsymbol{P}$は一様である。
+
+\subsubsection{使用する物理法則}
+
+分極電荷面密度：
+\begin{equation}
+\sigma_p = \boldsymbol{P} \cdot \hat{\boldsymbol{n}}
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(1-1) 空洞内面の分極電荷による電場}
+
+一様に分極した誘電体から、半径$a$の球形部分をくりぬいた場合を考える。分極ベクトル$\boldsymbol{P}$は$z$方向を向いているとする。
+
+球面上の点を極座標$(a, \theta, \phi)$で表す。分極電荷面密度は、分極ベクトルの法線成分である。内向き法線を正とすると：
+\begin{equation}
+\sigma_p(\theta) = -\boldsymbol{P} \cdot \hat{\boldsymbol{n}} = -P\cos\theta
+\end{equation}
+ここで、$\hat{\boldsymbol{n}}$は外向き法線ベクトル、$\theta$は$z$軸からの角度である。
+
+球の中心（原点）での電場を求める。球面上の微小面積要素$dS = a^2\sin\theta d\theta d\phi$に分布する電荷$dq = \sigma_p(\theta) dS$が中心に作る電場の$z$成分：
+\begin{equation}
+dE_z = \frac{1}{4\pi\varepsilon_0}\frac{dq}{a^2}\cos\theta = \frac{1}{4\pi\varepsilon_0}\frac{\sigma_p(\theta)}{a^2}\cos\theta \cdot a^2\sin\theta d\theta d\phi
+\end{equation}
+
+全電場の$z$成分を積分：
+\begin{align}
+E_{\text{cavity},z} &= \int_0^{2\pi} d\phi \int_0^{\pi} d\theta \frac{1}{4\pi\varepsilon_0}\frac{(-P\cos\theta)}{a^2}\cos\theta \cdot a^2\sin\theta \\
+&= \frac{1}{4\pi\varepsilon_0}\int_0^{2\pi} d\phi \int_0^{\pi} (-P\cos^2\theta)\sin\theta d\theta \\
+&= \frac{1}{4\pi\varepsilon_0} \cdot 2\pi \cdot (-P) \int_0^{\pi} \cos^2\theta \sin\theta d\theta
+\end{align}
+
+$\cos^2\theta \sin\theta$の積分を計算する。$u = \cos\theta$と変数変換すると、$du = -\sin\theta d\theta$：
+\begin{align}
+\int_0^{\pi} \cos^2\theta \sin\theta d\theta &= \int_1^{-1} u^2 (-du) \\
+&= \int_{-1}^{1} u^2 du \\
+&= \left[\frac{u^3}{3}\right]_{-1}^{1} = \frac{1}{3} - \left(-\frac{1}{3}\right) = \frac{2}{3}
+\end{align}
+
+したがって：
+\begin{align}
+E_{\text{cavity},z} &= \frac{1}{4\pi\varepsilon_0} \cdot 2\pi \cdot (-P) \cdot \frac{2}{3} \\
+&= -\frac{P}{3\varepsilon_0}
+\end{align}
+
+対称性より、$x$成分と$y$成分はゼロである。したがって：
+\begin{equation}
+\boldsymbol{E}_{\text{cavity}} = -\frac{\boldsymbol{P}}{3\varepsilon_0}
+\end{equation}
+
+\paragraph{(1-2) クラウジウス・モソッティの関係}
+
+微視的な電場：
+\begin{equation}
+\boldsymbol{E}_m = \boldsymbol{E} + \boldsymbol{E}_{\text{cavity}} = \boldsymbol{E} - \frac{\boldsymbol{P}}{3\varepsilon_0}
+\end{equation}
+
+原子の双極子モーメント：
+\begin{equation}
+\boldsymbol{p} = \alpha\boldsymbol{E}_m = \alpha\left(\boldsymbol{E} - \frac{\boldsymbol{P}}{3\varepsilon_0}\right)
+\end{equation}
+
+分極ベクトル：
+\begin{equation}
+\boldsymbol{P} = n\boldsymbol{p} = n\alpha\left(\boldsymbol{E} - \frac{\boldsymbol{P}}{3\varepsilon_0}\right)
+\end{equation}
+
+これを$\boldsymbol{P}$について解く：
+\begin{align}
+\boldsymbol{P} &= n\alpha\boldsymbol{E} - \frac{n\alpha\boldsymbol{P}}{3\varepsilon_0} \\
+\boldsymbol{P}\left(1 + \frac{n\alpha}{3\varepsilon_0}\right) &= n\alpha\boldsymbol{E} \\
+\boldsymbol{P} &= \frac{n\alpha}{1 + \frac{n\alpha}{3\varepsilon_0}}\boldsymbol{E}
+\end{align}
+
+一方、$\boldsymbol{P} = (\varepsilon - \varepsilon_0)\boldsymbol{E}$より：
+\begin{align}
+(\varepsilon - \varepsilon_0) &= \frac{n\alpha}{1 + \frac{n\alpha}{3\varepsilon_0}} \\
+(\varepsilon - \varepsilon_0)\left(1 + \frac{n\alpha}{3\varepsilon_0}\right) &= n\alpha \\
+\varepsilon - \varepsilon_0 + \frac{(\varepsilon - \varepsilon_0)n\alpha}{3\varepsilon_0} &= n\alpha \\
+3\varepsilon_0(\varepsilon - \varepsilon_0) + (\varepsilon - \varepsilon_0)n\alpha &= 3\varepsilon_0 n\alpha \\
+3\varepsilon_0(\varepsilon - \varepsilon_0) &= n\alpha(3\varepsilon_0 - \varepsilon + \varepsilon_0) \\
+3\varepsilon_0(\varepsilon - \varepsilon_0) &= n\alpha(2\varepsilon_0 + \varepsilon)
+\end{align}
+
+したがって：
+\begin{equation}
+(2\varepsilon_0 + \varepsilon)n\alpha = 3\varepsilon_0(\varepsilon - \varepsilon_0)
+\end{equation}
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(1-1)] $\boldsymbol{E}_{\text{cavity}} = -\frac{\boldsymbol{P}}{3\varepsilon_0}$
+    \item[(1-2)] $(2\varepsilon_0 + \varepsilon)n\alpha = 3\varepsilon_0(\varepsilon - \varepsilon_0)$
+\end{enumerate}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 球形空洞内面の分極電荷が作る電場は、分極ベクトルと逆向きで、その大きさは$\frac{P}{3\varepsilon_0}$である。これは、分極電荷が空洞の内側に集まり、分極と逆向きの電場を作るためである。
+    \item クラウジウス・モソッティの関係式$(2\varepsilon_0 + \varepsilon)n\alpha = 3\varepsilon_0(\varepsilon - \varepsilon_0)$は、微視的な分極率$\alpha$と巨視的な誘電率$\varepsilon$を結びつける重要な関係式である。この関係式により、原子レベルの分極率から、物質全体の誘電率を予測できる。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex4_1_cavity_field.png}
+\caption{誘電体内の球形空洞と空洞内電場}
+\label{fig:ex4_1_cavity_field}
+\end{figure}
+
+\section{問題2: 外部電場中の誘電体球}
+
+\subsection{問題}
+
+外部電場$\boldsymbol{E}_e$によって、強さ$P = (0,0,P)$で一様に分極した半径$a$の誘電体球を考える（球の中心は原点）。分極状態を再現するために、電荷密度$+\rho$に帯電した半径$a$の球を座標$(0,0,s/2)$に置き、電荷密度$-\rho$に帯電した半径$a$の球を座標$(0,0,-s/2)$に置く（ただし、$s \ll a$）。分極電荷が球内部に作る電場$\boldsymbol{E}_p$は、それぞれの帯電した球が作る電場の足し合わせであると考える。
+
+\begin{enumerate}
+    \item[(2-1)] $\boldsymbol{s} = (0,0,s)$とすると、分極ベクトルは$\boldsymbol{P} = \rho\boldsymbol{s}$と書ける。$\boldsymbol{E}_p$を$\boldsymbol{P}$を用いて表せ。
+    \item[(2-2)] 誘電体球の誘電率を$\varepsilon$とする。誘電体内部の全電場$\boldsymbol{E}$と、$\boldsymbol{E}_e$の関係を求めよ。
+    \item[(2-3)] 誘電体球表面に現れる分極電荷面密度と、前回の問題(4-3)の結果を比較することで、導体球の場合、誘導電荷が球内部に作る電場は、外部電場を完全に打ち消すことを示せ。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+一様に分極した球の内部電場を、2つの帯電球の重ね合わせとして求める。
+
+\subsubsection{使用する物理法則}
+
+一様に帯電した球の内部電場：
+\begin{equation}
+\boldsymbol{E} = \frac{\rho\boldsymbol{r}}{3\varepsilon_0}
+\end{equation}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(2-1) 分極電荷による電場}
+
+正に帯電した球が作る電場（内部）：
+\begin{equation}
+\boldsymbol{E}_+ = \frac{\rho(\boldsymbol{r} - \boldsymbol{s}/2)}{3\varepsilon_0}
+\end{equation}
+
+負に帯電した球が作る電場（内部）：
+\begin{equation}
+\boldsymbol{E}_- = -\frac{\rho(\boldsymbol{r} + \boldsymbol{s}/2)}{3\varepsilon_0}
+\end{equation}
+
+合計：
+\begin{align}
+\boldsymbol{E}_p &= \boldsymbol{E}_+ + \boldsymbol{E}_- \\
+&= \frac{\rho(\boldsymbol{r} - \boldsymbol{s}/2)}{3\varepsilon_0} - \frac{\rho(\boldsymbol{r} + \boldsymbol{s}/2)}{3\varepsilon_0} \\
+&= -\frac{\rho\boldsymbol{s}}{3\varepsilon_0} = -\frac{\boldsymbol{P}}{3\varepsilon_0}
+\end{align}
+
+\paragraph{(2-2) 全電場}
+
+\begin{align}
+\boldsymbol{E} &= \boldsymbol{E}_e + \boldsymbol{E}_p = \boldsymbol{E}_e - \frac{\boldsymbol{P}}{3\varepsilon_0}
+\end{align}
+
+一方、$\boldsymbol{P} = (\varepsilon - \varepsilon_0)\boldsymbol{E}$より：
+\begin{align}
+\boldsymbol{E} &= \boldsymbol{E}_e - \frac{(\varepsilon - \varepsilon_0)\boldsymbol{E}}{3\varepsilon_0} \\
+\boldsymbol{E}\left(1 + \frac{\varepsilon - \varepsilon_0}{3\varepsilon_0}\right) &= \boldsymbol{E}_e \\
+\boldsymbol{E}\left(\frac{3\varepsilon_0 + \varepsilon - \varepsilon_0}{3\varepsilon_0}\right) &= \boldsymbol{E}_e \\
+\boldsymbol{E} &= \frac{3\varepsilon_0}{2\varepsilon_0 + \varepsilon}\boldsymbol{E}_e
+\end{align}
+
+\paragraph{(2-3) 導体球との比較}
+
+導体球の場合、$\varepsilon \to \infty$より：
+\begin{equation}
+\boldsymbol{E} = \frac{3\varepsilon_0}{2\varepsilon_0 + \infty}\boldsymbol{E}_e = 0
+\end{equation}
+
+すなわち、誘導電荷が作る電場は外部電場を完全に打ち消す。
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(2-1)] $\boldsymbol{E}_p = -\frac{\boldsymbol{P}}{3\varepsilon_0}$
+    \item[(2-2)] $\boldsymbol{E} = \frac{3\varepsilon_0}{2\varepsilon_0 + \varepsilon}\boldsymbol{E}_e$
+    \item[(2-3)] 導体球では$\boldsymbol{E} = 0$となり、誘導電荷が外部電場を完全に打ち消す。
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex4_2_dielectric_sphere.png}
+\caption{外部電場中の誘電体球}
+\label{fig:ex4_2_dielectric_sphere}
+\end{figure}
+
+\section{問題3: 誘電体境界面での鏡像法}
+
+\subsection{問題}
+
+誘電率$\varepsilon_1$と$\varepsilon_2$の2種類の誘電体が境界面$z=0$で接しており、$z>0$の領域は誘電率$\varepsilon_1$、$z<0$の領域は誘電率$\varepsilon_2$の誘電体で満されている。点電荷$q_1$が座標$(0,0,a)$に、点電荷$q_2$が座標$(0,0,-a)$に存在するとき（ただし、$a>0$）、両電荷の間に働く力を求めたい。
+
+\begin{enumerate}
+    \item[(3-1)] 次のように、鏡像法を用いて各場所での電位を求める。$z>0$の領域の電位$\phi_1$は、仮想的に点電荷$q_1'$を$(0,0,-a)$に置いて全領域が誘電率$\varepsilon_1$の物質で満たされているとし、$q_1$と$q_1'$が作る電位を足し合わせる。一方、$z<0$の領域の電位$\phi_2$は、仮想的に点電荷$q_2'$を$(0,0,a)$に置いて全領域が誘電率$\varepsilon_2$の物質で満たされているとし、$q_2$と$q_2'$が作る電位を足し合わせる。境界面$z=0$において$\phi_1$と$\phi_2$が満たすべき境界条件を示せ。その条件を満たすように、鏡像電荷の大きさ$q_1'$、$q_2'$を定めよ。
+    \item[(3-2)] $q_1$に働く力$\boldsymbol{F}_1$と、$q_2$に働く力$\boldsymbol{F}_2$を求めよ。$\varepsilon_1 \neq \varepsilon_2$の場合、$\boldsymbol{F}_1 \neq \boldsymbol{F}_2$となって作用反作用の法則に反するようにみえる。互いに等しくならない理由を述べよ。
+\end{enumerate}
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+境界面での電位と電場の連続性条件を用いて鏡像電荷を決定する。
+
+\subsubsection{使用する物理法則}
+
+境界条件：
+\begin{align}
+\phi_1|_{z=0} &= \phi_2|_{z=0} \\
+\varepsilon_1\frac{\partial\phi_1}{\partial z}\Big|_{z=0} &= \varepsilon_2\frac{\partial\phi_2}{\partial z}\Big|_{z=0}
+\end{align}
+
+\subsubsection{段階的な計算過程}
+
+\paragraph{(3-1) 鏡像電荷の決定}
+
+$z>0$での電位：
+\begin{equation}
+\phi_1 = \frac{1}{4\pi\varepsilon_1}\left(\frac{q_1}{r_1} + \frac{q_1'}{r_1'}\right)
+\end{equation}
+ここで、$r_1 = \sqrt{x^2 + y^2 + (z-a)^2}$、$r_1' = \sqrt{x^2 + y^2 + (z+a)^2}$
+
+$z<0$での電位：
+\begin{equation}
+\phi_2 = \frac{1}{4\pi\varepsilon_2}\left(\frac{q_2}{r_2} + \frac{q_2'}{r_2'}\right)
+\end{equation}
+ここで、$r_2 = \sqrt{x^2 + y^2 + (z+a)^2}$、$r_2' = \sqrt{x^2 + y^2 + (z-a)^2}$
+
+境界面$z=0$で：
+\begin{align}
+r_1|_{z=0} &= r_2'|_{z=0} = \sqrt{x^2 + y^2 + a^2} = R \\
+r_1'|_{z=0} &= r_2|_{z=0} = R
+\end{align}
+
+電位の連続性：
+\begin{align}
+\frac{1}{4\pi\varepsilon_1}\left(\frac{q_1}{R} + \frac{q_1'}{R}\right) &= \frac{1}{4\pi\varepsilon_2}\left(\frac{q_2}{R} + \frac{q_2'}{R}\right) \\
+\frac{q_1 + q_1'}{\varepsilon_1} &= \frac{q_2 + q_2'}{\varepsilon_2}
+\end{align}
+
+電場の法線成分の連続性：
+\begin{align}
+\varepsilon_1\frac{\partial\phi_1}{\partial z}\Big|_{z=0} &= \varepsilon_2\frac{\partial\phi_2}{\partial z}\Big|_{z=0}
+\end{align}
+
+$\frac{\partial}{\partial z}\left(\frac{1}{r}\right) = -\frac{z-z_0}{r^3}$より：
+\begin{align}
+\varepsilon_1\left(\frac{q_1(-a)}{R^3} + \frac{q_1'(a)}{R^3}\right) &= \varepsilon_2\left(\frac{q_2(a)}{R^3} + \frac{q_2'(-a)}{R^3}\right) \\
+\varepsilon_1(-q_1 + q_1') &= \varepsilon_2(q_2 - q_2')
+\end{align}
+
+これらを連立して解く。第1式より：
+\begin{equation}
+q_2 + q_2' = \frac{\varepsilon_2}{\varepsilon_1}(q_1 + q_1')
+\end{equation}
+
+第2式より：
+\begin{equation}
+\varepsilon_1(-q_1 + q_1') = \varepsilon_2(q_2 - q_2')
+\end{equation}
+
+第2式を変形：
+\begin{align}
+\varepsilon_1 q_1' - \varepsilon_1 q_1 &= \varepsilon_2 q_2 - \varepsilon_2 q_2' \\
+\varepsilon_1 q_1' + \varepsilon_2 q_2' &= \varepsilon_1 q_1 + \varepsilon_2 q_2
+\end{align}
+
+第1式を変形：
+\begin{align}
+q_2' &= \frac{\varepsilon_2}{\varepsilon_1}(q_1 + q_1') - q_2
+\end{align}
+
+これを第2式に代入：
+\begin{align}
+\varepsilon_1 q_1' + \varepsilon_2\left[\frac{\varepsilon_2}{\varepsilon_1}(q_1 + q_1') - q_2\right] &= \varepsilon_1 q_1 + \varepsilon_2 q_2 \\
+\varepsilon_1 q_1' + \frac{\varepsilon_2^2}{\varepsilon_1}(q_1 + q_1') - \varepsilon_2 q_2 &= \varepsilon_1 q_1 + \varepsilon_2 q_2 \\
+q_1'\left(\varepsilon_1 + \frac{\varepsilon_2^2}{\varepsilon_1}\right) + \frac{\varepsilon_2^2}{\varepsilon_1}q_1 - \varepsilon_2 q_2 &= \varepsilon_1 q_1 + \varepsilon_2 q_2 \\
+q_1'\left(\frac{\varepsilon_1^2 + \varepsilon_2^2}{\varepsilon_1}\right) &= \varepsilon_1 q_1 + 2\varepsilon_2 q_2 - \frac{\varepsilon_2^2}{\varepsilon_1}q_1 \\
+q_1'\left(\frac{\varepsilon_1^2 + \varepsilon_2^2}{\varepsilon_1}\right) &= \frac{\varepsilon_1^2 - \varepsilon_2^2}{\varepsilon_1}q_1 + 2\varepsilon_2 q_2 \\
+q_1'(\varepsilon_1^2 + \varepsilon_2^2) &= (\varepsilon_1^2 - \varepsilon_2^2)q_1 + 2\varepsilon_1\varepsilon_2 q_2
+\end{align}
+
+$\varepsilon_1^2 - \varepsilon_2^2 = (\varepsilon_1 - \varepsilon_2)(\varepsilon_1 + \varepsilon_2)$より：
+\begin{align}
+q_1'(\varepsilon_1^2 + \varepsilon_2^2) &= (\varepsilon_1 - \varepsilon_2)(\varepsilon_1 + \varepsilon_2)q_1 + 2\varepsilon_1\varepsilon_2 q_2
+\end{align}
+
+より簡潔な方法として、第1式と第2式を直接解く：
+\begin{align}
+\frac{q_1 + q_1'}{\varepsilon_1} &= \frac{q_2 + q_2'}{\varepsilon_2} \quad \text{(A)} \\
+\varepsilon_1(-q_1 + q_1') &= \varepsilon_2(q_2 - q_2') \quad \text{(B)}
+\end{align}
+
+(A)より：
+\begin{equation}
+q_2' = \frac{\varepsilon_2}{\varepsilon_1}(q_1 + q_1') - q_2
+\end{equation}
+
+(B)に代入：
+\begin{align}
+\varepsilon_1(-q_1 + q_1') &= \varepsilon_2\left[q_2 - \frac{\varepsilon_2}{\varepsilon_1}(q_1 + q_1') + q_2\right] \\
+\varepsilon_1(-q_1 + q_1') &= 2\varepsilon_2 q_2 - \frac{\varepsilon_2^2}{\varepsilon_1}(q_1 + q_1') \\
+\varepsilon_1^2(-q_1 + q_1') &= 2\varepsilon_1\varepsilon_2 q_2 - \varepsilon_2^2(q_1 + q_1') \\
+-\varepsilon_1^2 q_1 + \varepsilon_1^2 q_1' &= 2\varepsilon_1\varepsilon_2 q_2 - \varepsilon_2^2 q_1 - \varepsilon_2^2 q_1' \\
+q_1'(\varepsilon_1^2 + \varepsilon_2^2) &= \varepsilon_1^2 q_1 - \varepsilon_2^2 q_1 + 2\varepsilon_1\varepsilon_2 q_2 \\
+q_1'(\varepsilon_1^2 + \varepsilon_2^2) &= (\varepsilon_1^2 - \varepsilon_2^2)q_1 + 2\varepsilon_1\varepsilon_2 q_2
+\end{align}
+
+$\varepsilon_1^2 + \varepsilon_2^2 = (\varepsilon_1 + \varepsilon_2)^2 - 2\varepsilon_1\varepsilon_2$、$\varepsilon_1^2 - \varepsilon_2^2 = (\varepsilon_1 - \varepsilon_2)(\varepsilon_1 + \varepsilon_2)$より：
+\begin{align}
+q_1'[(\varepsilon_1 + \varepsilon_2)^2 - 2\varepsilon_1\varepsilon_2] &= (\varepsilon_1 - \varepsilon_2)(\varepsilon_1 + \varepsilon_2)q_1 + 2\varepsilon_1\varepsilon_2 q_2
+\end{align}
+
+これを整理すると：
+\begin{align}
+q_1' &= \frac{(\varepsilon_1 - \varepsilon_2)q_1 + 2\varepsilon_1 q_2}{\varepsilon_1 + \varepsilon_2} = \frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + \varepsilon_2}q_1 + \frac{2\varepsilon_1}{\varepsilon_1 + \varepsilon_2}q_2
+\end{align}
+
+同様に$q_2'$を求めると：
+\begin{align}
+q_2' &= \frac{2\varepsilon_2}{\varepsilon_1 + \varepsilon_2}q_1 + \frac{\varepsilon_2 - \varepsilon_1}{\varepsilon_1 + \varepsilon_2}q_2
+\end{align}
+
+\paragraph{(3-2) 力}
+
+$q_1$に働く力は、$q_2$と$q_1'$による：
+\begin{equation}
+F_1 = \frac{1}{4\pi\varepsilon_1}\frac{q_1(q_2 + q_1')}{(2a)^2}
+\end{equation}
+
+$q_2$に働く力は、$q_1$と$q_2'$による：
+\begin{equation}
+F_2 = \frac{1}{4\pi\varepsilon_2}\frac{q_2(q_1 + q_2')}{(2a)^2}
+\end{equation}
+
+$\varepsilon_1 \neq \varepsilon_2$の場合、$F_1 \neq F_2$となる。これは、境界面に分極電荷が現れ、それが各電荷に異なる力を及ぼすためである。
+
+\subsubsection{最終的な答え}
+
+\begin{enumerate}
+    \item[(3-1)] 境界条件を満たす鏡像電荷：
+    \begin{align}
+    q_1' &= \frac{\varepsilon_1 - \varepsilon_2}{\varepsilon_1 + \varepsilon_2}q_1 + \frac{2\varepsilon_1}{\varepsilon_1 + \varepsilon_2}q_2 \\
+    q_2' &= \frac{2\varepsilon_2}{\varepsilon_1 + \varepsilon_2}q_1 + \frac{\varepsilon_2 - \varepsilon_1}{\varepsilon_1 + \varepsilon_2}q_2
+    \end{align}
+    
+    \item[(3-2)] $q_1$に働く力：$F_1 = \frac{1}{4\pi\varepsilon_1}\frac{q_1(q_2 + q_1')}{(2a)^2}$、$q_2$に働く力：$F_2 = \frac{1}{4\pi\varepsilon_2}\frac{q_2(q_1 + q_2')}{(2a)^2}$。$\varepsilon_1 \neq \varepsilon_2$の場合、境界面の分極電荷の影響により、$F_1 \neq F_2$となる。
+\end{enumerate}
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 誘電体境界面での鏡像電荷は、各領域の誘電率に依存する。誘電率の差が大きいほど、鏡像電荷の大きさも大きくなる。
+    \item $\varepsilon_1 \neq \varepsilon_2$の場合、$F_1 \neq F_2$となるのは、境界面に分極電荷が現れ、それが各電荷に異なる力を及ぼすためである。これは、作用反作用の法則に反するように見えるが、実際には境界面の分極電荷も力を受けており、系全体では作用反作用の法則が成り立つ。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex4_3_dielectric_interface.png}
+\caption{誘電体境界面での鏡像法と力の比較}
+\label{fig:ex4_3_dielectric_interface}
+\end{figure}
+
+\section{問題4: 一様電場中の誘電体球}
+
+\subsection{問題}
+
+真空中の$z$軸方向に一様な電場$\boldsymbol{E}_0$のなかに、半径$a$の誘電体球（誘電率$\varepsilon$）を置く（中心が原点）。以下の解法を用いて、誘電体球の内外の電位を求め、どのような電場が作る電位に対応するかを述べよ。Laplace方程式$\nabla^2\phi=0$の解は、極座標$(r,\theta,\phi)$で、軸対称（$\phi$に依存しない）のとき、Legendre関数$P_n(x)$を用いて、
+\begin{equation}
+\phi = \sum_{n=0}^{\infty} \left(A_n r^n + \frac{B_n}{r^{n+1}}\right) P_n(\cos\theta)
+\end{equation}
+で与えられること、および、$P_1(x) = x$を利用すること。また、$\boldsymbol{E}_0$の電位（$\phi = -E_0z$）は、極座標表示で$\phi = -E_0 r\cos\theta$と書けることを用いる。
+
+\subsection{解答}
+
+\subsubsection{問題の理解と設定の明確化}
+
+球内外でLaplace方程式を解き、境界条件を満たす解を求める。
+
+\subsubsection{使用する物理法則}
+
+Laplace方程式と境界条件：
+\begin{align}
+\phi_{\text{in}}|_{r=a} &= \phi_{\text{out}}|_{r=a} \\
+\varepsilon\frac{\partial\phi_{\text{in}}}{\partial r}\Big|_{r=a} &= \varepsilon_0\frac{\partial\phi_{\text{out}}}{\partial r}\Big|_{r=a}
+\end{align}
+
+\subsubsection{段階的な計算過程}
+
+外部電場による電位：$\phi_0 = -E_0 r\cos\theta$
+
+球内の電位：
+\begin{equation}
+\phi_{\text{in}} = \sum_{n=0}^{\infty} A_n r^n P_n(\cos\theta)
+\end{equation}
+（$r=0$で有限のため、$B_n$項は不要）
+
+球外の電位：
+\begin{equation}
+\phi_{\text{out}} = -E_0 r\cos\theta + \sum_{n=0}^{\infty} \frac{B_n}{r^{n+1}} P_n(\cos\theta)
+\end{equation}
+
+境界条件を適用する。$r = a$で：
+
+第1の境界条件（電位の連続性）：
+\begin{align}
+\phi_{\text{in}}|_{r=a} &= \phi_{\text{out}}|_{r=a} \\
+A_1 a P_1(\cos\theta) &= -E_0 a P_1(\cos\theta) + \frac{B_1}{a^2} P_1(\cos\theta)
+\end{align}
+
+$P_1(\cos\theta) = \cos\theta \neq 0$（一般に）より：
+\begin{equation}
+A_1 a = -E_0 a + \frac{B_1}{a^2} \quad \text{(1)}
+\end{equation}
+
+第2の境界条件（電束密度の法線成分の連続性）：
+\begin{align}
+\varepsilon\frac{\partial\phi_{\text{in}}}{\partial r}\Big|_{r=a} &= \varepsilon_0\frac{\partial\phi_{\text{out}}}{\partial r}\Big|_{r=a} \\
+\varepsilon A_1 P_1(\cos\theta) &= \varepsilon_0\left(-E_0 P_1(\cos\theta) - \frac{2B_1}{a^3}P_1(\cos\theta)\right)
+\end{align}
+
+したがって：
+\begin{equation}
+\varepsilon A_1 = \varepsilon_0\left(-E_0 - \frac{2B_1}{a^3}\right) \quad \text{(2)}
+\end{equation}
+
+(1)より$B_1 = a^3(A_1 + E_0)$。これを(2)に代入：
+\begin{align}
+\varepsilon A_1 &= \varepsilon_0\left(-E_0 - \frac{2a^3(A_1 + E_0)}{a^3}\right) \\
+&= \varepsilon_0(-E_0 - 2A_1 - 2E_0) \\
+&= \varepsilon_0(-2A_1 - 3E_0) \\
+\varepsilon A_1 &= -2\varepsilon_0 A_1 - 3\varepsilon_0 E_0 \\
+A_1(\varepsilon + 2\varepsilon_0) &= -3\varepsilon_0 E_0 \\
+A_1 &= -\frac{3\varepsilon_0}{\varepsilon + 2\varepsilon_0}E_0
+\end{align}
+
+$B_1$を求める：
+\begin{align}
+B_1 &= a^3(A_1 + E_0) \\
+&= a^3\left(-\frac{3\varepsilon_0}{\varepsilon + 2\varepsilon_0}E_0 + E_0\right) \\
+&= a^3 E_0\left(1 - \frac{3\varepsilon_0}{\varepsilon + 2\varepsilon_0}\right) \\
+&= a^3 E_0 \cdot \frac{\varepsilon + 2\varepsilon_0 - 3\varepsilon_0}{\varepsilon + 2\varepsilon_0} \\
+&= a^3 E_0 \cdot \frac{\varepsilon - \varepsilon_0}{\varepsilon + 2\varepsilon_0}
+\end{align}
+
+したがって：
+\begin{align}
+\phi_{\text{in}} &= -\frac{3\varepsilon_0}{\varepsilon + 2\varepsilon_0}E_0 r\cos\theta \\
+\phi_{\text{out}} &= -E_0 r\cos\theta + \frac{\varepsilon - \varepsilon_0}{\varepsilon + 2\varepsilon_0}\frac{E_0 a^3\cos\theta}{r^2}
+\end{align}
+
+球外の第2項は、双極子が作る電位に対応する。
+
+\subsubsection{最終的な答え}
+
+\begin{align}
+\phi_{\text{in}} &= -\frac{3\varepsilon_0}{\varepsilon + 2\varepsilon_0}E_0 r\cos\theta \\
+\phi_{\text{out}} &= -E_0 r\cos\theta + \frac{\varepsilon - \varepsilon_0}{\varepsilon + 2\varepsilon_0}\frac{E_0 a^3\cos\theta}{r^2}
+\end{align}
+
+球外の第2項は、双極子モーメント$\boldsymbol{p} = 4\pi\varepsilon_0\frac{\varepsilon - \varepsilon_0}{\varepsilon + 2\varepsilon_0}a^3\boldsymbol{E}_0$が作る電位に対応する。
+
+\subsubsection{物理的意味の説明}
+
+\begin{itemize}
+    \item 誘電体球は外部電場によって分極し、双極子モーメントを持つ。この双極子モーメントは、外部電場に比例し、誘電率の差$(\varepsilon - \varepsilon_0)$に比例する。
+    \item 球内部の電場は、外部電場より弱くなり、その比は$\frac{3\varepsilon_0}{\varepsilon + 2\varepsilon_0}$である。誘電率が大きいほど、内部電場は弱くなる。
+    \item 球外部では、外部電場に加えて、誘電体球の分極による双極子場が重ね合わされる。この双極子場は、距離の2乗に反比例する。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/ex4_4_uniform_field.png}
+\caption{一様電場中の誘電体球}
+\label{fig:ex4_4_uniform_field}
+\end{figure}
+
