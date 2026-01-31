@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.21.0 (TeX Live 2025)  (format=lualatex 2025.12.19)  31 JAN 2026 15:14
+This is LuaHBTeX, Version 1.21.0 (TeX Live 2025)  (format=lualatex 2025.12.19)  31 JAN 2026 16:58
  restricted system commands enabled.
 **past_exam_solutions.tex
 (./past_exam_solutions.tex
@@ -1231,67 +1231,81 @@ Package luatex.def Info: figures/past2025_ex1_why_T.png  used on input line 71.
 
 
 [43]
-File: figures/past2024_ex1_path.png Graphic file (type png)
-<use figures/past2024_ex1_path.png>
-Package luatex.def Info: figures/past2024_ex1_path.png  used on input line 115.
+<figures/past2025_ex1_path.png, id=680, 567.0786pt x 425.6703pt>
+File: figures/past2025_ex1_path.png Graphic file (type png)
+<use figures/past2025_ex1_path.png>
+Package luatex.def Info: figures/past2025_ex1_path.png  used on input line 115.
 
-(luatex.def)             Requested size: 386.96027pt x 288.91623pt.
+(luatex.def)             Requested size: 386.96027pt x 290.47171pt.
 
 
 [44<./figures/past2025_ex1_why_T.png>]
-<figures/past2025_ex1_entropy.png, id=694, 570.2103pt x 425.6703pt>
+<figures/past2025_ex1_entropy.png, id=695, 570.2103pt x 425.1885pt>
 File: figures/past2025_ex1_entropy.png Graphic file (type png)
 <use figures/past2025_ex1_entropy.png>
 Package luatex.def Info: figures/past2025_ex1_entropy.png  used on input line 1
 22.
-(luatex.def)             Requested size: 364.19667pt x 271.88246pt.
+(luatex.def)             Requested size: 364.19667pt x 271.57472pt.
 
 
-[45<./figures/past2025_ex1_entropy.png>]
+[45<./figures/past2025_ex1_path.png>]
 
-[46]
-<figures/past2025_ex2_energy_balance.png, id=719, 570.933pt x 353.8821pt>
+[46<./figures/past2025_ex1_entropy.png>]
+<figures/past2025_ex2_energy_balance.png, id=714, 570.933pt x 353.8821pt>
 File: figures/past2025_ex2_energy_balance.png Graphic file (type png)
 <use figures/past2025_ex2_energy_balance.png>
 Package luatex.def Info: figures/past2025_ex2_energy_balance.png  used on input
- line 187.
+ line 191.
 (luatex.def)             Requested size: 364.19667pt x 225.74937pt.
 
 
-[47<./figures/past2025_ex2_energy_balance.png>]
-<figures/past2025_ex2_setup.png, id=732, 570.933pt x 354.123pt>
+[47]
+
+[48<./figures/past2025_ex2_energy_balance.png>]
+
+[49]
+<figures/past2025_ex2_setup.png, id=758, 570.933pt x 354.123pt>
 File: figures/past2025_ex2_setup.png Graphic file (type png)
 <use figures/past2025_ex2_setup.png>
-Package luatex.def Info: figures/past2025_ex2_setup.png  used on input line 228
+Package luatex.def Info: figures/past2025_ex2_setup.png  used on input line 303
 .
 (luatex.def)             Requested size: 341.43307pt x 211.78378pt.
 
 
-[48<./figures/past2025_ex2_setup.png>]
-
-[49]
-
 [50]
+<figures/past2025_ex2_DeltaS_Tmin.png, id=767, 859.2903pt x 357.0138pt>
+File: figures/past2025_ex2_DeltaS_Tmin.png Graphic file (type png)
+<use figures/past2025_ex2_DeltaS_Tmin.png>
+Package luatex.def Info: figures/past2025_ex2_DeltaS_Tmin.png  used on input li
+ne 310.
+(luatex.def)             Requested size: 364.19667pt x 151.3121pt.
 
-[51]
-<figures/past2025_ex4_combination.png, id=797, 570.933pt x 281.6121pt>
+
+[51<./figures/past2025_ex2_setup.png><./figures/past2025_ex2_DeltaS_Tmin.png>]
+
+[52]
+
+[53]
+<figures/past2025_ex4_combination.png, id=810, 570.933pt x 281.6121pt>
 File: figures/past2025_ex4_combination.png Graphic file (type png)
 <use figures/past2025_ex4_combination.png>
 Package luatex.def Info: figures/past2025_ex4_combination.png  used on input li
-ne 376.
+ne 458.
 (luatex.def)             Requested size: 341.43307pt x 168.41853pt.
 
 
-[52<./figures/past2025_ex4_combination.png>]
-<figures/past2025_ex4_two_level.png, id=812, 426.393pt x 353.8821pt>
+[54]
+
+[55<./figures/past2025_ex4_combination.png>]
+<figures/past2025_ex4_two_level.png, id=847, 426.393pt x 353.8821pt>
 File: figures/past2025_ex4_two_level.png Graphic file (type png)
 <use figures/past2025_ex4_two_level.png>
 Package luatex.def Info: figures/past2025_ex4_two_level.png  used on input line
- 424.
+ 506.
 (luatex.def)             Requested size: 273.14923pt x 226.70514pt.
 )
 
-[53<./figures/past2025_ex4_two_level.png>] (./past_exam_solutions.aux)
+[56<./figures/past2025_ex4_two_level.png>] (./past_exam_solutions.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1306,14 +1320,14 @@ Package rerunfilecheck Info: File `past_exam_solutions.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 15602 strings out of 475506
+ 15640 strings out of 475506
  195705,953878 words of node,token memory allocated
- 9294 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 3956 attribute, 56 glue_s
-pec, 372 attribute_list, 1 write, 14 user_defined, 5 pdf_action nodes
-   avail lists: 1:49,2:50868,3:496,4:308,5:561,6:56,7:5978,8:94,9:2445,10:37,11:
+ 9678 words of node memory still in use:
+   11 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 4132 attribute, 56 glue_s
+pec, 388 attribute_list, 1 write, 14 user_defined, 5 pdf_action nodes
+   avail lists: 1:49,2:50676,3:498,4:360,5:561,6:56,7:5978,8:94,9:2445,10:37,11:
 40
- 37720 multiletter control sequences out of 65536+600000
+ 37735 multiletter control sequences out of 65536+600000
  99 fonts using 91468815 bytes
  125i,13n,128p,1902b,475s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/opentype/public/lm/lmroman9-regul
@@ -1349,10 +1363,10 @@ ts/cm/cmsy9.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pub
 lic/amsfonts/symbols/msbm5.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/ty
 pe1/public/amsfonts/symbols/msbm7.pfb>
-Output written on past_exam_solutions.pdf (53 pages, 2639262 bytes).
+Output written on past_exam_solutions.pdf (56 pages, 2929312 bytes).
 
-PDF statistics: 966 PDF objects out of 1000 (max. 8388607)
- 814 compressed objects within 9 object streams
- 482 named destinations out of 1000 (max. 131072)
+PDF statistics: 999 PDF objects out of 1000 (max. 8388607)
+ 840 compressed objects within 9 object streams
+ 502 named destinations out of 1000 (max. 131072)
  169 words of extra memory for PDF output out of 10000 (max. 100000000)
 

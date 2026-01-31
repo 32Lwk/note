@@ -140,35 +140,39 @@
 \contentsline {paragraph}{なぜ $1/T = \partial S/\partial U$ か（原理的な説明）}{43}{section*.104}%
 \contentsline {paragraph}{問2：断熱自由膨張後の温度 $T'$}{44}{section*.105}%
 \contentsline {paragraph}{問3：一連の操作のエントロピー変化}{44}{section*.106}%
-\contentsline {paragraph}{なぜ一連の操作で $\Delta S = N R \ln (V'/V)$ か（物理的考察）}{44}{section*.107}%
+\contentsline {paragraph}{なぜ一連の操作で $\Delta S = 2 N R \ln (V'/V)$ か（物理的考察）}{44}{section*.107}%
 \contentsline {section}{\numberline {2}問題II：2種類の理想気体（類題：2023年度 問題I；演習3-II, 演習5-III--IV）}{46}{section.2025.2}%
 \contentsline {subsection}{\numberline {2.1}問題}{46}{subsection.2025.2.1}%
-\contentsline {subsection}{\numberline {2.2}解答}{46}{subsection.2025.2.2}%
-\contentsline {paragraph}{この問題のポイント}{46}{section*.108}%
-\contentsline {paragraph}{解き方の流れ}{46}{section*.109}%
-\contentsline {paragraph}{記号の整理}{46}{section*.110}%
-\contentsline {paragraph}{問1：終状態の温度 $T$}{46}{section*.111}%
+\contentsline {subsection}{\numberline {2.2}解答}{47}{subsection.2025.2.2}%
+\contentsline {paragraph}{この問題のポイント}{47}{section*.108}%
+\contentsline {paragraph}{解き方の流れ}{47}{section*.109}%
+\contentsline {paragraph}{記号の整理}{47}{section*.110}%
+\contentsline {paragraph}{問1：終状態の温度 $T$}{47}{section*.111}%
 \contentsline {paragraph}{なぜこの温度になるか（原理的な説明）}{47}{section*.112}%
-\contentsline {paragraph}{問2：エントロピー変化}{47}{section*.113}%
-\contentsline {paragraph}{なぜ $\Delta S > 0$ か（物理的考察）}{48}{section*.114}%
-\contentsline {section}{\numberline {3}問題III：変な気体（類題：2023年度 問題II、2024年度 問題III；演習6-I, 演習4-III）}{48}{section.2025.3}%
-\contentsline {subsection}{\numberline {3.1}問題}{48}{subsection.2025.3.1}%
-\contentsline {subsection}{\numberline {3.2}解答}{49}{subsection.2025.3.2}%
-\contentsline {paragraph}{この問題のポイント}{49}{section*.115}%
-\contentsline {paragraph}{なぜこのように解くか}{49}{section*.116}%
-\contentsline {paragraph}{問1：$E(T,V)$}{49}{section*.117}%
-\contentsline {paragraph}{問2：$p(T,V)$}{49}{section*.118}%
-\contentsline {paragraph}{問3：$\langle \delta E^2 \rangle $}{49}{section*.119}%
-\contentsline {section}{\numberline {4}問題IV：2準位系の統計力学（カノニカルとミクロカノニカル）（類題：演習7-I, 演習7-III, 演習7-IV）}{50}{section.2025.4}%
-\contentsline {subsection}{\numberline {4.1}問題}{50}{subsection.2025.4.1}%
-\contentsline {subsection}{\numberline {4.2}解答}{51}{subsection.2025.4.2}%
-\contentsline {paragraph}{この問題のポイント}{51}{section*.120}%
-\contentsline {paragraph}{解き方の流れ}{51}{section*.121}%
-\contentsline {paragraph}{問1：$Z_1(T)$}{51}{section*.122}%
-\contentsline {paragraph}{問2：$N=1$ のときの $\langle E \rangle $}{51}{section*.123}%
-\contentsline {paragraph}{問3：$Z_N$}{51}{section*.124}%
-\contentsline {paragraph}{問4：$Z_N$ を用いた $\langle E \rangle $}{51}{section*.125}%
-\contentsline {paragraph}{問5：状態数 $W_N(E_{\mathrm {tot}})$}{52}{section*.126}%
-\contentsline {paragraph}{問6：エントロピー $S(N_{\mathrm {tot}}, E_{\mathrm {tot}})$}{52}{section*.127}%
-\contentsline {paragraph}{問7：$E_{\mathrm {tot}}$ を温度 $T$ の関数として表す}{52}{section*.128}%
-\contentsline {paragraph}{なぜ $1/T = \partial S/\partial E$ か（問7の補足）}{53}{section*.129}%
+\contentsline {paragraph}{問2：エントロピー変化}{48}{section*.113}%
+\contentsline {paragraph}{なぜ $\Delta S > 0$ か（物理的考察）}{49}{section*.114}%
+\contentsline {paragraph}{問3：$\Delta S > 0$ の証明}{49}{section*.115}%
+\contentsline {paragraph}{問3の補足（相加・相乗平均との関係）}{49}{section*.116}%
+\contentsline {paragraph}{問4：達成できる最低温度 $T_{\mathrm {min}}$}{49}{section*.117}%
+\contentsline {paragraph}{なぜ幾何平均が最低温度か（原理的な説明）}{50}{section*.118}%
+\contentsline {section}{\numberline {3}問題III：変な気体（類題：2023年度 問題II、2024年度 問題III；演習6-I, 演習4-III）}{51}{section.2025.3}%
+\contentsline {subsection}{\numberline {3.1}問題}{51}{subsection.2025.3.1}%
+\contentsline {subsection}{\numberline {3.2}解答}{52}{subsection.2025.3.2}%
+\contentsline {paragraph}{この問題のポイント}{52}{section*.119}%
+\contentsline {paragraph}{なぜこのように解くか}{52}{section*.120}%
+\contentsline {paragraph}{問1：$E(T,V)$}{52}{section*.121}%
+\contentsline {paragraph}{問2：$p(T,V)$}{52}{section*.122}%
+\contentsline {paragraph}{問3：$\langle \delta E^2 \rangle $}{52}{section*.123}%
+\contentsline {section}{\numberline {4}問題IV：2準位系の統計力学（カノニカルとミクロカノニカル）（類題：演習7-I, 演習7-III, 演習7-IV）}{53}{section.2025.4}%
+\contentsline {subsection}{\numberline {4.1}問題}{53}{subsection.2025.4.1}%
+\contentsline {subsection}{\numberline {4.2}解答}{53}{subsection.2025.4.2}%
+\contentsline {paragraph}{この問題のポイント}{53}{section*.124}%
+\contentsline {paragraph}{解き方の流れ}{54}{section*.125}%
+\contentsline {paragraph}{問1：$Z_1(T)$}{54}{section*.126}%
+\contentsline {paragraph}{問2：$N=1$ のときの $\langle E \rangle $}{54}{section*.127}%
+\contentsline {paragraph}{問3：$Z_N$}{54}{section*.128}%
+\contentsline {paragraph}{問4：$Z_N$ を用いた $\langle E \rangle $}{54}{section*.129}%
+\contentsline {paragraph}{問5：状態数 $W_N(E_{\mathrm {tot}})$}{54}{section*.130}%
+\contentsline {paragraph}{問6：エントロピー $S(N_{\mathrm {tot}}, E_{\mathrm {tot}})$}{55}{section*.131}%
+\contentsline {paragraph}{問7：$E_{\mathrm {tot}}$ を温度 $T$ の関数として表す}{55}{section*.132}%
+\contentsline {paragraph}{なぜ $1/T = \partial S/\partial E$ か（問7の補足）}{56}{section*.133}%

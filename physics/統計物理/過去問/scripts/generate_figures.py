@@ -351,13 +351,36 @@ def fig_past2024_ex2_setup():
     print(f"生成: {OUTPUT_DIR}/past2024_ex2_setup.png")
 
 
+def fig_past2025_ex1_path():
+    """2025 問題I: 断熱自由膨張と準静的断熱過程の経路（T'' = T(V'/V)^{2/3}）"""
+    V_vals = np.array([1.0, 2.0, 1.0])  # V, V', V
+    T_base = 300
+    # T' = T（断熱自由膨張で温度不変）、T'' = T (V'/V)^{2/3}
+    T_vals = np.array([T_base, T_base, T_base * (2.0)**(2/3)])
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.plot(V_vals, T_vals, 'bo-', linewidth=2, markersize=10)
+    ax.annotate(r'$(T,V)$', xy=(1, T_base), xytext=(0.85, T_base - 25), fontsize=12)
+    ax.annotate(r'$(T\',V\')$', xy=(2, T_base), xytext=(1.9, T_base - 25), fontsize=12)
+    ax.annotate(r'$(T\'\',V)$', xy=(1, T_vals[2]), xytext=(0.65, T_vals[2] + 15), fontsize=12)
+    ax.annotate('断熱自由膨張\n$T\'=T$', xy=(1.5, T_base), fontsize=11, ha='center')
+    ax.annotate('準静的断熱\n$T^{\prime\prime}=T(V\'/V)^{2/3}$', xy=(1.5, (T_base + T_vals[2])/2), fontsize=10, ha='center')
+    ax.set_xlabel(r'体積 $V$', fontsize=12)
+    ax.set_ylabel(r'温度 $T$ (K)', fontsize=12)
+    ax.set_title(r'2025 問題I: $(T,V) \to (T\',V\') \to (T\'\',V)$ の経路', fontsize=14)
+    ax.grid(True, alpha=0.3)
+    plt.tight_layout()
+    plt.savefig(os.path.join(OUTPUT_DIR, 'past2025_ex1_path.png'), dpi=DPI, bbox_inches='tight')
+    plt.close()
+    print(f"生成: {OUTPUT_DIR}/past2025_ex1_path.png")
+
+
 def fig_past2025_ex1_entropy():
-    """2025 問題I: 架空の気体の S(U,V) と経路の概念"""
+    """2025 問題I: 架空の気体の S(U,V) = NR ln[(U/N)^3 (V/N)^2] と経路の概念"""
     U = np.linspace(0.5, 3, 50)
     V = np.linspace(0.5, 2, 50)
     U_grid, V_grid = np.meshgrid(U, V)
-    # S ∝ ln(U^{3/2} V^2) の等高線の代わりに、簡易的に T = 2U/(3NR) の等高線
-    T_contour = U_grid / V_grid  # 簡易的な関係
+    # S 一定なら (U/N)^3 (V/N)^2 = const → T = U/(3NR) なので定 T は定 U
+    T_contour = U_grid  # 定 T = 定 U の等高線（簡易）
 
     fig, ax = plt.subplots(figsize=(8, 6))
     cs = ax.contour(U_grid, V_grid, T_contour, levels=8, colors='gray', alpha=0.6)
@@ -366,7 +389,7 @@ def fig_past2025_ex1_entropy():
             label=r'$(T,V)\to(T\',V\')\to(T\'\',V)$')
     ax.set_xlabel(r'$U/N$ (任意単位)', fontsize=12)
     ax.set_ylabel(r'$V/N$ (任意単位)', fontsize=12)
-    ax.set_title('2025 問題I: 架空の気体の状態変化の概念図', fontsize=14)
+    ax.set_title(r'2025 問題I: 架空の気体 $S \propto \ln[(U/N)^3(V/N)^2]$ の状態変化', fontsize=14)
     ax.legend()
     ax.grid(True, alpha=0.3)
     plt.tight_layout()
@@ -376,23 +399,23 @@ def fig_past2025_ex1_entropy():
 
 
 def fig_past2025_ex1_why_T():
-    """2025 問題I: 1/T = ∂S/∂U の意味"""
+    """2025 問題I: 1/T = ∂S/∂U の意味（S ∝ ln(U^3) のとき T = U/(3NR)）"""
     U = np.linspace(0.5, 3, 50)
-    S = np.log(U**1.5)  # S ∝ ln(U^{3/2}) のイメージ
-    dSdU = 1.5 / U
-    T = 1 / dSdU  # T = 1/(∂S/∂U)
+    S = np.log(U**3)  # S ∝ ln(U^3) のイメージ（体積一定）
+    dSdU = 3.0 / U   # ∂S/∂U = 3NR/U → 1/T = 3NR/U, T = U/(3NR)
+    T = U / 3.0      # T ∝ U（NR は定数なので任意単位で U/3）
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
     ax1.plot(U, S, 'b-', linewidth=2)
     ax1.set_xlabel(r'$U$', fontsize=12)
     ax1.set_ylabel(r'$S(U,V)$', fontsize=12)
-    ax1.set_title(r'$S \propto \ln(U^{3/2})$ のとき傾き $dS/dU = 1/T$', fontsize=12)
+    ax1.set_title(r'$S \propto \ln(U^3)$ のとき傾き $dS/dU = 3/U = 1/T$（$V$ 一定）', fontsize=12)
     ax1.grid(True, alpha=0.3)
 
     ax2.plot(U, T, 'r-', linewidth=2)
     ax2.set_xlabel(r'$U$', fontsize=12)
     ax2.set_ylabel(r'$T$', fontsize=12)
-    ax2.set_title(r'$T = 2U/(3NR)$（$1/T = \partial S/\partial U$）', fontsize=12)
+    ax2.set_title(r'$T = U/(3NR)$（$1/T = \partial S/\partial U$）', fontsize=12)
     ax2.grid(True, alpha=0.3)
 
     plt.suptitle('問題I: 温度は $1/T = (\\partial S/\\partial U)_V$ で定義される', fontsize=14)
@@ -452,6 +475,53 @@ def fig_past2025_ex2_setup():
     plt.savefig(os.path.join(OUTPUT_DIR, 'past2025_ex2_setup.png'), dpi=DPI, bbox_inches='tight')
     plt.close()
     print("生成: " + os.path.join(OUTPUT_DIR, 'past2025_ex2_setup.png'))
+
+
+def fig_past2025_ex2_DeltaS_Tmin():
+    """2025 問題II 問3・問4: ΔS>0の不等式と Tmin（幾何平均）・問1のT（算術平均）の範囲"""
+    T_L, T_R = 400, 200  # 例（K）
+    T_arith = (T_L + T_R) / 2   # 問1の温度（算術平均）
+    T_geom = np.sqrt(T_L * T_R)  # T_min（幾何平均）
+
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 5))
+
+    # 左パネル: 問3の不等式 (T_L+T_R)^2 > 4 T_L T_R の視覚化
+    # T_R を変数として、左辺 (T_L+T_R)^2 と右辺 4 T_L T_R をプロット（T_L は固定）
+    T_R_vals = np.linspace(50, 400, 100)
+    left_side = (T_L + T_R_vals) ** 2
+    right_side = 4 * T_L * T_R_vals
+    ax1.plot(T_R_vals, left_side, 'b-', linewidth=2, label=r'$(T_L + T_R)^2$')
+    ax1.plot(T_R_vals, right_side, 'r--', linewidth=2, label=r'$4 T_L T_R$')
+    ax1.axvline(T_R, color='gray', linestyle=':', alpha=0.7)
+    ax1.axhline((T_L + T_R)**2, color='gray', linestyle=':', alpha=0.5)
+    ax1.scatter([T_R], [(T_L + T_R)**2], color='b', s=60, zorder=5)
+    ax1.scatter([T_R], [4*T_L*T_R], color='r', s=60, zorder=5)
+    ax1.set_xlabel(r'$T_R$ (K)', fontsize=12)
+    ax1.set_ylabel(r'値', fontsize=12)
+    ax1.set_title(r'問3: $(T_L+T_R)^2 > 4 T_L T_R$ のとき $\Delta S > 0$', fontsize=12)
+    ax1.legend(loc='upper left', fontsize=10)
+    ax1.grid(True, alpha=0.3)
+    ax1.set_xlim(40, 420)
+    ax1.text(0.05, 0.95, r'$T_L = 400$ K 固定', transform=ax1.transAxes, fontsize=10, va='top')
+
+    # 右パネル: 問4の終温度の範囲（T_min ≦ T ≦ 問1のT）
+    ax2.barh([0], [T_geom], height=0.25, color='blue', alpha=0.7, label=r'$T_{\mathrm{min}} = \sqrt{T_L T_R}$')
+    ax2.barh([0.5], [T_arith], height=0.25, color='green', alpha=0.7, label=r'問1の $T = (T_L+T_R)/2$')
+    ax2.axvline(T_R, color='gray', linestyle='--', alpha=0.7, label=r'$T_R$')
+    ax2.axvline(T_L, color='gray', linestyle=':', alpha=0.7, label=r'$T_L$')
+    ax2.set_yticks([0, 0.5])
+    ax2.set_yticklabels([r'$T_{\mathrm{min}}$ (幾何平均)', r'問1の $T$ (算術平均)'])
+    ax2.set_xlabel(r'温度 $T$ (K)', fontsize=12)
+    ax2.set_title(r'問4: 達成できる終温度の範囲（$T_{\mathrm{min}} \leq T \leq$ 問1の $T$）', fontsize=12)
+    ax2.legend(loc='upper right', fontsize=9)
+    ax2.grid(True, alpha=0.3, axis='x')
+    ax2.set_xlim(T_R - 30, T_L + 30)
+
+    plt.suptitle('2025 問題II: 問3（$\Delta S > 0$ の証明）と 問4（$T_{\mathrm{min}}$）', fontsize=13)
+    plt.tight_layout()
+    plt.savefig(os.path.join(OUTPUT_DIR, 'past2025_ex2_DeltaS_Tmin.png'), dpi=DPI, bbox_inches='tight')
+    plt.close()
+    print(f"生成: {OUTPUT_DIR}/past2025_ex2_DeltaS_Tmin.png")
 
 
 def fig_past2025_ex4_two_level():
@@ -517,10 +587,12 @@ def main():
     fig_past2024_ex1_why_entropy()
     fig_past2024_ex2_entropy_same_diff()
     fig_past2024_ex2_setup()
+    fig_past2025_ex1_path()
     fig_past2025_ex1_entropy()
     fig_past2025_ex1_why_T()
     fig_past2025_ex2_energy_balance()
     fig_past2025_ex2_setup()
+    fig_past2025_ex2_DeltaS_Tmin()
     fig_past2025_ex4_two_level()
     fig_past2025_ex4_combination()
     print("すべての図の生成が完了しました。")

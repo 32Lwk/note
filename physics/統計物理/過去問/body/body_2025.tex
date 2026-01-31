@@ -12,21 +12,21 @@
 
 ある架空の気体を考える。この気体の $N$ モルのエントロピーは、内部エネルギー $U$ と体積 $V$ の関数として以下で与えられるとする（$R$ は気体定数、$S_0$ は定数）：
 \begin{equation}
-S(U,V) = N R \ln\left[\left(\frac{U}{N}\right)^{3/2} \left(\frac{V}{N}\right)^2\right] + N S_0.
+S(U,V) = N R \ln\left[\left(\frac{U}{N}\right)^{3} \left(\frac{V}{N}\right)^2\right] + N S_0.
 \end{equation}
 以下の問に答えよ。
 
 \begin{enumerate}
 \item 系の温度 $T$ を内部エネルギー $U$ を用いて表せ。
 \item 断熱自由膨張により、系が $(T,V)$ から $(T',V')$ へ変化したとする（$V < V'$）。$T'$ を $T$, $V$, $V'$, $R$, $N$ のいずれかの記号を用いて表せ。
-\item この後、系を準静的断熱過程により $(T',V')$ から $(T'',V)$ ともとの体積 $V$ まで圧縮する。一連の操作における、初期状態 $(T,V)$ と終状態 $(T'',V)$ のエントロピー変化を、$T$, $V$, $V'$, $c$, $R$, $N$ のいずれかの記号を用いて表せ。
+\item この後、系を準静的断熱過程により $(T',V')$ から $(T'',V)$ ともとの体積 $V$ まで圧縮する。一連の操作における、初期状態 $(T,V)$ と終状態 $(T'',V)$ のエントロピー変化を、$T$, $V$, $V'$, $R$, $N$ のいずれかの記号を用いて表せ。
 \end{enumerate}
 
 \subsection{解答}
 
 \paragraph{この問題のポイント}
 
-この問題では、エントロピーが $S(U,V)$ の形で与えられている。温度は $1/T = (\partial S/\partial U)_V$ で定義されるので、$S$ を $U$ で微分すれば $T$ が求まる。問2・問3は断熱自由膨張と準静的断熱圧縮の組み合わせで、2024年度問題Iと同様に、$T'=T$（断熱自由膨張で温度不変）と $\Delta S = N R \ln(V'/V)$ が成り立つ。
+この問題では、エントロピーが $S(U,V)$ の形で与えられている。温度は $1/T = (\partial S/\partial U)_V$ で定義されるので、$S$ を $U$ で微分すれば $T$ が求まる。問2・問3は断熱自由膨張と準静的断熱圧縮の組み合わせで、2024年度問題Iと同様に、$T'=T$（断熱自由膨張で温度不変）が成り立つ。本問の $S(U,V)$ では $\Delta S = 2 N R \ln(V'/V)$ となる。
 
 \paragraph{解き方の流れ}
 
@@ -45,26 +45,26 @@ S(U,V) = N R \ln\left[\left(\frac{U}{N}\right)^{3/2} \left(\frac{V}{N}\right)^2\
 \paragraph{問1：温度 $T$ を $U$ で表す}
 
 熱力学の関係式 $1/T = (\partial S/\partial U)_V$ を用いる。$S$ は
-$S = NR \ln[(U/N)^{3/2}(V/N)^2] + N S_0$ であり、
+$S = NR \ln[(U/N)^{3}(V/N)^2] + N S_0$ であり、
 \[
-\ln[(U/N)^{3/2}(V/N)^2] = \frac{3}{2}\ln(U/N) + 2\ln(V/N)
+\ln[(U/N)^{3}(V/N)^2] = 3\ln(U/N) + 2\ln(V/N)
 \]
 なので、$U$ で偏微分すると $\frac{\partial}{\partial U}\ln(U/N) = \frac{1}{U}$。よって
 \begin{equation}
-\frac{\partial S}{\partial U} = N R \cdot \frac{3}{2} \cdot \frac{1}{U}
-= \frac{3NR}{2U}.
+\frac{\partial S}{\partial U} = N R \cdot 3 \cdot \frac{1}{U}
+= \frac{3NR}{U}.
 \end{equation}
 （$N$ モル全体の $S$ を $U$ で微分しているので、$N$ が残る。$U$ は全内部エネルギーである。）したがって
 \begin{equation}
-\frac{1}{T} = \left(\frac{\partial S}{\partial U}\right)_V = \frac{3NR}{2U}
+\frac{1}{T} = \left(\frac{\partial S}{\partial U}\right)_V = \frac{3NR}{U}
 \quad \Rightarrow \quad
-\boxed{T = \frac{2U}{3NR}}.
+\boxed{T = \frac{U}{3NR}}.
 \end{equation}
-（この気体では $U \propto T$ であり、$c=3/2$ の理想気体に相当する。）
+（この気体では $U \propto T$ であり、$U = 3 N R T$ なので $c=3$ の理想気体に相当する。）
 
 \paragraph{なぜ $1/T = \partial S/\partial U$ か（原理的な説明）}
 
-熱力学では、\textbf{温度 $T$ はエントロピー $S$ を内部エネルギー $U$ で偏微分したときの逆数}として定義される：$1/T = (\partial S/\partial U)_V$。体積一定のとき、$dU = T\,dS$ なので、$U$ を増やすには熱を加える必要があり、その「熱の入りやすさ」の逆が $T$ である。$S = NR\ln[(U/N)^{3/2}(V/N)^2] + NS_0$ を $U$ で微分すると $\partial S/\partial U = (3/2)NR/U$ となり、$1/T = (3/2)NR/U$、すなわち $T = 2U/(3NR)$ が得られる。単原子理想気体の $U = (3/2)NRT$ と比較すると、この架空の気体は $c=3/2$ の理想気体と同じ $U$-$T$ 関係を持つ。
+熱力学では、\textbf{温度 $T$ はエントロピー $S$ を内部エネルギー $U$ で偏微分したときの逆数}として定義される：$1/T = (\partial S/\partial U)_V$。体積一定のとき、$dU = T\,dS$ なので、$U$ を増やすには熱を加える必要があり、その「熱の入りやすさ」の逆が $T$ である。$S = NR\ln[(U/N)^{3}(V/N)^2] + NS_0$ を $U$ で微分すると $\partial S/\partial U = 3NR/U$ となり、$1/T = 3NR/U$、すなわち $T = U/(3NR)$ が得られる。$U = 3NRT$ なので、この架空の気体は $c=3$ の理想気体に相当する $U$-$T$ 関係を持つ。
 
 \begin{figure}[H]
 \centering
@@ -75,52 +75,52 @@ $S = NR \ln[(U/N)^{3/2}(V/N)^2] + N S_0$ であり、
 
 \paragraph{問2：断熱自由膨張後の温度 $T'$}
 
-断熱自由膨張では $\Delta U = 0$ なので $U' = U$。$T = 2U/(3NR)$ より $T$ は $U$ のみに依存するので、$U' = U$ なら $T' = T$。したがって
+断熱自由膨張では $\Delta U = 0$ なので $U' = U$。$T = U/(3NR)$ より $T$ は $U$ のみに依存するので、$U' = U$ なら $T' = T$。したがって
 \begin{equation}
 \boxed{T' = T}.
 \end{equation}
 
 \paragraph{問3：一連の操作のエントロピー変化}
 
-準静的断熱過程 $(T',V') \to (T'',V)$ ではエントロピーは一定なので $dS = 0$。$S(U,V) = NR\ln[(U/N)^{3/2}(V/N)^2] + NS_0$ において、$S$ が一定なら $(U/N)^{3/2}(V/N)^2$ が一定、すなわち $U^{3/2} V^2 = \mathrm{const}$ が成り立つ（断熱可逆過程の関係式）。$U = (3/2)N R T$ なので $U^{3/2} \propto T^{3/2}$ であり、$T^{3/2} V^2 = \mathrm{const}$ となる。したがって $(T')^{3/2} (V')^2 = (T'')^{3/2} V^2$。$T'=T$ より
+準静的断熱過程 $(T',V') \to (T'',V)$ ではエントロピーは一定なので $dS = 0$。$S(U,V) = NR\ln[(U/N)^{3}(V/N)^2] + NS_0$ において、$S$ が一定なら $(U/N)^{3}(V/N)^2$ が一定、すなわち $U^3 V^2 = \mathrm{const}$ が成り立つ（断熱可逆過程の関係式）。$U = 3 N R T$ なので $U^3 \propto T^3$ であり、$T^3 V^2 = \mathrm{const}$ となる。したがって $(T')^3 (V')^2 = (T'')^3 V^2$。$T'=T$ より
 \begin{equation}
 T'' = T \left(\frac{V'}{V}\right)^{2/3}.
 \end{equation}
-エントロピー変化は、初期 $S_{\mathrm{i}} = NR\ln[(U/N)^{3/2}(V/N)^2] + NS_0$、\\
-終状態 $S_{\mathrm{f}} = NR\ln[(U''/N)^{3/2}(V/N)^2] + NS_0$ である。
-$U'' = (3/2)N R T''$ なので
+エントロピー変化は、初期 $S_{\mathrm{i}} = NR\ln[(U/N)^{3}(V/N)^2] + NS_0$、\\
+終状態 $S_{\mathrm{f}} = NR\ln[(U''/N)^{3}(V/N)^2] + NS_0$ である。
+$U'' = 3 N R T''$ なので
 \begin{equation}
 \Delta S = S_{\mathrm{f}} - S_{\mathrm{i}}
-= N R \ln\frac{(U''/N)^{3/2}}{(U/N)^{3/2}}
-= N R \cdot \frac{3}{2} \ln\frac{T''}{T}
-= \frac{3}{2} N R \ln\frac{T''}{T}.
+= N R \ln\frac{(U''/N)^{3}}{(U/N)^{3}}
+= N R \cdot 3 \ln\frac{T''}{T}
+= 3 N R \ln\frac{T''}{T}.
 \end{equation}
 $T''/T = (V'/V)^{2/3}$ を代入して
 \begin{equation}
-\Delta S = \frac{3}{2} N R \ln\left(\frac{V'}{V}\right)^{2/3}
-= N R \ln\frac{V'}{V}.
+\Delta S = 3 N R \cdot \frac{2}{3} \ln\frac{V'}{V}
+= 2 N R \ln\frac{V'}{V}.
 \end{equation}
 よって
 \begin{equation}
-\boxed{\Delta S = N R \ln\frac{V'}{V}}.
+\boxed{\Delta S = 2 N R \ln\frac{V'}{V}}.
 \end{equation}
 （$V' > V$ なので $\Delta S > 0$。断熱自由膨張は不可逆過程である。）
 
-\paragraph{なぜ一連の操作で $\Delta S = N R \ln(V'/V)$ か（物理的考察）}
+\paragraph{なぜ一連の操作で $\Delta S = 2 N R \ln(V'/V)$ か（物理的考察）}
 
-問2より断熱自由膨張では $T' = T$ なので内部エネルギーは不変。準静的断熱過程 $(T',V') \to (T'',V)$ ではエントロピーは一定なので、\textbf{全体のエントロピー増加は断熱自由膨張の段階だけで生じる}。$S(U,V)$ の形から、体積 $V$ から $V'$ に不可逆に膨張したときのエントロピー増加は $NR\ln(V'/V)$ である。2024年度問題Iと同様に、気体がより広い体積に広がったことによる「配置の無秩序さ」の増加がエントロピー増大の原因である。
+問2より断熱自由膨張では $T' = T$ なので内部エネルギーは不変。準静的断熱過程 $(T',V') \to (T'',V)$ ではエントロピーは一定なので、\textbf{全体のエントロピー増加は断熱自由膨張の段階だけで生じる}。$S(U,V) = NR\ln[(U/N)^3(V/N)^2] + NS_0$ の形から、体積 $V$ から $V'$ に不可逆に膨張したときのエントロピー増加は $NR \cdot 2\ln(V'/V) = 2NR\ln(V'/V)$ である（$U$ 一定で $V$ のみ変化）。2024年度問題Iと同様に、気体がより広い体積に広がったことによる「配置の無秩序さ」の増加がエントロピー増大の原因である。
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{figures/past2024_ex1_path.png}
-\caption{問題Iの過程：$(T,V) \to (T',V')$（断熱自由膨張、$T'=T$）、$(T',V') \to (T'',V)$（準静的断熱圧縮）。本問では $T'' = T(V'/V)^{2/3}$。}
+\includegraphics[width=0.85\textwidth]{figures/past2025_ex1_path.png}
+\caption{問題Iの過程：$(T,V) \to (T',V')$（断熱自由膨張、$T'=T$）、$(T',V') \to (T'',V)$（準静的断熱圧縮）。本問では $T'' = T(V'/V)^{2/3}$、$\Delta S = 2 N R \ln(V'/V)$。}
 \label{fig:past2025_ex1_path}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.8\textwidth]{figures/past2025_ex1_entropy.png}
-\caption{問題I：架空の気体の $S(U,V)$ と断熱自由膨張の経路。}
+\caption{問題I：架空の気体の $S(U,V) = NR\ln[(U/N)^3(V/N)^2] + NS_0$ と状態変化の経路。断熱自由膨張で $\Delta S = 2NR\ln(V'/V)$。}
 \label{fig:past2025_ex1}
 \end{figure}
 
@@ -141,6 +141,8 @@ S(U,V) = N R \ln\left[\left(\frac{U}{N}\right)^c \left(\frac{V}{N}\right)\right]
 \begin{enumerate}
 \item 左右を隔てる断熱壁を（気体の移動がないように）透熱壁に置き換えた。十分に時間が経過したあと、左右の気体の温度は等しくなった。この終状態の温度 $T$ を求めよ。
 \item 問1の終状態における、容器全体のエントロピーは、初期状態におけるそれと比べてどれだけ変化したか。$R$, $T_L$, $T_R$, $V_L$, $V_R$, $S_0$ のいずれかの記号を用いて示せ。
+\item 問2で計算した全エントロピー変化が正であることを証明せよ。
+\item 同じ初期状態から出発して、最終的に温度が等しくなるような操作を考える。問1の操作だけではない。操作の途中で、外部から仕切り壁を左右に動かすことができるようにしたり、仕切り壁を断熱壁から透熱壁に交換する（あるいはその逆）ことを自在にできるようにすれば、操作次第で、終状態の温度を問1の $T$ より低くもできるし、高くもできる。ただし、終状態の左右の部屋の体積 $V_L$ と $V_R$ は初期状態と同じであり、また操作を通して左右の部屋の間で気体の移動もできないものとする。この操作で達成することができる最低温度 $T_{\mathrm{min}}$ を求めよ。
 \end{enumerate}
 
 \subsection{解答}
@@ -154,6 +156,8 @@ S(U,V) = N R \ln\left[\left(\frac{U}{N}\right)^c \left(\frac{V}{N}\right)\right]
 \begin{enumerate}
 \item 問1：$U_{\mathrm{initial}} = c_A N_A R T_L + c_B N_B R T_R$、$U_{\mathrm{final}} = (c_A N_A + c_B N_B) R T$。$U_{\mathrm{initial}} = U_{\mathrm{final}}$ から $T$ を求める。
 \item 問2：初期と終状態の各室のエントロピーを $S(U,V)$ の式で書き、合計の差をとる。
+\item 問3：問2の $\Delta S = 3R \ln[(T_L+T_R)^2/(4 T_L T_R)]$ について、相加・相乗平均の不等式 $(T_L+T_R)^2 \ge 4 T_L T_R$（等号は $T_L=T_R$ のときのみ）を用いて $\Delta S > 0$ を示す。
+\item 問4：可逆操作では $S_{\mathrm{f}}(T) \ge S_{\mathrm{i}}$ が成り立つ。等号を満たす最小の $T$ が $T_{\mathrm{min}}$ であり、$S_{\mathrm{f}} - S_{\mathrm{i}} = 3R \ln(T^2/(T_L T_R)) = 0$ から $T_{\mathrm{min}} = \sqrt{T_L T_R}$ を導く。
 \end{enumerate}
 
 \paragraph{記号の整理}
@@ -223,11 +227,89 @@ $T = (T_L + T_R)/2$ を代入して
 
 $T = (T_L+T_R)/2$ のとき、左室では $T_L \to T$、右室では $T_R \to T$ と変化する。$T_L > T_R$ とすると、左室は熱を失いエントロピーが減り、右室は熱を得てエントロピーが増える。熱力学第二法則により、不可逆過程（熱が高温から低温へ流れる）では全エントロピーは増大するので、右室の増加が左室の減少を上回り $\Delta S > 0$ となる。式 $(T_L+T_R)^2 \ge 4 T_L T_R$（等号は $T_L=T_R$ のとき）から、$T_L \neq T_R$ なら $\Delta S = 3R \ln[(T_L+T_R)^2/(4 T_L T_R)] > 0$ である。
 
+\paragraph{問3：$\Delta S > 0$ の証明}
+
+問2で得た全エントロピー変化は
+\begin{equation}
+\Delta S = 3R \ln\frac{(T_L+T_R)^2}{4 T_L T_R}.
+\end{equation}
+$\Delta S > 0$ であるためには、対数の中身が $1$ より大きければよい。すなわち $(T_L+T_R)^2/(4 T_L T_R) > 1$、つまり $(T_L+T_R)^2 > 4 T_L T_R$ を示せばよい。
+
+\textbf{ステップ1：}左辺と右辺の差を計算する。
+\begin{equation}
+(T_L + T_R)^2 - 4 T_L T_R
+= T_L^2 + 2 T_L T_R + T_R^2 - 4 T_L T_R
+= T_L^2 - 2 T_L T_R + T_R^2
+= (T_L - T_R)^2.
+\end{equation}
+$(T_L - T_R)^2$ は $T_L$, $T_R$ が実数である限り常に $0$ 以上である。
+
+\textbf{ステップ2：}等号が成り立つ条件を確認する。$(T_L - T_R)^2 = 0$ のとき、かつそのときに限り $T_L = T_R$ である。問題の仮定で $T_L \neq T_R$ としているので、$(T_L - T_R)^2 > 0$ である。
+
+\textbf{ステップ3：}したがって $(T_L+T_R)^2 - 4 T_L T_R > 0$、すなわち $(T_L+T_R)^2 > 4 T_L T_R$ が成り立つ。$T_L$, $T_R > 0$ なので $4 T_L T_R > 0$ であり、
+\begin{equation}
+\frac{(T_L+T_R)^2}{4 T_L T_R} > 1
+\quad \Rightarrow \quad
+\ln\frac{(T_L+T_R)^2}{4 T_L T_R} > 0.
+\end{equation}
+$R > 0$ なので
+\begin{equation}
+\boxed{\Delta S = 3R \ln\frac{(T_L+T_R)^2}{4 T_L T_R} > 0}.
+\end{equation}
+以上で、問2で計算した全エントロピー変化が正であることが証明された。
+
+\paragraph{問3の補足（相加・相乗平均との関係）}
+
+不等式 $(T_L+T_R)^2 \ge 4 T_L T_R$ は、正の数 $T_L$, $T_R$ についての\textbf{相加・相乗平均の不等式} $\frac{T_L+T_R}{2} \ge \sqrt{T_L T_R}$（等号は $T_L=T_R$ のときのみ）の両辺を $2$ 乗したものである。問1の終温度 $T = (T_L+T_R)/2$ は算術平均であり、$\sqrt{T_L T_R}$ は幾何平均である。$T_L \neq T_R$ のとき算術平均は幾何平均より大きいので、$(T_L+T_R)/2 > \sqrt{T_L T_R}$ となり、$(T_L+T_R)^2 > 4 T_L T_R$ が従う。
+
+\paragraph{問4：達成できる最低温度 $T_{\mathrm{min}}$}
+
+操作の制約は次の通りである：終状態の左右の体積は $V_L$, $V_R$ のまま（初期と同じ）、左右の部屋の間で気体の移動はない。仕切り壁を動かしたり断熱・透熱を切り替えたりできるので、\textbf{可逆操作}を組み合わせて、終状態で両室の温度を同じ $T$ に揃えることができる。
+
+\textbf{熱力学第二法則}より、可逆操作を含む過程では、系のエントロピーは減少しない。すなわち、終状態のエントロピー $S_{\mathrm{f}}(T)$ は初期状態のエントロピー $S_{\mathrm{i}}$ 以上でなければならない：
+\begin{equation}
+S_{\mathrm{f}}(T) \ge S_{\mathrm{i}}.
+\end{equation}
+終状態では左室が $(T, V_L)$、右室が $(T, V_R)$ なので、問2と同様の $S(U,V)$ の式を用いると、両室のエントロピー合計 $S_{\mathrm{f}}(T)$ は $T$ の増加関数である（$T$ が大きいほど $S_{\mathrm{f}}$ は大きい）。したがって、$S_{\mathrm{f}}(T) \ge S_{\mathrm{i}}$ を満たす最小の $T$ が、達成可能な\textbf{最低温度} $T_{\mathrm{min}}$ である。そのときは等号 $S_{\mathrm{f}}(T_{\mathrm{min}}) = S_{\mathrm{i}}$ が成り立ち、可逆過程で実現できる。
+
+問2で求めたエントロピー変化の式を、終状態の温度を $T$ として書くと
+\begin{equation}
+S_{\mathrm{f}}(T) - S_{\mathrm{i}}
+= 3R \ln\frac{T}{T_L} + 3R \ln\frac{T}{T_R}
+= 3R \ln\frac{T^2}{T_L T_R}.
+\end{equation}
+（左室：$N_A=1$, $c_A=3$ より $R \ln(T/T_L)^3 = 3R \ln(T/T_L)$。右室：$N_B=2$, $c_B=3/2$ より $2R \cdot (3/2)\ln(T/T_R) = 3R \ln(T/T_R)$。合計で $3R \ln(T^2/(T_L T_R))$ となる。）$S_{\mathrm{f}}(T) = S_{\mathrm{i}}$ のとき
+\begin{equation}
+3R \ln\frac{T^2}{T_L T_R} = 0
+\quad \Rightarrow \quad
+\ln\frac{T^2}{T_L T_R} = 0
+\quad \Rightarrow \quad
+\frac{T^2}{T_L T_R} = 1.
+\end{equation}
+$T > 0$ なので $T^2 = T_L T_R$、したがって $T = \sqrt{T_L T_R}$。これが $S_{\mathrm{f}} = S_{\mathrm{i}}$ を満たす唯一の正の温度であり、可逆過程で達成可能な最低温度である。よって
+\begin{equation}
+\boxed{T_{\mathrm{min}} = \sqrt{T_L T_R}}.
+\end{equation}
+（$T_L$ と $T_R$ の\textbf{幾何平均}である。問1の $T = (T_L+T_R)/2$（算術平均）とは異なる。）
+
+\paragraph{なぜ幾何平均が最低温度か（原理的な説明）}
+
+問1の操作（透熱壁に替えて熱平衡に達するだけ）では、孤立系なので全内部エネルギーが保存し、終温度は $T = (T_L+T_R)/2$ に一意に決まる。一方、仕切り壁を動かしたり断熱・透熱を切り替えたりする\textbf{可逆操作}を許すと、外界と仕事のやりとりが生じ得るが、ここでは「終状態の体積は $V_L$, $V_R$ のまま」という制約だけが課されている。可逆過程ではエントロピーを増やさないので、$S_{\mathrm{f}} \ge S_{\mathrm{i}}$ の等号が成り立つような最小の $T$ まで下げられる。その $T$ が $T_{\mathrm{min}} = \sqrt{T_L T_R}$ である。相加・相乗平均の不等式より $\sqrt{T_L T_R} \le (T_L+T_R)/2$（等号は $T_L=T_R$ のときのみ）なので、$T_{\mathrm{min}} \le T$（問1の温度）であり、$T_L \neq T_R$ のときは $T_{\mathrm{min}} < T$ となる。つまり、可逆操作を駆使すれば、問1では到達しない「より低い終温度」を実現できる。
+
+$T_{\mathrm{min}}$ を達成する操作の例：左室を断熱壁で囲い準静的断熱膨張させて冷却し、右室を準静的断熱圧縮して加熱するなど、両室のエントロピーを変えずに可逆的に温度を揃える。一方を断熱膨張・他方を断熱圧縮する組み合わせで、最終的に体積を $V_L$, $V_R$ に戻したときの共通温度が $T_{\mathrm{min}}$ になるようにできる。
+
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.75\textwidth]{figures/past2025_ex2_setup.png}
 \caption{問題IIの設定：左に気体A 1モル（$T_L,V_L$）、右に気体B 2モル（$T_R,V_R$）。仕切りは断熱壁。}
 \label{fig:past2025_ex2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.8\textwidth]{figures/past2025_ex2_DeltaS_Tmin.png}
+\caption{問題II 問3・問4：左は $\Delta S > 0$ の証明に用いる不等式 $(T_L+T_R)^2 > 4 T_L T_R$（$T_L \neq T_R$ のとき）。右は達成できる終温度の範囲。$T_{\mathrm{min}} = \sqrt{T_L T_R}$（幾何平均）$\le T \le$ 問1の $T = (T_L+T_R)/2$（算術平均）。}
+\label{fig:past2025_ex2_DeltaS_Tmin}
 \end{figure}
 
 %----------------------------------------------------------------------
