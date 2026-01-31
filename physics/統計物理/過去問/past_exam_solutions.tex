@@ -1,4 +1,9 @@
-\documentclass[11pt,a4paper,nofont]{ltjsarticle}
+% TeX Live basic に Harano Aji が含まれないため、クラス読込前に Hiragino を既定に設定
+\makeatletter
+\def\ltj@stdmcfont{HiraMinProN-W3}
+\def\ltj@stdgtfont{HiraKakuProN-W3}
+\makeatother
+\documentclass[11pt,a4paper]{ltjsarticle}
 \usepackage[no-math]{luatexja-fontspec}
 \setmainjfont{Hiragino Mincho ProN}[
   UprightFont=*,

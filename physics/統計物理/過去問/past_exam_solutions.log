@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.21.0 (TeX Live 2025)  (format=lualatex 2025.12.19)  31 JAN 2026 11:03
+This is LuaHBTeX, Version 1.21.0 (TeX Live 2025)  (format=lualatex 2025.12.19)  31 JAN 2026 11:06
  restricted system commands enabled.
 **past_exam_solutions.tex
 (./past_exam_solutions.tex
@@ -318,20 +318,9 @@ LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (/usr/local/texlive/2025basic/texmf-dist/tex/luatex/luatexja/jfm-ujisv.lua)
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
 (Font)              scaled to size 9.24713pt on input line 69.
-luaotfload | db : Reload initiated (formats: otf,ttf,ttc); reason: File not foun
-d: "HaranoAjiMincho-Regular.otf".
-! Font \JY3/mc/m/n/10=file:HaranoAjiMincho-Regular.otf:-kern;jfm=ujis at 9.24713
-pt not loadable: metric data not found or bad.
-<to be read again> 
-                   relax 
-l.69 \kanjiencoding{JY3}\selectfont
-                                   \adjustbaseline
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-
+luaotfload | cache : Lookup cache loaded from /Users/yuto/Library/texlive/2025ba
+sic/texmf-var/luatex-cache/generic/names/luaotfload-lookup-cache.luc.(load cache
+: extra_hiraminpron-w3.luc)
 (/usr/local/texlive/2025basic/texmf-dist/tex/luatex/luatexja/jfm-ujis.lua)
 \symmincho=\mathgroup4
 LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
@@ -399,95 +388,16 @@ Package: luatexja-compat 2025-09-21 Compatibility with pTeX
 (load cache: extra_lmroman9-regular.luc)
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
 (Font)              scaled to size 8.44485pt on input line 417.
-
-! Font \JY3/mc/m/n/10=file:HaranoAjiMincho-Regular.otf:-kern;jfm=ujis at 9.24713
-pt not loadable: metric data not found or bad.
-<to be read again> 
-                   relax 
-l.417 \mcfamily
-               \selectfont\normalsize
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 8.44485pt on input line 417.
-! Font \JY3/mc/m/n/10=file:HaranoAjiMincho-Regular.otf:-kern;jfm=ujis at 9.24713
-pt not loadable: metric data not found or bad.
-<to be read again> 
-                   relax 
-l.417 \mcfamily\selectfont
-                          \normalsize
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 9.24713pt on input line 417.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
 (Font)              scaled to size 9.24713pt on input line 417.
-! Font \JY3/mc/m/n/10.95001=file:HaranoAjiMincho-Regular.otf:-kern;jfm=ujis at 1
-0.1256pt not loadable: metric data not found or bad.
-<to be read again> 
-                   relax 
-l.417 \mcfamily\selectfont\normalsize
-                                     
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-
-
-warning  (hpack filter): error: ...2025basic/texmf-dist/tex/luatex/luatexja/ltj-
-jfmglue.lua:639: attempt to index a nil value (local 'm')
-
-.
-<to be read again> 
-                   \ltj@@reset@badness 
-l.418 \setbox0\hbox{漢}
-                        󿿿
-The lua interpreter ran into a problem, so the
-remainder of this lua chunk will be ignored.
-
 \fullwidth=\dimen161
-! Arithmetic overflow.
-<recently read> \@tempdima 
-                           
-l.509 \divide\fullwidth\@tempdima
-                                  \multiply\fullwidth\@tempdima
-I can't carry out that multiplication or division,
-since the result is out of range.
-
-! Arithmetic overflow.
-<recently read> \@tempdima 
-                           
-l.545 \divide\marginparwidth\@tempdima
-                                      
-I can't carry out that multiplication or division,
-since the result is out of range.
-
 (load cache: extra_lmroman8-regular.luc)
 LaTeX Font Info:    Font shape `JT3/mc/m/n' will be
 (Font)              scaled to size 7.3977pt on input line 558.
 LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
 (Font)              scaled to size 7.3977pt on input line 558.
-! Font \JY3/mc/m/n/8.76001=file:HaranoAjiMincho-Regular.otf:-kern;jfm=ujis at 8.
-10049pt not loadable: metric data not found or bad.
-<to be read again> 
-                   relax 
-l.558 {\footnotesize
-                    \global\setlength\footnotesep{\baselineskip}}
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-
 \c@part=\count273
 \c@section=\count274
 \c@subsection=\count275
@@ -541,54 +451,9 @@ eX
 \l__fontspec_tmpc_dim=\dimen167
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 116.
-
-! Font \JY3/mc/m/n/10.95001=file:HaranoAjiMincho-Regular.otf:-kern;jfm=ujis at 1
-0.1256pt not loadable: metric data not found or bad.
-<to be read again> 
-                   relax 
-l.116 ...\familydefault\seriesdefault\shapedefault
-                                                  
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-
 )
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 439.
-
-! Font \JY3/mc/m/n/10.95001=file:HaranoAjiMincho-Regular.otf:-kern;jfm=ujis at 1
-0.1256pt not loadable: metric data not found or bad.
-<to be read again> 
-                   relax 
-l.439 ..._in:NnT \@filelist {.cls} { \normalsize }
-                                                  
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/fontspec/fontspec.cfg)
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 3978.
-
-! Font \JY3/mc/m/n/10.95001=file:HaranoAjiMincho-Regular.otf:-kern;jfm=ujis at 1
-0.1256pt not loadable: metric data not found or bad.
-<to be read again> 
-                   relax 
-l.3978 \strongfontdeclare{\bfseries}
-                                    
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-
-(load cache: extra_lmroman10-bold.luc)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/fontspec/fontspec.cfg)(load c
+ache: extra_lmroman10-bold.luc)
 LaTeX Font Info:    Font shape `JT3/mc/b/n' in size <10> not available
 (Font)              Font shape `JT3/gt/m/n' tried instead on input line 3978.
 LaTeX Font Info:    Font shape `JT3/gt/m/n' will be
@@ -597,26 +462,14 @@ LaTeX Font Info:    Font shape `JY3/mc/b/n' in size <10> not available
 (Font)              Font shape `JY3/gt/m/n' tried instead on input line 3978.
 LaTeX Font Info:    Font shape `JY3/gt/m/n' will be
 (Font)              scaled to size 8.44485pt on input line 3978.
-! Font \JY3/mc/b/n/10.95001=file:HaranoAjiGothic-Medium.otf:-kern;jfm=ujis at 10
-.1256pt not loadable: metric data not found or bad.
-<to be read again> 
-                   relax 
-l.3978 \strongfontdeclare{\bfseries}
-                                    
-I wasn't able to read the size data for this font,
-so I will ignore the font specification.
-[Wizards can fix TFM files using TFtoPL/PLtoTF.]
-You might try inserting a different font spec;
-e.g., type `I\font<same font id>=<substitute font name>'.
-
-))
+(load cache: extra_hirakakupron-w3.luc)))
 (/usr/local/texlive/2025basic/texmf-dist/tex/luatex/luatexja/patches/lltjp-font
 spec.sty)
 (/usr/local/texlive/2025basic/texmf-dist/tex/luatex/luatexja/addons/luatexja-fo
 ntspec-29e.sty
 Package: luatexja-fontspec-29e 2025-11-01 fontspec support of LuaTeX-ja
 \g__ltj_fontspec_altnumber_int=\count293
-))(load cache: extra_hiraminpron-w3.luc)
+))
 
 Package fontspec Info: 
 (fontspec)             Hiragino Mincho ProN scale = 0.924715.
@@ -625,58 +478,34 @@ Package fontspec Info:
 Package fontspec Info: 
 (fontspec)             Hiragino Mincho ProN scale = 0.924715.
 
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 8.
 
 Package fontspec Info: 
 (fontspec)             Hiragino Mincho ProN scale = 0.924715.
 
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 8.
 
 Package fontspec Info: 
 (fontspec)             Hiragino Mincho ProN scale = 0.924715.
 
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 8.
 
 Package fontspec Info: 
 (fontspec)             Hiragino Mincho ProN scale = 0.924715.
 
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 8.
 
 Package fontspec Info: 
 (fontspec)             Hiragino Mincho ProN scale = 0.924715.
 
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 8.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 8.
 
 Package fontspec Info: 
 (fontspec)             Hiragino Mincho ProN scale = 0.924715.
 
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 8.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 8.
 
 Package fontspec Info: 
 (fontspec)             Hiragino Mincho ProN scale = 0.924715.
 
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 8.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 8.
 
 Package fontspec Info: 
 (fontspec)             Hiragino Mincho ProN scale = 0.924715.
 
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 8.
-LaTeX Font Info:    Font shape `JY3/mc/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 8.
 
 Package fontspec Info: 
 (fontspec)             Font family 'HiraginoMinchoProN(0)' created for font
@@ -689,21 +518,20 @@ cFont=*].
 (fontspec)             series/shapes:
 (fontspec)              
 
-LaTeX Font Info:    Redeclaring symbol font `mincho' on input line 8.
+LaTeX Font Info:    Redeclaring symbol font `mincho' on input line 13.
 LaTeX Font Info:    Overwriting symbol font `mincho' in version `normal'
 (Font)                  JY3/mc/m/n --> JY3/HiraginoMinchoProN(0)/m/n on input l
-ine 8.
+ine 13.
 LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
 (Font)                  JY3/gt/m/n --> JY3/HiraginoMinchoProN(0)/m/n on input l
-ine 8.
+ine 13.
 LaTeX Font Info:    Overwriting symbol font `mincho' in version `bold'
 (Font)                  JY3/HiraginoMinchoProN(0)/m/n --> JY3/HiraginoMinchoPro
-N(0)/b/n on input line 8.
+N(0)/b/n on input line 13.
 LaTeX Font Info:    Font shape `JT3/HiraginoMinchoProN(0)/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 8.
+(Font)              scaled to size 9.24713pt on input line 13.
 LaTeX Font Info:    Font shape `JY3/HiraginoMinchoProN(0)/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 8.
-(load cache: extra_hirakakupron-w3.luc)
+(Font)              scaled to size 9.24713pt on input line 13.
 
 Package fontspec Info: 
 (fontspec)             Hiragino Kaku Gothic ProN scale = 0.924715.
@@ -752,13 +580,13 @@ cFont=*].
 (fontspec)             series/shapes:
 (fontspec)              
 
-LaTeX Font Info:    Redeclaring math alphabet \mathgt on input line 14.
+LaTeX Font Info:    Redeclaring math alphabet \mathgt on input line 19.
 LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `normal'
 (Font)                  JY3/gt/m/n --> JY3/HiraginoKakuGothicProN(0)/m/n on inp
-ut line 14.
+ut line 19.
 LaTeX Font Info:    Overwriting math alphabet `\mathgt' in version `bold'
 (Font)                  JY3/gt/m/n --> JY3/HiraginoKakuGothicProN(0)/m/n on inp
-ut line 14.
+ut line 19.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2024/11/05 v2.17t AMS math features
@@ -1004,43 +832,39 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip55
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 27.
+Package hyperref Info: Option `colorlinks' set `true' on input line 32.
 
 
 Package hyperref Warning: Option `pdfusetitle' has already been used,
-(hyperref)                setting the option has no effect on input line 27.
-
-
-LaTeX Warning: Unused global option(s):
-    [nofont].
+(hyperref)                setting the option has no effect on input line 32.
 
 (./past_exam_solutions.aux)
 \openout1 = past_exam_solutions.aux
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for JY3/mc/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for JT3/mc/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 41.
+LaTeX Font Info:    ... okay on input line 41.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1082,14 +906,14 @@ e
 * \textheight=702.78308pt
 * \oddsidemargin=-1.1381pt
 * \evensidemargin=-1.1381pt
-* \topmargin=-51.49605pt
+* \topmargin=-37.52264pt
 * \headheight=21.90002pt
-* \headsep=28.45792pt
-* \topskip=0.0pt
+* \headsep=14.48451pt
+* \topskip=13.9734pt
 * \footskip=28.45792pt
-* \marginparwidth=0.0pt
-* \marginparsep=0.0pt
-* \columnsep=0.0pt
+* \marginparwidth=20.25125pt
+* \marginparsep=20.25125pt
+* \columnsep=20.25125pt
 * \skip\footins=17.52002pt plus 5.475pt minus 2.19pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
@@ -1109,7 +933,7 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package color Info: Driver file: luatex.def on input line 149.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/mathcolor.ltx))
-Package hyperref Info: Link coloring ON on input line 36.
+Package hyperref Info: Link coloring ON on input line 41.
 
 (./past_exam_solutions.out) (./past_exam_solutions.out)
 \@outlinefile=\write3
@@ -1117,32 +941,32 @@ Package hyperref Info: Link coloring ON on input line 36.
 \openout3 = past_exam_solutions.out
 (load cache: extra_lmroman17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/HiraginoMinchoProN(0)/m/n' will be
-(Font)              scaled to size 15.97903pt on input line 41.
+(Font)              scaled to size 15.97903pt on input line 46.
 LaTeX Font Info:    Font shape `JY3/HiraginoMinchoProN(0)/m/n' will be
-(Font)              scaled to size 15.97903pt on input line 41.
+(Font)              scaled to size 15.97903pt on input line 46.
 (load cache: extra_lmroman12-regular.luc)
 LaTeX Font Info:    Font shape `JT3/HiraginoMinchoProN(0)/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 42.
+(Font)              scaled to size 11.09656pt on input line 47.
 LaTeX Font Info:    Font shape `JY3/HiraginoMinchoProN(0)/m/n' will be
-(Font)              scaled to size 11.09656pt on input line 42.
+(Font)              scaled to size 11.09656pt on input line 47.
 
 
 [1
 
 {/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 LaTeX Font Info:    Font shape `JT3/HiraginoKakuGothicProN(0)/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 47.
+(Font)              scaled to size 9.24713pt on input line 52.
 LaTeX Font Info:    Font shape `JY3/HiraginoKakuGothicProN(0)/m/n' will be
-(Font)              scaled to size 9.24713pt on input line 47.
+(Font)              scaled to size 9.24713pt on input line 52.
 (load cache: extra_lmsans10-regular.luc)
 LaTeX Font Info:    Font shape `JT3/HiraginoMinchoProN(0)/m/n' will be
-(Font)              scaled to size 13.31584pt on input line 47.
+(Font)              scaled to size 13.31584pt on input line 52.
 LaTeX Font Info:    Font shape `JY3/HiraginoMinchoProN(0)/m/n' will be
-(Font)              scaled to size 13.31584pt on input line 47.
+(Font)              scaled to size 13.31584pt on input line 52.
 LaTeX Font Info:    Font shape `JT3/HiraginoKakuGothicProN(0)/m/n' will be
-(Font)              scaled to size 13.31584pt on input line 47.
+(Font)              scaled to size 13.31584pt on input line 52.
 LaTeX Font Info:    Font shape `JY3/HiraginoKakuGothicProN(0)/m/n' will be
-(Font)              scaled to size 13.31584pt on input line 47.
+(Font)              scaled to size 13.31584pt on input line 52.
 (load cache: extra_lmsans12-regular.luc)
 (./past_exam_solutions.toc
 LaTeX Font Info:    Font shape `JT3/HiraginoKakuGothicProN(0)/m/n' will be
@@ -1161,21 +985,21 @@ LaTeX Font Info:    Font shape `JY3/HiraginoKakuGothicProN(0)/m/n' will be
 
 [3]
 LaTeX Font Info:    Font shape `JT3/HiraginoMinchoProN(0)/b/n' will be
-(Font)              scaled to size 9.24713pt on input line 56.
+(Font)              scaled to size 9.24713pt on input line 61.
 LaTeX Font Info:    Font shape `JY3/HiraginoMinchoProN(0)/b/n' will be
-(Font)              scaled to size 9.24713pt on input line 56.
-LaTeX Font Info:    Calculating math sizes for size <10.95001> on input line 59
+(Font)              scaled to size 9.24713pt on input line 61.
+LaTeX Font Info:    Calculating math sizes for size <10.95001> on input line 64
 .
 LaTeX Font Info:    Font shape `JY3/HiraginoMinchoProN(0)/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 59.
+(Font)              scaled to size 6.47295pt on input line 64.
 LaTeX Font Info:    Font shape `JY3/HiraginoMinchoProN(0)/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 59.
-LaTeX Font Info:    Trying loading font information for U+msa on input line 59.
+(Font)              scaled to size 4.62357pt on input line 64.
+LaTeX Font Info:    Trying loading font information for U+msa on input line 64.
 
  (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying loading font information for U+msb on input line 59.
+LaTeX Font Info:    Trying loading font information for U+msb on input line 64.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1186,13 +1010,21 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ](load cache: extra_lmroman7-regular.luc)
 LaTeX Font Info:    Font shape `JT3/HiraginoMinchoProN(0)/m/n' will be
-(Font)              scaled to size 6.47295pt on input line 86.
+(Font)              scaled to size 6.47295pt on input line 91.
 (load cache: extra_lmroman5-regular.luc)
 LaTeX Font Info:    Font shape `JT3/HiraginoMinchoProN(0)/m/n' will be
-(Font)              scaled to size 4.62357pt on input line 86.
+(Font)              scaled to size 4.62357pt on input line 91.
 (load cache: extra_lmmono10-regular.luc)
 
 [5]
+Overfull \hbox (17.10017pt too wide) in paragraph at lines 130--132
+[]|\JY3/HiraginoMinchoProN(0)/b/n/10.95001 　 \TU/lmr/m/n/10.95001 2023 [] 2024
+ |\JY3/HiraginoMinchoProN(0)/b/n/10.95001 年 |度 |の |調 |和 |振 |動 |
+子  [] |無 |限 |準 |位 []  |と |は |異 |な |る |出 |題 []  |演 |
+習 |問 |題 |解 |説  []\TU/lmtt/m/n/10.95001 all_exercises.pdf[] []
+ []
+
+
 
 [6] (./body/body_2023.tex(load cache: extra_lmsans17-regular.luc)
 LaTeX Font Info:    Font shape `JT3/HiraginoKakuGothicProN(0)/m/n' will be
@@ -1264,30 +1096,8 @@ line 185.
 ng>]
 
 [13]
-Overfull \hbox (111.97298pt too wide) in paragraph at lines 252--253
-\OML/cmm/m/it/10.95001 e[]e[] [] e[]$ |\JY3/HiraginoMinchoProN(0)/b/n/10.95001 
-を |足 |す |こ |と |に |な |る []  |変 |数 |分 |離 |で |き []  $[
-][] [][] [] [][]\OT1/cmr/m/n/10.95001 ([] ) = [][][] \OML/cmm/m/it/10.95001 e[]
-[][][][] e[][] [] \OT1/cmr/m/n/10.95001 =
- []
-
-
 
 [14]
-Overfull \hbox (3.34184pt too wide) in paragraph at lines 281--283
-\OT1/cmr/m/n/10.95001 (\OML/cmm/m/it/10.95001 M \OT1/cmr/m/n/10.95001 + \OML/cm
-m/m/it/10.95001 N \OMS/cmsy/m/n/10.95001 ^^@ \OT1/cmr/m/n/10.95001 1) [](\OML/c
-mm/m/it/10.95001 M \OT1/cmr/m/n/10.95001 + \OML/cmm/m/it/10.95001 N \OMS/cmsy/m
-/n/10.95001 ^^@ \OT1/cmr/m/n/10.95001 1) \OMS/cmsy/m/n/10.95001 ^^@ \OT1/cmr/m/
-n/10.95001 (\OML/cmm/m/it/10.95001 N \OMS/cmsy/m/n/10.95001 ^^@ \OT1/cmr/m/n/10
-.95001 1) [](\OML/cmm/m/it/10.95001 N \OMS/cmsy/m/n/10.95001 ^^@ \OT1/cmr/m/n/1
-0.95001 1) \OMS/cmsy/m/n/10.95001 ^^@ \OML/cmm/m/it/10.95001 M [] M \OMS/cmsy/m
-/n/10.95001 ^^@ \OT1/cmr/m/n/10.95001 ([])$ |\JY3/HiraginoMinchoProN(0)/b/n/10.
-95001 を $\OML/cmm/m/it/10.95001 M$ |\JY3/HiraginoMinchoProN(0)/b/n/10.95001 
-で |微 |分 |し |て $\OML/cmm/m/it/10.95001 @ [] W[]\OT1/cmr/m/n/10.95001 (\OML/cmm/m/it/10.95001 M\OT1/cmr/m/n/10.95001 )\OML/cmm/m/it/10.95001 =@M \OMS/cmsy/m/n/10.95001 
- []
-
-
 
 [15]
 <figures/past2023_ex3_W_P.png, id=278, 570.6921pt x 352.9185pt>
@@ -1306,386 +1116,4 @@ warning  (pdf backend): ignoring duplicate destination with the name 'subsection
 
 
 [17<./figures/past2023_ex3_W_P.png>]
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.1.2'
-
-
-[18]
-<figures/past2023_ex1_energy_flow.png, id=316, 570.933pt x 353.8821pt>
-File: figures/past2023_ex1_energy_flow.png Graphic file (type png)
-<use figures/past2023_ex1_energy_flow.png>
-Package luatex.def Info: figures/past2023_ex1_energy_flow.png  used on input li
-ne 419.
-(luatex.def)             Requested size: 364.19667pt x 225.74937pt.
-
-
-[19<./figures/past2023_ex1_energy_flow.png>]
-
-[20]
-<figures/past2023_ex1_Tmin.png, id=342, 570.4512pt x 352.9185pt>
-File: figures/past2023_ex1_Tmin.png Graphic file (type png)
-<use figures/past2023_ex1_Tmin.png>
-Package luatex.def Info: figures/past2023_ex1_Tmin.png  used on input line 507.
-
-(luatex.def)             Requested size: 341.43307pt x 211.23576pt.
-
-
-[21]
-<figures/past2023_ex1_setup.png, id=355, 570.933pt x 354.123pt>
-File: figures/past2023_ex1_setup.png Graphic file (type png)
-<use figures/past2023_ex1_setup.png>
-Package luatex.def Info: figures/past2023_ex1_setup.png  used on input line 514
-.
-(luatex.def)             Requested size: 341.43307pt x 211.78378pt.
-
-warning  (pdf backend): ignoring duplicate destination with the name 'section.2'
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.2.1'
-
-
-[22<./figures/past2023_ex1_Tmin.png><./figures/past2023_ex1_setup.png>]
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.2.2'
-
-
-[23]
-<figures/past2023_ex2_E_p.png, id=383, 859.0494pt x 357.2547pt>
-File: figures/past2023_ex2_E_p.png Graphic file (type png)
-<use figures/past2023_ex2_E_p.png>
-Package luatex.def Info: figures/past2023_ex2_E_p.png  used on input line 602.
-(luatex.def)             Requested size: 364.19667pt x 151.45781pt.
-
-
-[24<./figures/past2023_ex2_E_p.png>]
-warning  (pdf backend): ignoring duplicate destination with the name 'section.3'
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.3.1'
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.3.2'
-
-
-[25]
-
-[26]
-<figures/past2023_ex3_balls_bins.png, id=433, 570.933pt x 209.583pt>
-File: figures/past2023_ex3_balls_bins.png Graphic file (type png)
-<use figures/past2023_ex3_balls_bins.png>
-Package luatex.def Info: figures/past2023_ex3_balls_bins.png  used on input lin
-e 727.
-(luatex.def)             Requested size: 386.96027pt x 142.05403pt.
-
-Overfull \hbox (46.08221pt too wide) detected at line 738
-[][]
- []
-
-
-
-[27<./figures/past2023_ex3_balls_bins.png>]
-File: figures/past2023_ex3_W_P.png Graphic file (type png)
-<use figures/past2023_ex3_W_P.png>
-Package luatex.def Info: figures/past2023_ex3_W_P.png  used on input line 763.
-(luatex.def)             Requested size: 386.96027pt x 239.29749pt.
-<figures/past2023_oscillator_Z.png, id=448, 859.0494pt x 356.7729pt>
-File: figures/past2023_oscillator_Z.png Graphic file (type png)
-<use figures/past2023_oscillator_Z.png>
-Package luatex.def Info: figures/past2023_oscillator_Z.png  used on input line 
-770.
-(luatex.def)             Requested size: 364.19667pt x 151.25356pt.
-) (./body/body_2024.tex
-
-[28]
-warning  (pdf backend): ignoring duplicate destination with the name 'section.1'
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.1.1'
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.1.2'
-
-
-[29<./figures/past2023_oscillator_Z.png>]
-
-[30]
-File: figures/past2024_ex1_why_entropy.png Graphic file (type png)
-<use figures/past2024_ex1_why_entropy.png>
-Package luatex.def Info: figures/past2024_ex1_why_entropy.png  used on input li
-ne 90.
-(luatex.def)             Requested size: 386.96027pt x 233.63202pt.
-File: figures/past2024_ex1_path.png Graphic file (type png)
-<use figures/past2024_ex1_path.png>
-Package luatex.def Info: figures/past2024_ex1_path.png  used on input line 97.
-(luatex.def)             Requested size: 386.96027pt x 288.91623pt.
-
-
-[31]
-warning  (pdf backend): ignoring duplicate destination with the name 'section.2'
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.2.1'
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.2.2'
-
-
-[32]
-
-[33]
-
-[34]
-<figures/past2024_ex2_entropy_same_diff.png, id=535, 860.013pt x 357.7365pt>
-File: figures/past2024_ex2_entropy_same_diff.png Graphic file (type png)
-<use figures/past2024_ex2_entropy_same_diff.png>
-Package luatex.def Info: figures/past2024_ex2_entropy_same_diff.png  used on in
-put line 232.
-(luatex.def)             Requested size: 364.19667pt x 151.49286pt.
-
-
-[35<./figures/past2024_ex2_entropy_same_diff.png>]
-<figures/past2024_ex2_setup.png, id=549, 570.933pt x 354.123pt>
-File: figures/past2024_ex2_setup.png Graphic file (type png)
-<use figures/past2024_ex2_setup.png>
-Package luatex.def Info: figures/past2024_ex2_setup.png  used on input line 255
-.
-(luatex.def)             Requested size: 341.43307pt x 211.78378pt.
-
-warning  (pdf backend): ignoring duplicate destination with the name 'section.3'
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.3.1'
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.3.2'
-
-
-[36<./figures/past2024_ex2_setup.png>]
-
-[37]) (./body/body_2025.tex
-
-[38]
-warning  (pdf backend): ignoring duplicate destination with the name 'section.1'
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.1.1'
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.1.2'
-
-
-[39]
-Overfull \hbox (24.96219pt too wide) in paragraph at lines 45--46
-|\JY3/HiraginoKakuGothicProN(0)/m/n/10.95001 ■[]|問 \TU/lmss/m/n/10.95001 1 
-[] |\JY3/HiraginoKakuGothicProN(0)/m/n/10.95001 温 |度 $\OML/cmm/m/it/10.9500
-1 T$ |\JY3/HiraginoKakuGothicProN(0)/m/n/10.95001 を $\OML/cmm/m/it/10.95001 U$ |\JY3/HiraginoKakuGothicProN(0)/m/n/10.95001 
-で |表 |す[] |\JY3/HiraginoMinchoProN(0)/b/n/10.95001 熱 |力 |学 |の |
-関 |係 |式 $\OT1/cmr/m/n/10.95001 1\OML/cmm/m/it/10.95001 =T \OT1/cmr/m/n/10
-.95001 = (\OML/cmm/m/it/10.95001 @S=@U\OT1/cmr/m/n/10.95001 )[]$ |\JY3/Hiragino
-MinchoProN(0)/b/n/10.95001 を |用 |い |る []  $\OML/cmm/m/it/10.95001 S \OT
-1/cmr/m/n/10.95001 = \OML/cmm/m/it/10.95001 NR []\OT1/cmr/m/n/10.95001 [(\OML/c
-mm/m/it/10.95001 U=N\OT1/cmr/m/n/10.95001 )[](\OML/cmm/m/it/10.95001 V=N\OT1/cm
-r/m/n/10.95001 )[]] +
- []
-
-
-Overfull \hbox (16.91779pt too wide) in paragraph at lines 45--46
-\OML/cmm/m/it/10.95001 NS[]$ |\JY3/HiraginoMinchoProN(0)/b/n/10.95001 に |お 
-|い |て []  $[]\OT1/cmr/m/n/10.95001 [(\OML/cmm/m/it/10.95001 U=N\OT1/cmr/m/n
-/10.95001 )[](\OML/cmm/m/it/10.95001 V=N\OT1/cmr/m/n/10.95001 )[]] = [] [](\OML
-/cmm/m/it/10.95001 U=N\OT1/cmr/m/n/10.95001 ) + 2 [](\OML/cmm/m/it/10.95001 V=N\OT1/cmr/m/n/10.95001 )$ |\JY3/HiraginoMinchoProN(0)/b/n/10.95001 
-な |の |で $\OML/cmm/m/it/10.95001 U$ |\JY3/HiraginoMinchoProN(0)/b/n/10.950
-01 で |偏 |微 |分 |す |る |と $[] []\OT1/cmr/m/n/10.95001 (\OML/cmm/m/it
-/10.95001 U=N\OT1/cmr/m/n/10.95001 ) =
- []
-
-<figures/past2025_ex1_why_T.png, id=614, 859.2903pt x 357.2547pt>
-File: figures/past2025_ex1_why_T.png Graphic file (type png)
-<use figures/past2025_ex1_why_T.png>
-Package luatex.def Info: figures/past2025_ex1_why_T.png  used on input line 64.
-
-(luatex.def)             Requested size: 364.19667pt x 151.4142pt.
-
-
-[40<./figures/past2025_ex1_why_T.png>]
-Overfull \hbox (27.32726pt too wide) in paragraph at lines 81--83
-|\JY3/HiraginoMinchoProN(0)/b/n/10.95001 エ |ン |ト |ロ |ピ |ー |変 |
-化 |は []  |初 |期 $\OML/cmm/m/it/10.95001 S[] \OT1/cmr/m/n/10.95001 = \OML
-/cmm/m/it/10.95001 NR []\OT1/cmr/m/n/10.95001 [(\OML/cmm/m/it/10.95001 U=N\OT1/
-cmr/m/n/10.95001 )[](\OML/cmm/m/it/10.95001 V=N\OT1/cmr/m/n/10.95001 )[]] + \OM
-L/cmm/m/it/10.95001 NS[]$[]  |\JY3/HiraginoMinchoProN(0)/b/n/10.95001 終 |状 
-|態 $\OML/cmm/m/it/10.95001 S[] \OT1/cmr/m/n/10.95001 = \OML/cmm/m/it/10.95001
- NR []\OT1/cmr/m/n/10.95001 [(\OML/cmm/m/it/10.95001 U[]=N\OT1/cmr/m/n/10.95001
- )[](\OML/cmm/m/it/10.95001 V=N\OT1/cmr/m/n/10.95001 )[]] +
- []
-
-File: figures/past2024_ex1_path.png Graphic file (type png)
-<use figures/past2024_ex1_path.png>
-Package luatex.def Info: figures/past2024_ex1_path.png  used on input line 106.
-
-(luatex.def)             Requested size: 386.96027pt x 288.91623pt.
-<figures/past2025_ex1_entropy.png, id=628, 570.2103pt x 425.6703pt>
-File: figures/past2025_ex1_entropy.png Graphic file (type png)
-<use figures/past2025_ex1_entropy.png>
-Package luatex.def Info: figures/past2025_ex1_entropy.png  used on input line 1
-13.
-(luatex.def)             Requested size: 364.19667pt x 271.88246pt.
-
-
-[41]
-warning  (pdf backend): ignoring duplicate destination with the name 'section.2'
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.2.1'
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.2.2'
-
-
-[42<./figures/past2025_ex1_entropy.png>]
-<figures/past2025_ex2_energy_balance.png, id=650, 570.933pt x 353.8821pt>
-File: figures/past2025_ex2_energy_balance.png Graphic file (type png)
-<use figures/past2025_ex2_energy_balance.png>
-Package luatex.def Info: figures/past2025_ex2_energy_balance.png  used on input
- line 178.
-(luatex.def)             Requested size: 364.19667pt x 225.74937pt.
-
-
-[43]
-Overfull \hbox (31.65385pt too wide) in paragraph at lines 188--190
-|\JY3/HiraginoMinchoProN(0)/b/n/10.95001 右 |室 |は $\OML/cmm/m/it/10.95001 
-U[] \OT1/cmr/m/n/10.95001 = \OML/cmm/m/it/10.95001 c[]N[]RT[] \OT1/cmr/m/n/10.9
-5001 = 3\OML/cmm/m/it/10.95001 RT[]$[]  $N[] \OT1/cmr/m/n/10.95001 = 2$ |\JY3/H
-iraginoMinchoProN(0)/b/n/10.95001 な |の |で $\OML/cmm/m/it/10.95001 U[]=N[]
- \OT1/cmr/m/n/10.95001 = 3\OML/cmm/m/it/10.95001 RT[]=\OT1/cmr/m/n/10.95001 2$[
-]  $\OML/cmm/m/it/10.95001 S\OT1/cmr/m/n/10.95001 (\OML/cmm/m/it/10.95001 U; V\
-OT1/cmr/m/n/10.95001 ) = \OML/cmm/m/it/10.95001 NR []\OT1/cmr/m/n/10.95001 [(\O
-ML/cmm/m/it/10.95001 U=N\OT1/cmr/m/n/10.95001 )[](\OML/cmm/m/it/10.95001 V=N\OT
-1/cmr/m/n/10.95001 )] +
- []
-
-
-
-[44<./figures/past2025_ex2_energy_balance.png>]
-<figures/past2025_ex2_setup.png, id=677, 570.933pt x 354.123pt>
-File: figures/past2025_ex2_setup.png Graphic file (type png)
-<use figures/past2025_ex2_setup.png>
-Package luatex.def Info: figures/past2025_ex2_setup.png  used on input line 219
-.
-(luatex.def)             Requested size: 341.43307pt x 211.78378pt.
-
-warning  (pdf backend): ignoring duplicate destination with the name 'section.3'
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.3.1'
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.3.2'
-
-
-[45<./figures/past2025_ex2_setup.png>]
-warning  (pdf backend): ignoring duplicate destination with the name 'section.4'
-
-
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.4.1'
-
-
-[46]
-warning  (pdf backend): ignoring duplicate destination with the name 'subsection
-.4.2'
-
-
-[47]
-<figures/past2025_ex4_combination.png, id=722, 570.933pt x 281.6121pt>
-File: figures/past2025_ex4_combination.png Graphic file (type png)
-<use figures/past2025_ex4_combination.png>
-Package luatex.def Info: figures/past2025_ex4_combination.png  used on input li
-ne 367.
-(luatex.def)             Requested size: 341.43307pt x 168.41853pt.
-
-
-[48]
-
-[49<./figures/past2025_ex4_combination.png>]
-<figures/past2025_ex4_two_level.png, id=752, 426.393pt x 353.8821pt>
-File: figures/past2025_ex4_two_level.png Graphic file (type png)
-<use figures/past2025_ex4_two_level.png>
-Package luatex.def Info: figures/past2025_ex4_two_level.png  used on input line
- 415.
-(luatex.def)             Requested size: 273.14923pt x 226.70514pt.
-)
-
-[50<./figures/past2025_ex4_two_level.png>] (./past_exam_solutions.aux)
- ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
- ***********
-
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 2.5pt have occurred.
-
-Package rerunfilecheck Info: File `past_exam_solutions.out' has not changed.
-(rerunfilecheck)             Checksum: 280C592C869003119E4EB3E2907D128A;6202.
-)
-
-Here is how much of LuaTeX's memory you used:
- 15539 strings out of 475506
- 195705,953878 words of node,token memory allocated
- 8835 words of node memory still in use:
-   11 hlist, 2 vlist, 5 rule, 5 glue, 4 kern, 1 glyph, 3736 attribute, 56 glue_s
-pec, 352 attribute_list, 1 write, 14 user_defined, 5 pdf_action nodes
-   avail lists: 1:42,2:51132,3:528,4:302,5:605,6:56,7:5980,8:94,9:2552,10:37,11:
-40
- 37709 multiletter control sequences out of 65536+600000
- 95 fonts using 78240623 bytes
- 125i,11n,128p,1902b,482s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025basic/texmf-dist/fonts/opentype/public/lm/lmroman9-regul
-ar.otf></usr/local/texlive/2025basic/texmf-dist/fonts/opentype/public/lm/lmsans1
-7-regular.otf></usr/local/texlive/2025basic/texmf-dist/fonts/opentype/public/lm/
-lmroman10-bold.otf></usr/local/texlive/2025basic/texmf-dist/fonts/opentype/publi
-c/lm/lmmono10-regular.otf></usr/local/texlive/2025basic/texmf-dist/fonts/opentyp
-e/public/lm/lmsans12-regular.otf></usr/local/texlive/2025basic/texmf-dist/fonts/
-opentype/public/lm/lmsans10-regular.otf></System/Library/Fonts/ヒラギノ
-角ゴシック W3.ttc></System/Library/Fonts/ヒラギノ角ゴシ
-ック W3.ttc></usr/local/texlive/2025basic/texmf-dist/fonts/opentype/public/lm/
-lmroman10-regular.otf></usr/local/texlive/2025basic/texmf-dist/fonts/opentype/pu
-blic/lm/lmroman17-regular.otf></System/Library/Fonts/ヒラギノ明朝 ProN.
-ttc></System/Library/Fonts/ヒラギノ明朝 ProN.ttc></usr/local/texlive/20
-25basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive
-/2025basic/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex9.pfb></usr/local/
-texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/loc
-al/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/l
-ocal/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr
-/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><
-/usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
-></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pf
-b></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.p
-fb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.
-pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9
-.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmsy5.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmsy6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy7.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmsy9.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsf
-onts/symbols/msbm10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pub
-lic/amsfonts/symbols/msbm5.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/ty
-pe1/public/amsfonts/symbols/msbm7.pfb>
-Output written on past_exam_solutions.pdf (50 pages, 2610841 bytes).
-
-PDF statistics: 901 PDF objects out of 1000 (max. 8388607)
- 753 compressed objects within 8 object streams
- 430 named destinations out of 1000 (max. 131072)
- 169 words of extra memory for PDF output out of 10000 (max. 100000000)
-
+warning  (pdf backend): ignoring
