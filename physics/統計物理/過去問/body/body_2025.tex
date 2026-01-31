@@ -3,6 +3,8 @@
 %======================================================================
 \part{2025年度 本試験}
 \setcounter{section}{0}
+\renewcommand{\theHsection}{2025.\arabic{section}}
+\renewcommand{\theHsubsection}{2025.\arabic{section}.\arabic{subsection}}
 
 \section{問題I：架空の気体（類題：演習5-I, 演習6-III）}
 
@@ -22,7 +24,7 @@ S(U,V) = N R \ln\left[\left(\frac{U}{N}\right)^{3/2} \left(\frac{V}{N}\right)^2\
 
 \subsection{解答}
 
-\paragraph{この問題のポイント（初学者向け）}
+\paragraph{この問題のポイント}
 
 この問題では、エントロピーが $S(U,V)$ の形で与えられている。温度は $1/T = (\partial S/\partial U)_V$ で定義されるので、$S$ を $U$ で微分すれば $T$ が求まる。問2・問3は断熱自由膨張と準静的断熱圧縮の組み合わせで、2024年度問題Iと同様に、$T'=T$（断熱自由膨張で温度不変）と $\Delta S = N R \ln(V'/V)$ が成り立つ。
 
@@ -42,7 +44,12 @@ S(U,V) = N R \ln\left[\left(\frac{U}{N}\right)^{3/2} \left(\frac{V}{N}\right)^2\
 
 \paragraph{問1：温度 $T$ を $U$ で表す}
 
-熱力学の関係式 $1/T = (\partial S/\partial U)_V$ を用いる。$S = NR \ln[(U/N)^{3/2}(V/N)^2] + N S_0$ において、$\ln[(U/N)^{3/2}(V/N)^2] = \frac{3}{2}\ln(U/N) + 2\ln(V/N)$ なので $U$ で偏微分すると $\frac{\partial}{\partial U}\ln(U/N) = \frac{1}{U/N}\cdot\frac{1}{N} = \frac{N}{U}\cdot\frac{1}{N} = \frac{1}{U}$。よって
+熱力学の関係式 $1/T = (\partial S/\partial U)_V$ を用いる。$S$ は
+$S = NR \ln[(U/N)^{3/2}(V/N)^2] + N S_0$ であり、
+\[
+\ln[(U/N)^{3/2}(V/N)^2] = \frac{3}{2}\ln(U/N) + 2\ln(V/N)
+\]
+なので、$U$ で偏微分すると $\frac{\partial}{\partial U}\ln(U/N) = \frac{1}{U}$。よって
 \begin{equation}
 \frac{\partial S}{\partial U} = N R \cdot \frac{3}{2} \cdot \frac{1}{U}
 = \frac{3NR}{2U}.
@@ -79,7 +86,9 @@ S(U,V) = N R \ln\left[\left(\frac{U}{N}\right)^{3/2} \left(\frac{V}{N}\right)^2\
 \begin{equation}
 T'' = T \left(\frac{V'}{V}\right)^{2/3}.
 \end{equation}
-エントロピー変化は、初期 $S_{\mathrm{i}} = NR\ln[(U/N)^{3/2}(V/N)^2] + NS_0$、終状態 $S_{\mathrm{f}} = NR\ln[(U''/N)^{3/2}(V/N)^2] + NS_0$。$U'' = (3/2)N R T''$ なので
+エントロピー変化は、初期 $S_{\mathrm{i}} = NR\ln[(U/N)^{3/2}(V/N)^2] + NS_0$、\\
+終状態 $S_{\mathrm{f}} = NR\ln[(U''/N)^{3/2}(V/N)^2] + NS_0$ である。
+$U'' = (3/2)N R T''$ なので
 \begin{equation}
 \Delta S = S_{\mathrm{f}} - S_{\mathrm{i}}
 = N R \ln\frac{(U''/N)^{3/2}}{(U/N)^{3/2}}
@@ -136,7 +145,7 @@ S(U,V) = N R \ln\left[\left(\frac{U}{N}\right)^c \left(\frac{V}{N}\right)\right]
 
 \subsection{解答}
 
-\paragraph{この問題のポイント（初学者向け）}
+\paragraph{この問題のポイント}
 
 左右に\textbf{異なる種類}の理想気体（AとB）が入っており、仕切りは断熱壁なので初期は $T_L \neq T_R$ でもよい。透熱壁に替えると熱が流れ、両室の温度が等しくなる。孤立系なので全内部エネルギーは保存し、$c_A N_A = 3$、$c_B N_B = 3$ で両室の熱容量が等しいため、終温度は $T = (T_L + T_R)/2$ となる。問2ではそのときのエントロピー変化を求める。
 
@@ -241,7 +250,7 @@ $T = (T_L+T_R)/2$ のとき、左室では $T_L \to T$、右室では $T_R \to T
 
 【類題】2023年度 問題II、2024年度 問題III と同一内容です。演習問題解説では演習6-I（熱力学の関係式）、演習4-III（内部エネルギーの方程式）が関連します。
 
-\paragraph{この問題のポイント（初学者向け）}
+\paragraph{この問題のポイント}
 
 エントロピーが $S(T,V) = \sigma T^3 V$ という「変な」形で与えられた気体を扱う。問1はヒントの $C_V = T(\partial S/\partial T)_V$ から定積比熱を求め、$E(T=0,V)=0$ として $E$ を積分で求める。問2は $T\,dS = dE + p\,dV$ から圧力 $p$ を求める。問3は「熱源と接触した系」なので\textbf{カノニカル分布}が成り立ち、統計力学の公式 $\langle \delta E^2 \rangle = k_B T^2 C_V$ を用いる（用語集・2023年度 問題II 問3を参照）。詳細な導出・図は2023年度 問題IIを参照。
 
@@ -306,7 +315,7 @@ $N_0$ 個の振動子がエネルギー $E_0=0$、$N_1$ 個がエネルギー $E
 
 \subsection{解答}
 
-\paragraph{この問題のポイント（初学者向け）}
+\paragraph{この問題のポイント}
 
 各粒子が\textbf{2つのエネルギー準位} $E_0=0$ と $E_1=\varepsilon$ のみを取る系を扱う。第1部は熱源と接触した系（カノニカル分布）で分配関数 $Z$ と平均エネルギー $\langle E \rangle$ を求める。第2部は孤立系（ミクロカノニカル分布）で状態数 $W_N$、エントロピー $S = k_B \ln W_N$、そして $1/T = (\partial S/\partial E)_{N}$ から $E_{\mathrm{tot}}(T)$ を導く。問7で、ミクロカノニカルから得た $E_{\mathrm{tot}}(T)$ がカノニカル分布の $\langle E \rangle$ と一致することを確認できる。
 

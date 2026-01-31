@@ -3,6 +3,8 @@
 %======================================================================
 \part{2023年度 本試験}
 \setcounter{section}{0}
+\renewcommand{\theHsection}{2023main.\arabic{section}}
+\renewcommand{\theHsubsection}{2023main.\arabic{section}.\arabic{subsection}}
 
 \section{問題I：理想気体の断熱自由膨張とエントロピー変化（類題：2024年度 問題I；演習5-II）}
 
@@ -21,7 +23,7 @@ U(T,V) &= c N R T.
 
 \subsection{解答}
 
-\paragraph{この問題のポイント（初学者向け）}
+\paragraph{この問題のポイント}
 
 断熱自由膨張では外界と熱・仕事のやりとりがないため内部エネルギー $U$ は不変。理想気体では $U$ は $T$ のみに依存するので $T' = T$。問2では準静的断熱過程で $S$ 一定を用い、全体のエントロピー変化を求める。
 
@@ -104,7 +106,7 @@ T'' = T \left(\frac{V'}{V}\right)^{1/c}.
 
 \subsection{解答}
 
-\paragraph{この問題のポイント（初学者向け）}
+\paragraph{この問題のポイント}
 
 孤立系では全内部エネルギーが保存するので、問1の終温度 $T$ はエネルギー保存から決まる。問2はエントロピー変化、問3はその正性の証明。問5・問6は「仕切り壁の操作で達成できる終温度の範囲」を求める発展である。
 
@@ -222,7 +224,7 @@ $N$ 個の独立な調和振動子を量子的に扱う。$l$ 番目の振動子
 \noindent
 つまり、\textbf{問1〜4で「平均」を、問5で「最も起こりやすい値」を、問6で「揺らぎの幅」を求めている}という流れです。問5と問6は、カノニカル分布でエネルギーが一定でないこと（揺らぎ）を explicitly に扱う部分です。
 
-\paragraph{この問題のポイント（初学者向け）}
+\paragraph{この問題のポイント}
 
 $N$ 個の独立な量子調和振動子が温度 $T$ の熱源と接触している場合を扱う。\textbf{分配関数} $Z$ は「すべての状態についてボルツマン因子 $e^{-\beta E}$ を足し合わせたもの」であり、確率の規格化定数になる。平均エネルギーは $\langle E \rangle = -\partial\ln Z/\partial\beta$ で求まる。問5の $W_N(M)$ は「全エネルギーが $E = \hbar\omega M$ であるような状態の数」であり、重複組合せで与えられる。問6では、熱源と接触した系のエネルギー揺らぎが $\langle (\delta E)^2 \rangle = k_B T^2 C_V$ で与えられる公式を用いる。
 
@@ -331,6 +333,8 @@ $\sigma^2 = k_B T^2 C_V$ に代入し、$k_B T^2 = 1/(k_B \beta^2)$ を用いる
 %======================================================================
 \part{2023年度 再試験}
 \setcounter{section}{0}
+\renewcommand{\theHsection}{2023retake.\arabic{section}}
+\renewcommand{\theHsubsection}{2023retake.\arabic{section}.\arabic{subsection}}
 
 \section{問題I：理想気体の混合（類題：2023年度本試験 問題II、2025年度 問題II；演習3-II, 演習5-III--IV）}
 
@@ -353,7 +357,7 @@ U(T,V) &= c N R T.
 
 \subsection{解答}
 
-\paragraph{この問題のポイント（初学者向け）}
+\paragraph{この問題のポイント}
 
 この問題では、\textbf{孤立系で内部エネルギーが保存すること}と、\textbf{エントロピーが不可逆過程で増大すること}を理解することが大切です。問1は「熱が流れたあと、両方の部屋の温度がどうなるか」を内部エネルギー保存から求めます。問2はそのときのエントロピー変化、問3はその変化が正であることの証明、問4は「うまく操作すればどこまで温度を下げられるか」という発展です。
 
@@ -445,7 +449,7 @@ S_{\mathrm{final}} = N_A R \ln\frac{T^c V_A}{N_A} + N_A S_0 + N_B R \ln\frac{T^c
 
 \paragraph{問3：$\Delta S > 0$ の証明}
 
-\paragraph{証明の流れ（初学者向け）}
+\paragraph{証明の流れ}
 問2で得た $\Delta S = N_A R \ln(T/T_A) + N_B R \ln(T/T_B)$ が正であることを示す。方法は二通りある。(1) 数学的な方法：対数について成り立つ不等式 $\ln t \le t-1$（$t>0$、等号は $t=1$ のみ）を用いて $\Delta S/R$ を上からおさえ、等号が $T_A=T_B$ のときのみであることから $\Delta S > 0$ を導く。(2) 物理的な方法：熱が高温から低温へ流れる過程は不可逆であり、熱力学第二法則から孤立系のエントロピーは増大するので $\Delta S > 0$ である。ここでは(1)の計算も示す。
 
 \textbf{用いる不等式}：実数 $t > 0$ に対して $\ln t \le t - 1$ が成り立ち、等号は $t = 1$ のときのみである（$y = \ln t$ と $y = t-1$ は $t=1$ で接する）。この不等式は、対数関数の性質から導かれる。
@@ -533,7 +537,7 @@ S(T,V) = \sigma T^3 V
 
 \subsection{解答}
 
-\paragraph{この問題のポイント（初学者向け）}
+\paragraph{この問題のポイント}
 
 エントロピーが $S(T,V) = \sigma T^3 V$ という「変な」形で与えられた気体を扱う。問1は熱力学の関係 $C_V = T(\partial S/\partial T)_V$ から定積比熱を求め、$E(T=0,V)=0$ として $E$ を積分で求める。問2は $T\,dS = dE + p\,dV$ から圧力 $p$ を求める。問3は統計力学の結果「熱源と接触した系のエネルギー揺らぎは $\langle \delta E^2 \rangle = k_B T^2 C_V$」を用いる。
 
@@ -631,7 +635,7 @@ $N$ 個の独立な調和振動子を量子的に扱う。$i$ 番目の振動子
 
 \subsection{解答}
 
-\paragraph{この問題のポイント（初学者向け）}
+\paragraph{この問題のポイント}
 
 $N$ 個の独立な量子調和振動子が温度 $T$ の熱源と接触している場合を扱う。\textbf{分配関数} $Z$ は「すべての状態についてボルツマン因子 $e^{-\beta E}$ を足し合わせたもの」であり、確率の規格化定数になる。平均エネルギーは $\langle E \rangle = -\partial\ln Z/\partial\beta$ で求まる。問5の $W_N(M)$ は「全エネルギーが $E = \hbar\omega M$ であるような状態の数」であり、重複組合せで与えられる。問6では、$P(E) \propto W_N(M)\,e^{-\beta E}$ が最大になるエネルギー $E^*$ を求め、それが $\langle E \rangle$ と一致することを確認する。
 
@@ -702,9 +706,19 @@ $\langle E \rangle = -\frac{\partial}{\partial\beta}\ln Z_N = -N \frac{\partial}
 \boxed{\langle E \rangle = N\,\frac{\hbar\omega}{e^{\beta\hbar\omega}-1}}.
 \end{equation}
 
-\paragraph{問5：状態数 $W_N(M)$}
+\paragraph{問5の前：$W_N(M)$ が「$E$ ごとに状態数を数えて和を取る」でどう出てくるか}
 
-$M = m_1 + m_2 + \cdots + m_N$ を満たす非負整数の組 $(m_1,\ldots,m_N)$ の個数を数える。$M$ 個のボールを $N$ 個の箱に分ける重複組合せに等しい（各 $m_i$ が箱 $i$ のボール数）。その数は
+分配関数は「すべての量子状態について $e^{-\beta E_i}$ を足す」で定義される。状態は量子数の組 $(m_1,\ldots,m_N)$ で指定され、$m_i = 0,1,2,\ldots$ であり、全エネルギーは $E = \hbar\omega(m_1+\cdots+m_N) = \hbar\omega M$（$M = m_1+\cdots+m_N$）である。足し算の順序を変えて、\textbf{まず全エネルギーが $E = \hbar\omega M$ であるような状態だけを集めて個数 $W_N(M)$ を数え、その $M$ ごとに $W_N(M)\,e^{-\beta\hbar\omega M}$ を足す}と
+\begin{align*}
+Z_N &= \sum_{\text{全状態}} e^{-\beta E_i}
+= \sum_{M=0}^\infty \Bigl( \text{「$m_1+\cdots+m_N = M$ を満たす状態」の個数} \Bigr) \cdot e^{-\beta\hbar\omega M} \\
+&= \sum_{M=0}^\infty W_N(M)\,e^{-\beta\hbar\omega M}.
+\end{align*}
+したがって $W_N(M)$ は\textbf{「$m_1+\cdots+m_N = M$ を満たす非負整数の組 $(m_1,\ldots,m_N)$ の個数」}そのものである。問題設定の「状態 $(m_1,\ldots,m_N)$」「全エネルギー $\hbar\omega M$」と、この「$M$ ごとに状態数を数えて和を取る」は同じ $Z_N$ を表しており、$W_N(M)$ はそのときの「エネルギー $E=\hbar\omega M$ を持つ状態の数」である。
+
+\paragraph{問5：状態数 $W_N(M)$ とボール・箱の対応}
+
+上で $W_N(M)$ =「$m_1+\cdots+m_N = M$ を満たす非負整数の組 $(m_1,\ldots,m_N)$ の個数」と分かった。これは、\textbf{大きさ $M$ の「エネルギーのかたまり」を $N$ 個の振動子に配分するやり方の数}と言い換えられる。振動子 $i$ に $m_i$ 個の「エネルギー量子」（$1$ 個あたり $\hbar\omega$）を割り当て、合計が $M$ になるようにする。\textbf{エネルギー量子どうしは区別しない}（どれを振動子1に渡すかで区別しない）し、\textbf{振動子は区別する}（1番目と2番目は別）。だから「$M$ 個の区別できないボールを $N$ 個の区別できる箱に分ける方法の数」と同一であり、その数は重複組合せ $\binom{M+N-1}{N-1}$ で与えられる。すなわち
 \begin{equation}
 \binom{M+N-1}{N-1} = \frac{(M+N-1)!}{(N-1)!\,M!}.
 \end{equation}
@@ -726,16 +740,40 @@ $M = m_1 + m_2 + \cdots + m_N$ を満たす非負整数の組 $(m_1,\ldots,m_N)$
 
 \paragraph{問6：最確エネルギー $E^*$}
 
-$P(E) \propto W_N(M)\,e^{-\beta E}$（$E = \hbar\omega M$）が最大になる $M$ を求める。$f(M) = \ln W_N(M) - \beta\hbar\omega M$ の極大で $\partial f/\partial M = 0$ とおく。スターリングの公式 $\ln n! \approx n\ln n - n$ を用いて
+$P(E) \propto W_N(M)\,e^{-\beta E}$（$E = \hbar\omega M$）が最大になる $M$ を求める。$f(M) = \ln W_N(M) - \beta\hbar\omega M$ の極大で $\partial f/\partial M = 0$ とおく。
+
+\textbf{ステップ1：$\ln W_N(M)$ にスターリングの公式をあてはめる。}
+
+問5より $W_N(M) = (M+N-1)!\,\big/\,((N-1)!\,M!)$ なので、
+\[
+\ln W_N(M) = \ln(M+N-1)! - \ln(N-1)! - \ln M!.
+\]
+スターリングの公式 $\ln n! \approx n\ln n - n$（$n \gg 1$ のとき）を、$n = M+N-1$、$n = N-1$、$n = M$ のそれぞれに用いると、
 \begin{align}
-\ln W_N(M) &\approx (M+N-1)\ln(M+N-1) - (M+N-1) - (N-1)\ln(N-1) + (N-1) - M\ln M + M \notag \\
-&\approx (M+N)\ln(M+N) - (N-1)\ln(N-1) - M\ln M - N + 1 \quad (M,N\gg1).
+\ln(M+N-1)! &\approx (M+N-1)\ln(M+N-1) - (M+N-1), \\
+\ln(N-1)! &\approx (N-1)\ln(N-1) - (N-1), \\
+\ln M! &\approx M\ln M - M.
 \end{align}
-$M$ で微分する。$\frac{\partial}{\partial M}(M+N-1)\ln(M+N-1) = \ln(M+N-1) + 1$、$\frac{\partial}{\partial M} M\ln M = \ln M + 1$ なので、$M,N\gg1$ のとき $(M+N-1)\approx M+N$ として
+したがって（$M \gg 1$、$N \gg 1$ の条件で）
+\begin{align}
+\ln W_N(M) &\approx (M+N-1)\ln(M+N-1) - (M+N-1) \notag \\
+&\quad - (N-1)\ln(N-1) + (N-1) - M\ln M + M.
+\end{align}
+
+\textbf{ステップ2：$M,N \gg 1$ のときの近似。}
+
+$M$ と $N$ が十分大きいとき、$M+N-1$ と $M+N$ の差や、$N-1$ と $N$ の差は相対的に小さい（例：$M=N=100$ なら $M+N-1=199$、$M+N=200$ で相対誤差は約 $0.5\%$）。この問題では $M$ で微分した結果に $\ln((M+N)/M)$ のような項だけが効くため、$\ln(M+N-1)$ を $\ln(M+N)$ で置き換えても $M,N\gg1$ で誤差は無視できる。同様に $(M+N-1)$ を $(M+N)$ と書いてよい。ステップ1（758--760行）の定数項は $-(M+N-1)+(N-1)+M=0$ なので、近似後も定数項は残さず 0 とするのが一貫している。そこで
+\begin{equation}
+\ln W_N(M) \approx (M+N)\ln(M+N) - (N-1)\ln(N-1) - M\ln M \quad (M,N\gg1).
+\end{equation}
+
+\textbf{ステップ3：$M$ で微分して極大条件。}
+
+$M$ で微分する。$\frac{d}{dM}\bigl((M+N)\ln(M+N)\bigr) = \ln(M+N) + 1$、$\frac{d}{dM}(M\ln M) = \ln M + 1$ なので、
 \begin{equation}
 \frac{\partial}{\partial M}\ln W_N(M) \approx \ln(M+N) + 1 - (\ln M + 1) = \ln\frac{M+N}{M}.
 \end{equation}
-したがって $\frac{\partial f}{\partial M} = \ln\frac{M+N}{M} - \beta\hbar\omega = 0$ より
+極大条件 $\frac{\partial f}{\partial M} = \frac{\partial}{\partial M}\ln W_N(M) - \beta\hbar\omega = 0$ より
 \begin{equation}
 \frac{M+N}{M} = e^{\beta\hbar\omega}
 \quad \Rightarrow \quad
