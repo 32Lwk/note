@@ -6,9 +6,9 @@ brownian_motion
 *.dat
 data/
 
-# 図ファイル
-*.png
-figures/
+# 図ファイル（figures/ はリポジトリに含める）
+# *.png
+# figures/
 
 # LaTeX中間ファイル
 *.aux

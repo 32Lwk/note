@@ -9,4 +9,5 @@ build/
 *.synctex.gz
 
 # ルートにできる PDF（make pdf では build/ に出力される）
-all_exercises.pdf
+# リポジトリに含める: all_exercises.pdf
+# all_exercises.pdf

@@ -299,18 +299,13 @@ $E^* = \hbar\omega M^*$ なので
 
 \textbf{なぜ $\langle (\delta E)^2 \rangle = k_B T^2 C_V$ が使えるか}：本問では系が「温度 $T$ の熱源と接している」ので、\textbf{カノニカル分布}が適用される。カノニカル分布では、系のエネルギー $E$ は熱源とのやりとりで揺らぎ、その分散は統計力学の一般公式 $\langle (\delta E)^2 \rangle = k_B T^2 C_V$ で与えられる（$C_V$ は定積比熱）。導出の概略：$\langle E \rangle = -\partial\ln Z/\partial\beta$ と $\langle E^2 \rangle$ の関係から $\langle (\delta E)^2 \rangle = \langle E^2 \rangle - \langle E \rangle^2 = \partial^2\ln Z/\partial\beta^2$ となり、$\partial/\partial\beta = -k_B T^2 \partial/\partial T$ と $C_V = (\partial\langle E\rangle/\partial T)_V$ を用いると上式が得られる。教科書の「カノニカル分布のゆらぎ」を参照されたい。
 
-\textbf{問6の計算の流れ}：公式 $\sigma^2 = k_B T^2 C_V$ を使うには、定積比熱 $C_V = (\partial\langle E \rangle/\partial T)_V$ が必要である。問4で $\langle E \rangle = N\hbar\omega/(e^{\beta\hbar\omega}-1)$ を既に求めているので、これを $T$ で微分して $C_V$ を得てから $\sigma^2$ に代入する。$T$ で直接微分する代わりに、$\beta = 1/(k_B T)$ なので $d\beta/dT = -1/(k_B T^2) = -\beta^2/k_B$ を用いて $\partial\langle E \rangle/\partial T = (\partial\langle E \rangle/\partial\beta)(d\beta/dT)$ と計算する。$\langle E \rangle$ を $\beta$ で微分すると
-\begin{equation}
-\frac{\partial \langle E \rangle}{\partial \beta}
-= N\hbar\omega \cdot \frac{(-1)\cdot(-\hbar\omega)\,e^{\beta\hbar\omega}}{(e^{\beta\hbar\omega}-1)^2}
-= -N\,\frac{(\hbar\omega)^2 e^{\beta\hbar\omega}}{(e^{\beta\hbar\omega}-1)^2}.
-\end{equation}
+\textbf{問6の計算の流れ}：公式 $\sigma^2 = k_B T^2 C_V$ を使うには、定積比熱 $C_V = (\partial\langle E \rangle/\partial T)_V$ が必要である。問4で $\langle E \rangle = N\hbar\omega/(e^{\beta\hbar\omega}-1)$ を既に求めているので、これを $T$ で微分して $C_V$ を得てから $\sigma^2$ に代入する。$T$ で直接微分する代わりに、$\beta = 1/(k_B T)$ なので $d\beta/dT = -1/(k_B T^2) = -k_B\beta^2$ を用いて $\partial\langle E \rangle/\partial T = (\partial\langle E \rangle/\partial\beta)(d\beta/dT)$ と計算する。$\langle E \rangle$ を $\beta$ で微分すると
 したがって
 \begin{equation}
 C_V = \frac{\partial \langle E \rangle}{\partial T}
 = \frac{\partial \langle E \rangle}{\partial \beta}\,\frac{d\beta}{dT}
 = \left(-N\,\frac{(\hbar\omega)^2 e^{\beta\hbar\omega}}{(e^{\beta\hbar\omega}-1)^2}\right)
-\cdot \left(-\frac{\beta^2}{k_B}\right)
+\cdot \left(-k_B\beta^2\right)
 = N k_B\,\frac{(\beta\hbar\omega)^2 e^{\beta\hbar\omega}}{(e^{\beta\hbar\omega}-1)^2}.
 \end{equation}
 $\sigma^2 = k_B T^2 C_V$ に代入し、$k_B T^2 = 1/(k_B \beta^2)$ を用いると
