@@ -110,6 +110,58 @@ def fig_past2023_ex1_Tmin():
     print(f"生成: {OUTPUT_DIR}/past2023_ex1_Tmin.png")
 
 
+def fig_past2023main_ex2_setup():
+    """2023本試験 問題II: 左右1モルずつの設定"""
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, 6)
+    ax.axis('off')
+
+    rect = FancyBboxPatch((0.5, 1), 9, 4, boxstyle="round,pad=0.02",
+                          edgecolor='black', facecolor='none', linewidth=2)
+    ax.add_patch(rect)
+    ax.axvline(x=5, ymin=0.2, ymax=0.8, color='black', linewidth=2)
+    ax.text(5.2, 4.2, '仕切り壁', fontsize=11)
+    ax.text(5.2, 0.8, '断熱壁', fontsize=10, color='gray')
+
+    ax.text(2.5, 4.5, r'$T_A$, $V_A$', fontsize=14)
+    ax.text(2.5, 3.5, '1 モル', fontsize=12)
+    ax.text(2.5, 0.5, '断熱壁', fontsize=10, color='gray')
+
+    ax.text(7.5, 4.5, r'$T_B$, $V_B$', fontsize=14)
+    ax.text(7.5, 3.5, '1 モル', fontsize=12)
+
+    ax.set_title('2023本試験 問題II: 混合（左右とも1モル）', fontsize=14)
+    plt.tight_layout()
+    plt.savefig(os.path.join(OUTPUT_DIR, 'past2023main_ex2_setup.png'), dpi=DPI, bbox_inches='tight')
+    plt.close()
+    print(f"生成: {OUTPUT_DIR}/past2023main_ex2_setup.png")
+
+
+def fig_past2023main_ex2_Tmin_Tmax():
+    """2023本試験 問題II: Tmin（幾何平均）と Tmax（算術平均）の範囲"""
+    T_A, T_B = 400, 200
+    T_min = np.sqrt(T_A * T_B)
+    T_max = (T_A + T_B) / 2
+
+    fig, ax = plt.subplots(figsize=(8, 5))
+    ax.barh([0], [T_min], height=0.25, color='blue', alpha=0.7, label=r'$T_{\mathrm{min}} = \sqrt{T_A T_B}$')
+    ax.barh([0.5], [T_max], height=0.25, color='green', alpha=0.7, label=r'$T_{\mathrm{max}} = (T_A+T_B)/2$')
+    ax.axvline(T_B, color='gray', linestyle='--', alpha=0.7, label=r'$T_B$')
+    ax.axvline(T_A, color='gray', linestyle=':', alpha=0.7, label=r'$T_A$')
+    ax.set_yticks([0, 0.5])
+    ax.set_yticklabels([r'$T_{\mathrm{min}}$', r'$T_{\mathrm{max}}$'])
+    ax.set_xlabel(r'温度 $T$ (K)', fontsize=12)
+    ax.set_title(r'問題II: 達成できる終温度の範囲（$T_{\mathrm{min}} \leq T \leq T_{\mathrm{max}}$）', fontsize=12)
+    ax.legend(loc='upper right', fontsize=10)
+    ax.grid(True, alpha=0.3, axis='x')
+    ax.set_xlim(T_B - 20, T_A + 20)
+    plt.tight_layout()
+    plt.savefig(os.path.join(OUTPUT_DIR, 'past2023main_ex2_Tmin_Tmax.png'), dpi=DPI, bbox_inches='tight')
+    plt.close()
+    print(f"生成: {OUTPUT_DIR}/past2023main_ex2_Tmin_Tmax.png")
+
+
 def fig_past2023_ex2_E_p():
     """2023再 問題II: 変な気体の E(T) と p(T)"""
     T = np.linspace(0.5, 3, 100)
@@ -135,6 +187,24 @@ def fig_past2023_ex2_E_p():
     plt.savefig(os.path.join(OUTPUT_DIR, 'past2023_ex2_E_p.png'), dpi=DPI, bbox_inches='tight')
     plt.close()
     print(f"生成: {OUTPUT_DIR}/past2023_ex2_E_p.png")
+
+
+def fig_past2023_ex3_balls_bins():
+    """2023再 問題III 問5: 重複組合せのイメージ（ボールと仕切り）"""
+    fig, ax = plt.subplots(figsize=(8, 3))
+    ax.set_xlim(0, 10)
+    ax.set_ylim(0, 3)
+    ax.axis('off')
+
+    # 例: M=4, N=4 → ○○|○||○ で m1=2, m2=1, m3=0, m4=1
+    ax.text(5, 2, '例: M=4 個のボールを N=4 個の箱に分ける', fontsize=12, ha='center')
+    ax.text(5, 1.3, 'o o | o | | o  =>  m1=2, m2=1, m3=0, m4=1', fontsize=11, ha='center')
+    ax.text(5, 0.6, '（左から箱1,2,3,4に入るボール数。仕切り N-1 個とボール M 個の並べ方 = C(M+N-1,N-1)）', fontsize=10, ha='center')
+    ax.set_title('問題III 問5: W_N(M) は重複組合せ（ボールと仕切りの並び）', fontsize=12)
+    plt.tight_layout()
+    plt.savefig(os.path.join(OUTPUT_DIR, 'past2023_ex3_balls_bins.png'), dpi=DPI, bbox_inches='tight')
+    plt.close()
+    print(f"生成: {OUTPUT_DIR}/past2023_ex3_balls_bins.png")
 
 
 def fig_past2023_ex3_W_P():
@@ -384,13 +454,63 @@ def fig_past2025_ex2_setup():
     print("生成: " + os.path.join(OUTPUT_DIR, 'past2025_ex2_setup.png'))
 
 
+def fig_past2025_ex4_two_level():
+    """2025 問題IV: 2準位系のエネルギー準位（E_0=0, E_1=ε）"""
+    fig, ax = plt.subplots(figsize=(6, 5))
+    ax.set_xlim(-0.5, 0.5)
+    ax.set_ylim(-0.2, 1.5)
+    ax.axis('off')
+
+    # 2つのエネルギー準位を横線で表示
+    ax.hlines(0, -0.3, 0.3, colors='black', linewidth=2)
+    ax.hlines(1, -0.3, 0.3, colors='black', linewidth=2)
+    ax.text(0.35, 0, r'$E_0 = 0$', fontsize=14, va='center')
+    ax.text(0.35, 1, r'$E_1 = \varepsilon$', fontsize=14, va='center')
+    ax.text(-0.4, 0.5, r'1粒子', fontsize=12, va='center')
+    ax.set_title('2025 問題IV: 2準位系（各粒子は E_0=0 または E_1=ε のみ）', fontsize=12)
+    plt.tight_layout()
+    plt.savefig(os.path.join(OUTPUT_DIR, 'past2025_ex4_two_level.png'), dpi=DPI, bbox_inches='tight')
+    plt.close()
+    print(f"生成: {OUTPUT_DIR}/past2025_ex4_two_level.png")
+
+
+def fig_past2025_ex4_combination():
+    """2025 問題IV 問5: N_tot個のうちN_1個がεを取る組み合わせの概念図（例: N_tot=5, N_1=2）"""
+    fig, ax = plt.subplots(figsize=(8, 4))
+    ax.set_xlim(0, 8)
+    ax.set_ylim(0, 4)
+    ax.axis('off')
+
+    # 5個の粒子を円で表示。左から2個を「εを取る」、3個を「0を取る」とする
+    r = 0.35
+    for i in range(5):
+        x = 1.2 + i * 1.4
+        if i < 2:
+            circle = plt.Circle((x, 2), r, facecolor='steelblue', edgecolor='black', linewidth=1.5)
+            ax.text(x, 2, r'$\varepsilon$', fontsize=11, ha='center', va='center', color='white', weight='bold')
+        else:
+            circle = plt.Circle((x, 2), r, facecolor='none', edgecolor='black', linewidth=1.5)
+            ax.text(x, 2, '0', fontsize=11, ha='center', va='center')
+        ax.add_patch(circle)
+    ax.text(4, 0.8, r'$N_{\mathrm{tot}}=5$ 個のうち $N_1=2$ 個が $E_1=\varepsilon$ を取る', fontsize=12, ha='center')
+    ax.text(4, 0.35, r'状態数 $W = \binom{5}{2} = 10$ 通り（どの2個が $\varepsilon$ かで区別）', fontsize=11, ha='center')
+    ax.set_title('問題IV 問5: 状態数 = 「どの N_1 個がエネルギー ε を取るか」の組み合わせの数', fontsize=12)
+    plt.tight_layout()
+    plt.savefig(os.path.join(OUTPUT_DIR, 'past2025_ex4_combination.png'), dpi=DPI, bbox_inches='tight')
+    plt.close()
+    print(f"生成: {OUTPUT_DIR}/past2025_ex4_combination.png")
+
+
 def main():
     """すべての図を生成"""
     print("統計物理1 過去問の図を生成します...")
     fig_past2023_ex1_setup()
     fig_past2023_ex1_energy_flow()
     fig_past2023_ex1_Tmin()
+    fig_past2023main_ex2_setup()
+    fig_past2023main_ex2_Tmin_Tmax()
     fig_past2023_ex2_E_p()
+    fig_past2023_ex3_balls_bins()
     fig_past2023_ex3_W_P()
     fig_past2023_oscillator_Z()
     fig_past2024_ex1_path()
@@ -401,6 +521,8 @@ def main():
     fig_past2025_ex1_why_T()
     fig_past2025_ex2_energy_balance()
     fig_past2025_ex2_setup()
+    fig_past2025_ex4_two_level()
+    fig_past2025_ex4_combination()
     print("すべての図の生成が完了しました。")
 
 

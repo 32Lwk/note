@@ -1,0 +1,381 @@
+%======================================================================
+% 2023年度 電磁気学 期末試験（2023年2月7日）
+%======================================================================
+\part{2023年度 期末試験}
+\setcounter{section}{0}
+
+%----------------------------------------------------------------------
+\section{問題1：物質中のMaxwell方程式}
+%----------------------------------------------------------------------
+
+\subsection{問題}
+
+静電磁場における物質中のMaxwell方程式を考え、その後、時間変動する電磁場に拡張する。真空中の誘電率を $\varepsilon_0$、透磁率を $\mu_0$ とする。
+
+\begin{enumerate}
+\item 物質内部には、真電荷（電荷密度 $\rho$）、真電流（電流密度 $\mathbf{i}$）、分極電荷（電荷密度 $\rho_p$）、磁化電流（電流密度 $\mathbf{i}_M$）が存在する。Maxwell方程式の4つの式を、電場 $\mathbf{E}$、磁束密度 $\mathbf{B}$、$\varepsilon_0$、$\mu_0$、$\rho$、$\mathbf{i}$、$\rho_p$、$\mathbf{i}_M$ だけを用いて示せ。
+\item 分極ベクトル $\mathbf{P}$ と磁化ベクトル $\mathbf{M}$ を用いると、$\rho_p = -\nabla\cdot\mathbf{P}$、$\mathbf{i}_M = \nabla\times\mathbf{M}/\mu_0$ と表せる。物質の誘電率 $\varepsilon$ は $\mathbf{D} = \varepsilon\mathbf{E} = \varepsilon_0\mathbf{E} + \mathbf{P}$ で定義され、物質の透磁率 $\mu$ は $\mathbf{B}/\mu = (\mathbf{B}-\mathbf{M})/\mu_0$ で定義される。物質中のMaxwell方程式のうち、分極電荷と磁化電流を含む式を、$\mathbf{E}$、$\mathbf{B}$、$\varepsilon$、$\mu$、$\rho$、$\mathbf{i}$ だけを用いて示せ。ただし、$\varepsilon$ と $\mu$ は空間的に一様ではなく、場所の関数であると考える。
+\item 時間変動する電磁場を考える。物質中のMaxwell方程式のうち、時間変動する項を含む式を、$\mathbf{E}$、$\mathbf{B}$、$\varepsilon_0$、$\mu_0$、$\mathbf{i}$、$\mathbf{P}$、$\mathbf{M}$ を用いて示せ。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{この問題のポイント（初学者向け）}
+
+物質中では真電荷・真電流に加え、分極電荷 $\rho_p$ と磁化電流 $\mathbf{i}_M$ が現れる。これらを明示した形で4つのMaxwell方程式を書き（1-1）、次に $\mathbf{P}$, $\mathbf{M}$ を $\mathbf{D}$, $\mathbf{H}$（誘電率・透磁率）に吸収した形に書き直す（1-2）。時間変動がある場合はファラデーの法則とアンペールの法則に $\partial\mathbf{B}/\partial t$、$\partial\mathbf{E}/\partial t$ および分極・磁化の時間変化が現れる（1-3）。
+
+\paragraph{解き方の流れ}
+\begin{enumerate}
+\item 問1：静電磁場なので時間微分はゼロ。電場の源は $\rho+\rho_p$、磁場の回転の源は $\mathbf{i}+\mathbf{i}_M$ として、ガウスの法則（電場・磁束）、ファラデー、アンペールの4式を書く。
+\item 問2：$\rho_p=-\nabla\cdot\mathbf{P}$ と $\mathbf{D}=\varepsilon\mathbf{E}$ から $\nabla\cdot(\varepsilon\mathbf{E})=\rho$ を導く。$\nabla\times\mathbf{B}=\mu_0\mathbf{i}+\nabla\times\mathbf{M}$ と透磁率の定義から $\nabla\times(\mathbf{B}/\mu)=\mathbf{i}$ を導く。
+\item 問3：時間変動を含むファラデーの法則 $\nabla\times\mathbf{E}=-\partial\mathbf{B}/\partial t$ と、変位電流・分極の時間変化を含むアンペールの法則を書く。
+\end{enumerate}
+
+\paragraph{用語の説明}
+\begin{itemize}
+\item \textbf{真電荷 $\rho$}：物質の外部から与えられた自由電荷の密度。
+\item \textbf{分極電荷 $\rho_p$}：誘電体の分極によって現れる見かけの電荷。$\rho_p = -\nabla\cdot\mathbf{P}$。
+\item \textbf{真電流 $\mathbf{i}$}：自由電子などによる電流密度。
+\item \textbf{磁化電流 $\mathbf{i}_M$}：磁化 $\mathbf{M}$ による見かけの電流。$\mathbf{i}_M = \nabla\times\mathbf{M}$（問題文では $\mathbf{i}_M = \nabla\times\mathbf{M}/\mu_0$ とあるが、多くの教科書では $\mathbf{i}_M = \nabla\times\mathbf{M}$ と定義し、アンペールの法則に $\mathbf{i}_M$ を足す形をとる。以下では問題文の表記に従う）。
+\item \textbf{電束密度 $\mathbf{D}$}：$\mathbf{D} = \varepsilon_0\mathbf{E} + \mathbf{P}$。誘電体中のガウスの法則を簡潔に書くときに使う。
+\item \textbf{磁場の強さ $\mathbf{H}$}：$\mathbf{B} = \mu_0(\mathbf{H}+\mathbf{M})$ あるいは $\mathbf{B}/\mu = (\mathbf{B}-\mathbf{M})/\mu_0$ から $\mathbf{H}$ を定義する流儀がある。問題文の定義 $\mathbf{B}/\mu = (\mathbf{B}-\mathbf{M})/\mu_0$ は、$\mathbf{B} = \mu\mathbf{H}$ かつ $\mathbf{M} = (\mu/\mu_0 - 1)\mathbf{H}$ のような関係と整合させる書き方である。ここでは「分極電荷と磁化電流を含む式」を $\mathbf{E},\mathbf{B},\varepsilon,\mu,\rho,\mathbf{i}$ だけで書くので、$\nabla\cdot(\varepsilon\mathbf{E})=\rho$ と $\nabla\times(\mathbf{B}/\mu)=\mathbf{i}$（またはそれに相当する形）を導く。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/em_maxwell_concept.png}
+\caption{問題1：物質中のMaxwell方程式の物理的意味。電場の源は真電荷と分極電荷の和、磁場の回転の源は真電流と磁化電流の和である。物質中では分極・磁化により「見かけの」電荷・電流が生じ、それらも電磁場の源として扱う。}
+\label{fig:em_maxwell_concept}
+\end{figure}
+
+\paragraph{1-1：4つのMaxwell方程式（$\rho$, $\mathbf{i}$, $\rho_p$, $\mathbf{i}_M$ を用いた形）}
+
+静電磁場では時間微分はゼロとする。電場の源は真電荷と分極電荷、磁場の源は真電流と磁化電流である。
+
+\textbf{ガウスの法則（電場）}：電場の発散は、真電荷密度と分極電荷密度の和を $\varepsilon_0$ で割ったものに等しい。
+\begin{equation}
+\nabla\cdot\mathbf{E} = \frac{\rho + \rho_p}{\varepsilon_0}.
+\label{eq:2023-gauss-E}
+\end{equation}
+
+\textbf{磁束密度のガウスの法則}：磁束線は湧き出し・吸い込みがなく、常に閉じている。
+\begin{equation}
+\nabla\cdot\mathbf{B} = 0.
+\label{eq:2023-gauss-B}
+\end{equation}
+
+\textbf{ファラデーの法則（静磁場）}：静電磁場では時間変動がないため、誘導電場はゼロ。
+\begin{equation}
+\nabla\times\mathbf{E} = \mathbf{0}.
+\label{eq:2023-faraday}
+\end{equation}
+
+\textbf{アンペールの法則}：磁場の回転の源は真電流と磁化電流である。問題文では $\mathbf{i}_M = \nabla\times\mathbf{M}/\mu_0$ とあるので、アンペールの法則は
+\begin{equation}
+\nabla\times\mathbf{B} = \mu_0(\mathbf{i} + \mathbf{i}_M) = \mu_0\mathbf{i} + \nabla\times\mathbf{M}.
+\label{eq:2023-amp}
+\end{equation}
+（多くの教科書では磁化電流を $\mathbf{i}_M = \nabla\times\mathbf{M}$ と定義し、$\nabla\times\mathbf{B} = \mu_0(\mathbf{i} + \mathbf{i}_M)$ と書く。問題文の $\mathbf{i}_M = \nabla\times\mathbf{M}/\mu_0$ に合わせるなら、$\nabla\times\mathbf{B} = \mu_0\mathbf{i} + \nabla\times\mathbf{M}$ となり、同じ形になる。）
+
+まとめると、求める4式は
+\begin{align}
+\nabla\cdot\mathbf{E} &= \frac{\rho + \rho_p}{\varepsilon_0}, \\
+\nabla\cdot\mathbf{B} &= 0, \\
+\nabla\times\mathbf{E} &= \mathbf{0}, \\
+\nabla\times\mathbf{B} &= \mu_0\mathbf{i} + \mathbf{i}_M.
+\end{align}
+ただし問題文では $\mathbf{i}_M$ を「電流密度」として与えているので、$\nabla\times\mathbf{B} = \mu_0(\mathbf{i} + \mathbf{i}_M)$ と書いておく。$\mathbf{i}_M = \nabla\times\mathbf{M}/\mu_0$ なら $\nabla\times\mathbf{B} = \mu_0\mathbf{i} + \nabla\times\mathbf{M}$ である。
+
+\paragraph{なぜ物質中では分極電荷・磁化電流を明示するか（原理的な説明）}
+
+真空中のMaxwell方程式では、電場の源は真電荷 $\rho$、磁場の回転の源は真電流 $\mathbf{i}$ だけである。しかし物質（誘電体・磁性体）の中では、原子や分子の応答として「分極」や「磁化」が生じ、それらが\textbf{見かけの電荷・電流}として振る舞う。分極 $\mathbf{P}$ は正負の電荷の重心のずれを表し、その発散 $-\nabla\cdot\mathbf{P}$ が分極電荷密度 $\rho_p$ になる（正の端に正の見かけ電荷、負の端に負の見かけ電荷が現れる）。磁化 $\mathbf{M}$ は分子電流の巨視的な平均であり、その回転 $\nabla\times\mathbf{M}$ が磁化電流としてアンペールの法則に効く。したがって、物質中の電磁場を正しく記述するには、真電荷・真電流に加えて $\rho_p$ と $\mathbf{i}_M$ を明示した形で4式を書く必要がある。
+
+\paragraph{1-2：$\mathbf{E}$, $\mathbf{B}$, $\varepsilon$, $\mu$, $\rho$, $\mathbf{i}$ だけを用いた形}
+
+分極電荷を含む式はガウスの法則 \eqref{eq:2023-gauss-E}。$\rho_p = -\nabla\cdot\mathbf{P}$ と $\mathbf{D} = \varepsilon\mathbf{E} = \varepsilon_0\mathbf{E} + \mathbf{P}$ より、
+\begin{equation}
+\nabla\cdot\mathbf{E} = \frac{\rho + \rho_p}{\varepsilon_0} = \frac{\rho - \nabla\cdot\mathbf{P}}{\varepsilon_0}.
+\end{equation}
+移項して $\nabla\cdot(\varepsilon_0\mathbf{E}+\mathbf{P}) = \rho$、すなわち
+\begin{equation}
+\boxed{\nabla\cdot(\varepsilon\mathbf{E}) = \rho}.
+\end{equation}
+$\varepsilon$ は場所の関数なので、左辺は $\nabla\cdot(\varepsilon\mathbf{E}) = \varepsilon\nabla\cdot\mathbf{E} + (\nabla\varepsilon)\cdot\mathbf{E}$ である。そのまま $\nabla\cdot(\varepsilon\mathbf{E})=\rho$ と書けば、分極電荷を含む式を $\mathbf{E},\varepsilon,\rho$ だけで表したことになる。
+
+磁化電流を含む式はアンペールの法則。$\nabla\times\mathbf{B} = \mu_0\mathbf{i} + \nabla\times\mathbf{M}$ を、$\mathbf{B}$ と $\mathbf{M}$ をまとめた形で書く。
+
+\textbf{ステップ1}：問題文の透磁率の定義は $\mathbf{B}/\mu = (\mathbf{B}-\mathbf{M})/\mu_0$ である。これより $\mathbf{B}/\mu_0 - \mathbf{M}/\mu_0 = \mathbf{B}/\mu$ なので、$\mathbf{H} := \mathbf{B}/\mu = (\mathbf{B}-\mathbf{M})/\mu_0$ とおくと、$\mathbf{H}$ は $\mathbf{B}$ と $\mathbf{M}$ で表せる。
+
+\textbf{ステップ2}：$\nabla\times\mathbf{B} = \mu_0\mathbf{i} + \nabla\times\mathbf{M}$ の両辺を $\mu_0$ で割ると $\nabla\times(\mathbf{B}/\mu_0) = \mathbf{i} + \nabla\times(\mathbf{M}/\mu_0)$。ここで $\mathbf{B}/\mu_0 = \mathbf{B}/\mu + \mathbf{M}/\mu_0$（定義 $\mathbf{B}/\mu = (\mathbf{B}-\mathbf{M})/\mu_0$ から $\mathbf{B}/\mu_0 = \mathbf{B}/\mu + \mathbf{M}/\mu_0$）なので、$\nabla\times(\mathbf{B}/\mu) + \nabla\times(\mathbf{M}/\mu_0) = \mathbf{i} + \nabla\times(\mathbf{M}/\mu_0)$。両辺で $\nabla\times(\mathbf{M}/\mu_0)$ が打ち消し、$\nabla\times(\mathbf{B}/\mu) = \mathbf{i}$ を得る。すなわち
+\begin{equation}
+\boxed{\nabla\times\left(\frac{\mathbf{B}}{\mu}\right) = \mathbf{i}}.
+\end{equation}
+$\mu$ が場所の関数のときは、$\nabla\times(\mathbf{B}/\mu)$ は $\nabla\times\mathbf{B}$ と $\nabla(1/\mu)$ の項からなるが、問題の要求通り「$\mathbf{E},\mathbf{B},\varepsilon,\mu,\rho,\mathbf{i}$ だけを用いて示せ」の答えとして、上記2式でよい。
+
+\paragraph{なぜ $\mathbf{D}$ と $\mathbf{H}$ を導入するか（物理的考察）}
+
+$\nabla\cdot(\varepsilon\mathbf{E})=\rho$ は「真電荷だけが電束密度 $\mathbf{D}=\varepsilon\mathbf{E}$ の湧き出しの源である」ことを表す。分極電荷 $\rho_p$ は $\mathbf{P}$ に含めて $\mathbf{D}$ に吸収したので、式の上では真電荷 $\rho$ だけが右辺に現れる。同様に $\nabla\times(\mathbf{B}/\mu)=\mathbf{i}$ は「真電流だけが磁場の回転の源である」ように見える形になっており、磁化電流は透磁率 $\mu$ を通して左辺に取り込まれている。このように書くことで、境界値問題や波動方程式を扱うときに、真電荷・真電流の分布だけに注目すればよい形になり、計算が簡潔になる。
+
+\paragraph{1-3：時間変動する項を含む2式}
+
+時間変動する電磁場では、ファラデーの法則に $\partial\mathbf{B}/\partial t$、アンペールの法則に $\partial\mathbf{E}/\partial t$（および分極・磁化の時間変化）が現れる。
+
+\textbf{ファラデーの法則}：誘導起電力は磁束の時間変化に比例する。微分形では
+\begin{equation}
+\nabla\times\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}.
+\end{equation}
+これは $\mathbf{E},\mathbf{B}$ のみで、$\mathbf{P},\mathbf{M}$ は含まない。
+
+\textbf{アンペールの法則（変位電流を含む）}：電流のほか、電場の時間変化が磁場を回転させる。この効果を\textbf{変位電流}（$\varepsilon_0\partial\mathbf{E}/\partial t$ および物質中では $\partial\mathbf{P}/\partial t$）という。真電流 $\mathbf{i}$、変位電流、分極の時間変化 $\partial\mathbf{P}/\partial t$、磁化 $\mathbf{M}$ を用いた形は
+\begin{equation}
+\nabla\times\mathbf{B} = \mu_0\mathbf{i} + \mu_0\frac{\partial}{\partial t}(\varepsilon_0\mathbf{E}+\mathbf{P}) + \nabla\times\mathbf{M}
+= \mu_0\mathbf{i} + \mu_0\varepsilon_0\frac{\partial\mathbf{E}}{\partial t} + \mu_0\frac{\partial\mathbf{P}}{\partial t} + \nabla\times\mathbf{M}.
+\end{equation}
+問題文は「$\mathbf{E},\mathbf{B},\varepsilon_0,\mu_0,\mathbf{i},\mathbf{P},\mathbf{M}$ を用いて示せ」なので、上記のまま
+\begin{align}
+\boxed{\nabla\times\mathbf{E} &= -\frac{\partial\mathbf{B}}{\partial t}}, \\
+\boxed{\nabla\times\mathbf{B} &= \mu_0\mathbf{i} + \mu_0\varepsilon_0\frac{\partial\mathbf{E}}{\partial t} + \mu_0\frac{\partial\mathbf{P}}{\partial t} + \nabla\times\mathbf{M}}}.
+\end{align}
+
+\paragraph{なぜ時間変動で $\partial\mathbf{B}/\partial t$ と変位電流が現れるか（原理的な説明）}
+
+ファラデーの法則 $\nabla\times\mathbf{E}=-\partial\mathbf{B}/\partial t$ は、磁束の時間変化が閉回路に沿った誘導起電力を生むという実験事実（電磁誘導）の数学的表現である。静磁場では $\partial\mathbf{B}/\partial t=\mathbf{0}$ なので $\nabla\times\mathbf{E}=\mathbf{0}$ だったが、時間変動があると渦電場が生じる。アンペールの法則には、マクスウェルが補完した\textbf{変位電流} $\varepsilon_0\partial\mathbf{E}/\partial t$ および物質中では分極の時間変化 $\partial\mathbf{P}/\partial t$ が加わる。変位電流を導入しないと、コンデンサの極板間のように電流が流れていない領域で磁場が説明できなくなる。つまり「電場の時間変化も磁場を回転させる」という対称性が、電磁波の存在を可能にしている。
+
+%----------------------------------------------------------------------
+\section{問題2：誘電体板と導体板の電場中の振る舞い}
+%----------------------------------------------------------------------
+
+\subsection{問題}
+
+真空の一様な外部電場 $\mathbf{E}_0$ の中に、誘電体板または導体板を置いたときの、内部の電場・電束密度および表面電荷密度を求める。真空の誘電率を $\varepsilon_0$ とする。
+
+\begin{enumerate}
+\item 無限に広く平らで一様な誘電体板（誘電率 $\varepsilon$）を、外部電場 $\mathbf{E}_0$ に対して垂直に置く。誘電体板の内部の電束密度 $\mathbf{D}$ および電場 $\mathbf{E}$ を求めよ。
+\item 問(2-1)の誘電体板の表面に現れる分極電荷の面密度 $\sigma_p$ を求めよ。
+\item 誘電体板を外部電場に対して斜めに置く。誘電体板の法線と $\mathbf{E}_0$ とのなす角を $\theta_0$ とする。誘電体板の内部電場の大きさ $E$ を、$E_0$ などを用いて表せ。
+\item 誘電体板を導体板に変更する。導体板を電場に垂直に置いたとき、静電誘導によって導体面に現れる電荷の面密度を求めよ。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{この問題のポイント（初学者向け）}
+
+誘電体では電束密度 $\mathbf{D}$ の法線成分が境界で連続、導体では内部電場がゼロで表面に電荷が現れる。垂直配置では $\mathbf{D} = \varepsilon_0\mathbf{E}_0$（真空側と同じ）から内部の $\mathbf{E}$ を求め、斜め配置では法線・接線成分の境界条件を満たすように $E$ を決める。
+
+\paragraph{解き方の流れ}
+\begin{enumerate}
+\item 問(2-1)：境界で $\mathbf{D}$ の法線成分が連続であることから内部の $\mathbf{D}$ を求め、$\mathbf{E}=\mathbf{D}/\varepsilon$ で内部電場を得る。
+\item 問(2-2)：$\mathbf{P}=\mathbf{D}-\varepsilon_0\mathbf{E}$ と表面での $\sigma_p=\mathbf{P}\cdot\mathbf{n}$ から分極電荷の面密度を求める。
+\item 問(2-3)：法線成分は $D_{\mathrm{n}}$ 連続から $E_{\mathrm{n}}=(\varepsilon_0/\varepsilon)E_0\cos\theta_0$、接線成分は $E_{\mathrm{t}}$ 連続から $E_{\mathrm{t}}=E_0\sin\theta_0$。$E=\sqrt{E_{\mathrm{n}}^2+E_{\mathrm{t}}^2}$ で大きさを求める。
+\item 問(2-4)：導体内部で電場がゼロになるように、上面 $+\sigma$ と下面 $-\sigma$ が作る電場が外部電場を打ち消す条件から $\sigma=\varepsilon_0 E_0$ を導く。
+\end{enumerate}
+
+\paragraph{用語の説明}
+\begin{itemize}
+\item \textbf{電束密度 $\mathbf{D}$}：$\mathbf{D} = \varepsilon\mathbf{E}$（線形誘電体）。ガウスの法則で $\nabla\cdot\mathbf{D} = \rho$（真電荷のみ）となる。
+\item \textbf{分極電荷の面密度 $\sigma_p$}：誘電体表面では $\sigma_p = \mathbf{P}\cdot\mathbf{n}$（$\mathbf{n}$ は表面外向き法線）。$\mathbf{P} = (\varepsilon - \varepsilon_0)\mathbf{E}$ なので $\sigma_p = (\varepsilon-\varepsilon_0)\mathbf{E}\cdot\mathbf{n}$。
+\item \textbf{境界条件}：誘電体と真空の境界で、$\mathbf{D}$ の法線成分は連続、$\mathbf{E}$ の接線成分は連続。
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em_boundary_D_E.png}
+\caption{問題2：誘電体と真空の境界での境界条件の原理。真電荷が表面にないとき、ガウスの法則から $\mathbf{D}$ の法線成分は連続（$D_{\mathrm{n}}$ が境界を貫いて同じ値）。電場の回転がゼロ（静電場）から、$\mathbf{E}$ の接線成分は連続（$E_{\mathrm{t}}$ が境界の両側で同じ）。}
+\label{fig:em_boundary_D_E}
+\end{figure}
+
+\paragraph{2-1：誘電体板内部の $\mathbf{D}$ と $\mathbf{E}$（垂直配置）}
+
+板を $z$ 軸に垂直に置き、外部電場を $\mathbf{E}_0 = E_0\mathbf{e}_z$（$z$ 正方向）とする。板は無限に広いので、内部では電場も電束密度も一様である。
+
+\textbf{ステップ1：$\mathbf{D}$ の法線成分の連続性}
+
+真空と誘電体の境界で、真電荷が表面にないとき $\mathbf{D}$ の法線成分は連続。真空側では $\mathbf{D}_0 = \varepsilon_0\mathbf{E}_0$。板の上面（$z$ が大きい側）では法線は $+\mathbf{e}_z$ なので、$D_{\mathrm{n, vac}} = \varepsilon_0 E_0$。誘電体内部の $\mathbf{D}$ を $\mathbf{D} = D_z\mathbf{e}_z$ とすると、連続性から $D_z = \varepsilon_0 E_0$。したがって
+\begin{equation}
+\boxed{\mathbf{D} = \varepsilon_0\mathbf{E}_0 = \varepsilon_0 E_0\mathbf{e}_z}.
+\end{equation}
+
+\textbf{ステップ2：内部電場}
+
+$\mathbf{D} = \varepsilon\mathbf{E}$ より、$\mathbf{E} = \mathbf{D}/\varepsilon = (\varepsilon_0/\varepsilon)\mathbf{E}_0$。したがって
+\begin{equation}
+\boxed{\mathbf{E} = \frac{\varepsilon_0}{\varepsilon}\mathbf{E}_0 = \frac{\varepsilon_0}{\varepsilon}E_0\,\mathbf{e}_z}.
+\end{equation}
+
+\paragraph{なぜ内部電場は外部より弱くなるか（物理的考察）}
+
+真空では電場 $\mathbf{E}_0$ がそのまま存在するが、誘電体内部では分極 $\mathbf{P}$ が生じ、分極電荷が表面に現れる。この分極電荷が作る電場は外部電場と\textbf{逆向き}（誘電体内部で下向きの成分）になるため、内部の実効的な電場 $\mathbf{E}$ は $\mathbf{E}_0$ より小さくなる。一方、電束密度 $\mathbf{D}$ の法線成分は境界で連続なので、真電荷が表面にない限り真空側と誘電体側で同じ値である。$\mathbf{D}=\varepsilon\mathbf{E}$ と $\mathbf{D}=\varepsilon_0\mathbf{E}_0$（法線成分が連続なので内部でも $D_{\mathrm{n}}=\varepsilon_0 E_0$）から、$E = (\varepsilon_0/\varepsilon)E_0 < E_0$ となる。誘電率 $\varepsilon$ が真空より大きい（$\varepsilon>\varepsilon_0$）ほど、内部電場は弱くなる。これはコンデンサに誘電体を挿入すると静電容量が増える理由とも対応している。
+
+\paragraph{2-2：分極電荷の面密度 $\sigma_p$}
+
+分極は $\mathbf{P} = \mathbf{D} - \varepsilon_0\mathbf{E} = \varepsilon_0\mathbf{E}_0 - \varepsilon_0(\varepsilon_0/\varepsilon)\mathbf{E}_0 = \varepsilon_0(1 - \varepsilon_0/\varepsilon)\mathbf{E}_0$。板の上面では外向き法線は $\mathbf{n} = \mathbf{e}_z$ なので、$\sigma_p = \mathbf{P}\cdot\mathbf{n} = \varepsilon_0(1-\varepsilon_0/\varepsilon)E_0$。下面では $\mathbf{n} = -\mathbf{e}_z$ なので $\sigma_p = -\mathbf{P}\cdot\mathbf{e}_z = -\varepsilon_0(1-\varepsilon_0/\varepsilon)E_0$。通常「面密度」は大きさで答えるか、上面の値を答える。上面の分極電荷の面密度は
+\begin{equation}
+\boxed{\sigma_p = \varepsilon_0\left(1 - \frac{\varepsilon_0}{\varepsilon}\right)E_0}.
+\end{equation}
+（下面では $-\sigma_p$ で、板全体で分極電荷の合計はゼロである。）
+
+\paragraph{なぜ表面に分極電荷が現れるか（原理的な説明）}
+
+分極 $\mathbf{P}$ は誘電体内で一様でも、境界面では「正負の電荷の重心のずれ」が表面に突き出した形になり、見かけの電荷が表面に現れる。数学的には $\rho_p = -\nabla\cdot\mathbf{P}$ で、$\mathbf{P}$ が境界で不連続にゼロ（真空側）に変わるため、その発散が表面にデルタ関数型の面密度 $\sigma_p = \mathbf{P}\cdot\mathbf{n}$ として現れる。上面では $\mathbf{P}$ が上向きなので外向き法線 $\mathbf{n}=\mathbf{e}_z$ と同方向で $\sigma_p>0$、下面では $\mathbf{n}=-\mathbf{e}_z$ なので $\sigma_p<0$ となる。これらの分極電荷が作る電場が、外部電場を打ち消す方向に働き、内部電場を弱めている。
+
+\paragraph{2-3：誘電体板を斜めに置いたときの内部電場の大きさ $E$}
+
+板の法線を $\mathbf{n}$ とし、$\mathbf{E}_0$ と $\mathbf{n}$ のなす角を $\theta_0$ とする。真空側では $\mathbf{E}_0$ の法線成分は $E_0\cos\theta_0$、接線成分は $E_0\sin\theta_0$。
+
+境界条件：$\mathbf{D}$ の法線成分が連続、$\mathbf{E}$ の接線成分が連続。誘電体内部で $\mathbf{E}$ は一様で、その法線成分を $E_{\mathrm{n}}$、接線成分を $E_{\mathrm{t}}$ とする。接線成分の連続から $E_{\mathrm{t}} = E_0\sin\theta_0$。法線成分について、真空側の $D_{\mathrm{n}} = \varepsilon_0 E_0\cos\theta_0$ が誘電体側の $D_{\mathrm{n}} = \varepsilon E_{\mathrm{n}}$ と等しいので、$E_{\mathrm{n}} = (\varepsilon_0/\varepsilon)E_0\cos\theta_0$。したがって内部電場の大きさは
+\begin{equation}
+E = \sqrt{E_{\mathrm{n}}^2 + E_{\mathrm{t}}^2}
+= \sqrt{\frac{\varepsilon_0^2}{\varepsilon^2}E_0^2\cos^2\theta_0 + E_0^2\sin^2\theta_0}
+= E_0\sqrt{\frac{\varepsilon_0^2}{\varepsilon^2}\cos^2\theta_0 + \sin^2\theta_0}.
+\end{equation}
+したがって
+\begin{equation}
+\boxed{E = E_0\sqrt{\frac{\varepsilon_0^2}{\varepsilon^2}\cos^2\theta_0 + \sin^2\theta_0}}.
+\end{equation}
+
+\paragraph{なぜ法線成分と接線成分で扱いが違うか（物理的考察）}
+
+境界では \textbf{$\mathbf{D}$ の法線成分}が連続（真電荷が表面にないとき）、\textbf{$\mathbf{E}$ の接線成分}が連続（静電場では $\nabla\times\mathbf{E}=\mathbf{0}$ から）という2つの条件が独立に成り立つ。法線方向では分極電荷が現れるため $D_{\mathrm{n}}$ が「真電荷の湧き出し」を表す量として連続になる。接線方向では表面に沿った電場の積分が境界の両側で等しくなければならないため $E_{\mathrm{t}}$ が連続になる。斜め配置では、外部電場の法線成分 $E_0\cos\theta_0$ に対して内部では $E_{\mathrm{n}}=(\varepsilon_0/\varepsilon)E_0\cos\theta_0$ に弱められ、接線成分 $E_{\mathrm{t}}=E_0\sin\theta_0$ はそのままなので、内部の電場の大きさは $E=\sqrt{E_{\mathrm{n}}^2+E_{\mathrm{t}}^2}$ で上記の式になる。$\theta_0=0$ のときは垂直配置の結果 $E=(\varepsilon_0/\varepsilon)E_0$ に一致する。
+
+\paragraph{2-4：導体板を垂直に置いたときの表面電荷の面密度}
+
+導体内部では電場はゼロ。静電誘導で、導体の表面に電荷が現れ、それらが作る電場が外部電場を打ち消す。板を電場に垂直に置き、$z$ 軸を上向き（$\mathbf{E}_0 = E_0\mathbf{e}_z$）とする。板の両面に現れる電荷の面密度を上面 $+\sigma$、下面 $-\sigma$ とする。
+
+\textbf{無限平面が作る電場}：面密度 $\sigma$ の無限平面は、面に垂直で大きさ $\sigma/(2\varepsilon_0)$ の電場を「表側」と「裏側」に作る。表側では外向き法線の向きに、裏側では逆向きに働く。
+
+\textbf{導体内部での2面の寄与}：上面の $+\sigma$ の「裏側」（＝導体内部）では電場は下向き $-\sigma/(2\varepsilon_0)\mathbf{e}_z$。下面の $-\sigma$ の「裏側」（＝導体内部）では、下面の内向き法線は $+\mathbf{e}_z$ なので、面密度 $-\sigma$ が作る裏側の電場は $(-\sigma)/(2\varepsilon_0)\times(+\mathbf{e}_z) = -\sigma/(2\varepsilon_0)\mathbf{e}_z$（下向き）。よって上面・下面の寄与はともに $-\sigma/(2\varepsilon_0)\mathbf{e}_z$ で、合計は $-\sigma/\varepsilon_0\,\mathbf{e}_z$。外部電場 $E_0\mathbf{e}_z$ と打ち消し合うには $E_0 = \sigma/\varepsilon_0$、すなわち $\sigma = \varepsilon_0 E_0$。上面に現れる電荷の面密度は $+\varepsilon_0 E_0$、下面には $-\varepsilon_0 E_0$。したがって
+\begin{equation}
+\boxed{\sigma = \varepsilon_0 E_0}.
+\end{equation}
+（上面：$+\varepsilon_0 E_0$、下面：$-\varepsilon_0 E_0$。）
+
+\paragraph{なぜ導体内部の電場がゼロになるか（原理的な説明）}
+
+導体では自由電子が移動できるため、外部電場がかかると\textbf{静電誘導}によって表面に電荷が再配置される。導体内部の任意の点で電場がゼロでないと、自由電子が力を受けて動き続け、定常状態に達しない。したがって静電平衡では導体内部の電場は必ずゼロである。無限に広い板を電場に垂直に置いた場合、上面に正の電荷、下面に負の電荷が誘導され、それらが作る電場が導体内部で外部電場 $\mathbf{E}_0$ と丁度打ち消し合う。無限平面の面密度 $\sigma$ が作る電場は面に垂直で大きさ $\sigma/(2\varepsilon_0)$ なので、上面の $+\sigma$ と下面の $-\sigma$ が内部で作る電場の和が $-\mathbf{E}_0$ になるように $\sigma=\varepsilon_0 E_0$ と決まる。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em2023_dielectric_vertical.png}
+\caption{問題2(2-1)(2-2)：誘電体板を外部電場に垂直に置いた場合。$\mathbf{D}$ は連続、内部の $\mathbf{E}$ は $\varepsilon_0/\varepsilon$ 倍になる。表面に分極電荷が現れる。}
+\label{fig:em2023_dielectric_vertical}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em2023_dielectric_tilted.png}
+\caption{問題2(2-3)：誘電体板を斜めに置いた場合。法線と $\mathbf{E}_0$ のなす角を $\theta_0$ とする。}
+\label{fig:em2023_dielectric_tilted}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em2023_conductor_plate.png}
+\caption{問題2(2-4)：導体板を電場に垂直に置いたときの静電誘導。表面に $\pm\sigma$ の電荷が現れ、内部電場をゼロにする。}
+\label{fig:em2023_conductor}
+\end{figure}
+
+%----------------------------------------------------------------------
+\section{問題3：金属表面における平面電磁波の反射と透過}
+%----------------------------------------------------------------------
+
+\subsection{問題}
+
+$z$ 軸方向に進行する平面電磁波が、真空から金属の境界面に垂直に入射する。平面電磁波は $\mathbf{E} = E_0\exp[\mathrm{i}(kz-\omega t)]$、$\mathbf{H} = H_0\exp[\mathrm{i}(kz-\omega t)]$。角振動数 $\omega$、波数 $k$。真空（誘電率 $\varepsilon_0$、透磁率 $\mu_0$）。金属は電気伝導率 $\sigma$、誘電率 $\varepsilon_0$、透磁率 $\mu_0$。$\sigma$ は実数。境界面は $z=0$、金属は $z\ge 0$。
+
+\begin{enumerate}
+\item $\varepsilon_0$、$\sigma$、$\omega$ などを用いて、反射率 $R$ を求めよ。
+\item 真空中からの入射光の強度を $I_0$ とする。金属表面から深さ $z=d$（$d>0$）の金属内部での光の強度 $I_1$ を、$R$、$d$、$\mu_0$、$\sigma$、$\omega$ などを用いて求めよ。
+\item 金属が厚み $d$ の板（$0\le z\le d$）であるとき、厚み $d$ の金属板を通過後の光の強度 $I_2$ を求めよ。金属内部での多重反射を考え、位相は考慮せず振幅だけを足し合わせてよい。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{この問題のポイント（初学者向け）}
+
+金属中では複素誘電率または複素波数を用い、境界 $z=0$ で反射率を求める。金属内部では電磁波が減衰し、強度は $\exp(-2\beta z)$ に比例する。厚み $d$ の板の透過率は、減衰と多重反射（振幅を足し合わせる）で求める。
+
+\paragraph{解き方の流れ}
+\begin{enumerate}
+\item 問(3-1)：金属の複素波数 $k_m=k_0\sqrt{1+\mathrm{i}\sigma/(\omega\varepsilon_0)}$ とインピーダンスから反射率 $R=|(1-k_m/k_0)/(1+k_m/k_0)|^2$ を求める。
+\item 問(3-2)：金属表面直下の強度は $I_0(1-R)$。内部では $\exp(-2\beta z)$ で減衰するので、$z=d$ での強度は $I_1=I_0(1-R)\exp(-2\beta d)$。
+\item 問(3-3)：板を透過する光の経路（1回透過、2回反射後透過、…）の強度を等比級数で足し合わせ、$I_2=I_0(1-R)^2\exp(-2\beta d)/(1-R\exp(-2\beta d))$ を得る。
+\end{enumerate}
+
+\paragraph{使用する公式}
+
+真空中的な波数：$k = \omega\sqrt{\varepsilon_0\mu_0}$。金属中では電流 $\mathbf{i} = \sigma\mathbf{E}$ を考慮し、実効的に $\varepsilon \to \varepsilon_0 + \mathrm{i}\sigma/\omega$（複素誘電率）とおく。金属中の波数は $k_m = k_0\sqrt{1+\mathrm{i}\sigma/(\omega\varepsilon_0)}$（$k_0 = \omega\sqrt{\varepsilon_0\mu_0}$）。$k_m = \alpha + \mathrm{i}\beta$ とおくと、金属中の電場は $E \propto \exp(-\beta z)\exp(\mathrm{i}(\alpha z - \omega t))$ のように減衰する。\textbf{強度}（光のエネルギー流）は電場の2乗に比例するので、$I \propto |E|^2 \propto \exp(-2\beta z)$ である。
+
+\textbf{インピーダンス}：電磁波の進行において、電場と磁場の比 $Z = E/H$ をインピーダンスという。真空では $Z_0 = \sqrt{\mu_0/\varepsilon_0}$。境界で電場・磁場の接続条件を課すと、反射振幅は両媒質のインピーダンスの差で決まり、反射率 $R$ はその絶対値の2乗である。
+
+\paragraph{3-1：反射率 $R$}
+
+垂直入射のとき、境界 $z=0$ での電場・磁場の接続条件から、反射振幅は $(Z_m - Z_0)/(Z_m + Z_0)$ で与えられる（$Z_0$：真空のインピーダンス、$Z_m$：金属の複素インピーダンス）。反射率は強度比なので、
+\begin{equation}
+R = \left|\frac{Z_m - Z_0}{Z_m + Z_0}\right|^2.
+\end{equation}
+金属中では $k_m = \omega\sqrt{\mu_0(\varepsilon_0 + \mathrm{i}\sigma/\omega)} = k_0\sqrt{1+\mathrm{i}\sigma/(\omega\varepsilon_0)}$。良導体近似 $\sigma/(\omega\varepsilon_0)\gg 1$ では $k_m \approx \mathrm{i}\sqrt{\omega\mu_0\sigma/2}(1+\mathrm{i}) = (1+\mathrm{i})\sqrt{\omega\mu_0\sigma/2}$。金属のインピーダンスは $Z_m = \omega\mu_0/k_m \approx \sqrt{\omega\mu_0/(2\sigma)}(1-\mathrm{i})$ で、$|Z_m| \ll Z_0$ なら $R \approx |(-Z_0)/(Z_0)|^2 = 1$ に近い。より正確には、$Z_m/Z_0 = k_0/k_m = 1/\sqrt{1+\mathrm{i}\sigma/(\omega\varepsilon_0)}$ なので、
+\begin{equation}
+R = \left|\frac{1 - Z_0/Z_m}{1 + Z_0/Z_m}\right|^2 = \left|\frac{1 - k_m/k_0}{1 + k_m/k_0}\right|^2.
+\end{equation}
+$k_m = k_0\sqrt{1+\mathrm{i}\sigma/(\omega\varepsilon_0)}$ を代入して整理する。$n_m = k_m/k_0 = \sqrt{1+\mathrm{i}\sigma/(\omega\varepsilon_0)}$ とおくと、$R = |(1-n_m)/(1+n_m)|^2$。複素数 $n_m$ の実部・虚部を $n_m = n'_m + \mathrm{i}n''_m$ とすると、
+\begin{equation}
+R = \frac{(1-n'_m)^2 + n''_m{}^2}{(1+n'_m)^2 + n''_m{}^2}.
+\end{equation}
+良導体では $|n_m| \gg 1$ なので $R \to 1$。問題では「$\varepsilon_0,\sigma,\omega$ を用いて反射率 $R$ を求めよ」とあるので、上記の $n_m = \sqrt{1+\mathrm{i}\sigma/(\omega\varepsilon_0)}$ を用いた
+\begin{equation}
+\boxed{R = \left|\frac{1 - \sqrt{1+\mathrm{i}\sigma/(\omega\varepsilon_0)}}{1 + \sqrt{1+\mathrm{i}\sigma/(\omega\varepsilon_0)}}\right|^2}.
+\end{equation}
+が答えである。$\sqrt{1+\mathrm{i}x}$（$x = \sigma/(\omega\varepsilon_0)$）は、$1+\mathrm{i}x = re^{\mathrm{i}\phi}$ とおき $r = \sqrt{1+x^2}$、$\phi = \arctan x$ から $\sqrt{1+\mathrm{i}x} = r^{1/2}e^{\mathrm{i}\phi/2}$ で計算できる。良導体近似では $R \approx 1 - 2\sqrt{2\omega\varepsilon_0/(\sigma\mu_0)}$ などの形にも書けるが、指定に従い上記でよい。
+
+\paragraph{なぜ金属は光をよく反射するか（物理的考察）}
+
+金属中では自由電子が存在し、電気伝導率 $\sigma$ が大きい。電磁波が金属に入射すると、金属内で電流 $\mathbf{i}=\sigma\mathbf{E}$ が流れ、その電流が作る磁場・電場が入射波と干渉する。結果として、金属のインピーダンス $Z_m$ は真空のインピーダンス $Z_0$ よりずっと小さく（$|Z_m|\ll Z_0$）、境界での反射係数 $(Z_m-Z_0)/(Z_m+Z_0)$ はほぼ $-1$ に近い。つまり入射波と逆向きの反射波が強く、透過波は弱い。これが金属が鏡のように光を反射する理由である。周波数が低い（可視〜マイクロ波）ほど $\sigma/(\omega\varepsilon_0)$ が大きくなり、良導体近似が成り立ち $R\to 1$ に近づく。
+
+\paragraph{3-2：金属内部 $z=d$ での光の強度 $I_1$}
+
+金属中では電場が $E(z) \propto \exp(\mathrm{i}(k_m z - \omega t))$ で、$k_m = \alpha + \mathrm{i}\beta$（$\beta>0$）とすると $|E(z)| \propto \exp(-\beta z)$。強度は $|E|^2$ に比例するので、$z=0$ での入射強度に対する金属内の強度の比は、$z=0$ 界面直下での振幅の2乗比（つまり $(1-R)$ に相当する進入率）に $\exp(-2\beta d)$ をかけたもの。入射強度を $I_0$ とすると、金属表面（$z=0^+$）での強度は $I_0(1-R)$。そこから $z=d$ では
+\begin{equation}
+\boxed{I_1 = I_0(1-R)\exp(-2\beta d)}.
+\end{equation}
+ここで $\beta = \mathrm{Im}\,k_m$。$k_m = k_0\sqrt{1+\mathrm{i}\sigma/(\omega\varepsilon_0)}$ の虚部である。$\sqrt{1+\mathrm{i}x} = a+\mathrm{i}b$ とおくと、$(a+\mathrm{i}b)^2 = 1+\mathrm{i}x$ から $a^2-b^2=1$、$2ab=x$。$a^2+b^2 = \sqrt{1+x^2}$ と $a^2-b^2=1$ を解いて、$a^2 = (1+\sqrt{1+x^2})/2$、$b^2 = (\sqrt{1+x^2}-1)/2$。よって $\beta = k_0 b = k_0\sqrt{(\sqrt{1+x^2}-1)/2}$、$x = \sigma/(\omega\varepsilon_0)$。良導体では $\beta \approx \sqrt{\omega\mu_0\sigma/2}$。
+
+\paragraph{なぜ金属内部で光が減衰するか（スキン深度の物理）}
+
+金属中では複素波数 $k_m = \alpha + \mathrm{i}\beta$ の虚部 $\beta$ が正であるため、電場が $e^{-\beta z}$ で減衰する。これは電流 $\mathbf{i}=\sigma\mathbf{E}$ がジュール熱としてエネルギーを消費し、電磁波のエネルギーが金属内で吸収されるためである。減衰の長さ $\delta = 1/\beta$ を\textbf{スキン深度}（侵入深さ）といい、良導体では $\delta \approx \sqrt{2/(\omega\mu_0\sigma)}$ となる。周波数が高いほど $\delta$ は短くなり、高周波の電磁波は金属表面付近しか侵入しない。強度は $|E|^2$ に比例するので、$z=d$ での強度は $z=0$ 直下の強度 $I_0(1-R)$ に $\exp(-2\beta d)$ をかけた $I_1 = I_0(1-R)\exp(-2\beta d)$ となる。図\ref{fig:em2023_intensity_decay} に強度の減衰の様子を示す。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em2023_intensity_decay.png}
+\caption{問題3(3-2)：金属内部での光の強度 $I_1(z) = I_0(1-R)\exp(-2\beta z)$ の減衰。$z=0$ が金属表面。スキン深度 $\delta=1/\beta$ の程度で強度が $1/e$ に減る。}
+\label{fig:em2023_intensity_decay}
+\end{figure}
+
+\paragraph{3-3：厚み $d$ の金属板を通過後の強度 $I_2$}
+
+金属板の後表面（$z=d$）で透過した光と、板内で多重反射して透過する光の振幅を足し合わせる（位相は無視）。金属内で $z=0$ から $z=d$ まで進むと振幅は $\exp(-\beta d)$ 倍。後表面での透過係数（振幅）を $t$ とすると、最初に透過する振幅は入射振幅を $A$ として $A(1-R)^{1/2}\exp(-\beta d)t$（ここで $(1-R)^{1/2}$ は進入振幅比の目安）。多重反射：前表面で反射 $\to$ 後表面で透過の経路では、金属内を $2d$ 進むので $\exp(-2\beta d)$、さらに前表面でまた反射 $\to$ 後表面で透過では $\exp(-4\beta d)$、…。透過振幅の和は、位相を無視して振幅だけ足すと、各往復で $\sqrt{R}\exp(-2\beta d)$ 倍になる。透過強度は、最初の透過が $I_0(1-R)^2\exp(-2\beta d)$ に相当し、2回目は $I_0(1-R)^2 R\exp(-4\beta d)$、3回目は $I_0(1-R)^2 R^2\exp(-6\beta d)$、…。合計は
+\begin{equation}
+I_2 = I_0(1-R)^2\exp(-2\beta d)\bigl(1 + R\exp(-2\beta d) + R^2\exp(-4\beta d) + \cdots\bigr)
+= I_0\frac{(1-R)^2\exp(-2\beta d)}{1 - R\exp(-2\beta d)}.
+\end{equation}
+したがって
+\begin{equation}
+\boxed{I_2 = I_0\,\frac{(1-R)^2\exp(-2\beta d)}{1 - R\exp(-2\beta d)}}.
+\end{equation}
+
+\paragraph{なぜ多重反射を足し合わせるか（物理的考察）}
+
+金属板の前表面（$z=0$）で一部が反射、一部が透過して金属内に入る。金属内で減衰しながら後表面（$z=d$）に達し、そこで再び一部が反射、一部が透過する。透過した光が板の外に出るが、後表面で反射した光は金属内を戻り、前表面でまた一部が透過（板の外へ）し、残りは反射して金属内を進む……という過程が繰り返される。問題では位相を無視して振幅だけを足し合わせるので、各経路の透過強度を $I_0(1-R)^2 R^n \exp(-2\beta d(n+1))$（$n=0,1,2,\ldots$ は後表面での反射回数）として等比級数の和をとると上記の $I_2$ になる。板が厚いか $\beta$ が大きいと $\exp(-2\beta d)$ が小さく、最初の透過のみが効き $I_2 \approx I_0(1-R)^2\exp(-2\beta d)$ となる。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em2023_metal_reflection.png}
+\caption{問題3：真空から金属表面への垂直入射。反射率 $R$、金属内部では減衰定数 $\beta$ で強度が $\exp(-2\beta z)$ に比例する。}
+\label{fig:em2023_metal_reflection}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em2023_metal_slab.png}
+\caption{問題3(3-3)：厚み $d$ の金属板。多重反射により透過光を足し合わせる。}
+\label{fig:em2023_metal_slab}
+\end{figure}

@@ -1,0 +1,90 @@
+\documentclass[11pt,a4paper]{ltjsarticle}
+\usepackage[no-math]{luatexja-fontspec}
+\setmainjfont{Hiragino Mincho ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\setsansjfont{Hiragino Kaku Gothic ProN}[
+  UprightFont=*,
+  BoldFont=*,
+  ItalicFont=*,
+  BoldItalicFont=*
+]
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{geometry}
+\geometry{margin=2.5cm}
+\usepackage{float}
+\usepackage[draft=false]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue,
+    pdfusetitle=true
+}
+
+\title{電磁気学 過去問 解答・解説}
+\author{名古屋大学　理学部}
+\date{2023年度・2024年度・2024年度再試験}
+
+\setcounter{tocdepth}{1}
+
+\begin{document}
+
+\begin{center}
+\vspace*{1.5cm}
+{\LARGE 電磁気学 過去問 解答・解説}\\[1.2cm]
+{\large 名古屋大学　理学部}\\[0.8cm]
+2023年度・2024年度・2024年度再試験\\[1.5cm]
+\end{center}
+\clearpage
+
+\tableofcontents
+\clearpage
+
+\section*{この解答解説について（初学者の方へ）}
+\addcontentsline{toc}{section}{この解答解説について（初学者の方へ）}
+
+各問題の解答では、次のような構成を心がけています。
+
+\begin{itemize}
+\item \textbf{この問題のポイント}：その問題で何を理解することが大切か、どのような流れで解くかを短くまとめています。
+\item \textbf{解き方の流れ}：各小問をどの順に、どの公式や法則を使って解くかを箇条書きにしています。
+\item \textbf{用語の説明}：分極、磁化、電束密度、誘電率、透磁率など、問題で使う用語を初出付近で説明しています。
+\item \textbf{使用する物理法則}：Maxwell方程式、境界条件、オームの法則など、どの法則に基づいて式を立てているかを明示しています。
+\item \textbf{計算のステップ}：式を立てるときに「ステップ1」「ステップ2」と区切り、途中を省略せずに記述しています。
+\item \textbf{なぜこのように求まるか}：答えの式が成り立つ理由や、物理的な意味を補足しています。
+\item \textbf{図}：設定の概念図、電場・磁場の向き、グラフなどを入れています。
+\end{itemize}
+
+\noindent
+数式の変形では「明らかに」「同様に」に頼らず、途中のステップを書いています。ベクトル計算では成分を明示し、積分では変数変換や部分積分の過程を示しています。
+
+\paragraph{読むときのコツ（初学者の方へ）}
+\begin{itemize}
+\item まず各問題の「この問題のポイント」と「解き方の流れ」を読むと、何を求めるか・どの順で式を立てるかが把握しやすくなります。
+\item 用語（分極、磁化、電束密度、境界条件など）は初出付近の「用語の説明」で定義しています。わからなくなったらそこに戻って確認してください。
+\item 「なぜ～か」「原理的な説明」「物理的考察」の段落は、式の意味や物理的なイメージを理解するためのものです。答えの式だけではなく、なぜその式になるかも読むと理解が深まります。
+\item 図は設定のイメージや式の対応関係を示しています。図のキャプションにも式や条件を書いているので、図と本文を対応させて読むとよいです。
+\item 2024年度・再試験では「2023年度問題1と同一」のように他年度を参照することがあります。その場合は該当年度の該当問題を開き、「解き方の流れ」と「なぜ～か」の段落をあわせて読むと理解しやすくなります。
+\end{itemize}
+
+\section*{類題一覧}
+\addcontentsline{toc}{section}{類題一覧}
+
+\begin{itemize}
+\item \textbf{問題1（物質中のMaxwell方程式）}：2023・2024・2024再のいずれにも出題。静電磁場の4式（1-1）、$D$, $H$ を用いた書き換え（1-2）、時間変動を含む2式（1-3）の流れで共通。
+\item \textbf{問題2}：2023は誘電体板・導体板の電場、2024・2024再は強誘電体球の内部電場と $E_p$。2024再は(2-1)(2-2)のみ。
+\item \textbf{問題3}：2023は金属表面での平面電磁波の反射・透過、2024は極性分子の分極と電気感受率 $\chi_e(\omega)$、2024再も極性分子（3-1, 3-2）に加え、問題4で金属内電子の伝導率 $\sigma(\omega)$。
+\end{itemize}
+
+\newpage
+
+\input{body/body_2023}
+\input{body/body_2024}
+\input{body/body_2024retake}
+
+\end{document}

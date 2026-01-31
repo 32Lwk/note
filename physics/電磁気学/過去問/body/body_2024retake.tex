@@ -1,0 +1,260 @@
+%======================================================================
+% 2024年度 電磁気学 期末 再試験（2024年2月6日）
+%======================================================================
+\part{2024年度 再試験}
+\setcounter{section}{0}
+
+%----------------------------------------------------------------------
+\section{問題1：物質中のMaxwell方程式}
+%----------------------------------------------------------------------
+
+\subsection{問題}
+
+静電磁場における物質中のMaxwell方程式を考え、その後、時間変動する電磁場に拡張する。真空中の誘電率を $\varepsilon_0$、透磁率を $\mu_0$ とする。
+
+\begin{enumerate}
+\item 物質内部に真電荷（電荷密度 $\rho$）、真電流（電流密度 $\mathbf{i}$）、分極電荷（電荷密度 $\rho_p$）、磁化電流（電流密度 $\mathbf{i}_M$）が存在する場合に、電場 $\mathbf{E}$、磁束密度 $\mathbf{B}$、$\varepsilon_0$、$\mu_0$、$\rho$、$\mathbf{i}$、$\rho_p$、$\mathbf{i}_M$ だけを用いて、4つのMaxwell方程式を示せ。
+\item 分極ベクトル $\mathbf{P}$ と磁化ベクトル $\mathbf{M}$ を用いて $\rho_p = -\nabla\cdot\mathbf{P}$、$\mathbf{i}_M = \nabla\times\mathbf{M}/\mu_0$ と表せる。物質の誘電率 $\varepsilon$ は $\varepsilon\mathbf{E} = \varepsilon_0\mathbf{E}+\mathbf{P}$ で定義され、透磁率 $\mu$ は $\mathbf{B}/\mu = (\mathbf{B}-\mathbf{M})/\mu_0$ で定義される。前問で求めたMaxwell方程式のうち、分極電荷と磁化電流を含む2つの式を、$\mathbf{E}$、$\mathbf{B}$、$\varepsilon$、$\mu$、$\rho$、$\mathbf{i}$ だけを用いて書き直せ。ただし $\varepsilon$、$\mu$ は場所の関数とする。
+\item 時間変動する電磁場を考える。物質中のMaxwell方程式のうち、時間変動する項を含む2つの式を、$\mathbf{E}$、$\mathbf{B}$、$\varepsilon_0$、$\mu_0$、$\mathbf{i}$、$\mathbf{P}$、$\mathbf{M}$ を用いて示せ。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{この問題のポイント}
+
+2023・2024年度問題1と同一である。1-1で4式、1-2で $\nabla\cdot(\varepsilon\mathbf{E})=\rho$ と $\nabla\times(\mathbf{B}/\mu)=\mathbf{i}$、1-3で時間変動を含む2式を示す。
+
+\paragraph{解き方の流れ}
+\begin{enumerate}
+\item 問1：静電磁場の4式を書く。問2：$\mathbf{D}$、$\mathbf{B}/\mu$ の形に書き直す。問3：ファラデーとアンペールの時間変動を含む式を書く（詳細は2023年度問題1参照）。
+\end{enumerate}
+
+\paragraph{1-1：4つのMaxwell方程式}
+
+\begin{align}
+\nabla\cdot\mathbf{E} &= \frac{\rho + \rho_p}{\varepsilon_0}, \\
+\nabla\cdot\mathbf{B} &= 0, \\
+\nabla\times\mathbf{E} &= \mathbf{0}, \\
+\nabla\times\mathbf{B} &= \mu_0\mathbf{i} + \mathbf{i}_M.
+\end{align}
+
+\paragraph{1-2：$\mathbf{E},\mathbf{B},\varepsilon,\mu,\rho,\mathbf{i}$ だけを用いた2式}
+
+\begin{equation}
+\boxed{\nabla\cdot(\varepsilon\mathbf{E}) = \rho}, \qquad \boxed{\nabla\times\left(\frac{\mathbf{B}}{\mu}\right) = \mathbf{i}}.
+\end{equation}
+
+\paragraph{1-3：時間変動する項を含む2式}
+
+\begin{align}
+\boxed{\nabla\times\mathbf{E} &= -\frac{\partial\mathbf{B}}{\partial t}}, \\
+\boxed{\nabla\times\mathbf{B} &= \mu_0\mathbf{i} + \mu_0\varepsilon_0\frac{\partial\mathbf{E}}{\partial t} + \mu_0\frac{\partial\mathbf{P}}{\partial t} + \nabla\times\mathbf{M}}}.
+\end{align}
+
+\paragraph{物理的意味（初学者向け）}
+
+物質中では分極電荷・磁化電流が電磁場の源になる。1-1のガウスの法則の右辺 $\rho+\rho_p$ は「真電荷と分極電荷の和」、アンペールの法則の右辺は「真電流と磁化電流の和」である。1-2で $\mathbf{D}=\varepsilon\mathbf{E}$、$\mathbf{B}/\mu$ を導入すると、式の上では真電荷・真電流だけが右辺に現れる。詳細な導出・図は2023年度問題1を参照。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/em_maxwell_concept.png}
+\caption{問題1：物質中のMaxwell方程式の物理的意味。電場の源は真電荷と分極電荷の和、磁場の回転の源は真電流と磁化電流の和。}
+\label{fig:em2024retake_maxwell}
+\end{figure}
+
+%----------------------------------------------------------------------
+\section{問題2：強誘電体球の電場}
+%----------------------------------------------------------------------
+
+\subsection{問題}
+
+半径 $a$ の強誘電体球が $\mathbf{P} = (0,0,P)$ で一様に自発分極している。球の中心は原点、外部電場はゼロ、真電荷はない。分極状態を再現するため、電荷密度 $+\rho$ で一様に帯電した半径 $a$ の球を $(0,0,s/2)$ に、電荷密度 $-\rho$ で一様に帯電した半径 $a$ の球を $(0,0,-s/2)$ に置く（$s \ll a$）。分極電荷が球内部に作る電場 $\mathbf{E}_p$ は、これらの帯電球が作る電場の足し合わせとする。
+
+\begin{enumerate}
+\item 中心が原点にあり、電荷密度 $+\rho$ で一様に帯電した半径 $a$ の球のみを考える。原点から位置ベクトル $\mathbf{r}$ の場所における球内部の電場 $\mathbf{E}$ を $\rho$、$\varepsilon_0$、$\mathbf{r}$ を用いて求めよ。
+\item 問題文の通り、中心が原点から $z$ 軸上に微小距離 $\pm s/2$ だけずれた場所に置かれた $\pm\rho$ の2つの帯電球が作る電場の足し合わせを考える。$\mathbf{s} = (0,0,s)$ とすると $\mathbf{P} = \rho\mathbf{s}$ と書けることを用いて、$\mathbf{E}_p$ を $\mathbf{P}$ と $\varepsilon_0$ を用いて表せ。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{この問題のポイント}
+
+2024年度問題2の(2-1)(2-2)と同一である。一様帯電球のガウスの法則から内部電場を求め、2つの帯電球の和から $\mathbf{E}_p=-\mathbf{P}/(3\varepsilon_0)$ を導く。
+
+\paragraph{用語の説明}
+\begin{itemize}
+\item \textbf{強誘電体}：外部電場がなくても自発分極 $\mathbf{P}$ を持つ物質。本問では一様に $\mathbf{P}=(0,0,P)$ で分極している球を考える。
+\end{itemize}
+
+\paragraph{解き方の流れ}
+\begin{enumerate}
+\item 問(2-1)：球対称なガウスの法則で $\mathbf{E}=(\rho/(3\varepsilon_0))\mathbf{r}$ を求める。
+\item 問(2-2)：中心が $(0,0,\pm s/2)$ の2球の電場の和を計算し、$\mathbf{P}=\rho\mathbf{s}$ で $\mathbf{E}_p=-\mathbf{P}/(3\varepsilon_0)$ を得る。
+\end{enumerate}
+
+\paragraph{2-1：一様帯電球内部の電場}
+
+中心が原点、半径 $a$、電荷密度 $+\rho$ の球を考える。ガウスの法則：閉曲面 $S$ について、電束の総和 $\int_S \mathbf{E}\cdot\mathbf{n}\,dS$ は $S$ の内部の全電荷 $Q_{\mathrm{in}}$ を $\varepsilon_0$ で割ったものに等しい。球対称なので、半径 $r$（$r \le a$）の球面をガウス面に取ると、左辺は $E(r)\times 4\pi r^2$、右辺は $Q_{\mathrm{in}}/\varepsilon_0 = (4\pi r^3/3)\rho/\varepsilon_0$ となる。よって $4\pi r^2 E(r) = (4\pi r^3/3)\rho/\varepsilon_0$ から $E(r) = \rho r/(3\varepsilon_0)$。位置 $\mathbf{r}$ では動径外向きに $\mathbf{E} = (\rho/(3\varepsilon_0))\mathbf{r}$。したがって
+\begin{equation}
+\boxed{\mathbf{E} = \frac{\rho}{3\varepsilon_0}\mathbf{r}}.
+\end{equation}
+
+\paragraph{2-2：分極電場 $\mathbf{E}_p$}
+
+2つの帯電球の中心が $(0,0,\pm s/2)$ にあり、$s \ll a$ とする。\textbf{原点付近の点} $\mathbf{r}$ は $s$ が十分小さいため\textbf{両方の球の内部}にあるとみなせるので、問(2-1)の公式がそのまま使える。$+\rho$ の球が作る電場は $\mathbf{E}_+ = (\rho/(3\varepsilon_0))(\mathbf{r} - (0,0,s/2))$、$-\rho$ の球が作る電場は $\mathbf{E}_- = (-\rho/(3\varepsilon_0))(\mathbf{r} - (0,0,-s/2))$。足し合わせると $\mathbf{E}_p = (\rho/(3\varepsilon_0))(-\mathbf{s}) = -\rho\mathbf{s}/(3\varepsilon_0)$。$\mathbf{P} = \rho\mathbf{s}$ なので
+\begin{equation}
+\boxed{\mathbf{E}_p = -\frac{\mathbf{P}}{3\varepsilon_0}}.
+\end{equation}
+
+\paragraph{なぜそう求まるか（原理的な説明）}
+
+一様分極を「$z$ 軸上に微小にずれた $+\rho$ と $-\rho$ の2つの一様帯電球」で等価に置き換えると、各球内部の電場はガウスの法則から中心からの位置ベクトルに比例する。2つの電場を足し合わせると、$\mathbf{r}$ に比例する項は打ち消し、ずれベクトル $\mathbf{s}$ に比例する項だけが残り $\mathbf{E}_p = -\rho\mathbf{s}/(3\varepsilon_0) = -\mathbf{P}/(3\varepsilon_0)$ となる。この\textbf{脱分極電場}は分極と逆向きに働く。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em_depolarization_sphere.png}
+\caption{問題2：一様分極を2つの帯電球で再現するモデル。内部では2球の電場の和が $\mathbf{E}_p=-\mathbf{P}/(3\varepsilon_0)$ という脱分極電場になる。}
+\label{fig:em2024retake_depolarization}
+\end{figure}
+
+%----------------------------------------------------------------------
+\section{問題3：液体中の極性分子の分極と電気感受率}
+%----------------------------------------------------------------------
+
+\subsection{問題}
+
+時刻 $t=0$ で一様な電場 $\mathbf{E}$ がかけられたとき、水分子が回転して向きが揃い、分極ベクトルの大きさ $P(t)$ が時定数 $\tau$ で $P(t) = \varepsilon_0\chi_{e0}E(1-\exp(-t/\tau))$ のように増加する（$\varepsilon_0$ は真空の誘電率）。水分子の分極が液体内の全電場に与える変化は無視する。
+
+\begin{enumerate}
+\item 上記の $P(t)$ が微分方程式 $\tau\,dP/dt + P = \varepsilon_0\chi_{e0}E$ を満たすことを利用し、単一角振動数 $\omega$ で振動する電場 $E(\omega) = E_0\exp(-\mathrm{i}\omega t)$ に対する電気感受率 $\chi_e(\omega)$ を、$\chi_{e0}$、$\tau$、$\omega$ を用いて求めよ。ヒント：$P(\omega) = P_0\exp(-\mathrm{i}\omega t)$ とし、$\chi_e(\omega) = P(\omega)/(\varepsilon_0 E(\omega))$ を計算する。
+\item 前問で求めた電気感受率 $\chi_e(\omega)$ の実部 $\chi_e'$ が $\omega$ に対してどのように変化するか図示し、$\omega = \tau^{-1} = \omega_0$ における値を図に記入せよ。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{この問題のポイント}
+
+2024年度問題3の(3-1)(3-2)と同一である。記号 $\chi_0$ が $\chi_{e0}$ になっているだけ。緩和型の微分方程式から周波数依存の電気感受率を求める。
+
+\paragraph{解き方の流れ}
+\begin{enumerate}
+\item 問(3-1)：$\tau dP/dt+P=\varepsilon_0\chi_{e0}E$ に $E=E_0 e^{-\mathrm{i}\omega t}$、$P=P_0 e^{-\mathrm{i}\omega t}$ を代入し、$\chi_e(\omega)=\chi_{e0}/(1-\mathrm{i}\omega\tau)$ を導く。
+\item 問(3-2)：$\mathrm{Re}[\chi_e(\omega)]=\chi_{e0}/(1+\omega^2\tau^2)$ を図示し、$\omega_0=1/\tau$ で $\chi_{e0}/2$ を記入する。
+\end{enumerate}
+
+\paragraph{3-1：電気感受率 $\chi_e(\omega)$}
+
+微分方程式 $\tau\frac{dP}{dt}+P = \varepsilon_0\chi_{e0}E$ は $P$ について\textbf{線形}なので、電場が単一角振動数 $\omega$ で振動しているとき、定常状態では分極も同じ角振動数で振動し、$P = P_0 e^{-\mathrm{i}\omega t}$ とおける（ヒントの通り）。$E = E_0 e^{-\mathrm{i}\omega t}$、$P = P_0 e^{-\mathrm{i}\omega t}$ を代入すると、$dP/dt = -\mathrm{i}\omega P_0 e^{-\mathrm{i}\omega t}$ より $\tau(-\mathrm{i}\omega)P_0 + P_0 = \varepsilon_0\chi_{e0}E_0$、すなわち $(1-\mathrm{i}\omega\tau)P_0 = \varepsilon_0\chi_{e0}E_0$。両辺を $(1-\mathrm{i}\omega\tau)$ で割って $P_0 = \varepsilon_0\chi_{e0}E_0/(1-\mathrm{i}\omega\tau)$。電気感受率は $\chi_e(\omega) = P_0/(\varepsilon_0 E_0)$ なので、
+\begin{equation}
+\boxed{\chi_e(\omega) = \frac{\chi_{e0}}{1 - \mathrm{i}\omega\tau}}.
+\end{equation}
+
+\paragraph{3-2：実部 $\chi_e'$ の図示}
+
+実部は $\chi_e' = \mathrm{Re}[\chi_e(\omega)] = \chi_{e0}/(1+\omega^2\tau^2)$。$\omega=0$ で $\chi_{e0}$、$\omega=\omega_0=1/\tau$ で $\chi_{e0}/2$、$\omega\to\infty$ で 0。図では横軸 $\omega$、縦軸 $\chi_e'$ を取り、$\omega_0$ の位置に $\chi_{e0}/2$ を記入する。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em2024_chi_real.png}
+\caption{問題3(3-2)：電気感受率の実部 $\mathrm{Re}[\chi_e(\omega)]$。$\omega_0 = 1/\tau$ で $\chi_{e0}/2$。}
+\label{fig:em2024retake_chi_real}
+\end{figure}
+
+\paragraph{なぜ高周波で感受率が低下するか（物理的考察）}
+
+極性分子の配向分極は、分子が回転して電場の向きに揃う過程であり、隣接分子との衝突などで時定数 $\tau$ の遅れが生じる。電場の振動が速い（$\omega \gg 1/\tau$）と、分子が向きを変える前に電場の向きが反転してしまうため、平均的な分極は小さくなる。その結果、$\mathrm{Re}[\chi_e]$ は $\omega$ が大きいほど減少し、$\omega=\omega_0=1/\tau$ で $\chi_{e0}/2$、$\omega\to\infty$ で 0 に近づく。2024年度本試験問題3の「なぜ周波数で電気感受率が変わるか」およびデバイ緩和の図を参照のこと。
+
+%----------------------------------------------------------------------
+\section{問題4：金属内の電子の運動と電気伝導率}
+%----------------------------------------------------------------------
+
+\subsection{問題}
+
+電場中に置かれた金属内を移動する電子には、電場によるクーロン力と、運動と逆向きに働く抵抗力（電子の運動速度 $\mathbf{v}$ に比例し、$\gamma m\mathbf{v}$ と書ける。$m$ は電子の質量）が働く。電子の電荷を $q$、数密度を $n$ とする。
+
+\begin{enumerate}
+\item 電流密度 $\mathbf{i}$ と運動速度 $\mathbf{v}$ の関係を示せ。
+\item 電場が一定の場合、力が釣り合って定常運動となり、オームの法則 $\mathbf{i} = \sigma\mathbf{E}$ が成り立つ。このときの電気伝導率 $\sigma$ を求めよ。
+\item 電場が $\mathbf{E} = \mathbf{E}_0\exp(-\mathrm{i}\omega t)$ によって時間変動するとき、複素電気伝導率 $\sigma(\omega)$ の実部 $\sigma'$ と虚部 $\sigma''$ を求めよ。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{この問題のポイント（初学者向け）}
+
+電子の運動方程式 $m d\mathbf{v}/dt = q\mathbf{E} - \gamma m\mathbf{v}$ から、定常状態では $q\mathbf{E} = \gamma m\mathbf{v}$ となり、電流密度 $\mathbf{i} = nq\mathbf{v}$ と合わせてオームの法則 $\mathbf{i} = \sigma\mathbf{E}$ および $\sigma = nq^2/(\gamma m)$ を得る。時間変動電場では $\mathbf{v} \propto e^{-\mathrm{i}\omega t}$ とおき、複素伝導率 $\sigma(\omega)$ の実部・虚部を求める。
+
+\paragraph{解き方の流れ}
+\begin{enumerate}
+\item 問(4-1)：電流密度の定義から $\mathbf{i}=nq\mathbf{v}$ を示す。
+\item 問(4-2)：定常状態で $d\mathbf{v}/dt=\mathbf{0}$ より $\mathbf{v}=(q/(\gamma m))\mathbf{E}$。$\mathbf{i}=nq\mathbf{v}$ から $\sigma=nq^2/(\gamma m)$ を導く。
+\item 問(4-3)：$E=E_0 e^{-\mathrm{i}\omega t}$、$v=v_0 e^{-\mathrm{i}\omega t}$ を運動方程式に代入し、$\sigma(\omega)$ の実部 $\sigma'$ と虚部 $\sigma''$ を求める。
+\end{enumerate}
+
+\paragraph{使用する物理法則・用語}
+
+運動方程式：$m\frac{d\mathbf{v}}{dt} = q\mathbf{E} - \gamma m\mathbf{v}$。電流密度の定義：$\mathbf{i} = nq\mathbf{v}$（$n$ は電子数密度、$q$ は電子の電荷。電子なら $q<0$。）抵抗力の係数 $\gamma$ は\textbf{減衰係数}で、散乱（フォノンや不純物との衝突）の頻度を表し、単位は 1/秒の次元を持つ。$\gamma$ が大きいほど定常速度は小さくなり、伝導率 $\sigma = nq^2/(\gamma m)$ は小さくなる。
+
+\paragraph{4-1：電流密度 $\mathbf{i}$ と速度 $\mathbf{v}$ の関係}
+
+電流密度は、単位面積を単位時間に通過する電荷の流れである。電子が速度 $\mathbf{v}$ で運動しているとき、数密度 $n$、電荷 $q$ なら、$\mathbf{i} = nq\mathbf{v}$。したがって
+\begin{equation}
+\boxed{\mathbf{i} = nq\mathbf{v}}.
+\end{equation}
+
+\paragraph{なぜ電流密度が $\mathbf{i}=nq\mathbf{v}$ か（原理的な説明）}
+
+電流の大きさ $I$ は、断面を単位時間に通過する電荷の総量である。断面積 $S$、長さ $v\,\Delta t$ の細い管を考え、電子が速度 $v$ で管に沿って動いているとすると、$\Delta t$ の間に通過する電子数は $n S v\,\Delta t$、電荷は $n q S v\,\Delta t$ なので、電流は $I = nqvS$、電流密度の大きさは $i = I/S = nqv$。ベクトルで書くと $\mathbf{i} = nq\mathbf{v}$ となる。
+
+\paragraph{4-2：定常状態の電気伝導率 $\sigma$}
+
+定常状態では $d\mathbf{v}/dt = \mathbf{0}$ なので、運動方程式は $q\mathbf{E} - \gamma m\mathbf{v} = \mathbf{0}$、すなわち $\mathbf{v} = (q/(\gamma m))\mathbf{E}$。したがって
+\begin{equation}
+\mathbf{i} = nq\mathbf{v} = \frac{nq^2}{\gamma m}\mathbf{E}.
+\end{equation}
+オームの法則 $\mathbf{i} = \sigma\mathbf{E}$ と比較して、
+\begin{equation}
+\boxed{\sigma = \frac{nq^2}{\gamma m}}.
+\end{equation}
+
+\paragraph{なぜオームの法則が成り立つか（物理的考察）}
+
+定常状態では、電場による力 $q\mathbf{E}$ と抵抗力 $\gamma m\mathbf{v}$ が釣り合い、$\mathbf{v} = (q/(\gamma m))\mathbf{E}$ となる。つまり速度は電場に比例する。電流密度 $\mathbf{i}=nq\mathbf{v}$ も電場に比例し、$\mathbf{i}=\sigma\mathbf{E}$（オームの法則）が成り立つ。伝導率 $\sigma = nq^2/(\gamma m)$ は、キャリア数 $n$ が多く、質量 $m$ が小さく、抵抗力 $\gamma$ が小さいほど大きくなる。金属では自由電子の数密度が高く、$\gamma$ は散乱（フォノンや不純物との衝突）の頻度を表す。
+
+\paragraph{4-3：時間変動電場における複素伝導率 $\sigma(\omega)$ の実部・虚部}
+
+$\mathbf{E} = \mathbf{E}_0\exp(-\mathrm{i}\omega t)$ のとき、定常振動解として $\mathbf{v} = \mathbf{v}_0\exp(-\mathrm{i}\omega t)$ を仮定する。運動方程式 $m\frac{d\mathbf{v}}{dt} = q\mathbf{E} - \gamma m\mathbf{v}$ に代入すると、$m(-\mathrm{i}\omega)\mathbf{v}_0 = q\mathbf{E}_0 - \gamma m\mathbf{v}_0$。したがって $(-\mathrm{i}\omega m + \gamma m)\mathbf{v}_0 = q\mathbf{E}_0$、$\mathbf{v}_0 = \frac{q\mathbf{E}_0}{m(\gamma - \mathrm{i}\omega)}$。電流密度は $\mathbf{i} = nq\mathbf{v} = nq\mathbf{v}_0 e^{-\mathrm{i}\omega t} = \sigma(\omega)\mathbf{E}$ となるので、
+\begin{equation}
+\sigma(\omega) = \frac{nq^2}{m(\gamma - \mathrm{i}\omega)} = \frac{nq^2}{m}\,\frac{1}{\gamma - \mathrm{i}\omega}.
+\end{equation}
+分母を実数化：$\frac{1}{\gamma - \mathrm{i}\omega} = \frac{\gamma + \mathrm{i}\omega}{\gamma^2 + \omega^2}$ なので、
+\begin{equation}
+\sigma(\omega) = \frac{nq^2}{m}\,\frac{\gamma + \mathrm{i}\omega}{\gamma^2 + \omega^2}.
+\end{equation}
+実部と虚部は
+\begin{equation}
+\sigma' = \mathrm{Re}[\sigma(\omega)] = \frac{nq^2}{m}\,\frac{\gamma}{\gamma^2 + \omega^2}, \qquad
+\sigma'' = \mathrm{Im}[\sigma(\omega)] = \frac{nq^2}{m}\,\frac{\omega}{\gamma^2 + \omega^2}.
+\end{equation}
+したがって
+\begin{equation}
+\boxed{\sigma' = \frac{nq^2\gamma}{m(\gamma^2 + \omega^2)}, \qquad \sigma'' = \frac{nq^2\omega}{m(\gamma^2 + \omega^2)}}.
+\end{equation}
+
+\paragraph{なぜ高周波で $\sigma'$ が減り $\sigma''$ が効くか（原理的な説明）}
+
+電場が $E=E_0 e^{-\mathrm{i}\omega t}$ で振動するとき、電子の運動方程式 $m\dot{v} = qE - \gamma m v$ の定常振動解は $v = (q/(m(\gamma-\mathrm{i}\omega)))E$ となる。$\omega=0$（直流）では $v = (q/(\gamma m))E$ で、電流は電場と同相であり、$\sigma$ は実数でジュール損失を表す。$\omega$ が大きくなると、電子の\textbf{慣性}（$m\dot{v}$ の項）が効き、速度は電場に対して位相遅れを持つ。その結果、電流の電場と同相の成分（実部 $\sigma'$）は減り、$90^\circ$ ずれた成分（虚部 $\sigma''$）が現れる。$\sigma'$ は $\omega^2$ が $\gamma^2$ より大きくなると減少し、$\sigma''$ は $\omega$ に比例して増加する領域がある。高周波では電子が電場の変化に追従しきれず、伝導率の実効値が低下する。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em2024retake_sigma_omega.png}
+\caption{問題4(4-3)：複素電気伝導率の実部 $\sigma'$ と虚部 $\sigma''$ の周波数依存性。$\omega\sim\gamma$ で $\sigma'$ が減り、$\sigma''$ がピーク近くになる。}
+\label{fig:em2024retake_sigma}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em_drude_physics.png}
+\caption{問題4：高周波で $\sigma'$ が減る理由（電子の慣性・位相遅れ）の概念図。実部はジュール損失、虚部は慣性による位相ずれに対応する。}
+\label{fig:em2024retake_drude}
+\end{figure}

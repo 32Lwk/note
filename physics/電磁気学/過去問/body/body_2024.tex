@@ -1,0 +1,260 @@
+%======================================================================
+% 2024年度 電磁気学 期末試験（2024年2月4日）
+%======================================================================
+\part{2024年度 期末試験}
+\setcounter{section}{0}
+
+%----------------------------------------------------------------------
+\section{問題1：物質中のMaxwell方程式}
+%----------------------------------------------------------------------
+
+\subsection{問題}
+
+静電磁場における物質中のMaxwell方程式を考え、その後、時間変動する電磁場に拡張する。真空中の誘電率を $\varepsilon_0$、透磁率を $\mu_0$ とする。
+
+\begin{enumerate}
+\item 物質内部に真電荷（電荷密度 $\rho$）、真電流（電流密度 $\mathbf{i}$）、分極電荷（電荷密度 $\rho_p$）、磁化電流（電流密度 $\mathbf{i}_M$）が存在する場合に、Maxwell方程式の4つの式を、$\mathbf{E}$、$\mathbf{B}$、$\varepsilon_0$、$\mu_0$、$\rho$、$\mathbf{i}$、$\rho_p$、$\mathbf{i}_M$ を用いて示せ。
+\item 分極ベクトル $\mathbf{P}$ と磁化ベクトル $\mathbf{M}$ を用いて $\rho_p = -\nabla\cdot\mathbf{P}$、$\mathbf{i}_M = \nabla\times\mathbf{M}/\mu_0$ と表せる。物質の誘電率 $\varepsilon$ を $\varepsilon\mathbf{E} = \varepsilon_0\mathbf{E} + \mathbf{P}$ で定義し、透磁率 $\mu$ を $\mathbf{B}/\mu = (\mathbf{B}-\mathbf{M})/\mu_0$ で定義する。(1-1)のうち、分極電荷と磁化電流を含む2つの式を、$\mathbf{E}$、$\mathbf{B}$、$\varepsilon$、$\mu$、$\rho$、$\mathbf{i}$ だけを用いて書き直せ。ただし $\varepsilon$、$\mu$ は場所の関数とする。
+\item 時間変動する電磁場を考える。物質中のMaxwell方程式のうち、時間変動する項を含む2つの式を、$\mathbf{E}$、$\mathbf{B}$、$\varepsilon_0$、$\mu_0$、$\mathbf{i}$、$\mathbf{P}$、$\mathbf{M}$ を用いて示せ。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{この問題のポイント}
+
+2023年度問題1と同一である。1-1で4式を $\rho,\mathbf{i},\rho_p,\mathbf{i}_M$ で書き、1-2で分極・磁化を含む2式を $\mathbf{D}=\varepsilon\mathbf{E}$、$\mathbf{B}/\mu$ の形に書き直し、1-3で時間変動を含むファラデー・アンペールの式を示す。
+
+\paragraph{解き方の流れ}
+\begin{enumerate}
+\item 問1：静電磁場の4式を $\rho,\rho_p,\mathbf{i},\mathbf{i}_M$ を用いて書く。
+\item 問2：$\nabla\cdot(\varepsilon\mathbf{E})=\rho$ と $\nabla\times(\mathbf{B}/\mu)=\mathbf{i}$ を導く（詳細は2023年度問題1参照）。
+\item 問3：$\nabla\times\mathbf{E}=-\partial\mathbf{B}/\partial t$ と変位電流・$\partial\mathbf{P}/\partial t$ を含むアンペールの式を書く。
+\end{enumerate}
+
+\paragraph{1-1：4つのMaxwell方程式}
+
+静電磁場では
+\begin{align}
+\nabla\cdot\mathbf{E} &= \frac{\rho + \rho_p}{\varepsilon_0}, \\
+\nabla\cdot\mathbf{B} &= 0, \\
+\nabla\times\mathbf{E} &= \mathbf{0}, \\
+\nabla\times\mathbf{B} &= \mu_0\mathbf{i} + \mathbf{i}_M.
+\end{align}
+（$\mathbf{i}_M = \nabla\times\mathbf{M}/\mu_0$ の定義に合わせるなら、右辺は $\mu_0\mathbf{i} + \nabla\times\mathbf{M}$。）
+
+\paragraph{1-2：$\mathbf{E},\mathbf{B},\varepsilon,\mu,\rho,\mathbf{i}$ だけを用いた2式}
+
+\textbf{分極電荷を含む式}：1-1のガウスの法則 $\nabla\cdot\mathbf{E}=(\rho+\rho_p)/\varepsilon_0$ に $\rho_p=-\nabla\cdot\mathbf{P}$ を代入し、移項すると $\nabla\cdot(\varepsilon_0\mathbf{E}+\mathbf{P})=\rho$。$\mathbf{D}=\varepsilon\mathbf{E}=\varepsilon_0\mathbf{E}+\mathbf{P}$ なので、
+\begin{equation}
+\boxed{\nabla\cdot(\varepsilon\mathbf{E}) = \rho}.
+\end{equation}
+\textbf{磁化電流を含む式}：1-1のアンペールの法則 $\nabla\times\mathbf{B}=\mu_0\mathbf{i}+\nabla\times\mathbf{M}$ と、問題文の透磁率の定義 $\mathbf{B}/\mu=(\mathbf{B}-\mathbf{M})/\mu_0$ から、両辺を $\mu_0$ で割って $\nabla\times(\mathbf{B}/\mu)$ を整理すると $\nabla\times(\mathbf{B}/\mu)=\mathbf{i}$ が得られる（詳細は2023年度問題1のステップ1・ステップ2参照）。よって
+\begin{equation}
+\boxed{\nabla\times\left(\frac{\mathbf{B}}{\mu}\right) = \mathbf{i}}.
+\end{equation}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/em_maxwell_concept.png}
+\caption{問題1：物質中のMaxwell方程式の物理的意味。電場の源は真電荷と分極電荷の和、磁場の回転の源は真電流と磁化電流の和。}
+\label{fig:em2024_maxwell_concept}
+\end{figure}
+
+\paragraph{1-3：時間変動する項を含む2式}
+
+\begin{align}
+\boxed{\nabla\times\mathbf{E} &= -\frac{\partial\mathbf{B}}{\partial t}}, \\
+\boxed{\nabla\times\mathbf{B} &= \mu_0\mathbf{i} + \mu_0\varepsilon_0\frac{\partial\mathbf{E}}{\partial t} + \mu_0\frac{\partial\mathbf{P}}{\partial t} + \nabla\times\mathbf{M}}}.
+\end{align}
+
+\paragraph{物理的考察}
+
+物質中では分極・磁化による「見かけの」電荷・電流が電磁場の源になる（上図）。$\mathbf{D}$ と $\mathbf{B}/\mu$ を導入すると、式の上では真電荷・真電流だけが右辺に現れ、計算が簡潔になる。時間変動ではファラデーの法則に $\partial\mathbf{B}/\partial t$、アンペールの法則に変位電流 $\varepsilon_0\partial\mathbf{E}/\partial t$ と $\partial\mathbf{P}/\partial t$ が加わる。より詳しくは2023年度問題1の「なぜ～か」の段落を参照のこと。
+
+%----------------------------------------------------------------------
+\section{問題2：均一に分極した強誘電体球}
+%----------------------------------------------------------------------
+
+\subsection{問題}
+
+半径 $a$ の強誘電体球が、$\mathbf{P} = (0,0,P)$ で一様に自発分極している。球の中心は原点、外部電場はゼロ、真電荷はない。分極状態を再現するため、電荷密度 $+\rho$ で一様に帯電した半径 $a$ の球を $(0,0,s/2)$ に、電荷密度 $-\rho$ で一様に帯電した半径 $a$ の球を $(0,0,-s/2)$ に置く（$s \ll a$）。球内部に作る電場 $\mathbf{E}_p$ は、それぞれの帯電球が作る電場の足し合わせと考える。
+
+\begin{enumerate}
+\item 中心が原点にあり、電荷密度 $+\rho$ で一様に帯電した半径 $a$ の球のみを考える。原点から位置ベクトル $\mathbf{r}$ の場所における球内部の電場 $\mathbf{E}$ を $\rho$、$\varepsilon_0$、$\mathbf{r}$ を用いて求めよ。
+\item 上記の2つの帯電球が作る電場の足し合わせを考え、$\mathbf{s} = (0,0,s)$ とすると $\mathbf{P} = \rho\mathbf{s}$ と書けることを用いて、$\mathbf{E}_p$ を $\mathbf{P}$ と $\varepsilon_0$ を用いて表せ。
+\item 強誘電体球内外での電気力線 $\varepsilon_0\mathbf{E}$ と電束線 $\mathbf{D}$ を $xz$ 平面上で概略図示せよ。
+\item 強誘電体球内部での $\mathbf{D}$ と $\varepsilon_0\mathbf{E}$ の関係を、$x$ 軸と $y$ 軸に取って概念的に示し、(2-3)の状態がどこに相当するか答えよ。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{この問題のポイント（初学者向け）}
+
+一様帯電球内部の電場はガウスの法則から $\mathbf{E} = (\rho/(3\varepsilon_0))\mathbf{r}$ で与えられる。$+\rho$ と $-\rho$ の2球を $z$ 軸上に $\pm s/2$ だけずらして重ねると、ずれが小さいとき内部電場は $\mathbf{E}_p = -\mathbf{P}/(3\varepsilon_0)$ となる。真電荷がないので $\nabla\cdot\mathbf{D}=0$ であり、球内部では $\mathbf{E}=-\mathbf{P}/(3\varepsilon_0)$ と $\mathbf{D}=\varepsilon_0\mathbf{E}+\mathbf{P}$ から $\mathbf{D}=(2/3)\mathbf{P}$（一様）となる。
+
+\paragraph{用語の説明}
+\begin{itemize}
+\item \textbf{強誘電体}：外部電場がなくても自発分極 $\mathbf{P}$ を持つ物質。
+\item \textbf{電束密度 $\mathbf{D}$}：$\mathbf{D} = \varepsilon_0\mathbf{E} + \mathbf{P}$。真電荷がなければ $\nabla\cdot\mathbf{D} = 0$。
+\end{itemize}
+
+\paragraph{解き方の流れ}
+\begin{enumerate}
+\item 問(2-1)：ガウスの法則を半径 $r$ の球面に適用し、一様帯電球内部の電場 $\mathbf{E}=(\rho/(3\varepsilon_0))\mathbf{r}$ を求める。
+\item 問(2-2)：2つの帯電球（中心が $(0,0,\pm s/2)$）が作る電場の和を計算し、$\mathbf{P}=\rho\mathbf{s}$ を用いて $\mathbf{E}_p=-\mathbf{P}/(3\varepsilon_0)$ を得る。
+\item 問(2-3)：球内部では $\varepsilon_0\mathbf{E}$ は $z$ 負向き、$\mathbf{D}$ は $z$ 正向き（$(2/3)\mathbf{P}$）。球外は双極子型の力線。$xz$ 平面で概略を描く。
+\item 問(2-4)：横軸 $\varepsilon_0 E$、縦軸 $D$ の平面上に、自発分極のみの状態（$(-P/3, 2P/3)$ 付近）をプロットし、(2-3)の状態がそこに対応することを示す。
+\end{enumerate}
+
+\paragraph{2-1：一様帯電球内部の電場 $\mathbf{E}$}
+
+中心が原点、半径 $a$、電荷密度 $+\rho$ の球を考える。ガウスの法則：閉曲面 $S$ について、\textbf{電束の総和} $\int_S \mathbf{E}\cdot\mathbf{n}\,dS$ は、$S$ の内部の全電荷 $Q_{\mathrm{in}}$ を $\varepsilon_0$ で割ったものに等しい。球対称なので、原点から距離 $r$（$r \le a$）の点では $\mathbf{E}$ は動径方向で大きさは $r$ のみに依存する。半径 $r$ の球面でガウスの法則を適用すると、左辺は $E(r)\times 4\pi r^2$（球面上で $\mathbf{E}$ の大きさは一定）、右辺は $Q_{\mathrm{in}}/\varepsilon_0 = (4\pi r^3/3)\rho/\varepsilon_0$（球面内の電荷）なので、$4\pi r^2 E(r) = (4\pi r^3/3)\rho/\varepsilon_0$ より
+\begin{equation}
+E(r) = \frac{\rho r}{3\varepsilon_0}.
+\end{equation}
+ベクトルで書くと、位置 $\mathbf{r}$ では動径方向外向きに $\mathbf{E} = (\rho/(3\varepsilon_0))\mathbf{r}$。したがって
+\begin{equation}
+\boxed{\mathbf{E} = \frac{\rho}{3\varepsilon_0}\mathbf{r}}.
+\end{equation}
+
+\paragraph{なぜ一様帯電球内部の電場が $\mathbf{E}=(\rho/(3\varepsilon_0))\mathbf{r}$ になるか（原理的な説明）}
+
+球対称な電荷分布では、ガウスの法則から、半径 $r$ の球面内の全電荷 $Q_{\mathrm{in}} = (4\pi r^3/3)\rho$ が作る電場は、球面上一様で動径外向きに $E(r)=Q_{\mathrm{in}}/(4\pi\varepsilon_0 r^2) = \rho r/(3\varepsilon_0)$ となる。つまり内部の点では、その点より内側の電荷だけが寄与し、外側の電荷の寄与は球対称性からゼロである。したがって $\mathbf{E}$ は原点から見た位置ベクトル $\mathbf{r}$ に比例し、$\mathbf{E}=(\rho/(3\varepsilon_0))\mathbf{r}$ となる。
+
+\paragraph{2-2：分極電場 $\mathbf{E}_p$ を $\mathbf{P}$ と $\varepsilon_0$ で表す}
+
+$+\rho$ の球の中心が $(0,0,s/2)$、$-\rho$ の球の中心が $(0,0,-s/2)$ にあり、$s \ll a$ とする。\textbf{原点付近の点} $\mathbf{r}$ は、$s$ が十分小さいため、\textbf{両方の球の内部}にあるとみなせる。したがって、$+\rho$ の球が作る電場は問(2-1)の公式が使え、その球の中心 $(0,0,s/2)$ からの位置ベクトル $\mathbf{r}_+ = \mathbf{r} - (0,0,s/2)$ を用いて $\mathbf{E}_+ = (\rho/(3\varepsilon_0))\mathbf{r}_+$。同様に $-\rho$ の球が作る電場は $\mathbf{r}_- = \mathbf{r} - (0,0,-s/2)$ として $\mathbf{E}_- = (-\rho/(3\varepsilon_0))\mathbf{r}_-$。したがって
+\begin{equation}
+\mathbf{E}_p = \mathbf{E}_+ + \mathbf{E}_- = \frac{\rho}{3\varepsilon_0}(\mathbf{r}_+ - \mathbf{r}_-) = \frac{\rho}{3\varepsilon_0}\bigl((\mathbf{r} - (0,0,s/2)) - (\mathbf{r} - (0,0,-s/2))\bigr) = \frac{\rho}{3\varepsilon_0}(0,0,-s) = -\frac{\rho\mathbf{s}}{3\varepsilon_0}.
+\end{equation}
+$\mathbf{P} = \rho\mathbf{s}$ なので、
+\begin{equation}
+\boxed{\mathbf{E}_p = -\frac{\mathbf{P}}{3\varepsilon_0}}.
+\end{equation}
+（球内部で一様な電場である。）
+
+\paragraph{なぜ $\mathbf{E}_p = -\mathbf{P}/(3\varepsilon_0)$ になるか（脱分極電場の物理）}
+
+一様分極 $\mathbf{P}$ を、$z$ 軸上に $\pm s/2$ だけずれた $+\rho$ と $-\rho$ の2つの一様帯電球で再現する。球内部（原点付近）では、$+\rho$ の球が作る電場はその中心 $(0,0,s/2)$ からの位置ベクトルに比例して $\mathbf{E}_+ = (\rho/(3\varepsilon_0))(\mathbf{r}-(0,0,s/2))$、$-\rho$ の球が作る電場は $\mathbf{E}_- = (-\rho/(3\varepsilon_0))(\mathbf{r}-(0,0,-s/2))$。足し合わせると $\mathbf{r}$ に比例する項は打ち消し、$\mathbf{E}_p = (\rho/(3\varepsilon_0))(-(0,0,s)) = -\rho\mathbf{s}/(3\varepsilon_0)$ となる。$\mathbf{P}=\rho\mathbf{s}$ なので $\mathbf{E}_p = -\mathbf{P}/(3\varepsilon_0)$。この電場は分極と\textbf{逆向き}であり、\textbf{脱分極電場}（分極を弱める方向に働く電場）と呼ばれる。球のような形状では内部に脱分極電場が生じ、外部電場がなくても $\mathbf{E}=-\mathbf{P}/(3\varepsilon_0)$ となる。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em_depolarization_sphere.png}
+\caption{問題2(2-2)：一様分極を2つの帯電球で再現するモデル。内部では2球の電場の和が $\mathbf{E}_p=-\mathbf{P}/(3\varepsilon_0)$ という脱分極電場になる。}
+\label{fig:em2024_depolarization}
+\end{figure}
+
+\paragraph{2-3：電気力線 $\varepsilon_0\mathbf{E}$ と電束線 $\mathbf{D}$ の概略}
+
+球内部：$\mathbf{E}_p = -\mathbf{P}/(3\varepsilon_0)$ なので $\varepsilon_0\mathbf{E}$ は $z$ 負方向、大きさ $P/3$。$\mathbf{D} = \varepsilon_0\mathbf{E} + \mathbf{P}$ に代入すると、内部では $\mathbf{D} = -\mathbf{P}/3 + \mathbf{P} = (2/3)\mathbf{P}$ となる（$\mathbf{P}$ は一様なので $\nabla\cdot\mathbf{P}=0$ であり、$\nabla\cdot\mathbf{D}=(2/3)\nabla\cdot\mathbf{P}=0$ で真電荷なしの条件を満たす）。つまり球内部では $\mathbf{D}$ は $z$ 正向きで大きさ $(2/3)P$。球の外側では境界で $\mathbf{D}$ の法線成分が連続で、球面の分極電荷から双極子型の場が広がる。まとめると、電気力線 $\varepsilon_0\mathbf{E}$ は球内部で $z$ 負向き、球外では双極子型。電束線 $\mathbf{D}$ は球内部で $z$ 正向き（$(2/3)\mathbf{P}$）、球外では双極子型。図では、$xz$ 平面で、球内の $\varepsilon_0\mathbf{E}$ と $\mathbf{D}$ の向き・相対的な密度、境界での連続条件を反映して描く。
+
+\paragraph{なぜ $\mathbf{D}$ と $\varepsilon_0\mathbf{E}$ の向きが球内部で違うか（物理的考察）}
+
+$\mathbf{E}$ は「真電荷と分極電荷の両方」が作る電場であり、強誘電体球では表面の分極電荷が作る脱分極電場のため、内部では $\mathbf{E}=-\mathbf{P}/(3\varepsilon_0)$ で分極と逆向きになる。一方 $\mathbf{D}=\varepsilon_0\mathbf{E}+\mathbf{P}$ は分極を含めた量で、真電荷がなければ $\nabla\cdot\mathbf{D}=0$ を満たす。球内部では $\mathbf{D}=(2/3)\mathbf{P}$ で分極と同方向である。つまり「電気力線 $\varepsilon_0\mathbf{E}$」は分極と逆向き、「電束線 $\mathbf{D}$」は分極と同方向に描く。境界では $\mathbf{D}$ の法線成分が連続、$\mathbf{E}$ の接線成分が連続となるように、球外では両方とも双極子型の力線として続く。
+
+\paragraph{2-4：$\mathbf{D}$ と $\varepsilon_0\mathbf{E}$ の関係図と (2-3) の状態}
+
+強誘電体球内部では $\mathbf{E} = -\mathbf{P}/(3\varepsilon_0)$、$\mathbf{D} = (2/3)\mathbf{P}$。問題文の「$x$ 軸と $y$ 軸に取って」に従い、横軸に $\varepsilon_0 E$、縦軸に $D$ を取った平面上では、この状態は \textbf{点 $(\varepsilon_0 E,\, D) = (-P/3,\, 2P/3)$} に対応する（$P$ は $\mathbf{P}$ の $z$ 成分の大きさ）。強磁性体の磁気ヒステリシスと同様、自発分極があるので原点を通らない。図では、横軸 $\varepsilon_0 E$、縦軸 $D$ で、内部の状態が (2-3) で描いた状態、すなわち自発分極のみで外部電場ゼロの点を記入する。
+
+\paragraph{なぜ強磁性体のヒステリシスと類似するか（物理的考察）}
+
+強誘電体では外部電場がゼロでも自発分極 $\mathbf{P}$ が残り、$\mathbf{D}=(2/3)\mathbf{P}$、$\varepsilon_0\mathbf{E}=-P/3$ なので、$D$--$\varepsilon_0 E$ 平面上の点は原点を通らない。強磁性体の $B$--$H$ 曲線（磁気ヒステリシス）でも、外部磁場がゼロのとき残留磁化が残り、原点を通らないループを描く。同様に強誘電体では $D$ と $\varepsilon_0 E$ の関係が履歴を持ち、(2-3)で描いた状態は「外部電場ゼロ・自発分極のみ」の点、すなわち $(-\varepsilon_0 P/3, 2P/3)$ 付近に対応する。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em2024_ferro_sphere_field.png}
+\caption{問題2(2-3)：強誘電体球内外の電気力線 $\varepsilon_0\mathbf{E}$ と電束線 $\mathbf{D}$ の概略（$xz$ 平面）。}
+\label{fig:em2024_ferro_sphere}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\textwidth]{figures/em2024_D_vs_eps0E.png}
+\caption{問題2(2-4)：強誘電体球内部での $\mathbf{D}$ と $\varepsilon_0\mathbf{E}$ の関係（概念図）。自発分極のみの状態が (2-3) に対応。}
+\label{fig:em2024_D_vs_E}
+\end{figure}
+
+%----------------------------------------------------------------------
+\section{問題3：液体中の有極性分子の分極ダイナミクス}
+%----------------------------------------------------------------------
+
+\subsection{問題}
+
+時刻 $t=0$ で一様な電場 $\mathbf{E}$ をかけると、分極ベクトルの大きさは時定数 $\tau$ で $P(t) = \varepsilon_0\chi_0 E(1-\exp(-t/\tau))$ のように増加する。$\varepsilon_0$ は真空の誘電率。水分子の分極が液体内の全電場に与える変化は無視する。
+
+\begin{enumerate}
+\item $P(t)$ が微分方程式 $\tau\,dP/dt + P = \varepsilon_0\chi_0 E$ を満たすことを利用し、単一角振動数 $\omega$ で振動する電場 $E(\omega) = E_0\exp(-\mathrm{i}\omega t)$ に対する電気感受率 $\chi_e(\omega)$ を、$\chi_0$、$\tau$、$\omega$ を用いて求めよ。ヒント：$P(\omega) = P_0\exp(-\mathrm{i}\omega t)$ とし、$\chi_e(\omega) = P(\omega)/(\varepsilon_0 E(\omega))$ を計算する。
+\item 前問で求めた $\mathrm{Re}[\chi_e(\omega)]$ が $\omega$ に対してどのように変化するか図示し、$\omega = \tau^{-1} = \omega_0$ における値を記入せよ。
+\item 振動数 $\omega$ が大きくなると、水分子のH–O結合の振動が分極に効きはじめる。その固有振動数を $\omega_1$ とする。水の誘電率の虚部 $\varepsilon''$ が、$\omega_0$ および $\omega_1$ を含む広い範囲の $\omega$ でどのように変化するか図示し、電磁波の振動数が $\omega_0$ あるいは $\omega_1$ に等しいとき、それぞれどのような名前の電磁波に対応するか答えよ。
+\end{enumerate}
+
+\subsection{解答}
+
+\paragraph{この問題のポイント（初学者向け）}
+
+緩和型の分極の微分方程式 $\tau\dot{P}+P=\varepsilon_0\chi_0 E$ に $E=E_0 e^{-\mathrm{i}\omega t}$、$P=P_0 e^{-\mathrm{i}\omega t}$ を代入して $P_0/E_0$ を求め、$\chi_e(\omega) = P_0/(\varepsilon_0 E_0)$ として周波数依存の電気感受率を求める。実部はデバイ型の分散、虚部は吸収に対応する。
+
+\paragraph{用語の説明}
+\begin{itemize}
+\item \textbf{電気感受率 $\chi_e(\omega)$}：分極と電場の比。$\chi_e = P/(\varepsilon_0 E)$ で、周波数 $\omega$ によって変わるので $\chi_e(\omega)$ と書く。直流では $\chi_0$、高周波では追従できず小さくなる。
+\item \textbf{誘電率の虚部 $\varepsilon''$}：$\varepsilon = \varepsilon_0(1+\chi_e)$ の虚部。電磁波の\textbf{吸収}（エネルギーが媒質に失われる割合）に対応する。$\varepsilon''$ が大きい周波数で吸収が強い。
+\end{itemize}
+
+\paragraph{解き方の流れ}
+\begin{enumerate}
+\item 問(3-1)：$\tau dP/dt+P=\varepsilon_0\chi_0 E$ に $E=E_0 e^{-\mathrm{i}\omega t}$、$P=P_0 e^{-\mathrm{i}\omega t}$ を代入し、$\chi_e(\omega)=P_0/(\varepsilon_0 E_0)=\chi_0/(1-\mathrm{i}\omega\tau)$ を導く。
+\item 問(3-2)：$\mathrm{Re}[\chi_e(\omega)]=\chi_0/(1+\omega^2\tau^2)$ を $\omega$ の関数として図示し、$\omega_0=1/\tau$ で $\chi_0/2$ を記入する。
+\item 問(3-3)：$\varepsilon''$ が $\omega_0$（緩和）と $\omega_1$（赤外共鳴）付近でピークを持つ概略図を描き、$\omega_0$ はマイクロ波、$\omega_1$ は赤外線に対応することを答える。
+\end{enumerate}
+
+\paragraph{3-1：電気感受率 $\chi_e(\omega)$}
+
+微分方程式は $\tau\frac{dP}{dt} + P = \varepsilon_0\chi_0 E$。これは $P$ について\textbf{線形}なので、電場が単一角振動数 $\omega$ で振動しているとき、定常状態では分極も同じ角振動数で振動し、$P = P_0\exp(-\mathrm{i}\omega t)$ とおける（ヒントの通り）。$E = E_0\exp(-\mathrm{i}\omega t)$、$P = P_0\exp(-\mathrm{i}\omega t)$ を代入する。$dP/dt = -\mathrm{i}\omega P_0\exp(-\mathrm{i}\omega t)$ なので、
+\begin{equation}
+\tau(-\mathrm{i}\omega)P_0 + P_0 = \varepsilon_0\chi_0 E_0.
+\end{equation}
+左辺をまとめると $P_0(1 - \mathrm{i}\omega\tau) = \varepsilon_0\chi_0 E_0$。両辺を $(1-\mathrm{i}\omega\tau)$ で割って $P_0 = \varepsilon_0\chi_0 E_0/(1-\mathrm{i}\omega\tau)$。電気感受率は $\chi_e(\omega) = P(\omega)/(\varepsilon_0 E(\omega)) = P_0/(\varepsilon_0 E_0)$ なので、
+\begin{equation}
+\chi_e(\omega) = \frac{\chi_0}{1 - \mathrm{i}\omega\tau}.
+\end{equation}
+分母を実数化すると $\chi_e(\omega) = \chi_0(1+\mathrm{i}\omega\tau)/(1+\omega^2\tau^2)$。したがって
+\begin{equation}
+\boxed{\chi_e(\omega) = \frac{\chi_0}{1 - \mathrm{i}\omega\tau} = \frac{\chi_0(1+\mathrm{i}\omega\tau)}{1+\omega^2\tau^2}}.
+\end{equation}
+
+\paragraph{なぜ周波数で電気感受率が変わるか（誘電緩和の物理）}
+
+微分方程式 $\tau\dot{P}+P=\varepsilon_0\chi_0 E$ は、分極が電場の変化に「時定数 $\tau$ で遅れて」追従することを表す（緩和型）。直流（$\omega=0$）では $P=\varepsilon_0\chi_0 E$ で感受率は $\chi_0$。角振動数 $\omega$ が $1/\tau$ 程度になると、電場の向きが変わるのが速く、分極が追いつかなくなる。そのため $\omega$ が大きいほど感受率の実部は小さくなり、$\mathrm{Re}[\chi_e]=\chi_0/(1+\omega^2\tau^2)$ となる。虚部 $\mathrm{Im}[\chi_e]=\chi_0\omega\tau/(1+\omega^2\tau^2)$ はエネルギー吸収（誘電損失）に対応し、$\omega\sim 1/\tau$ 付近でピークを持つ。このような周波数分散を\textbf{デバイ緩和}という。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/em_debye_relaxation.png}
+\caption{問題3：分極の時間応答 $P(t)$（左）と周波数応答 $\mathrm{Re}[\chi_e(\omega)]$（右）。時定数 $\tau$ で遅れる応答のため、高周波では感受率が低下する。}
+\label{fig:em2024_debye}
+\end{figure}
+
+\paragraph{3-2：$\mathrm{Re}[\chi_e(\omega)]$ の図示}
+
+実部は $\mathrm{Re}[\chi_e(\omega)] = \chi_0/(1+\omega^2\tau^2)$。$\omega=0$ で $\chi_0$、$\omega\to\infty$ で 0。$\omega = \omega_0 = 1/\tau$ では $\mathrm{Re}[\chi_e(\omega_0)] = \chi_0/(1+1) = \chi_0/2$。
+
+\paragraph{3-3：誘電率の虚部 $\varepsilon''$ と電磁波の名前}
+
+誘電率は $\varepsilon = \varepsilon_0(1+\chi_e)$ なので、虚部は $\varepsilon'' = \varepsilon_0\,\mathrm{Im}[\chi_e(\omega)]$。\textbf{$\varepsilon''$ は電磁波の吸収}（媒質が光のエネルギーを吸収する強さ）に対応し、$\varepsilon''$ が大きい周波数で吸収が強い。$\mathrm{Im}[\chi_e] = \chi_0\omega\tau/(1+\omega^2\tau^2)$ なので、$\omega_0 = 1/\tau$ 付近でピークを持つ緩和型の吸収。さらに $\omega_1$（H–O結合の振動）付近では共鳴型のピークが現れる。$\omega_0$ は緩和（配向分極）の時定数に対応し、マイクロ波〜ラジオ波程度。$\omega_1$ は赤外線（分子振動）に対応する。したがって、振動数が $\omega_0$ に等しい電磁波はマイクロ波（または誘電緩和の周波数帯）、$\omega_1$ に等しい電磁波は赤外線である。
+
+\paragraph{なぜ $\varepsilon''$ に2つのピークが現れるか（物理的考察）}
+
+水の誘電率の虚部 $\varepsilon''$ は電磁波の吸収率に対応する。$\omega_0=1/\tau$ 付近では、極性分子（水分子）の\textbf{配向分極}が電場の向きに追従する際の遅れによる吸収（誘電緩和）がピークになる。この周波数帯はマイクロ波程度である。$\omega_1$ 付近では、水分子のH--O結合の\textbf{振動}が電場と共鳴し、赤外線の吸収がピークになる。つまり $\varepsilon''(\omega)$ のグラフには、低周波側に緩和型のピーク（$\omega_0$）、高周波側に共鳴型のピーク（$\omega_1$）が現れ、その間は比較的小さな値となる。これが水がマイクロ波で加熱され、赤外線でも吸収を持つ理由である。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em2024_chi_real.png}
+\caption{問題3(3-2)：電気感受率の実部 $\mathrm{Re}[\chi_e(\omega)]$。$\omega_0 = 1/\tau$ で $\chi_0/2$。}
+\label{fig:em2024_chi_real}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em2024_eps_imag.png}
+\caption{問題3(3-3)：水の誘電率の虚部 $\varepsilon''$ の概略。$\omega_0$ で緩和型、$\omega_1$ で共鳴型のピーク。}
+\label{fig:em2024_eps_imag}
+\end{figure}
