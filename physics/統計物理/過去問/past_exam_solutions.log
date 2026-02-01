@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.21.0 (TeX Live 2025)  (format=lualatex 2025.12.19)  31 JAN 2026 20:19
+This is LuaHBTeX, Version 1.21.0 (TeX Live 2025)  (format=lualatex 2025.12.19)  1 FEB 2026 14:55
  restricted system commands enabled.
 **past_exam_solutions.tex
 (./past_exam_solutions.tex
@@ -1074,115 +1074,114 @@ Package luatex.def Info: figures/past2024_ex1_path.png  used on input line 85.
 File: figures/past2023main_ex2_setup.png Graphic file (type png)
 <use figures/past2023main_ex2_setup.png>
 Package luatex.def Info: figures/past2023main_ex2_setup.png  used on input line
- 180.
+ 202.
 (luatex.def)             Requested size: 341.43307pt x 211.78378pt.
-<figures/past2023main_ex2_Tmin_Tmax.png, id=238, 570.4512pt x 352.9185pt>
+
+
+[12]
+<figures/past2023main_ex2_Tmin_Tmax.png, id=245, 570.4512pt x 352.9185pt>
 File: figures/past2023main_ex2_Tmin_Tmax.png Graphic file (type png)
 <use figures/past2023main_ex2_Tmin_Tmax.png>
 Package luatex.def Info: figures/past2023main_ex2_Tmin_Tmax.png  used on input 
-line 187.
+line 209.
 (luatex.def)             Requested size: 341.43307pt x 211.23576pt.
 
 
-[12<./figures/past2023main_ex2_setup.png><./figures/past2023main_ex2_Tmin_Tmax.p
+[13<./figures/past2023main_ex2_setup.png><./figures/past2023main_ex2_Tmin_Tmax.p
 ng>]
-
-[13]
 
 [14]
 
 [15]
-<figures/past2023_ex3_W_P.png, id=288, 570.6921pt x 352.9185pt>
-File: figures/past2023_ex3_W_P.png Graphic file (type png)
-<use figures/past2023_ex3_W_P.png>
-Package luatex.def Info: figures/past2023_ex3_W_P.png  used on input line 326.
-(luatex.def)             Requested size: 386.96027pt x 239.29749pt.
-
 
 [16]
+<figures/past2023_ex3_W_P.png, id=296, 570.6921pt x 352.9185pt>
+File: figures/past2023_ex3_W_P.png Graphic file (type png)
+<use figures/past2023_ex3_W_P.png>
+Package luatex.def Info: figures/past2023_ex3_W_P.png  used on input line 348.
+(luatex.def)             Requested size: 386.96027pt x 239.29749pt.
+
 
 [17<./figures/past2023_ex3_W_P.png>]
 
 [18]
-<figures/past2023_ex1_energy_flow.png, id=326, 570.933pt x 353.8821pt>
+
+[19]
+<figures/past2023_ex1_energy_flow.png, id=337, 570.933pt x 353.8821pt>
 File: figures/past2023_ex1_energy_flow.png Graphic file (type png)
 <use figures/past2023_ex1_energy_flow.png>
 Package luatex.def Info: figures/past2023_ex1_energy_flow.png  used on input li
-ne 418.
+ne 440.
 (luatex.def)             Requested size: 364.19667pt x 225.74937pt.
 
 
-[19<./figures/past2023_ex1_energy_flow.png>]
-
-[20]
+[20<./figures/past2023_ex1_energy_flow.png>]
 
 [21]
-<figures/past2023_ex1_Tmin.png, id=365, 570.4512pt x 352.9185pt>
+<figures/past2023_ex1_Tmin.png, id=361, 570.4512pt x 352.9185pt>
 File: figures/past2023_ex1_Tmin.png Graphic file (type png)
 <use figures/past2023_ex1_Tmin.png>
-Package luatex.def Info: figures/past2023_ex1_Tmin.png  used on input line 506.
+Package luatex.def Info: figures/past2023_ex1_Tmin.png  used on input line 528.
 
 (luatex.def)             Requested size: 341.43307pt x 211.23576pt.
-<figures/past2023_ex1_setup.png, id=366, 570.933pt x 354.123pt>
+<figures/past2023_ex1_setup.png, id=362, 570.933pt x 354.123pt>
 File: figures/past2023_ex1_setup.png Graphic file (type png)
 <use figures/past2023_ex1_setup.png>
-Package luatex.def Info: figures/past2023_ex1_setup.png  used on input line 513
+Package luatex.def Info: figures/past2023_ex1_setup.png  used on input line 535
 .
 (luatex.def)             Requested size: 341.43307pt x 211.78378pt.
 
 
-[22<./figures/past2023_ex1_Tmin.png><./figures/past2023_ex1_setup.png>]
+[22<./figures/past2023_ex1_Tmin.png>]
 
-[23]
-<figures/past2023_ex2_E_p.png, id=394, 859.0494pt x 357.2547pt>
+[23<./figures/past2023_ex1_setup.png>]
+
+[24]
+<figures/past2023_ex2_E_p.png, id=405, 859.0494pt x 357.2547pt>
 File: figures/past2023_ex2_E_p.png Graphic file (type png)
 <use figures/past2023_ex2_E_p.png>
-Package luatex.def Info: figures/past2023_ex2_E_p.png  used on input line 601.
+Package luatex.def Info: figures/past2023_ex2_E_p.png  used on input line 623.
 (luatex.def)             Requested size: 364.19667pt x 151.45781pt.
 
 
-[24<./figures/past2023_ex2_E_p.png>]
-
-[25]
+[25<./figures/past2023_ex2_E_p.png>]
 
 [26]
 
 [27]
-<figures/past2023_ex3_balls_bins.png, id=456, 570.933pt x 209.583pt>
+<figures/past2023_ex3_balls_bins.png, id=455, 570.933pt x 209.583pt>
 File: figures/past2023_ex3_balls_bins.png Graphic file (type png)
 <use figures/past2023_ex3_balls_bins.png>
 Package luatex.def Info: figures/past2023_ex3_balls_bins.png  used on input lin
-e 736.
+e 758.
 (luatex.def)             Requested size: 386.96027pt x 142.05403pt.
 
 
-[28<./figures/past2023_ex3_balls_bins.png>]
+[28]
+
+[29<./figures/past2023_ex3_balls_bins.png>]
 File: figures/past2023_ex3_W_P.png Graphic file (type png)
 <use figures/past2023_ex3_W_P.png>
-Package luatex.def Info: figures/past2023_ex3_W_P.png  used on input line 796.
+Package luatex.def Info: figures/past2023_ex3_W_P.png  used on input line 818.
 (luatex.def)             Requested size: 386.96027pt x 239.29749pt.
-
-
-[29]
-<figures/past2023_oscillator_Z.png, id=480, 859.0494pt x 356.7729pt>
+<figures/past2023_oscillator_Z.png, id=478, 859.0494pt x 356.7729pt>
 File: figures/past2023_oscillator_Z.png Graphic file (type png)
 <use figures/past2023_oscillator_Z.png>
 Package luatex.def Info: figures/past2023_oscillator_Z.png  used on input line 
-803.
+825.
 (luatex.def)             Requested size: 364.19667pt x 151.25356pt.
 ) (./body/body_2024.tex
 
-[30<./figures/past2023_oscillator_Z.png>]
+[30]
 
-[31]
+[31<./figures/past2023_oscillator_Z.png>]
+
+[32]
 File: figures/past2024_ex1_why_entropy.png Graphic file (type png)
 <use figures/past2024_ex1_why_entropy.png>
 Package luatex.def Info: figures/past2024_ex1_why_entropy.png  used on input li
 ne 92.
 (luatex.def)             Requested size: 386.96027pt x 233.63202pt.
-
-
-[32]
 File: figures/past2024_ex1_path.png Graphic file (type png)
 <use figures/past2024_ex1_path.png>
 Package luatex.def Info: figures/past2024_ex1_path.png  used on input line 99.
@@ -1194,7 +1193,9 @@ Package luatex.def Info: figures/past2024_ex1_path.png  used on input line 99.
 [34]
 
 [35]
-<figures/past2024_ex2_entropy_same_diff.png, id=558, 860.013pt x 357.7365pt>
+
+[36]
+<figures/past2024_ex2_entropy_same_diff.png, id=568, 860.013pt x 357.7365pt>
 File: figures/past2024_ex2_entropy_same_diff.png Graphic file (type png)
 <use figures/past2024_ex2_entropy_same_diff.png>
 Package luatex.def Info: figures/past2024_ex2_entropy_same_diff.png  used on in
@@ -1202,10 +1203,8 @@ put line 234.
 (luatex.def)             Requested size: 364.19667pt x 151.49286pt.
 
 
-[36]
-
 [37<./figures/past2024_ex2_entropy_same_diff.png>]
-<figures/past2024_ex2_setup.png, id=586, 570.933pt x 354.123pt>
+<figures/past2024_ex2_setup.png, id=582, 570.933pt x 354.123pt>
 File: figures/past2024_ex2_setup.png Graphic file (type png)
 <use figures/past2024_ex2_setup.png>
 Package luatex.def Info: figures/past2024_ex2_setup.png  used on input line 286
@@ -1213,16 +1212,18 @@ Package luatex.def Info: figures/past2024_ex2_setup.png  used on input line 286
 (luatex.def)             Requested size: 341.43307pt x 211.78378pt.
 
 
-[38<./figures/past2024_ex2_setup.png>]
+[38]
 
-[39]
+[39<./figures/past2024_ex2_setup.png>]
 
 [40]
 
 [41]) (./body/body_2025.tex
 
 [42]
-<figures/past2025_ex1_why_T.png, id=664, 859.2903pt x 357.2547pt>
+
+[43]
+<figures/past2025_ex1_why_T.png, id=676, 859.2903pt x 357.2547pt>
 File: figures/past2025_ex1_why_T.png Graphic file (type png)
 <use figures/past2025_ex1_why_T.png>
 Package luatex.def Info: figures/past2025_ex1_why_T.png  used on input line 71.
@@ -1230,16 +1231,17 @@ Package luatex.def Info: figures/past2025_ex1_why_T.png  used on input line 71.
 (luatex.def)             Requested size: 364.19667pt x 151.4142pt.
 
 
-[43]
-
 [44<./figures/past2025_ex1_why_T.png>]
-<figures/past2025_ex1_path.png, id=694, 567.0786pt x 425.6703pt>
+<figures/past2025_ex1_path.png, id=690, 567.0786pt x 425.6703pt>
 File: figures/past2025_ex1_path.png Graphic file (type png)
 <use figures/past2025_ex1_path.png>
 Package luatex.def Info: figures/past2025_ex1_path.png  used on input line 121.
 
 (luatex.def)             Requested size: 386.96027pt x 290.47171pt.
-<figures/past2025_ex1_entropy.png, id=695, 570.2103pt x 425.1885pt>
+
+
+[45]
+<figures/past2025_ex1_entropy.png, id=701, 570.2103pt x 425.1885pt>
 File: figures/past2025_ex1_entropy.png Graphic file (type png)
 <use figures/past2025_ex1_entropy.png>
 Package luatex.def Info: figures/past2025_ex1_entropy.png  used on input line 1
@@ -1247,10 +1249,10 @@ Package luatex.def Info: figures/past2025_ex1_entropy.png  used on input line 1
 (luatex.def)             Requested size: 364.19667pt x 271.57472pt.
 
 
-[45<./figures/past2025_ex1_path.png>]
+[46<./figures/past2025_ex1_path.png><./figures/past2025_ex1_entropy.png>]
 
-[46<./figures/past2025_ex1_entropy.png>]
-<figures/past2025_ex2_energy_balance.png, id=715, 570.933pt x 353.8821pt>
+[47]
+<figures/past2025_ex2_energy_balance.png, id=726, 570.933pt x 353.8821pt>
 File: figures/past2025_ex2_energy_balance.png Graphic file (type png)
 <use figures/past2025_ex2_energy_balance.png>
 Package luatex.def Info: figures/past2025_ex2_energy_balance.png  used on input
@@ -1258,20 +1260,17 @@ Package luatex.def Info: figures/past2025_ex2_energy_balance.png  used on input
 (luatex.def)             Requested size: 364.19667pt x 225.74937pt.
 
 
-[47]
-
 [48<./figures/past2025_ex2_energy_balance.png>]
 
 [49]
-<figures/past2025_ex2_setup.png, id=759, 570.933pt x 354.123pt>
+
+[50]
+<figures/past2025_ex2_setup.png, id=767, 570.933pt x 354.123pt>
 File: figures/past2025_ex2_setup.png Graphic file (type png)
 <use figures/past2025_ex2_setup.png>
 Package luatex.def Info: figures/past2025_ex2_setup.png  used on input line 309
 .
 (luatex.def)             Requested size: 341.43307pt x 211.78378pt.
-
-
-[50]
 <figures/past2025_ex2_DeltaS_Tmin.png, id=768, 859.2903pt x 357.0138pt>
 File: figures/past2025_ex2_DeltaS_Tmin.png Graphic file (type png)
 <use figures/past2025_ex2_DeltaS_Tmin.png>
@@ -1287,7 +1286,7 @@ ne 316.
 [53]
 
 [54]
-<figures/past2025_ex4_combination.png, id=832, 570.933pt x 281.6121pt>
+<figures/past2025_ex4_combination.png, id=828, 570.933pt x 281.6121pt>
 File: figures/past2025_ex4_combination.png Graphic file (type png)
 <use figures/past2025_ex4_combination.png>
 Package luatex.def Info: figures/past2025_ex4_combination.png  used on input li
@@ -1295,10 +1294,10 @@ ne 503.
 (luatex.def)             Requested size: 341.43307pt x 168.41853pt.
 
 
-[55<./figures/past2025_ex4_combination.png>]
+[55]
 
-[56]
-<figures/past2025_ex4_two_level.png, id=866, 426.393pt x 353.8821pt>
+[56<./figures/past2025_ex4_combination.png>]
+<figures/past2025_ex4_two_level.png, id=863, 426.393pt x 353.8821pt>
 File: figures/past2025_ex4_two_level.png Graphic file (type png)
 <use figures/past2025_ex4_two_level.png>
 Package luatex.def Info: figures/past2025_ex4_two_level.png  used on input line
@@ -1321,12 +1320,12 @@ Package rerunfilecheck Info: File `past_exam_solutions.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 15656 strings out of 475506
+ 15657 strings out of 475506
  195705,953878 words of node,token memory allocated
  10158 words of node memory still in use:
    11 hlist, 2 vlist, 5 rule, 2 glue, 4 kern, 1 glyph, 4352 attribute, 56 glue_s
 pec, 408 attribute_list, 1 write, 14 user_defined, 5 pdf_action nodes
-   avail lists: 1:49,2:50436,3:498,4:343,5:561,6:56,7:5978,8:89,9:2445,10:37,11:
+   avail lists: 1:49,2:51933,3:495,4:351,5:700,6:56,7:6062,8:89,9:2491,10:37,11:
 40
  37735 multiletter control sequences out of 65536+600000
  99 fonts using 91468815 bytes
@@ -1364,10 +1363,10 @@ ts/cm/cmsy9.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pub
 lic/amsfonts/symbols/msbm5.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/ty
 pe1/public/amsfonts/symbols/msbm7.pfb>
-Output written on past_exam_solutions.pdf (57 pages, 2939068 bytes).
+Output written on past_exam_solutions.pdf (57 pages, 2943135 bytes).
 
-PDF statistics: 1019 PDF objects out of 1200 (max. 8388607)
- 859 compressed objects within 9 object streams
- 518 named destinations out of 1000 (max. 131072)
+PDF statistics: 1020 PDF objects out of 1200 (max. 8388607)
+ 860 compressed objects within 9 object streams
+ 519 named destinations out of 1000 (max. 131072)
  169 words of extra memory for PDF output out of 10000 (max. 100000000)
 

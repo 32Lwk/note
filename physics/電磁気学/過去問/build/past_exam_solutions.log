@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.21.0 (TeX Live 2025)  (format=lualatex 2025.12.19)  1 FEB 2026 13:26
+This is LuaHBTeX, Version 1.21.0 (TeX Live 2025)  (format=lualatex 2025.12.19)  1 FEB 2026 13:29
  restricted system commands enabled.
 **past_exam_solutions.tex
 (./past_exam_solutions.tex
@@ -1247,15 +1247,6 @@ LaTeX Font Info:    Font shape `JY3/HiraginoMinchoProN(0)/m/n' will be
 [6<./figures/em_maxwell_concept.png>]
 ! Extra }, or forgotten $.
 l.88 ...bf{B} = \mu_0(\mathbf{i} + \mathbf{i}_M)}}
-                                                  }.
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Extra }, or forgotten $.
-l.88 ...f{B} = \mu_0(\mathbf{i} + \mathbf{i}_M)}}}
                                                   .
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1266,16 +1257,6 @@ deleted material, e.g., by typing `I$}'.
 
 
 [7]
-! Extra }, or forgotten $.
-l.145 ...}}{\partial t} + \nabla\times\mathbf{M}}}
-                                                  .
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-
 
 [8]
 <figures/em_boundary_D_E.png, id=165, 570.4512pt x 353.4003pt>
@@ -1379,15 +1360,6 @@ Package luatex.def Info: figures/em2023_metal_slab.png  used on input line 393.
 [19<./figures/em2023_metal_reflection.png><./figures/em2023_metal_slab.png>]
 ! Extra }, or forgotten $.
 l.44 ...bf{B} = \mu_0(\mathbf{i} + \mathbf{i}_M)}}
-                                                  }.
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Extra }, or forgotten $.
-l.44 ...f{B} = \mu_0(\mathbf{i} + \mathbf{i}_M)}}}
                                                   .
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1403,16 +1375,6 @@ File: figures/em_maxwell_concept.png Graphic file (type png)
 Package luatex.def Info: figures/em_maxwell_concept.png  used on input line 63.
 
 (luatex.def)             Requested size: 409.71692pt x 254.13622pt.
-
-! Extra }, or forgotten $.
-l.75 ...P}}{\partial t} + \nabla\times\mathbf{M}}}
-                                                  .
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
 
 
 [21]
@@ -1555,15 +1517,6 @@ Package luatex.def Info: figures/em2024_eps_imag.png  used on input line 463.
 [38<./figures/em2024_em_spectrum.png><./figures/em2024_eps_imag.png>]
 
 [39]
-! Extra }, or forgotten $.
-l.65 ...P}}{\partial t} + \nabla\times\mathbf{M}}}
-                                                  .
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
 File: figures/em_maxwell_concept.png Graphic file (type png)
 <use figures/em_maxwell_concept.png>
 Package luatex.def Info: figures/em_maxwell_concept.png  used on input line 74.

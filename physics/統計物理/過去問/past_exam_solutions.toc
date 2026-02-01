@@ -21,158 +21,158 @@
 \contentsline {paragraph}{問1：終状態の温度 $T$}{11}{section*.15}%
 \contentsline {paragraph}{問2：エントロピー変化}{11}{section*.16}%
 \contentsline {paragraph}{問3：$\Delta S > 0$ の証明}{11}{section*.17}%
-\contentsline {paragraph}{問4：操作の例}{11}{section*.18}%
-\contentsline {paragraph}{問5：最低温度 $T_{\mathrm {min}}$ とその操作}{11}{section*.19}%
+\contentsline {paragraph}{問4：最低温度 $T_{\mathrm {min}}$}{11}{section*.18}%
+\contentsline {paragraph}{問5：$T_{\mathrm {min}}$ を達成する操作}{12}{section*.19}%
 \contentsline {paragraph}{問6：最高温度 $T_{\mathrm {max}}$ とその操作}{12}{section*.20}%
 \contentsline {section}{\numberline {3}問題III：N個の独立な調和振動子（類題：2023年度再試験 問題III、2024・2025年度 問題IV；演習7-III）}{13}{section.2023main.3}%
 \contentsline {subsection}{\numberline {3.1}問題}{13}{subsection.2023main.3.1}%
-\contentsline {subsection}{\numberline {3.2}解答}{13}{subsection.2023main.3.2}%
-\contentsline {paragraph}{問題III の全体像（詳解）}{13}{section*.21}%
+\contentsline {subsection}{\numberline {3.2}解答}{14}{subsection.2023main.3.2}%
+\contentsline {paragraph}{問題III の全体像（詳解）}{14}{section*.21}%
 \contentsline {paragraph}{この問題のポイント}{14}{section*.22}%
 \contentsline {paragraph}{用語の説明（統計力学）}{14}{section*.23}%
-\contentsline {paragraph}{問1〜問4：分配関数と平均エネルギー}{14}{section*.24}%
+\contentsline {paragraph}{問1〜問4：分配関数と平均エネルギー}{15}{section*.24}%
 \contentsline {paragraph}{最確エネルギーとは（詳しい説明）}{15}{section*.25}%
-\contentsline {paragraph}{問5：最確エネルギー $E^*$ の計算}{15}{section*.26}%
+\contentsline {paragraph}{問5：最確エネルギー $E^*$ の計算}{16}{section*.26}%
 \contentsline {paragraph}{問6：ゆらぎ $\sigma ^2$}{16}{section*.27}%
-\contentsline {paragraph}{問題III のまとめ（問1〜問6のつながり）}{16}{section*.28}%
+\contentsline {paragraph}{問題III のまとめ（問1〜問6のつながり）}{17}{section*.28}%
 \contentsline {part}{第II部\hspace {1\zw }2023年度 再試験}{17}{part.2}%
-\contentsline {section}{\numberline {1}問題I：理想気体の混合（類題：2023年度本試験 問題II、2025年度 問題II；演習3-II, 演習5-III--IV）}{17}{section.2023retake.1}%
-\contentsline {subsection}{\numberline {1.1}問題}{17}{subsection.2023retake.1.1}%
+\contentsline {section}{\numberline {1}問題I：理想気体の混合（類題：2023年度本試験 問題II、2025年度 問題II；演習3-II, 演習5-III--IV）}{18}{section.2023retake.1}%
+\contentsline {subsection}{\numberline {1.1}問題}{18}{subsection.2023retake.1.1}%
 \contentsline {subsection}{\numberline {1.2}解答}{18}{subsection.2023retake.1.2}%
 \contentsline {paragraph}{この問題のポイント}{18}{section*.29}%
 \contentsline {paragraph}{解き方の流れ}{18}{section*.30}%
-\contentsline {paragraph}{用語の説明}{18}{section*.31}%
-\contentsline {paragraph}{記号の整理}{18}{section*.32}%
-\contentsline {paragraph}{問1：終状態の温度 $T$}{18}{section*.33}%
-\contentsline {paragraph}{使用する物理法則}{18}{section*.34}%
+\contentsline {paragraph}{用語の説明}{19}{section*.31}%
+\contentsline {paragraph}{記号の整理}{19}{section*.32}%
+\contentsline {paragraph}{問1：終状態の温度 $T$}{19}{section*.33}%
+\contentsline {paragraph}{使用する物理法則}{19}{section*.34}%
 \contentsline {paragraph}{計算のステップ}{19}{section*.35}%
 \contentsline {paragraph}{なぜこのように求まるか（原理的な説明）}{19}{section*.36}%
 \contentsline {paragraph}{問2：エントロピー変化}{20}{section*.37}%
 \contentsline {paragraph}{なぜこの式になるか（物理的考察）}{20}{section*.38}%
-\contentsline {paragraph}{問3：$\Delta S > 0$ の証明}{20}{section*.39}%
-\contentsline {paragraph}{証明の流れ}{20}{section*.40}%
+\contentsline {paragraph}{問3：$\Delta S > 0$ の証明}{21}{section*.39}%
+\contentsline {paragraph}{証明の流れ}{21}{section*.40}%
 \contentsline {paragraph}{物理的意味}{21}{section*.41}%
 \contentsline {paragraph}{問4：達成できる最低温度 $T_{\mathrm {min}}$}{21}{section*.42}%
-\contentsline {paragraph}{なぜ幾何平均が最低温度か（原理的な説明）}{21}{section*.43}%
+\contentsline {paragraph}{なぜ幾何平均が最低温度か（原理的な説明）}{22}{section*.43}%
 \contentsline {section}{\numberline {2}問題II：変な気体（類題：2024・2025年度 問題III；演習6-I, 演習4-III）}{23}{section.2023retake.2}%
 \contentsline {subsection}{\numberline {2.1}問題}{23}{subsection.2023retake.2.1}%
 \contentsline {subsection}{\numberline {2.2}解答}{23}{subsection.2023retake.2.2}%
 \contentsline {paragraph}{この問題のポイント}{23}{section*.44}%
-\contentsline {paragraph}{解き方の流れ}{23}{section*.45}%
-\contentsline {paragraph}{問1：内部エネルギー $E(T,V)$}{23}{section*.46}%
+\contentsline {paragraph}{解き方の流れ}{24}{section*.45}%
+\contentsline {paragraph}{問1：内部エネルギー $E(T,V)$}{24}{section*.46}%
 \contentsline {paragraph}{なぜこのように求まるか（原理的な説明）}{24}{section*.47}%
 \contentsline {paragraph}{問2：圧力 $p(T,V)$}{24}{section*.48}%
-\contentsline {paragraph}{なぜ圧力が $V$ に依存しないか（物理的考察）}{24}{section*.49}%
+\contentsline {paragraph}{なぜ圧力が $V$ に依存しないか（物理的考察）}{25}{section*.49}%
 \contentsline {paragraph}{問3：揺らぎの分散 $\langle \delta E^2 \rangle $}{25}{section*.50}%
 \contentsline {paragraph}{なぜ揺らぎが $k_B T^2 C_V$ か（物理的考察）}{25}{section*.51}%
-\contentsline {section}{\numberline {3}問題III：N個の独立な調和振動子（類題：2024・2025年度 問題IV；演習7-III）}{25}{section.2023retake.3}%
-\contentsline {subsection}{\numberline {3.1}問題}{25}{subsection.2023retake.3.1}%
+\contentsline {section}{\numberline {3}問題III：N個の独立な調和振動子（類題：2024・2025年度 問題IV；演習7-III）}{26}{section.2023retake.3}%
+\contentsline {subsection}{\numberline {3.1}問題}{26}{subsection.2023retake.3.1}%
 \contentsline {subsection}{\numberline {3.2}解答}{26}{subsection.2023retake.3.2}%
 \contentsline {paragraph}{この問題のポイント}{26}{section*.52}%
 \contentsline {paragraph}{用語の説明（統計力学）}{26}{section*.53}%
 \contentsline {paragraph}{解き方の流れ}{26}{section*.54}%
-\contentsline {paragraph}{問1：$Z_1$}{26}{section*.55}%
-\contentsline {paragraph}{なぜこの形になるか（原理的な説明）}{26}{section*.56}%
-\contentsline {paragraph}{問2：$N=1$ のときの $\langle E \rangle $}{26}{section*.57}%
+\contentsline {paragraph}{問1：$Z_1$}{27}{section*.55}%
+\contentsline {paragraph}{なぜこの形になるか（原理的な説明）}{27}{section*.56}%
+\contentsline {paragraph}{問2：$N=1$ のときの $\langle E \rangle $}{27}{section*.57}%
 \contentsline {paragraph}{なぜ $\langle E \rangle = -\partial \ln Z/\partial \beta $ か（原理的な説明）}{27}{section*.58}%
 \contentsline {paragraph}{問3：$Z_N$}{27}{section*.59}%
 \contentsline {paragraph}{問4：$Z_N$ を用いた $\langle E \rangle $}{27}{section*.60}%
-\contentsline {paragraph}{問5の前：$W_N(M)$ が「$E$ ごとに状態数を数えて和を取る」でどう出てくるか}{27}{section*.61}%
-\contentsline {paragraph}{問5：状態数 $W_N(M)$ とボール・箱の対応}{27}{section*.62}%
+\contentsline {paragraph}{問5の前：$W_N(M)$ が「$E$ ごとに状態数を数えて和を取る」でどう出てくるか}{28}{section*.61}%
+\contentsline {paragraph}{問5：状態数 $W_N(M)$ とボール・箱の対応}{28}{section*.62}%
 \contentsline {paragraph}{なぜこの組み合わせになるか（物理的考察）}{28}{section*.63}%
-\contentsline {paragraph}{問6：最確エネルギー $E^*$}{28}{section*.64}%
-\contentsline {paragraph}{なぜ $E^*$ が平均 $\langle E \rangle $ と一致するか（物理的考察）}{29}{section*.65}%
-\contentsline {part}{第III部\hspace {1\zw }2024年度 本試験}{30}{part.3}%
+\contentsline {paragraph}{問6：最確エネルギー $E^*$}{29}{section*.64}%
+\contentsline {paragraph}{なぜ $E^*$ が平均 $\langle E \rangle $ と一致するか（物理的考察）}{30}{section*.65}%
+\contentsline {part}{第III部\hspace {1\zw }2024年度 本試験}{31}{part.3}%
 \contentsline {section}{\numberline {1}問題I：断熱自由膨張とエントロピー変化（類題：演習5-II）}{31}{section.2024.1}%
 \contentsline {subsection}{\numberline {1.1}問題}{31}{subsection.2024.1.1}%
 \contentsline {subsection}{\numberline {1.2}解答}{31}{subsection.2024.1.2}%
 \contentsline {paragraph}{この問題のポイント}{31}{section*.66}%
 \contentsline {paragraph}{解き方の流れ}{31}{section*.67}%
-\contentsline {paragraph}{用語の説明}{31}{section*.68}%
+\contentsline {paragraph}{用語の説明}{32}{section*.68}%
 \contentsline {paragraph}{問1：断熱自由膨張後の温度 $T'$}{32}{section*.69}%
 \contentsline {paragraph}{なぜ温度が変わらないか（原理的な説明）}{32}{section*.70}%
 \contentsline {paragraph}{問2：一連の操作のエントロピー変化}{32}{section*.71}%
-\contentsline {paragraph}{なぜエントロピーが増大するか（物理的考察）}{32}{section*.72}%
+\contentsline {paragraph}{なぜエントロピーが増大するか（物理的考察）}{33}{section*.72}%
 \contentsline {section}{\numberline {2}問題II：左右に仕切られた容器内の理想気体（類題：演習6-IV--V）}{34}{section.2024.2}%
 \contentsline {subsection}{\numberline {2.1}問題}{34}{subsection.2024.2.1}%
-\contentsline {subsection}{\numberline {2.2}解答}{34}{subsection.2024.2.2}%
-\contentsline {paragraph}{この問題のポイント}{34}{section*.73}%
-\contentsline {paragraph}{解き方の流れ}{34}{section*.74}%
-\contentsline {paragraph}{記号と設定}{34}{section*.75}%
+\contentsline {subsection}{\numberline {2.2}解答}{35}{subsection.2024.2.2}%
+\contentsline {paragraph}{この問題のポイント}{35}{section*.73}%
+\contentsline {paragraph}{解き方の流れ}{35}{section*.74}%
+\contentsline {paragraph}{記号と設定}{35}{section*.75}%
 \contentsline {paragraph}{問1：同一種で壁を取り外したときの $\Delta S$}{35}{section*.76}%
-\contentsline {paragraph}{なぜ同一種では $\Delta S = 0$ か（物理的考察）}{35}{section*.77}%
-\contentsline {paragraph}{問2：異なる種類のとき壁にかかる圧力 $p$}{35}{section*.78}%
+\contentsline {paragraph}{なぜ同一種では $\Delta S = 0$ か（物理的考察）}{36}{section*.77}%
+\contentsline {paragraph}{問2：異なる種類のとき壁にかかる圧力 $p$}{36}{section*.78}%
 \contentsline {paragraph}{問3：異なる種類で壁を取り外したときの $\Delta S$（$V$ を用いずに）}{36}{section*.79}%
-\contentsline {paragraph}{問4：$\Delta S \ge 0$ の証明}{36}{section*.80}%
-\contentsline {paragraph}{なぜ異種混合で $\Delta S > 0$ か（物理的考察）}{36}{section*.81}%
+\contentsline {paragraph}{問4：$\Delta S \ge 0$ の証明}{37}{section*.80}%
+\contentsline {paragraph}{なぜ異種混合で $\Delta S > 0$ か（物理的考察）}{37}{section*.81}%
 \contentsline {paragraph}{問5：終状態の気体Aの化学ポテンシャル $\mu _A$}{37}{section*.82}%
 \contentsline {subparagraph}{化学ポテンシャルとは何か}{37}{section*.83}%
-\contentsline {subparagraph}{化学ポテンシャルはどのようにして求まるか}{37}{section*.84}%
+\contentsline {subparagraph}{化学ポテンシャルはどのようにして求まるか}{38}{section*.84}%
 \contentsline {subparagraph}{本問での終状態の $\mu _A$}{38}{section*.85}%
 \contentsline {subparagraph}{化学ポテンシャルの物理的意味（本問の文脈）}{38}{section*.86}%
 \contentsline {section}{\numberline {3}問題III：変な気体（類題：2023年度 問題II；演習6-I, 演習4-III）}{39}{section.2024.3}%
 \contentsline {subsection}{\numberline {3.1}問題}{39}{subsection.2024.3.1}%
 \contentsline {subsection}{\numberline {3.2}解答}{39}{subsection.2024.3.2}%
 \contentsline {paragraph}{なぜこのように解くか（問1・問2）}{39}{section*.87}%
-\contentsline {paragraph}{熱力学の基本関係式とは（導出と直感的な理解）}{39}{section*.88}%
-\contentsline {subparagraph}{どのようにして求まるか（導出）}{39}{section*.89}%
+\contentsline {paragraph}{熱力学の基本関係式とは（導出と直感的な理解）}{40}{section*.88}%
+\contentsline {subparagraph}{どのようにして求まるか（導出）}{40}{section*.89}%
 \contentsline {subparagraph}{直感的にどう理解するか}{40}{section*.90}%
 \contentsline {paragraph}{問1：$E(T,V)$}{40}{section*.91}%
-\contentsline {paragraph}{問2：$p(T,V)$}{40}{section*.92}%
-\contentsline {paragraph}{問3：$\langle \delta E^2 \rangle $}{40}{section*.93}%
+\contentsline {paragraph}{問2：$p(T,V)$}{41}{section*.92}%
+\contentsline {paragraph}{問3：$\langle \delta E^2 \rangle $}{41}{section*.93}%
 \contentsline {section}{\numberline {4}問題IV：N個の独立な調和振動子（類題：2023年度 問題III；演習7-III）}{41}{section.2024.4}%
 \contentsline {subsection}{\numberline {4.1}問題}{41}{subsection.2024.4.1}%
 \contentsline {subsection}{\numberline {4.2}解答}{41}{subsection.2024.4.2}%
-\contentsline {paragraph}{問1：$Z_1$}{41}{section*.94}%
-\contentsline {paragraph}{問2：$N=1$ のときの $\langle E \rangle $}{41}{section*.95}%
-\contentsline {paragraph}{問3：$Z_N$}{41}{section*.96}%
+\contentsline {paragraph}{問1：$Z_1$}{42}{section*.94}%
+\contentsline {paragraph}{問2：$N=1$ のときの $\langle E \rangle $}{42}{section*.95}%
+\contentsline {paragraph}{問3：$Z_N$}{42}{section*.96}%
 \contentsline {paragraph}{問4：$Z_N$ を用いた $\langle E \rangle $}{42}{section*.97}%
 \contentsline {paragraph}{問5：$W_N(M)$}{42}{section*.98}%
 \contentsline {paragraph}{問6：最確エネルギー $E^*$}{42}{section*.99}%
 \contentsline {part}{第IV部\hspace {1\zw }2025年度 本試験}{42}{part.4}%
-\contentsline {section}{\numberline {1}問題I：架空の気体（類題：演習5-I, 演習6-III）}{42}{section.2025.1}%
-\contentsline {subsection}{\numberline {1.1}問題}{42}{subsection.2025.1.1}%
+\contentsline {section}{\numberline {1}問題I：架空の気体（類題：演習5-I, 演習6-III）}{43}{section.2025.1}%
+\contentsline {subsection}{\numberline {1.1}問題}{43}{subsection.2025.1.1}%
 \contentsline {subsection}{\numberline {1.2}解答}{43}{subsection.2025.1.2}%
 \contentsline {paragraph}{この問題のポイント}{43}{section*.100}%
 \contentsline {paragraph}{解き方の流れ}{43}{section*.101}%
 \contentsline {paragraph}{用語の説明}{43}{section*.102}%
-\contentsline {paragraph}{問1：温度 $T$ を $U$ で表す}{43}{section*.103}%
-\contentsline {paragraph}{なぜ $1/T = \partial S/\partial U$ か（原理的な説明）}{43}{section*.104}%
+\contentsline {paragraph}{問1：温度 $T$ を $U$ で表す}{44}{section*.103}%
+\contentsline {paragraph}{なぜ $1/T = \partial S/\partial U$ か（原理的な説明）}{44}{section*.104}%
 \contentsline {paragraph}{問2：断熱自由膨張後の温度 $T'$}{44}{section*.105}%
 \contentsline {paragraph}{問3：一連の操作のエントロピー変化}{44}{section*.106}%
 \contentsline {paragraph}{なぜ一連の操作で $\Delta S = 2 N R \ln (V'/V)$ か（物理的考察）}{45}{section*.107}%
-\contentsline {section}{\numberline {2}問題II：2種類の理想気体（類題：2023年度 問題I；演習3-II, 演習5-III--IV）}{46}{section.2025.2}%
-\contentsline {subsection}{\numberline {2.1}問題}{46}{subsection.2025.2.1}%
+\contentsline {section}{\numberline {2}問題II：2種類の理想気体（類題：2023年度 問題I；演習3-II, 演習5-III--IV）}{47}{section.2025.2}%
+\contentsline {subsection}{\numberline {2.1}問題}{47}{subsection.2025.2.1}%
 \contentsline {subsection}{\numberline {2.2}解答}{47}{subsection.2025.2.2}%
 \contentsline {paragraph}{この問題のポイント}{47}{section*.108}%
 \contentsline {paragraph}{解き方の流れ}{47}{section*.109}%
-\contentsline {paragraph}{記号の整理}{47}{section*.110}%
-\contentsline {paragraph}{問1：終状態の温度 $T$}{47}{section*.111}%
-\contentsline {paragraph}{なぜこの温度になるか（原理的な説明）}{47}{section*.112}%
-\contentsline {paragraph}{問2：エントロピー変化}{48}{section*.113}%
+\contentsline {paragraph}{記号の整理}{48}{section*.110}%
+\contentsline {paragraph}{問1：終状態の温度 $T$}{48}{section*.111}%
+\contentsline {paragraph}{なぜこの温度になるか（原理的な説明）}{48}{section*.112}%
+\contentsline {paragraph}{問2：エントロピー変化}{49}{section*.113}%
 \contentsline {paragraph}{なぜ $\Delta S > 0$ か（物理的考察）}{49}{section*.114}%
 \contentsline {paragraph}{問3：$\Delta S > 0$ の証明}{49}{section*.115}%
-\contentsline {paragraph}{問3の補足（相加・相乗平均との関係）}{49}{section*.116}%
-\contentsline {paragraph}{問4：達成できる最低温度 $T_{\mathrm {min}}$}{49}{section*.117}%
-\contentsline {paragraph}{なぜ幾何平均が最低温度か（原理的な説明）}{50}{section*.118}%
-\contentsline {section}{\numberline {3}問題III：変な気体（類題：2023年度 問題II、2024年度 問題III；演習6-I, 演習4-III）}{51}{section.2025.3}%
-\contentsline {subsection}{\numberline {3.1}問題}{51}{subsection.2025.3.1}%
+\contentsline {paragraph}{問3の補足（相加・相乗平均との関係）}{50}{section*.116}%
+\contentsline {paragraph}{問4：達成できる最低温度 $T_{\mathrm {min}}$}{50}{section*.117}%
+\contentsline {paragraph}{なぜ幾何平均が最低温度か（原理的な説明）}{51}{section*.118}%
+\contentsline {section}{\numberline {3}問題III：変な気体（類題：2023年度 問題II、2024年度 問題III；演習6-I, 演習4-III）}{52}{section.2025.3}%
+\contentsline {subsection}{\numberline {3.1}問題}{52}{subsection.2025.3.1}%
 \contentsline {subsection}{\numberline {3.2}解答}{52}{subsection.2025.3.2}%
 \contentsline {paragraph}{この問題のポイント}{52}{section*.119}%
 \contentsline {paragraph}{なぜこのように解くか}{52}{section*.120}%
 \contentsline {paragraph}{問1：$E(T,V)$}{52}{section*.121}%
-\contentsline {paragraph}{問2：$p(T,V)$}{52}{section*.122}%
-\contentsline {paragraph}{問3：$\langle \delta E^2 \rangle $}{52}{section*.123}%
+\contentsline {paragraph}{問2：$p(T,V)$}{53}{section*.122}%
+\contentsline {paragraph}{問3：$\langle \delta E^2 \rangle $}{53}{section*.123}%
 \contentsline {section}{\numberline {4}問題IV：2準位系の統計力学（カノニカルとミクロカノニカル）（類題：演習7-I, 演習7-III, 演習7-IV）}{53}{section.2025.4}%
 \contentsline {subsection}{\numberline {4.1}問題}{53}{subsection.2025.4.1}%
-\contentsline {subsection}{\numberline {4.2}解答}{53}{subsection.2025.4.2}%
-\contentsline {paragraph}{この問題のポイント}{53}{section*.124}%
+\contentsline {subsection}{\numberline {4.2}解答}{54}{subsection.2025.4.2}%
+\contentsline {paragraph}{この問題のポイント}{54}{section*.124}%
 \contentsline {paragraph}{解き方の流れ}{54}{section*.125}%
 \contentsline {paragraph}{問1：$Z_1(T)$}{54}{section*.126}%
 \contentsline {paragraph}{問2：$N=1$ のときの $\langle E \rangle $}{54}{section*.127}%
-\contentsline {paragraph}{問3：$Z_N$}{54}{section*.128}%
+\contentsline {paragraph}{問3：$Z_N$}{55}{section*.128}%
 \contentsline {paragraph}{問4：$Z_N$ を用いた $\langle E \rangle $}{55}{section*.129}%
 \contentsline {paragraph}{問5：状態数 $W_N(E_{\mathrm {tot}})$}{55}{section*.130}%
-\contentsline {paragraph}{問6：エントロピー $S(N_{\mathrm {tot}}, E_{\mathrm {tot}})$}{55}{section*.131}%
+\contentsline {paragraph}{問6：エントロピー $S(N_{\mathrm {tot}}, E_{\mathrm {tot}})$}{56}{section*.131}%
 \contentsline {paragraph}{問7：$E_{\mathrm {tot}}$ を温度 $T$ の関数として表す}{56}{section*.132}%
 \contentsline {paragraph}{なぜ $1/T = \partial S/\partial E$ か（問7の補足）}{57}{section*.133}%
