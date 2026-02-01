@@ -3,12 +3,14 @@
 %======================================================================
 \part{2023年度 期末試験}
 \setcounter{section}{0}
+\renewcommand{\theHsection}{2023.\arabic{section}}
+\renewcommand{\theHsubsection}{2023.\arabic{section}.\arabic{subsection}}
 
 %----------------------------------------------------------------------
-\section{問題1：物質中のMaxwell方程式}
+\section{問題1：物質中のMaxwell方程式（類題：2024年度 問題1、2024年度再試験 問題1；第2回 問題1）}\label{sec:2023-1}
 %----------------------------------------------------------------------
 
-\subsection{問題}
+\subsection{問題}\label{sec:2023-1-prob}
 
 静電磁場における物質中のMaxwell方程式を考え、その後、時間変動する電磁場に拡張する。真空中の誘電率を $\varepsilon_0$、透磁率を $\mu_0$ とする。
 
@@ -18,7 +20,7 @@
 \item 時間変動する電磁場を考える。物質中のMaxwell方程式のうち、時間変動する項を含む式を、$\mathbf{E}$、$\mathbf{B}$、$\varepsilon_0$、$\mu_0$、$\mathbf{i}$、$\mathbf{P}$、$\mathbf{M}$ を用いて示せ。
 \end{enumerate}
 
-\subsection{解答}
+\subsection{解答}\label{sec:2023-1-ans}
 
 \paragraph{この問題のポイント（初学者向け）}
 
@@ -78,13 +80,14 @@
 （多くの教科書では磁化電流を $\mathbf{i}_M = \nabla\times\mathbf{M}$ と定義し、$\nabla\times\mathbf{B} = \mu_0(\mathbf{i} + \mathbf{i}_M)$ と書く。問題文の $\mathbf{i}_M = \nabla\times\mathbf{M}/\mu_0$ に合わせるなら、$\nabla\times\mathbf{B} = \mu_0\mathbf{i} + \nabla\times\mathbf{M}$ となり、同じ形になる。）
 
 まとめると、求める4式は
-\begin{align}
-\nabla\cdot\mathbf{E} &= \frac{\rho + \rho_p}{\varepsilon_0}, \\
-\nabla\cdot\mathbf{B} &= 0, \\
-\nabla\times\mathbf{E} &= \mathbf{0}, \\
-\nabla\times\mathbf{B} &= \mu_0\mathbf{i} + \mathbf{i}_M.
-\end{align}
-ただし問題文では $\mathbf{i}_M$ を「電流密度」として与えているので、$\nabla\times\mathbf{B} = \mu_0(\mathbf{i} + \mathbf{i}_M)$ と書いておく。$\mathbf{i}_M = \nabla\times\mathbf{M}/\mu_0$ なら $\nabla\times\mathbf{B} = \mu_0\mathbf{i} + \nabla\times\mathbf{M}$ である。
+\解答
+\begin{equation}
+\boxed{\nabla\cdot\mathbf{E} = \frac{\rho + \rho_p}{\varepsilon_0}}, \quad
+\boxed{\nabla\cdot\mathbf{B} = 0}, \quad
+\boxed{\nabla\times\mathbf{E} = \mathbf{0}}, \quad
+\boxed{\nabla\times\mathbf{B} = \mu_0(\mathbf{i} + \mathbf{i}_M)}}}.
+\end{equation}
+問題文では $\mathbf{i}_M$ を「電流密度」として与えており、$\mathbf{i}_M = \nabla\times\mathbf{M}/\mu_0$ なら $\nabla\times\mathbf{B} = \mu_0\mathbf{i} + \nabla\times\mathbf{M}$ と書ける。
 
 \paragraph{なぜ物質中では分極電荷・磁化電流を明示するか（原理的な説明）}
 
@@ -97,6 +100,7 @@
 \nabla\cdot\mathbf{E} = \frac{\rho + \rho_p}{\varepsilon_0} = \frac{\rho - \nabla\cdot\mathbf{P}}{\varepsilon_0}.
 \end{equation}
 移項して $\nabla\cdot(\varepsilon_0\mathbf{E}+\mathbf{P}) = \rho$、すなわち
+\解答
 \begin{equation}
 \boxed{\nabla\cdot(\varepsilon\mathbf{E}) = \rho}.
 \end{equation}
@@ -107,6 +111,7 @@ $\varepsilon$ は場所の関数なので、左辺は $\nabla\cdot(\varepsilon\m
 \textbf{ステップ1}：問題文の透磁率の定義は $\mathbf{B}/\mu = (\mathbf{B}-\mathbf{M})/\mu_0$ である。これより $\mathbf{B}/\mu_0 - \mathbf{M}/\mu_0 = \mathbf{B}/\mu$ なので、$\mathbf{H} := \mathbf{B}/\mu = (\mathbf{B}-\mathbf{M})/\mu_0$ とおくと、$\mathbf{H}$ は $\mathbf{B}$ と $\mathbf{M}$ で表せる。
 
 \textbf{ステップ2}：$\nabla\times\mathbf{B} = \mu_0\mathbf{i} + \nabla\times\mathbf{M}$ の両辺を $\mu_0$ で割ると $\nabla\times(\mathbf{B}/\mu_0) = \mathbf{i} + \nabla\times(\mathbf{M}/\mu_0)$。ここで $\mathbf{B}/\mu_0 = \mathbf{B}/\mu + \mathbf{M}/\mu_0$（定義 $\mathbf{B}/\mu = (\mathbf{B}-\mathbf{M})/\mu_0$ から $\mathbf{B}/\mu_0 = \mathbf{B}/\mu + \mathbf{M}/\mu_0$）なので、$\nabla\times(\mathbf{B}/\mu) + \nabla\times(\mathbf{M}/\mu_0) = \mathbf{i} + \nabla\times(\mathbf{M}/\mu_0)$。両辺で $\nabla\times(\mathbf{M}/\mu_0)$ が打ち消し、$\nabla\times(\mathbf{B}/\mu) = \mathbf{i}$ を得る。すなわち
+\解答
 \begin{equation}
 \boxed{\nabla\times\left(\frac{\mathbf{B}}{\mu}\right) = \mathbf{i}}.
 \end{equation}
@@ -132,20 +137,23 @@ $\nabla\cdot(\varepsilon\mathbf{E})=\rho$ は「真電荷だけが電束密度 $
 = \mu_0\mathbf{i} + \mu_0\varepsilon_0\frac{\partial\mathbf{E}}{\partial t} + \mu_0\frac{\partial\mathbf{P}}{\partial t} + \nabla\times\mathbf{M}.
 \end{equation}
 問題文は「$\mathbf{E},\mathbf{B},\varepsilon_0,\mu_0,\mathbf{i},\mathbf{P},\mathbf{M}$ を用いて示せ」なので、上記のまま
-\begin{align}
-\boxed{\nabla\times\mathbf{E} &= -\frac{\partial\mathbf{B}}{\partial t}}, \\
-\boxed{\nabla\times\mathbf{B} &= \mu_0\mathbf{i} + \mu_0\varepsilon_0\frac{\partial\mathbf{E}}{\partial t} + \mu_0\frac{\partial\mathbf{P}}{\partial t} + \nabla\times\mathbf{M}}}.
-\end{align}
+\解答
+\begin{equation}
+\boxed{\nabla\times\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}}
+\end{equation}
+\begin{equation}
+\boxed{\nabla\times\mathbf{B} = \mu_0\mathbf{i} + \mu_0\varepsilon_0\frac{\partial\mathbf{E}}{\partial t} + \mu_0\frac{\partial\mathbf{P}}{\partial t} + \nabla\times\mathbf{M}}}.
+\end{equation}
 
 \paragraph{なぜ時間変動で $\partial\mathbf{B}/\partial t$ と変位電流が現れるか（原理的な説明）}
 
 ファラデーの法則 $\nabla\times\mathbf{E}=-\partial\mathbf{B}/\partial t$ は、磁束の時間変化が閉回路に沿った誘導起電力を生むという実験事実（電磁誘導）の数学的表現である。静磁場では $\partial\mathbf{B}/\partial t=\mathbf{0}$ なので $\nabla\times\mathbf{E}=\mathbf{0}$ だったが、時間変動があると渦電場が生じる。アンペールの法則には、マクスウェルが補完した\textbf{変位電流} $\varepsilon_0\partial\mathbf{E}/\partial t$ および物質中では分極の時間変化 $\partial\mathbf{P}/\partial t$ が加わる。変位電流を導入しないと、コンデンサの極板間のように電流が流れていない領域で磁場が説明できなくなる。つまり「電場の時間変化も磁場を回転させる」という対称性が、電磁波の存在を可能にしている。
 
 %----------------------------------------------------------------------
-\section{問題2：誘電体板と導体板の電場中の振る舞い}
+\section{問題2：誘電体板と導体板の電場中の振る舞い（類題：第4回 問題2・3・4、第2回 問題4・6）}\label{sec:2023-2}
 %----------------------------------------------------------------------
 
-\subsection{問題}
+\subsection{問題}\label{sec:2023-2-prob}
 
 真空の一様な外部電場 $\mathbf{E}_0$ の中に、誘電体板または導体板を置いたときの、内部の電場・電束密度および表面電荷密度を求める。真空の誘電率を $\varepsilon_0$ とする。
 
@@ -156,7 +164,7 @@ $\nabla\cdot(\varepsilon\mathbf{E})=\rho$ は「真電荷だけが電束密度 $
 \item 誘電体板を導体板に変更する。導体板を電場に垂直に置いたとき、静電誘導によって導体面に現れる電荷の面密度を求めよ。
 \end{enumerate}
 
-\subsection{解答}
+\subsection{解答}\label{sec:2023-2-ans}
 
 \paragraph{この問題のポイント（初学者向け）}
 
@@ -198,6 +206,7 @@ $\nabla\cdot(\varepsilon\mathbf{E})=\rho$ は「真電荷だけが電束密度 $
 \textbf{ステップ2：内部電場}
 
 $\mathbf{D} = \varepsilon\mathbf{E}$ より、$\mathbf{E} = \mathbf{D}/\varepsilon = (\varepsilon_0/\varepsilon)\mathbf{E}_0$。したがって
+\解答
 \begin{equation}
 \boxed{\mathbf{E} = \frac{\varepsilon_0}{\varepsilon}\mathbf{E}_0 = \frac{\varepsilon_0}{\varepsilon}E_0\,\mathbf{e}_z}.
 \end{equation}
@@ -209,6 +218,7 @@ $\mathbf{D} = \varepsilon\mathbf{E}$ より、$\mathbf{E} = \mathbf{D}/\varepsil
 \paragraph{2-2：分極電荷の面密度 $\sigma_p$}
 
 分極は $\mathbf{P} = \mathbf{D} - \varepsilon_0\mathbf{E} = \varepsilon_0\mathbf{E}_0 - \varepsilon_0(\varepsilon_0/\varepsilon)\mathbf{E}_0 = \varepsilon_0(1 - \varepsilon_0/\varepsilon)\mathbf{E}_0$。板の上面では外向き法線は $\mathbf{n} = \mathbf{e}_z$ なので、$\sigma_p = \mathbf{P}\cdot\mathbf{n} = \varepsilon_0(1-\varepsilon_0/\varepsilon)E_0$。下面では $\mathbf{n} = -\mathbf{e}_z$ なので $\sigma_p = -\mathbf{P}\cdot\mathbf{e}_z = -\varepsilon_0(1-\varepsilon_0/\varepsilon)E_0$。通常「面密度」は大きさで答えるか、上面の値を答える。上面の分極電荷の面密度は
+\解答
 \begin{equation}
 \boxed{\sigma_p = \varepsilon_0\left(1 - \frac{\varepsilon_0}{\varepsilon}\right)E_0}.
 \end{equation}
@@ -223,6 +233,7 @@ $\mathbf{D} = \varepsilon\mathbf{E}$ より、$\mathbf{E} = \mathbf{D}/\varepsil
 板の法線を $\mathbf{n}$ とし、$\mathbf{E}_0$ と $\mathbf{n}$ のなす角を $\theta_0$ とする。真空側では $\mathbf{E}_0$ の法線成分は $E_0\cos\theta_0$、接線成分は $E_0\sin\theta_0$。
 
 境界条件：$\mathbf{D}$ の法線成分が連続、$\mathbf{E}$ の接線成分が連続。誘電体内部で $\mathbf{E}$ は一様で、その法線成分を $E_{\mathrm{n}}$、接線成分を $E_{\mathrm{t}}$ とする。接線成分の連続から $E_{\mathrm{t}} = E_0\sin\theta_0$。法線成分について、真空側の $D_{\mathrm{n}} = \varepsilon_0 E_0\cos\theta_0$ が誘電体側の $D_{\mathrm{n}} = \varepsilon E_{\mathrm{n}}$ と等しいので、$E_{\mathrm{n}} = (\varepsilon_0/\varepsilon)E_0\cos\theta_0$。したがって内部電場の大きさは
+\解答
 \begin{equation}
 E = \sqrt{E_{\mathrm{n}}^2 + E_{\mathrm{t}}^2}
 = \sqrt{\frac{\varepsilon_0^2}{\varepsilon^2}E_0^2\cos^2\theta_0 + E_0^2\sin^2\theta_0}
@@ -244,6 +255,7 @@ E = \sqrt{E_{\mathrm{n}}^2 + E_{\mathrm{t}}^2}
 \textbf{無限平面が作る電場}：面密度 $\sigma$ の無限平面は、面に垂直で大きさ $\sigma/(2\varepsilon_0)$ の電場を「表側」と「裏側」に作る。表側では外向き法線の向きに、裏側では逆向きに働く。
 
 \textbf{導体内部での2面の寄与}：上面の $+\sigma$ の「裏側」（＝導体内部）では電場は下向き $-\sigma/(2\varepsilon_0)\mathbf{e}_z$。下面の $-\sigma$ の「裏側」（＝導体内部）では、下面の内向き法線は $+\mathbf{e}_z$ なので、面密度 $-\sigma$ が作る裏側の電場は $(-\sigma)/(2\varepsilon_0)\times(+\mathbf{e}_z) = -\sigma/(2\varepsilon_0)\mathbf{e}_z$（下向き）。よって上面・下面の寄与はともに $-\sigma/(2\varepsilon_0)\mathbf{e}_z$ で、合計は $-\sigma/\varepsilon_0\,\mathbf{e}_z$。外部電場 $E_0\mathbf{e}_z$ と打ち消し合うには $E_0 = \sigma/\varepsilon_0$、すなわち $\sigma = \varepsilon_0 E_0$。上面に現れる電荷の面密度は $+\varepsilon_0 E_0$、下面には $-\varepsilon_0 E_0$。したがって
+\解答
 \begin{equation}
 \boxed{\sigma = \varepsilon_0 E_0}.
 \end{equation}
@@ -275,10 +287,10 @@ E = \sqrt{E_{\mathrm{n}}^2 + E_{\mathrm{t}}^2}
 \end{figure}
 
 %----------------------------------------------------------------------
-\section{問題3：金属表面における平面電磁波の反射と透過}
+\section{問題3：金属表面における平面電磁波の反射と透過（類題：第7回 問題4）}\label{sec:2023-3}
 %----------------------------------------------------------------------
 
-\subsection{問題}
+\subsection{問題}\label{sec:2023-3-prob}
 
 $z$ 軸方向に進行する平面電磁波が、真空から金属の境界面に垂直に入射する。平面電磁波は $\mathbf{E} = E_0\exp[\mathrm{i}(kz-\omega t)]$、$\mathbf{H} = H_0\exp[\mathrm{i}(kz-\omega t)]$。角振動数 $\omega$、波数 $k$。真空（誘電率 $\varepsilon_0$、透磁率 $\mu_0$）。金属は電気伝導率 $\sigma$、誘電率 $\varepsilon_0$、透磁率 $\mu_0$。$\sigma$ は実数。境界面は $z=0$、金属は $z\ge 0$。
 
@@ -288,7 +300,7 @@ $z$ 軸方向に進行する平面電磁波が、真空から金属の境界面�
 \item 金属が厚み $d$ の板（$0\le z\le d$）であるとき、厚み $d$ の金属板を通過後の光の強度 $I_2$ を求めよ。金属内部での多重反射を考え、位相は考慮せず振幅だけを足し合わせてよい。
 \end{enumerate}
 
-\subsection{解答}
+\subsection{解答}\label{sec:2023-3-ans}
 
 \paragraph{この問題のポイント（初学者向け）}
 
@@ -322,6 +334,7 @@ $k_m = k_0\sqrt{1+\mathrm{i}\sigma/(\omega\varepsilon_0)}$ を代入して整理
 R = \frac{(1-n'_m)^2 + n''_m{}^2}{(1+n'_m)^2 + n''_m{}^2}.
 \end{equation}
 良導体では $|n_m| \gg 1$ なので $R \to 1$。問題では「$\varepsilon_0,\sigma,\omega$ を用いて反射率 $R$ を求めよ」とあるので、上記の $n_m = \sqrt{1+\mathrm{i}\sigma/(\omega\varepsilon_0)}$ を用いた
+\解答
 \begin{equation}
 \boxed{R = \left|\frac{1 - \sqrt{1+\mathrm{i}\sigma/(\omega\varepsilon_0)}}{1 + \sqrt{1+\mathrm{i}\sigma/(\omega\varepsilon_0)}}\right|^2}.
 \end{equation}
@@ -334,6 +347,7 @@ R = \frac{(1-n'_m)^2 + n''_m{}^2}{(1+n'_m)^2 + n''_m{}^2}.
 \paragraph{3-2：金属内部 $z=d$ での光の強度 $I_1$}
 
 金属中では電場が $E(z) \propto \exp(\mathrm{i}(k_m z - \omega t))$ で、$k_m = \alpha + \mathrm{i}\beta$（$\beta>0$）とすると $|E(z)| \propto \exp(-\beta z)$。強度は $|E|^2$ に比例するので、$z=0$ での入射強度に対する金属内の強度の比は、$z=0$ 界面直下での振幅の2乗比（つまり $(1-R)$ に相当する進入率）に $\exp(-2\beta d)$ をかけたもの。入射強度を $I_0$ とすると、金属表面（$z=0^+$）での強度は $I_0(1-R)$。そこから $z=d$ では
+\解答
 \begin{equation}
 \boxed{I_1 = I_0(1-R)\exp(-2\beta d)}.
 \end{equation}
@@ -358,6 +372,7 @@ I_2 = I_0(1-R)^2\exp(-2\beta d)\bigl(1 + R\exp(-2\beta d) + R^2\exp(-4\beta d) +
 = I_0\frac{(1-R)^2\exp(-2\beta d)}{1 - R\exp(-2\beta d)}.
 \end{equation}
 したがって
+\解答
 \begin{equation}
 \boxed{I_2 = I_0\,\frac{(1-R)^2\exp(-2\beta d)}{1 - R\exp(-2\beta d)}}.
 \end{equation}

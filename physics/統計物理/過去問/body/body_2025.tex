@@ -82,7 +82,13 @@ $S = NR \ln[(U/N)^{3}(V/N)^2] + N S_0$ であり、
 
 \paragraph{問3：一連の操作のエントロピー変化}
 
-準静的断熱過程 $(T',V') \to (T'',V)$ ではエントロピーは一定なので $dS = 0$。$S(U,V) = NR\ln[(U/N)^{3}(V/N)^2] + NS_0$ において、$S$ が一定なら $(U/N)^{3}(V/N)^2$ が一定、すなわち $U^3 V^2 = \mathrm{const}$ が成り立つ（断熱可逆過程の関係式）。$U = 3 N R T$ なので $U^3 \propto T^3$ であり、$T^3 V^2 = \mathrm{const}$ となる。したがって $(T')^3 (V')^2 = (T'')^3 V^2$。$T'=T$ より
+準静的断熱過程 $(T',V') \to (T'',V)$ ではエントロピーは一定なので $dS = 0$。$S(U,V) = NR\ln[(U/N)^{3}(V/N)^2] + NS_0$ において、$S$ が一定なら対数の中身 $(U/N)^{3}(V/N)^2$ が一定でなければならない。$N$ は定数なので、これは $U^3 V^2 = \mathrm{const}$ と同値である（断熱可逆過程の関係式）。
+
+次に、この関係式を温度 $T$ で表す。問1で求めた $U = 3NRT$ を $U^3 V^2 = \mathrm{const}$ に代入すると
+\begin{equation}
+(3NRT)^3 V^2 = \mathrm{const}.
+\end{equation}
+$(3NR)^3$ は定数なので、両辺を $(3NR)^3$ で割ると $T^3 V^2 = \mathrm{const}$ が得られる。この関係式を状態 $(T',V')$ と $(T'',V)$ に適用すると $(T')^3 (V')^2 = (T'')^3 V^2$。問2より $T'=T$ なので
 \begin{equation}
 T'' = T \left(\frac{V'}{V}\right)^{2/3}.
 \end{equation}
@@ -408,50 +414,89 @@ $N_0$ 個の振動子がエネルギー $E_0=0$、$N_1$ 個がエネルギー $E
 \item 問2：$\langle E \rangle = -\partial\ln Z_1/\partial\beta$ または $\langle E \rangle = (0\cdot 1 + \varepsilon\cdot e^{-\beta\varepsilon})/Z_1$。
 \item 問3：$N$ 個が独立なので $Z_N = (Z_1)^N$。
 \item 問4：$\langle E \rangle = N\times$（1粒子の平均）。
-\item 問5：$N_{\mathrm{tot}}$ 個のうち $N_1$ 個を「エネルギー $\varepsilon$ を取る粒子」に割り当てる組み合わせの数が $W_N$。$W_N = \binom{N_{\mathrm{tot}}}{N_1} = N_{\mathrm{tot}}!/(N_0!\,N_1!)$。
+\item 問5：全 $N_0+N_1$ 個のうち $N_1$ 個を「エネルギー $\varepsilon$ を取る粒子」に割り当てる組み合わせ。解答は $N_0$, $N_1$ のみで $W_N = (N_0+N_1)!/(N_0!\,N_1!)$ と書く。
 \item 問6：$S = k_B \ln W_N$。スターリングの公式で $\ln W_N$ を $N_0$, $N_1$（または $N_{\mathrm{tot}}$, $E_{\mathrm{tot}}$）で表す。
 \item 問7：熱力学の関係 $1/T = (\partial S/\partial E_{\mathrm{tot}})_{N_{\mathrm{tot}}}$ を用い、$E_{\mathrm{tot}}$ について解く。
 \end{enumerate}
 
 \paragraph{問1：$Z_1(T)$}
 
-\textbf{なぜ $Z_1 = 1 + e^{-\beta\varepsilon}$ か}：分配関数は「すべての状態についてボルツマン因子 $e^{-\beta E}$ を足し合わせたもの」である。1個の粒子は $E_0=0$ と $E_1=\varepsilon$ の2状態のみを取るので、$Z_1 = e^{-\beta\cdot 0} + e^{-\beta\cdot\varepsilon} = 1 + e^{-\beta\varepsilon}$ である。これで確率 $P(0)=1/Z_1$、$P(\varepsilon)=e^{-\beta\varepsilon}/Z_1$ が規格化される。
+\textbf{分配関数の定義}：カノニカル分布では、分配関数 $Z$ は「すべての状態 $i$ についてボルツマン因子 $e^{-\beta E_i}$ を足し合わせたもの」である：$Z = \sum_i e^{-\beta E_i}$。これにより確率 $P(i) = e^{-\beta E_i}/Z$ が規格化される（$\sum_i P(i) = 1$）。
 
-1個の振動子は $E_0=0$ または $E_1=\varepsilon$ の2状態のみを取る。したがって
+1個の振動子は $E_0=0$ または $E_1=\varepsilon$ の2状態のみを取るので、状態の和は2項のみである：
 \begin{equation}
-Z_1 = e^{-\beta E_0} + e^{-\beta E_1} = e^0 + e^{-\beta\varepsilon}
+Z_1 = \sum_{i \in \{0,1\}} e^{-\beta E_i}
+= e^{-\beta E_0} + e^{-\beta E_1}
+= e^{-\beta \cdot 0} + e^{-\beta \varepsilon}
+= e^0 + e^{-\beta\varepsilon}
 = \boxed{1 + e^{-\beta\varepsilon}}.
 \end{equation}
+確率は $P(E_0) = 1/Z_1$、$P(E_1) = e^{-\beta\varepsilon}/Z_1$ であり、$P(E_0) + P(E_1) = 1$ が成り立つ。
 
 \paragraph{問2：$N=1$ のときの $\langle E \rangle$}
 
-\textbf{なぜこのように求まるか}：カノニカル分布では平均エネルギーは $\langle E \rangle = \sum_i E_i P(i) = (1/Z_1)\sum_i E_i e^{-\beta E_i}$ で計算できる。2状態のみなので $\langle E \rangle = (0\cdot 1 + \varepsilon\cdot e^{-\beta\varepsilon})/Z_1 = \varepsilon\,e^{-\beta\varepsilon}/(1+e^{-\beta\varepsilon})$ である。あるいは、分配関数から $\langle E \rangle = -\partial\ln Z_1/\partial\beta$ を用いても同じ結果になる（$\ln Z_1 = \ln(1+e^{-\beta\varepsilon})$ を $\beta$ で微分すると $-\varepsilon\,e^{-\beta\varepsilon}/(1+e^{-\beta\varepsilon})$ なので、マイナスをとって $\langle E \rangle = \varepsilon/(e^{\beta\varepsilon}+1)$）。よって
+\textbf{方法1（定義から直接）}：平均エネルギーは $\langle E \rangle = \sum_i E_i P(i) = (1/Z_1)\sum_i E_i e^{-\beta E_i}$ である。2状態では $E_0=0$、$E_1=\varepsilon$ なので
+\begin{equation}
+\langle E \rangle = \frac{0 \cdot e^{-\beta \cdot 0} + \varepsilon \cdot e^{-\beta\varepsilon}}{Z_1}
+= \frac{\varepsilon\,e^{-\beta\varepsilon}}{1 + e^{-\beta\varepsilon}}.
+\end{equation}
+
+\textbf{方法2（分配関数から）}：一般的に $\langle E \rangle = -\partial\ln Z/\partial\beta$ が成り立つ（導出：$\ln Z = \ln\sum_i e^{-\beta E_i}$ を $\beta$ で微分すると $\frac{1}{Z}\sum_i (-E_i)e^{-\beta E_i} = -\langle E \rangle$）。$Z_1 = 1 + e^{-\beta\varepsilon}$ より
+\begin{equation}
+\ln Z_1 = \ln(1 + e^{-\beta\varepsilon}), \quad
+\frac{\partial \ln Z_1}{\partial \beta} = \frac{- \varepsilon\,e^{-\beta\varepsilon}}{1 + e^{-\beta\varepsilon}}.
+\end{equation}
+したがって $\langle E \rangle = -\partial\ln Z_1/\partial\beta = \varepsilon\,e^{-\beta\varepsilon}/(1+e^{-\beta\varepsilon})$。分子・分母に $e^{\beta\varepsilon}$ をかけると $\varepsilon/(e^{\beta\varepsilon}+1)$ となる。よって
 \begin{equation}
 \boxed{\langle E \rangle = \frac{\varepsilon}{e^{\beta\varepsilon}+1} = \frac{\varepsilon\,e^{-\beta\varepsilon}}{1+e^{-\beta\varepsilon}}}.
 \end{equation}
 
 \paragraph{問3：$Z_N$}
 
-各振動子が独立なので
+$N$ 個の振動子が\textbf{互いに独立}であるとき、全系の状態は各粒子の状態の組み合わせで表される。粒子 $j$ が状態 $i_j \in \{0,1\}$ にあるとき、全エネルギーは $E_{i_1} + E_{i_2} + \cdots + E_{i_N}$ である。分配関数は全状態について $e^{-\beta E}$ を足し合わせるので
+\begin{equation}
+Z_N = \sum_{i_1,i_2,\ldots,i_N} e^{-\beta(E_{i_1}+E_{i_2}+\cdots+E_{i_N})}
+= \sum_{i_1} e^{-\beta E_{i_1}} \sum_{i_2} e^{-\beta E_{i_2}} \cdots \sum_{i_N} e^{-\beta E_{i_N}}
+= (Z_1)^N.
+\end{equation}
+（各 $i_j$ について和は独立に行えるので、$N$ 個の1粒子分配関数の積になる。）したがって
 \begin{equation}
 \boxed{Z_N = (Z_1)^N = (1 + e^{-\beta\varepsilon})^N}.
 \end{equation}
 
 \paragraph{問4：$Z_N$ を用いた $\langle E \rangle$}
 
-$\langle E \rangle = -\partial\ln Z_N/\partial\beta = N\times$（1粒子の平均エネルギー）より
+$\langle E \rangle = -\partial\ln Z_N/\partial\beta$ を用いる。$Z_N = (Z_1)^N$ より
+\begin{equation}
+\ln Z_N = N \ln Z_1, \quad
+\frac{\partial \ln Z_N}{\partial \beta} = N \,\frac{\partial \ln Z_1}{\partial \beta}.
+\end{equation}
+したがって
+\begin{equation}
+\langle E \rangle = -\frac{\partial \ln Z_N}{\partial \beta}
+= N\left(-\frac{\partial \ln Z_1}{\partial \beta}\right)
+= N \langle E \rangle_1
+= N\,\frac{\varepsilon}{e^{\beta\varepsilon}+1}.
+\end{equation}
+（$\langle E \rangle_1$ は問2で求めた1粒子の平均エネルギーである。）よって
 \begin{equation}
 \boxed{\langle E \rangle = N\,\frac{\varepsilon}{e^{\beta\varepsilon}+1}}.
 \end{equation}
 
 \paragraph{問5：状態数 $W_N(E_{\mathrm{tot}})$}
 
-全エネルギーは $E_{\mathrm{tot}} = N_1 \varepsilon$ なので、$N_1 = E_{\mathrm{tot}}/\varepsilon$、$N_0 = N_{\mathrm{tot}} - N_1$ である。\textbf{状態数}とは、$N_{\mathrm{tot}}$ 個の振動子のうち「どの $N_1$ 個がエネルギー $\varepsilon$ を取るか」を決めるやり方の数に等しい。残り $N_0$ 個は $E_0=0$ を取る。$N_{\mathrm{tot}}$ 個から $N_1$ 個を選ぶ組み合わせの数が $\binom{N_{\mathrm{tot}}}{N_1}$ である。したがって
+問題文の指示どおり、$N_0$ と $N_1$ のみを用いて表す。全振動子数は $N_0 + N_1$ であり、このうち $N_1$ 個がエネルギー $\varepsilon$ を、$N_0$ 個が $E_0=0$ を取る。
+
+\textbf{微視的状態の数}：各粒子が $E_0=0$ か $E_1=\varepsilon$ のどちらかを取る。全 $N_0+N_1$ 個の粒子のうち、\textbf{どの $N_1$ 個}がエネルギー $\varepsilon$ を取るかを決めると、残り $N_0$ 個は自動的に $E_0=0$ を取る。したがって、状態数は「$N_0+N_1$ 個のうち $N_1$ 個を選ぶ組み合わせの数」に等しい：
 \begin{equation}
-\boxed{W_N(E_{\mathrm{tot}}) = \binom{N_{\mathrm{tot}}}{N_1}
-= \frac{N_{\mathrm{tot}}!}{N_0!\,N_1!}}.
+W_N = \binom{N_0+N_1}{N_1}
+= \frac{(N_0+N_1)!}{N_1!\,(N_0+N_1-N_1)!}
+= \frac{(N_0+N_1)!}{N_0!\,N_1!}.
 \end{equation}
-（具体例：$N_{\mathrm{tot}}=3$、$N_1=1$ のとき、$\varepsilon$ を取る1個の選び方は3通りなので $W_N = \binom{3}{1} = 3$。）
+（具体例：$N_0=2$、$N_1=1$ のとき、3個のうち1個を選ぶので $W_N = \binom{3}{1} = 3$。）したがって、$N_0$ と $N_1$ のみを用いた答えは
+\begin{equation}
+\boxed{W_N(E_{\mathrm{tot}}) = \frac{(N_0+N_1)!}{N_0!\,N_1!}}.
+\end{equation}
 
 \begin{figure}[H]
 \centering
@@ -462,14 +507,26 @@ $\langle E \rangle = -\partial\ln Z_N/\partial\beta = N\times$（1粒子の平�
 
 \paragraph{問6：エントロピー $S(N_{\mathrm{tot}}, E_{\mathrm{tot}})$}
 
-ボルツマンの関係式 $S = k_B \ln W_N(E_{\mathrm{tot}})$ を用いる。$N_1 = E_{\mathrm{tot}}/\varepsilon$、$N_0 = N_{\mathrm{tot}} - N_1$ とする。スターリングの公式 $\ln N! \approx N\ln N - N$ より
+ボルツマンの関係式 $S = k_B \ln W_N(E_{\mathrm{tot}})$ を用いる。$N_1 = E_{\mathrm{tot}}/\varepsilon$、$N_0 = N_{\mathrm{tot}} - N_1$ とする。
+
+スターリングの公式 $\ln N! \approx N\ln N - N$（$N$ が大きいとき）を各階乗に適用する：
 \begin{align}
-\ln W_N &= \ln(N_{\mathrm{tot}}!) - \ln(N_0!) - \ln(N_1!) \notag \\
-&\approx N_{\mathrm{tot}}\ln N_{\mathrm{tot}} - N_{\mathrm{tot}}
-- N_0\ln N_0 + N_0 - N_1\ln N_1 + N_1 \notag \\
-&= N_{\mathrm{tot}}\ln N_{\mathrm{tot}} - N_0\ln N_0 - N_1\ln N_1.
+\ln(N_{\mathrm{tot}}!) &\approx N_{\mathrm{tot}}\ln N_{\mathrm{tot}} - N_{\mathrm{tot}}, \\
+\ln(N_0!) &\approx N_0\ln N_0 - N_0, \\
+\ln(N_1!) &\approx N_1\ln N_1 - N_1.
 \end{align}
-したがって
+$W_N = N_{\mathrm{tot}}!/(N_0!\,N_1!)$ より $\ln W_N = \ln(N_{\mathrm{tot}}!) - \ln(N_0!) - \ln(N_1!)$ なので
+\begin{align}
+\ln W_N &\approx \bigl(N_{\mathrm{tot}}\ln N_{\mathrm{tot}} - N_{\mathrm{tot}}\bigr)
+- \bigl(N_0\ln N_0 - N_0\bigr) - \bigl(N_1\ln N_1 - N_1\bigr) \notag \\
+&= N_{\mathrm{tot}}\ln N_{\mathrm{tot}} - N_0\ln N_0 - N_1\ln N_1
+- (N_{\mathrm{tot}} - N_0 - N_1).
+\end{align}
+ここで $N_0 + N_1 = N_{\mathrm{tot}}$ なので $N_{\mathrm{tot}} - N_0 - N_1 = 0$ となり、線形項は打ち消し合う。したがって
+\begin{equation}
+\ln W_N = N_{\mathrm{tot}}\ln N_{\mathrm{tot}} - N_0\ln N_0 - N_1\ln N_1.
+\end{equation}
+$S = k_B \ln W_N$ より
 \begin{equation}
 \boxed{S = k_B \bigl( N_{\mathrm{tot}}\ln N_{\mathrm{tot}} - N_0\ln N_0 - N_1\ln N_1 \bigr)},
 \end{equation}
@@ -483,17 +540,41 @@ S = k_B \left[ N_{\mathrm{tot}}\ln N_{\mathrm{tot}}
 
 \textbf{なぜ $1/T = \partial S/\partial E_{\mathrm{tot}}$ を使うか}：ミクロカノニカル分布では、エントロピー $S(E_{\mathrm{tot}})$ が与えられたとき、熱力学の定義で温度は $1/T = (\partial S/\partial E_{\mathrm{tot}})_{N_{\mathrm{tot}}}$ である。逆に、温度 $T$ が指定されたとき、この関係式を $E_{\mathrm{tot}}$ について解けば $E_{\mathrm{tot}}(T)$ が得られる。
 
-問6の $S$ は $N_0$, $N_1$ を通じて $E_{\mathrm{tot}}$ に依存している。$N_1 = E_{\mathrm{tot}}/\varepsilon$、$N_0 = N_{\mathrm{tot}} - N_1$ なので、$E_{\mathrm{tot}}$ で偏微分するとき $N_{\mathrm{tot}}$ は定数として $\partial N_1/\partial E_{\mathrm{tot}} = 1/\varepsilon$、$\partial N_0/\partial E_{\mathrm{tot}} = -1/\varepsilon$ である（$N_0 = N_{\mathrm{tot}} - E_{\mathrm{tot}}/\varepsilon$ を $E_{\mathrm{tot}}$ で微分すると $-1/\varepsilon$）。$S = k_B(N_{\mathrm{tot}}\ln N_{\mathrm{tot}} - N_0\ln N_0 - N_1\ln N_1)$ を $E_{\mathrm{tot}}$ で微分すると
+\textbf{ステップ1：}問6の $S = k_B(N_{\mathrm{tot}}\ln N_{\mathrm{tot}} - N_0\ln N_0 - N_1\ln N_1)$ を $E_{\mathrm{tot}}$ で微分する。$N_{\mathrm{tot}}$ は定数であり、$N_0 = N_{\mathrm{tot}} - E_{\mathrm{tot}}/\varepsilon$、$N_1 = E_{\mathrm{tot}}/\varepsilon$ より
 \begin{equation}
-\frac{1}{T} = \left(\frac{\partial S}{\partial E_{\mathrm{tot}}}\right)_{N_{\mathrm{tot}}}
-= k_B\left( -\frac{\partial N_0}{\partial E_{\mathrm{tot}}}\ln N_0 - \frac{\partial N_1}{\partial E_{\mathrm{tot}}}\ln N_1 \right)
-= \frac{k_B}{\varepsilon}\left( \ln N_0 - \ln N_1 \right)
+\frac{\partial N_0}{\partial E_{\mathrm{tot}}} = -\frac{1}{\varepsilon}, \quad
+\frac{\partial N_1}{\partial E_{\mathrm{tot}}} = \frac{1}{\varepsilon}.
+\end{equation}
+$N_{\mathrm{tot}}\ln N_{\mathrm{tot}}$ は $E_{\mathrm{tot}}$ に依存しないので微分は $0$。$-N_0\ln N_0$ の微分は、合成関数の公式 $\frac{\partial}{\partial E}(-N_0\ln N_0) = -(\ln N_0 + 1)\frac{\partial N_0}{\partial E}$ より $-(\ln N_0 + 1)(-1/\varepsilon) = (\ln N_0 + 1)/\varepsilon$。同様に $-N_1\ln N_1$ の微分は $-(\ln N_1 + 1)(1/\varepsilon)$。したがって
+\begin{equation}
+\frac{\partial S}{\partial E_{\mathrm{tot}}} = k_B\left( \frac{\ln N_0 + 1}{\varepsilon} - \frac{\ln N_1 + 1}{\varepsilon} \right)
+= \frac{k_B}{\varepsilon}(\ln N_0 - \ln N_1)
 = \frac{k_B}{\varepsilon} \ln\frac{N_0}{N_1}.
 \end{equation}
-したがって $N_0/N_1 = e^{\varepsilon/(k_B T)} = e^{\beta\varepsilon}$。$N_0 = N_{\mathrm{tot}} - N_1$ より $(N_{\mathrm{tot}} - N_1)/N_1 = e^{\beta\varepsilon}$、$N_{\mathrm{tot}}/N_1 = 1 + e^{\beta\varepsilon}$、よって $N_1 = N_{\mathrm{tot}}/(1+e^{\beta\varepsilon})$。$E_{\mathrm{tot}} = N_1 \varepsilon$ なので
+$1/T = \partial S/\partial E_{\mathrm{tot}}$ より
 \begin{equation}
-\boxed{E_{\mathrm{tot}} = N_{\mathrm{tot}}\,\frac{\varepsilon}{1+e^{\beta\varepsilon}}
-= N_{\mathrm{tot}}\,\frac{\varepsilon}{e^{\beta\varepsilon}+1}}.
+\frac{1}{T} = \frac{k_B}{\varepsilon} \ln\frac{N_0}{N_1}
+\quad \Rightarrow \quad
+\ln\frac{N_0}{N_1} = \frac{\varepsilon}{k_B T} = \beta\varepsilon
+\quad \Rightarrow \quad
+\frac{N_0}{N_1} = e^{\beta\varepsilon}.
+\end{equation}
+
+\textbf{ステップ2：}$N_0/N_1 = e^{\beta\varepsilon}$ を $N_1$ について解く。$N_0 = N_{\mathrm{tot}} - N_1$ なので
+\begin{equation}
+\frac{N_{\mathrm{tot}} - N_1}{N_1} = e^{\beta\varepsilon}
+\quad \Rightarrow \quad
+\frac{N_{\mathrm{tot}}}{N_1} - 1 = e^{\beta\varepsilon}
+\quad \Rightarrow \quad
+\frac{N_{\mathrm{tot}}}{N_1} = 1 + e^{\beta\varepsilon}.
+\end{equation}
+よって $N_1 = N_{\mathrm{tot}}/(1 + e^{\beta\varepsilon})$。$E_{\mathrm{tot}} = N_1 \varepsilon$ なので
+\begin{equation}
+E_{\mathrm{tot}} = N_{\mathrm{tot}}\,\frac{\varepsilon}{1+e^{\beta\varepsilon}}.
+\end{equation}
+$\beta = 1/(k_B T)$ より、$e^{\beta\varepsilon} = e^{\varepsilon/(k_B T)}$ である。問題の指示どおり温度 $T$ の関数として表すと
+\begin{equation}
+\boxed{E_{\mathrm{tot}} = N_{\mathrm{tot}}\,\frac{\varepsilon}{1 + e^{\varepsilon/(k_B T)}}}.
 \end{equation}
 これは問4のカノニカル分布による平均エネルギー $\langle E \rangle$ と一致する。すなわち、孤立系でエントロピーを最大化するエネルギーと、熱源と接触した系の平均エネルギーが一致する（熱力学極限での等価性）。
 

@@ -1,0 +1,136 @@
+\contentsline {section}{この解答解説について（初学者の方へ）}{3}{section*.3}%
+\contentsline {paragraph}{読むときのコツ（初学者の方へ）}{3}{section*.4}%
+\contentsline {section}{類題一覧}{4}{section*.6}%
+\contentsline {part}{第I部\hspace {1\zw }2023年度 期末試験}{5}{part.1}%
+\contentsline {section}{\numberline {1}問題1：物質中のMaxwell方程式（類題：2024年度 問題1、2024年度再試験 問題1；第2回 問題1）}{5}{section.2023.1}%
+\contentsline {subsection}{\numberline {1.1}問題}{5}{subsection.2023.1.1}%
+\contentsline {subsection}{\numberline {1.2}解答}{5}{subsection.2023.1.2}%
+\contentsline {paragraph}{この問題のポイント（初学者向け）}{5}{section*.7}%
+\contentsline {paragraph}{解き方の流れ}{5}{section*.8}%
+\contentsline {paragraph}{用語の説明}{5}{section*.9}%
+\contentsline {paragraph}{1-1：4つのMaxwell方程式（$\rho $, $\mathbf {i}$, $\rho _p$, $\mathbf {i}_M$ を用いた形）}{6}{section*.10}%
+\contentsline {paragraph}{なぜ物質中では分極電荷・磁化電流を明示するか（原理的な説明）}{7}{section*.11}%
+\contentsline {paragraph}{1-2：$\mathbf {E}$, $\mathbf {B}$, $\varepsilon $, $\mu $, $\rho $, $\mathbf {i}$ だけを用いた形}{7}{section*.12}%
+\contentsline {paragraph}{なぜ $\mathbf {D}$ と $\mathbf {H}$ を導入するか（物理的考察）}{8}{section*.13}%
+\contentsline {paragraph}{1-3：時間変動する項を含む2式}{8}{section*.14}%
+\contentsline {paragraph}{なぜ時間変動で $\partial \mathbf {B}/\partial t$ と変位電流が現れるか（原理的な説明）}{8}{section*.15}%
+\contentsline {section}{\numberline {2}問題2：誘電体板と導体板の電場中の振る舞い（類題：第4回 問題2・3・4、第2回 問題4・6）}{8}{section.2023.2}%
+\contentsline {subsection}{\numberline {2.1}問題}{8}{subsection.2023.2.1}%
+\contentsline {subsection}{\numberline {2.2}解答}{9}{subsection.2023.2.2}%
+\contentsline {paragraph}{この問題のポイント（初学者向け）}{9}{section*.16}%
+\contentsline {paragraph}{解き方の流れ}{9}{section*.17}%
+\contentsline {paragraph}{用語の説明}{9}{section*.18}%
+\contentsline {paragraph}{2-1：誘電体板内部の $\mathbf {D}$ と $\mathbf {E}$（垂直配置）}{10}{section*.19}%
+\contentsline {paragraph}{なぜ内部電場は外部より弱くなるか（物理的考察）}{10}{section*.20}%
+\contentsline {paragraph}{2-2：分極電荷の面密度 $\sigma _p$}{10}{section*.21}%
+\contentsline {paragraph}{なぜ表面に分極電荷が現れるか（原理的な説明）}{11}{section*.22}%
+\contentsline {paragraph}{2-3：誘電体板を斜めに置いたときの内部電場の大きさ $E$}{11}{section*.23}%
+\contentsline {paragraph}{なぜ法線成分と接線成分で扱いが違うか（物理的考察）}{11}{section*.24}%
+\contentsline {paragraph}{2-4：導体板を垂直に置いたときの表面電荷の面密度}{11}{section*.25}%
+\contentsline {paragraph}{なぜ導体内部の電場がゼロになるか（原理的な説明）}{12}{section*.26}%
+\contentsline {section}{\numberline {3}問題3：金属表面における平面電磁波の反射と透過（類題：第7回 問題4）}{15}{section.2023.3}%
+\contentsline {subsection}{\numberline {3.1}問題}{15}{subsection.2023.3.1}%
+\contentsline {subsection}{\numberline {3.2}解答}{16}{subsection.2023.3.2}%
+\contentsline {paragraph}{この問題のポイント（初学者向け）}{16}{section*.27}%
+\contentsline {paragraph}{解き方の流れ}{16}{section*.28}%
+\contentsline {paragraph}{使用する公式}{16}{section*.29}%
+\contentsline {paragraph}{3-1：反射率 $R$}{16}{section*.30}%
+\contentsline {paragraph}{なぜ金属は光をよく反射するか（物理的考察）}{17}{section*.31}%
+\contentsline {paragraph}{3-2：金属内部 $z=d$ での光の強度 $I_1$}{17}{section*.32}%
+\contentsline {paragraph}{なぜ金属内部で光が減衰するか（スキン深度の物理）}{17}{section*.33}%
+\contentsline {paragraph}{3-3：厚み $d$ の金属板を通過後の強度 $I_2$}{18}{section*.34}%
+\contentsline {paragraph}{なぜ多重反射を足し合わせるか（物理的考察）}{18}{section*.35}%
+\contentsline {part}{第II部\hspace {1\zw }2024年度 期末試験}{19}{part.2}%
+\contentsline {section}{\numberline {1}問題1：物質中のMaxwell方程式（類題：2023年度 問題1、2024年度再試験 問題1；第2回 問題1）}{20}{section.2024.1}%
+\contentsline {subsection}{\numberline {1.1}問題}{20}{subsection.2024.1.1}%
+\contentsline {subsection}{\numberline {1.2}解答}{20}{subsection.2024.1.2}%
+\contentsline {paragraph}{この問題のポイント}{20}{section*.36}%
+\contentsline {paragraph}{解き方の流れ}{20}{section*.37}%
+\contentsline {paragraph}{1-1：4つのMaxwell方程式}{20}{section*.38}%
+\contentsline {paragraph}{1-2：$\mathbf {E},\mathbf {B},\varepsilon ,\mu ,\rho ,\mathbf {i}$ だけを用いた2式}{20}{section*.39}%
+\contentsline {paragraph}{1-3：時間変動する項を含む2式}{21}{section*.40}%
+\contentsline {paragraph}{物理的考察}{21}{section*.41}%
+\contentsline {section}{\numberline {2}問題2：均一に分極した強誘電体球（類題：2024年度再試験 問題2；第4回 問題1・2、第1回 問題1）}{22}{section.2024.2}%
+\contentsline {subsection}{\numberline {2.1}問題}{22}{subsection.2024.2.1}%
+\contentsline {subsection}{\numberline {2.2}解答}{22}{subsection.2024.2.2}%
+\contentsline {paragraph}{この問題のポイント（初学者向け）}{22}{section*.42}%
+\contentsline {paragraph}{用語の説明}{22}{section*.43}%
+\contentsline {paragraph}{解き方の流れ}{22}{section*.44}%
+\contentsline {paragraph}{2-1：一様帯電球内部の電場 $\mathbf {E}$}{22}{section*.45}%
+\contentsline {paragraph}{なぜ一様帯電球内部の電場が $\mathbf {E}=(\rho /(3\varepsilon _0))\mathbf {r}$ になるか（原理的な説明）}{23}{section*.46}%
+\contentsline {paragraph}{2-2：分極電場 $\mathbf {E}_p$ を $\mathbf {P}$ と $\varepsilon _0$ で表す}{23}{section*.47}%
+\contentsline {paragraph}{なぜ $\mathbf {E}_p = -\mathbf {P}/(3\varepsilon _0)$ になるか（脱分極電場の物理）}{23}{section*.48}%
+\contentsline {paragraph}{2-3：電気力線 $\varepsilon _0\mathbf {E}$ と電束線 $\mathbf {D}$ の概略}{24}{section*.49}%
+\contentsline {subparagraph}{ステップ1：球内部の値を計算する}{24}{section*.50}%
+\contentsline {subparagraph}{ステップ2：球表面の分極電荷を理解する}{24}{section*.51}%
+\contentsline {subparagraph}{ステップ3：図の描き方（$xz$ 平面）}{24}{section*.52}%
+\contentsline {paragraph}{なぜ $\mathbf {D}$ と $\varepsilon _0\mathbf {E}$ の向きが球内部で違うか（物理的考察）}{25}{section*.53}%
+\contentsline {paragraph}{2-4：$\mathbf {D}$ と $\varepsilon _0\mathbf {E}$ の関係図と (2-3) の状態}{25}{section*.54}%
+\contentsline {subparagraph}{【解答として書くべきこと】}{25}{section*.55}%
+\contentsline {subparagraph}{「概念的に示す」の解説}{25}{section*.56}%
+\contentsline {paragraph}{なぜ強磁性体のヒステリシスと類似するか（物理的考察）}{26}{section*.57}%
+\contentsline {section}{\numberline {3}問題3：液体中の有極性分子の分極ダイナミクス（類題：2024年度再試験 問題3；第7回 問題1）}{32}{section.2024.3}%
+\contentsline {subsection}{\numberline {3.1}問題}{32}{subsection.2024.3.1}%
+\contentsline {subsection}{\numberline {3.2}解答}{33}{subsection.2024.3.2}%
+\contentsline {paragraph}{この問題のポイント（初学者向け）}{33}{section*.58}%
+\contentsline {paragraph}{用語の説明}{33}{section*.59}%
+\contentsline {paragraph}{解き方の流れ}{34}{section*.60}%
+\contentsline {paragraph}{3-1：電気感受率 $\chi _e(\omega )$}{34}{section*.61}%
+\contentsline {subparagraph}{ステップ1：なぜ $P = P_0\exp (-\mathrm {i}\omega t)$ とおけるか}{34}{section*.62}%
+\contentsline {subparagraph}{ステップ2：微分方程式へ代入して $P_0$ を求める}{34}{section*.63}%
+\contentsline {subparagraph}{ステップ3：電気感受率の定義から $\chi _e(\omega )$ を得る}{34}{section*.64}%
+\contentsline {subparagraph}{複素感受率の意味（実部と虚部）}{34}{section*.65}%
+\contentsline {paragraph}{なぜ周波数で電気感受率が変わるか（誘電緩和の物理）}{35}{section*.66}%
+\contentsline {paragraph}{3-2：$\mathrm {Re}[\chi _e(\omega )]$ の図示}{36}{section*.67}%
+\contentsline {subparagraph}{実部の式の導出}{36}{section*.68}%
+\contentsline {subparagraph}{グラフの形と $\omega _0$ における値}{36}{section*.69}%
+\contentsline {paragraph}{3-3：誘電率の虚部 $\varepsilon ''$ と電磁波の名前}{37}{section*.70}%
+\contentsline {subparagraph}{$\varepsilon ''$ と $\chi _e$ の関係}{37}{section*.71}%
+\contentsline {subparagraph}{2つの吸収機構：緩和型（$\omega _0$）と共鳴型（$\omega _1$）}{37}{section*.72}%
+\contentsline {paragraph}{なぜ $\varepsilon ''$ に2つのピークが現れるか（物理的考察）}{38}{section*.73}%
+\contentsline {part}{第III部\hspace {1\zw }2024年度 再試験}{38}{part.3}%
+\contentsline {section}{\numberline {1}問題1：物質中のMaxwell方程式（類題：2023年度 問題1、2024年度 問題1；第2回 問題1）}{39}{section.2024r.1}%
+\contentsline {subsection}{\numberline {1.1}問題}{39}{subsection.2024r.1.1}%
+\contentsline {subsection}{\numberline {1.2}解答}{39}{subsection.2024r.1.2}%
+\contentsline {paragraph}{この問題のポイント}{39}{section*.74}%
+\contentsline {paragraph}{解き方の流れ}{39}{section*.75}%
+\contentsline {paragraph}{1-1：4つのMaxwell方程式}{39}{section*.76}%
+\contentsline {paragraph}{1-2：$\mathbf {E},\mathbf {B},\varepsilon ,\mu ,\rho ,\mathbf {i}$ だけを用いた2式}{39}{section*.77}%
+\contentsline {paragraph}{1-3：時間変動する項を含む2式}{40}{section*.78}%
+\contentsline {paragraph}{物理的意味（初学者向け）}{40}{section*.79}%
+\contentsline {section}{\numberline {2}問題2：強誘電体球の電場（類題：2024年度 問題2；第4回 問題1・2、第1回 問題1）}{41}{section.2024r.2}%
+\contentsline {subsection}{\numberline {2.1}問題}{41}{subsection.2024r.2.1}%
+\contentsline {subsection}{\numberline {2.2}解答}{41}{subsection.2024r.2.2}%
+\contentsline {paragraph}{この問題のポイント}{41}{section*.80}%
+\contentsline {paragraph}{用語の説明}{41}{section*.81}%
+\contentsline {paragraph}{解き方の流れ}{41}{section*.82}%
+\contentsline {paragraph}{2-1：一様帯電球内部の電場}{41}{section*.83}%
+\contentsline {paragraph}{なぜ一様帯電球内部の電場が $\mathbf {E}=(\rho /(3\varepsilon _0))\mathbf {r}$ になるか（原理的な説明）}{41}{section*.84}%
+\contentsline {paragraph}{2-2：分極電場 $\mathbf {E}_p$}{42}{section*.85}%
+\contentsline {paragraph}{なぜそう求まるか（原理的な説明）}{42}{section*.86}%
+\contentsline {section}{\numberline {3}問題3：液体中の極性分子の分極と電気感受率（類題：2024年度 問題3；第7回 問題1）}{43}{section.2024r.3}%
+\contentsline {subsection}{\numberline {3.1}問題}{43}{subsection.2024r.3.1}%
+\contentsline {subsection}{\numberline {3.2}解答}{43}{subsection.2024r.3.2}%
+\contentsline {paragraph}{この問題のポイント}{43}{section*.87}%
+\contentsline {paragraph}{解き方の流れ}{43}{section*.88}%
+\contentsline {paragraph}{3-1：電気感受率 $\chi _e(\omega )$}{44}{section*.89}%
+\contentsline {subparagraph}{ステップ1：なぜ $P = P_0\exp (-\mathrm {i}\omega t)$ とおけるか}{44}{section*.90}%
+\contentsline {subparagraph}{ステップ2：微分方程式へ代入して $P_0$ を求める}{44}{section*.91}%
+\contentsline {subparagraph}{ステップ3：電気感受率の定義から $\chi _e(\omega )$ を得る}{44}{section*.92}%
+\contentsline {subparagraph}{複素感受率の意味（実部と虚部）}{44}{section*.93}%
+\contentsline {paragraph}{3-2：実部 $\chi _e'$ の図示}{45}{section*.94}%
+\contentsline {subparagraph}{実部の式の導出}{45}{section*.95}%
+\contentsline {subparagraph}{グラフの形と $\omega _0$ における値}{46}{section*.96}%
+\contentsline {paragraph}{なぜ高周波で感受率が低下するか（物理的考察）}{46}{section*.97}%
+\contentsline {section}{\numberline {4}問題4：金属内の電子の運動と電気伝導率（類題：第2回 問題2・3）}{46}{section.2024r.4}%
+\contentsline {subsection}{\numberline {4.1}問題}{46}{subsection.2024r.4.1}%
+\contentsline {subsection}{\numberline {4.2}解答}{47}{subsection.2024r.4.2}%
+\contentsline {paragraph}{この問題のポイント（初学者向け）}{47}{section*.98}%
+\contentsline {paragraph}{解き方の流れ}{47}{section*.99}%
+\contentsline {paragraph}{使用する物理法則・用語}{47}{section*.100}%
+\contentsline {paragraph}{4-1：電流密度 $\mathbf {i}$ と速度 $\mathbf {v}$ の関係}{47}{section*.101}%
+\contentsline {paragraph}{なぜ電流密度が $\mathbf {i}=nq\mathbf {v}$ か（原理的な説明）}{47}{section*.102}%
+\contentsline {paragraph}{4-2：定常状態の電気伝導率 $\sigma $}{47}{section*.103}%
+\contentsline {paragraph}{なぜオームの法則が成り立つか（物理的考察）}{47}{section*.104}%
+\contentsline {paragraph}{4-3：時間変動電場における複素伝導率 $\sigma (\omega )$ の実部・虚部}{48}{section*.105}%
+\contentsline {paragraph}{なぜ高周波で $\sigma '$ が減り $\sigma ''$ が効くか（原理的な説明）}{48}{section*.106}%

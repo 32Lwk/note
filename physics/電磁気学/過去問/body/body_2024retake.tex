@@ -3,12 +3,14 @@
 %======================================================================
 \part{2024年度 再試験}
 \setcounter{section}{0}
+\renewcommand{\theHsection}{2024r.\arabic{section}}
+\renewcommand{\theHsubsection}{2024r.\arabic{section}.\arabic{subsection}}
 
 %----------------------------------------------------------------------
-\section{問題1：物質中のMaxwell方程式}
+\section{問題1：物質中のMaxwell方程式（類題：2023年度 問題1、2024年度 問題1；第2回 問題1）}\label{sec:2024r-1}
 %----------------------------------------------------------------------
 
-\subsection{問題}
+\subsection{問題}\label{sec:2024r-1-prob}
 
 静電磁場における物質中のMaxwell方程式を考え、その後、時間変動する電磁場に拡張する。真空中の誘電率を $\varepsilon_0$、透磁率を $\mu_0$ とする。
 
@@ -18,7 +20,7 @@
 \item 時間変動する電磁場を考える。物質中のMaxwell方程式のうち、時間変動する項を含む2つの式を、$\mathbf{E}$、$\mathbf{B}$、$\varepsilon_0$、$\mu_0$、$\mathbf{i}$、$\mathbf{P}$、$\mathbf{M}$ を用いて示せ。
 \end{enumerate}
 
-\subsection{解答}
+\subsection{解答}\label{sec:2024r-1-ans}
 
 \paragraph{この問題のポイント}
 
@@ -31,25 +33,37 @@
 
 \paragraph{1-1：4つのMaxwell方程式}
 
-\begin{align}
-\nabla\cdot\mathbf{E} &= \frac{\rho + \rho_p}{\varepsilon_0}, \\
-\nabla\cdot\mathbf{B} &= 0, \\
-\nabla\times\mathbf{E} &= \mathbf{0}, \\
-\nabla\times\mathbf{B} &= \mu_0\mathbf{i} + \mathbf{i}_M.
-\end{align}
+静電磁場では、求める4式は
+\解答
+\begin{equation}
+\boxed{\nabla\cdot\mathbf{E} = \frac{\rho + \rho_p}{\varepsilon_0}}, \quad
+\boxed{\nabla\cdot\mathbf{B} = 0}, \quad
+\boxed{\nabla\times\mathbf{E} = \mathbf{0}}, \quad
+\boxed{\nabla\times\mathbf{B} = \mu_0(\mathbf{i} + \mathbf{i}_M)}.
+\end{equation}
+（$\mathbf{i}_M = \nabla\times\mathbf{M}/\mu_0$ の定義に合わせるなら、右辺は $\mu_0\mathbf{i} + \nabla\times\mathbf{M}$。）
 
 \paragraph{1-2：$\mathbf{E},\mathbf{B},\varepsilon,\mu,\rho,\mathbf{i}$ だけを用いた2式}
 
+\textbf{分極電荷を含む式}：1-1のガウスの法則 $\nabla\cdot\mathbf{E}=(\rho+\rho_p)/\varepsilon_0$ に $\rho_p=-\nabla\cdot\mathbf{P}$ を代入し、移項すると $\nabla\cdot(\varepsilon_0\mathbf{E}+\mathbf{P})=\rho$。$\mathbf{D}=\varepsilon\mathbf{E}=\varepsilon_0\mathbf{E}+\mathbf{P}$ なので、
+\begin{equation}
+\nabla\cdot(\varepsilon\mathbf{E}) = \rho.
+\end{equation}
+\textbf{磁化電流を含む式}：1-1のアンペールの法則 $\nabla\times\mathbf{B}=\mu_0\mathbf{i}+\nabla\times\mathbf{M}$ と、問題文の透磁率の定義 $\mathbf{B}/\mu=(\mathbf{B}-\mathbf{M})/\mu_0$ から、$\nabla\times(\mathbf{B}/\mu)=\mathbf{i}$ が得られる（詳細は2023年度問題1参照）。よって
+\解答
 \begin{equation}
 \boxed{\nabla\cdot(\varepsilon\mathbf{E}) = \rho}, \qquad \boxed{\nabla\times\left(\frac{\mathbf{B}}{\mu}\right) = \mathbf{i}}.
 \end{equation}
 
 \paragraph{1-3：時間変動する項を含む2式}
 
-\begin{align}
-\boxed{\nabla\times\mathbf{E} &= -\frac{\partial\mathbf{B}}{\partial t}}, \\
-\boxed{\nabla\times\mathbf{B} &= \mu_0\mathbf{i} + \mu_0\varepsilon_0\frac{\partial\mathbf{E}}{\partial t} + \mu_0\frac{\partial\mathbf{P}}{\partial t} + \nabla\times\mathbf{M}}}.
-\end{align}
+\解答
+\begin{equation}
+\boxed{\nabla\times\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}}
+\end{equation}
+\begin{equation}
+\boxed{\nabla\times\mathbf{B} = \mu_0\mathbf{i} + \mu_0\varepsilon_0\frac{\partial\mathbf{E}}{\partial t} + \mu_0\frac{\partial\mathbf{P}}{\partial t} + \nabla\times\mathbf{M}}}.
+\end{equation}
 
 \paragraph{物理的意味（初学者向け）}
 
@@ -63,10 +77,10 @@
 \end{figure}
 
 %----------------------------------------------------------------------
-\section{問題2：強誘電体球の電場}
+\section{問題2：強誘電体球の電場（類題：2024年度 問題2；第4回 問題1・2、第1回 問題1）}\label{sec:2024r-2}
 %----------------------------------------------------------------------
 
-\subsection{問題}
+\subsection{問題}\label{sec:2024r-2-prob}
 
 半径 $a$ の強誘電体球が $\mathbf{P} = (0,0,P)$ で一様に自発分極している。球の中心は原点、外部電場はゼロ、真電荷はない。分極状態を再現するため、電荷密度 $+\rho$ で一様に帯電した半径 $a$ の球を $(0,0,s/2)$ に、電荷密度 $-\rho$ で一様に帯電した半径 $a$ の球を $(0,0,-s/2)$ に置く（$s \ll a$）。分極電荷が球内部に作る電場 $\mathbf{E}_p$ は、これらの帯電球が作る電場の足し合わせとする。
 
@@ -75,7 +89,7 @@
 \item 問題文の通り、中心が原点から $z$ 軸上に微小距離 $\pm s/2$ だけずれた場所に置かれた $\pm\rho$ の2つの帯電球が作る電場の足し合わせを考える。$\mathbf{s} = (0,0,s)$ とすると $\mathbf{P} = \rho\mathbf{s}$ と書けることを用いて、$\mathbf{E}_p$ を $\mathbf{P}$ と $\varepsilon_0$ を用いて表せ。
 \end{enumerate}
 
-\subsection{解答}
+\subsection{解答}\label{sec:2024r-2-ans}
 
 \paragraph{この問題のポイント}
 
@@ -94,14 +108,24 @@
 
 \paragraph{2-1：一様帯電球内部の電場}
 
-中心が原点、半径 $a$、電荷密度 $+\rho$ の球を考える。ガウスの法則：閉曲面 $S$ について、電束の総和 $\int_S \mathbf{E}\cdot\mathbf{n}\,dS$ は $S$ の内部の全電荷 $Q_{\mathrm{in}}$ を $\varepsilon_0$ で割ったものに等しい。球対称なので、半径 $r$（$r \le a$）の球面をガウス面に取ると、左辺は $E(r)\times 4\pi r^2$、右辺は $Q_{\mathrm{in}}/\varepsilon_0 = (4\pi r^3/3)\rho/\varepsilon_0$ となる。よって $4\pi r^2 E(r) = (4\pi r^3/3)\rho/\varepsilon_0$ から $E(r) = \rho r/(3\varepsilon_0)$。位置 $\mathbf{r}$ では動径外向きに $\mathbf{E} = (\rho/(3\varepsilon_0))\mathbf{r}$。したがって
+中心が原点、半径 $a$、電荷密度 $+\rho$ の球を考える。ガウスの法則：閉曲面 $S$ について、\textbf{電束の総和} $\int_S \mathbf{E}\cdot\mathbf{n}\,dS$ は、$S$ の内部の全電荷 $Q_{\mathrm{in}}$ を $\varepsilon_0$ で割ったものに等しい。球対称なので、原点から距離 $r$（$r \le a$）の点では $\mathbf{E}$ は動径方向で大きさは $r$ のみに依存する。半径 $r$ の球面でガウスの法則を適用すると、左辺は $E(r)\times 4\pi r^2$、右辺は $Q_{\mathrm{in}}/\varepsilon_0 = (4\pi r^3/3)\rho/\varepsilon_0$ となる。よって $4\pi r^2 E(r) = (4\pi r^3/3)\rho/\varepsilon_0$ から $E(r) = \rho r/(3\varepsilon_0)$。位置 $\mathbf{r}$ では動径外向きに $\mathbf{E} = (\rho/(3\varepsilon_0))\mathbf{r}$。したがって
+\解答
 \begin{equation}
 \boxed{\mathbf{E} = \frac{\rho}{3\varepsilon_0}\mathbf{r}}.
 \end{equation}
 
+\paragraph{なぜ一様帯電球内部の電場が $\mathbf{E}=(\rho/(3\varepsilon_0))\mathbf{r}$ になるか（原理的な説明）}
+
+球対称な電荷分布では、ガウスの法則から、半径 $r$ の球面内の全電荷 $Q_{\mathrm{in}} = (4\pi r^3/3)\rho$ が作る電場は、球面上一様で動径外向きに $E(r)=Q_{\mathrm{in}}/(4\pi\varepsilon_0 r^2) = \rho r/(3\varepsilon_0)$ となる。つまり内部の点では、その点より内側の電荷だけが寄与し、外側の電荷の寄与は球対称性からゼロである。
+
 \paragraph{2-2：分極電場 $\mathbf{E}_p$}
 
-2つの帯電球の中心が $(0,0,\pm s/2)$ にあり、$s \ll a$ とする。\textbf{原点付近の点} $\mathbf{r}$ は $s$ が十分小さいため\textbf{両方の球の内部}にあるとみなせるので、問(2-1)の公式がそのまま使える。$+\rho$ の球が作る電場は $\mathbf{E}_+ = (\rho/(3\varepsilon_0))(\mathbf{r} - (0,0,s/2))$、$-\rho$ の球が作る電場は $\mathbf{E}_- = (-\rho/(3\varepsilon_0))(\mathbf{r} - (0,0,-s/2))$。足し合わせると $\mathbf{E}_p = (\rho/(3\varepsilon_0))(-\mathbf{s}) = -\rho\mathbf{s}/(3\varepsilon_0)$。$\mathbf{P} = \rho\mathbf{s}$ なので
+$+\rho$ の球の中心が $(0,0,s/2)$、$-\rho$ の球の中心が $(0,0,-s/2)$ にあり、$s \ll a$ とする。\textbf{原点付近の点} $\mathbf{r}$ は、$s$ が十分小さいため、\textbf{両方の球の内部}にあるとみなせる。したがって、$+\rho$ の球が作る電場は問(2-1)の公式が使え、その球の中心 $(0,0,s/2)$ からの位置ベクトル $\mathbf{r}_+ = \mathbf{r} - (0,0,s/2)$ を用いて $\mathbf{E}_+ = (\rho/(3\varepsilon_0))\mathbf{r}_+$。同様に $-\rho$ の球が作る電場は $\mathbf{r}_- = \mathbf{r} - (0,0,-s/2)$ として $\mathbf{E}_- = (-\rho/(3\varepsilon_0))\mathbf{r}_-$。したがって
+\begin{equation}
+\mathbf{E}_p = \mathbf{E}_+ + \mathbf{E}_- = \frac{\rho}{3\varepsilon_0}(\mathbf{r}_+ - \mathbf{r}_-) = \frac{\rho}{3\varepsilon_0}\bigl((\mathbf{r} - (0,0,s/2)) - (\mathbf{r} - (0,0,-s/2))\bigr) = \frac{\rho}{3\varepsilon_0}(0,0,-s) = -\frac{\rho\mathbf{s}}{3\varepsilon_0}.
+\end{equation}
+$\mathbf{P} = \rho\mathbf{s}$ なので
+\解答
 \begin{equation}
 \boxed{\mathbf{E}_p = -\frac{\mathbf{P}}{3\varepsilon_0}}.
 \end{equation}
@@ -118,10 +142,10 @@
 \end{figure}
 
 %----------------------------------------------------------------------
-\section{問題3：液体中の極性分子の分極と電気感受率}
+\section{問題3：液体中の極性分子の分極と電気感受率（類題：2024年度 問題3；第7回 問題1）}\label{sec:2024r-3}
 %----------------------------------------------------------------------
 
-\subsection{問題}
+\subsection{問題}\label{sec:2024r-3-prob}
 
 時刻 $t=0$ で一様な電場 $\mathbf{E}$ がかけられたとき、水分子が回転して向きが揃い、分極ベクトルの大きさ $P(t)$ が時定数 $\tau$ で $P(t) = \varepsilon_0\chi_{e0}E(1-\exp(-t/\tau))$ のように増加する（$\varepsilon_0$ は真空の誘電率）。水分子の分極が液体内の全電場に与える変化は無視する。
 
@@ -130,11 +154,18 @@
 \item 前問で求めた電気感受率 $\chi_e(\omega)$ の実部 $\chi_e'$ が $\omega$ に対してどのように変化するか図示し、$\omega = \tau^{-1} = \omega_0$ における値を図に記入せよ。
 \end{enumerate}
 
-\subsection{解答}
+\subsection{解答}\label{sec:2024r-3-ans}
 
 \paragraph{この問題のポイント}
 
 2024年度問題3の(3-1)(3-2)と同一である。記号 $\chi_0$ が $\chi_{e0}$ になっているだけ。緩和型の微分方程式から周波数依存の電気感受率を求める。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{figures/em2024_polar_molecule.png}
+\caption{問題3の設定：液体中の極性分子（水分子）と電場。電場をかけると分子の双極子が電場方向に向きを変えようとするが、液体中では分子の回転に粘性抵抗があり、時定数 $\tau$ で遅れて追従する。}
+\label{fig:em2024retake_polar_molecule}
+\end{figure}
 
 \paragraph{解き方の流れ}
 \begin{enumerate}
@@ -144,31 +175,79 @@
 
 \paragraph{3-1：電気感受率 $\chi_e(\omega)$}
 
-微分方程式 $\tau\frac{dP}{dt}+P = \varepsilon_0\chi_{e0}E$ は $P$ について\textbf{線形}なので、電場が単一角振動数 $\omega$ で振動しているとき、定常状態では分極も同じ角振動数で振動し、$P = P_0 e^{-\mathrm{i}\omega t}$ とおける（ヒントの通り）。$E = E_0 e^{-\mathrm{i}\omega t}$、$P = P_0 e^{-\mathrm{i}\omega t}$ を代入すると、$dP/dt = -\mathrm{i}\omega P_0 e^{-\mathrm{i}\omega t}$ より $\tau(-\mathrm{i}\omega)P_0 + P_0 = \varepsilon_0\chi_{e0}E_0$、すなわち $(1-\mathrm{i}\omega\tau)P_0 = \varepsilon_0\chi_{e0}E_0$。両辺を $(1-\mathrm{i}\omega\tau)$ で割って $P_0 = \varepsilon_0\chi_{e0}E_0/(1-\mathrm{i}\omega\tau)$。電気感受率は $\chi_e(\omega) = P_0/(\varepsilon_0 E_0)$ なので、
+\subparagraph{ステップ1：なぜ $P = P_0\exp(-\mathrm{i}\omega t)$ とおけるか}
+
+微分方程式 $\tau\frac{dP}{dt} + P = \varepsilon_0\chi_{e0} E$ は、$P$ について\textbf{線形}である。線形微分方程式では、\textbf{入力 $E$ が単一角振動数 $\omega$ で振動するとき、定常状態の解 $P$ も同じ角振動数 $\omega$ で振動する}。したがって、$E = E_0\exp(-\mathrm{i}\omega t)$ に対して $P = P_0\exp(-\mathrm{i}\omega t)$ とおける（$P_0$ は複素数になりうる）。
+
+\subparagraph{ステップ2：微分方程式へ代入して $P_0$ を求める}
+
+$E = E_0\exp(-\mathrm{i}\omega t)$、$P = P_0\exp(-\mathrm{i}\omega t)$ を代入する。$dP/dt = -\mathrm{i}\omega P_0\exp(-\mathrm{i}\omega t)$ より、左辺は $\tau(-\mathrm{i}\omega)P_0\exp(-\mathrm{i}\omega t) + P_0\exp(-\mathrm{i}\omega t) = \exp(-\mathrm{i}\omega t)[\tau(-\mathrm{i}\omega)P_0 + P_0]$、右辺は $\varepsilon_0\chi_{e0} E_0\exp(-\mathrm{i}\omega t)$。$\exp(-\mathrm{i}\omega t)$ を消去すると
+\[
+\tau(-\mathrm{i}\omega)P_0 + P_0 = \varepsilon_0\chi_{e0} E_0.
+\]
+左辺を $P_0$ でくくると $P_0(1 - \mathrm{i}\omega\tau) = \varepsilon_0\chi_{e0} E_0$。よって $P_0 = \varepsilon_0\chi_{e0} E_0/(1 - \mathrm{i}\omega\tau)$。
+
+\subparagraph{ステップ3：電気感受率の定義から $\chi_e(\omega)$ を得る}
+
+電気感受率は $\chi_e(\omega) = P(\omega)/(\varepsilon_0 E(\omega)) = P_0/(\varepsilon_0 E_0)$ である。したがって
+\[
+\chi_e(\omega) = \frac{P_0}{\varepsilon_0 E_0} = \frac{\varepsilon_0\chi_{e0} E_0/(1-\mathrm{i}\omega\tau)}{\varepsilon_0 E_0} = \frac{\chi_{e0}}{1 - \mathrm{i}\omega\tau}.
+\]
+分母を実数化するには分子・分母に $1+\mathrm{i}\omega\tau$ を掛けると、$\chi_e(\omega) = \chi_{e0}(1+\mathrm{i}\omega\tau)/(1+\omega^2\tau^2)$ となる。
+\解答
 \begin{equation}
-\boxed{\chi_e(\omega) = \frac{\chi_{e0}}{1 - \mathrm{i}\omega\tau}}.
+\boxed{\chi_e(\omega) = \frac{\chi_{e0}}{1 - \mathrm{i}\omega\tau} = \frac{\chi_{e0}(1+\mathrm{i}\omega\tau)}{1+\omega^2\tau^2}}.
 \end{equation}
+
+\subparagraph{複素感受率の意味（実部と虚部）}
+
+\textbf{実部 $\mathrm{Re}[\chi_e] = \chi_{e0}/(1+\omega^2\tau^2)$}：電場と同位相の分極成分（分極能）。\textbf{虚部 $\mathrm{Im}[\chi_e] = \chi_{e0}\omega\tau/(1+\omega^2\tau^2)$}：電場と90度位相ずれた成分で、エネルギー吸収に対応し、$\omega\sim 1/\tau$ 付近でピークを持つ。図\ref{fig:em2024retake_chi_complex} 参照。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/em2024_chi_complex.png}
+\caption{問題3(3-1)：複素電気感受率の意味。実部は電場と同位相の分極（分極能）、虚部は90度位相ずれ（エネルギー吸収）に対応する。}
+\label{fig:em2024retake_chi_complex}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.9\textwidth]{figures/em_debye_relaxation.png}
+\caption{問題3：分極の時間応答 $P(t)$（左）と周波数応答 $\mathrm{Re}[\chi_e(\omega)]$（右）。時定数 $\tau$ で遅れる応答のため、高周波では感受率が低下する。}
+\label{fig:em2024retake_debye}
+\end{figure}
 
 \paragraph{3-2：実部 $\chi_e'$ の図示}
 
-実部は $\chi_e' = \mathrm{Re}[\chi_e(\omega)] = \chi_{e0}/(1+\omega^2\tau^2)$。$\omega=0$ で $\chi_{e0}$、$\omega=\omega_0=1/\tau$ で $\chi_{e0}/2$、$\omega\to\infty$ で 0。図では横軸 $\omega$、縦軸 $\chi_e'$ を取り、$\omega_0$ の位置に $\chi_{e0}/2$ を記入する。
+\subparagraph{実部の式の導出}
+
+$\chi_e(\omega) = \chi_{e0}(1+\mathrm{i}\omega\tau)/(1+\omega^2\tau^2)$ の実部を取ると、
+\[
+\mathrm{Re}[\chi_e(\omega)] = \frac{\chi_{e0}}{1+\omega^2\tau^2}.
+\]
+
+\subparagraph{グラフの形と $\omega_0$ における値}
+
+$\omega=0$ で $\chi_{e0}$、$\omega\to\infty$ で 0。$\omega = \omega_0 = 1/\tau$ では $\omega^2\tau^2 = 1$ より $\mathrm{Re}[\chi_e(\omega_0)] = \chi_{e0}/2$。横軸 $\omega$、縦軸 $\mathrm{Re}[\chi_e(\omega)]$ のグラフは、$\omega=0$ で $\chi_{e0}$ から始まり、なだらかに減少して 0 に近づく曲線となる。$\omega_0 = 1/\tau$ の位置に $\chi_{e0}/2$ を記入する。
+\解答
+$\mathrm{Re}[\chi_e(\omega)] = \chi_{e0}/(1+\omega^2\tau^2)$ の概略を描き、$\omega_0 = 1/\tau$ において $\boxed{\chi_{e0}/2}$ を記入する。
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.85\textwidth]{figures/em2024_chi_real.png}
-\caption{問題3(3-2)：電気感受率の実部 $\mathrm{Re}[\chi_e(\omega)]$。$\omega_0 = 1/\tau$ で $\chi_{e0}/2$。}
+\caption{問題3(3-2)：電気感受率の実部 $\mathrm{Re}[\chi_e(\omega)]$。横軸は $\omega\tau$。$\omega_0=1/\tau$ で $\chi_{e0}/2$。（本図では $\chi_0$ と表記しているが、再試験では $\chi_{e0}$ に対応。）}
 \label{fig:em2024retake_chi_real}
 \end{figure}
 
 \paragraph{なぜ高周波で感受率が低下するか（物理的考察）}
 
-極性分子の配向分極は、分子が回転して電場の向きに揃う過程であり、隣接分子との衝突などで時定数 $\tau$ の遅れが生じる。電場の振動が速い（$\omega \gg 1/\tau$）と、分子が向きを変える前に電場の向きが反転してしまうため、平均的な分極は小さくなる。その結果、$\mathrm{Re}[\chi_e]$ は $\omega$ が大きいほど減少し、$\omega=\omega_0=1/\tau$ で $\chi_{e0}/2$、$\omega\to\infty$ で 0 に近づく。2024年度本試験問題3の「なぜ周波数で電気感受率が変わるか」およびデバイ緩和の図を参照のこと。
+微分方程式 $\tau\dot{P}+P=\varepsilon_0\chi_{e0} E$ は、分極が電場の変化に「時定数 $\tau$ で遅れて」追従することを表す（緩和型）。直流（$\omega=0$）では $P=\varepsilon_0\chi_{e0} E$ で感受率は $\chi_{e0}$。角振動数 $\omega$ が $1/\tau$ 程度になると、電場の向きが変わるのが速く、分極が追いつかなくなる。極性分子の配向分極は、分子が回転して電場の向きに揃う過程であり、隣接分子との衝突などで時定数 $\tau$ の遅れが生じる。そのため $\omega$ が大きいほど感受率の実部は小さくなり、このような周波数分散を\textbf{デバイ緩和}という。
 
 %----------------------------------------------------------------------
-\section{問題4：金属内の電子の運動と電気伝導率}
+\section{問題4：金属内の電子の運動と電気伝導率（類題：第2回 問題2・3）}\label{sec:2024r-4}
 %----------------------------------------------------------------------
 
-\subsection{問題}
+\subsection{問題}\label{sec:2024r-4-prob}
 
 電場中に置かれた金属内を移動する電子には、電場によるクーロン力と、運動と逆向きに働く抵抗力（電子の運動速度 $\mathbf{v}$ に比例し、$\gamma m\mathbf{v}$ と書ける。$m$ は電子の質量）が働く。電子の電荷を $q$、数密度を $n$ とする。
 
@@ -178,7 +257,7 @@
 \item 電場が $\mathbf{E} = \mathbf{E}_0\exp(-\mathrm{i}\omega t)$ によって時間変動するとき、複素電気伝導率 $\sigma(\omega)$ の実部 $\sigma'$ と虚部 $\sigma''$ を求めよ。
 \end{enumerate}
 
-\subsection{解答}
+\subsection{解答}\label{sec:2024r-4-ans}
 
 \paragraph{この問題のポイント（初学者向け）}
 
@@ -198,6 +277,7 @@
 \paragraph{4-1：電流密度 $\mathbf{i}$ と速度 $\mathbf{v}$ の関係}
 
 電流密度は、単位面積を単位時間に通過する電荷の流れである。電子が速度 $\mathbf{v}$ で運動しているとき、数密度 $n$、電荷 $q$ なら、$\mathbf{i} = nq\mathbf{v}$。したがって
+\解答
 \begin{equation}
 \boxed{\mathbf{i} = nq\mathbf{v}}.
 \end{equation}
@@ -213,6 +293,7 @@
 \mathbf{i} = nq\mathbf{v} = \frac{nq^2}{\gamma m}\mathbf{E}.
 \end{equation}
 オームの法則 $\mathbf{i} = \sigma\mathbf{E}$ と比較して、
+\解答
 \begin{equation}
 \boxed{\sigma = \frac{nq^2}{\gamma m}}.
 \end{equation}
@@ -237,6 +318,7 @@ $\mathbf{E} = \mathbf{E}_0\exp(-\mathrm{i}\omega t)$ のとき、定常振動解
 \sigma'' = \mathrm{Im}[\sigma(\omega)] = \frac{nq^2}{m}\,\frac{\omega}{\gamma^2 + \omega^2}.
 \end{equation}
 したがって
+\解答
 \begin{equation}
 \boxed{\sigma' = \frac{nq^2\gamma}{m(\gamma^2 + \omega^2)}, \qquad \sigma'' = \frac{nq^2\omega}{m(\gamma^2 + \omega^2)}}.
 \end{equation}

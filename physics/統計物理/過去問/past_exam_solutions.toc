@@ -140,7 +140,7 @@
 \contentsline {paragraph}{なぜ $1/T = \partial S/\partial U$ か（原理的な説明）}{43}{section*.104}%
 \contentsline {paragraph}{問2：断熱自由膨張後の温度 $T'$}{44}{section*.105}%
 \contentsline {paragraph}{問3：一連の操作のエントロピー変化}{44}{section*.106}%
-\contentsline {paragraph}{なぜ一連の操作で $\Delta S = 2 N R \ln (V'/V)$ か（物理的考察）}{44}{section*.107}%
+\contentsline {paragraph}{なぜ一連の操作で $\Delta S = 2 N R \ln (V'/V)$ か（物理的考察）}{45}{section*.107}%
 \contentsline {section}{\numberline {2}問題II：2種類の理想気体（類題：2023年度 問題I；演習3-II, 演習5-III--IV）}{46}{section.2025.2}%
 \contentsline {subsection}{\numberline {2.1}問題}{46}{subsection.2025.2.1}%
 \contentsline {subsection}{\numberline {2.2}解答}{47}{subsection.2025.2.2}%
@@ -171,8 +171,8 @@
 \contentsline {paragraph}{問1：$Z_1(T)$}{54}{section*.126}%
 \contentsline {paragraph}{問2：$N=1$ のときの $\langle E \rangle $}{54}{section*.127}%
 \contentsline {paragraph}{問3：$Z_N$}{54}{section*.128}%
-\contentsline {paragraph}{問4：$Z_N$ を用いた $\langle E \rangle $}{54}{section*.129}%
-\contentsline {paragraph}{問5：状態数 $W_N(E_{\mathrm {tot}})$}{54}{section*.130}%
+\contentsline {paragraph}{問4：$Z_N$ を用いた $\langle E \rangle $}{55}{section*.129}%
+\contentsline {paragraph}{問5：状態数 $W_N(E_{\mathrm {tot}})$}{55}{section*.130}%
 \contentsline {paragraph}{問6：エントロピー $S(N_{\mathrm {tot}}, E_{\mathrm {tot}})$}{55}{section*.131}%
-\contentsline {paragraph}{問7：$E_{\mathrm {tot}}$ を温度 $T$ の関数として表す}{55}{section*.132}%
-\contentsline {paragraph}{なぜ $1/T = \partial S/\partial E$ か（問7の補足）}{56}{section*.133}%
+\contentsline {paragraph}{問7：$E_{\mathrm {tot}}$ を温度 $T$ の関数として表す}{56}{section*.132}%
+\contentsline {paragraph}{なぜ $1/T = \partial S/\partial E$ か（問7の補足）}{57}{section*.133}%

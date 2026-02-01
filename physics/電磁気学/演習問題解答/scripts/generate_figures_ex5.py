@@ -141,11 +141,14 @@ def fig_ex5_3_energy():
     print(f"生成: {OUTPUT_DIR}/ex5_3_energy.png")
 
 def fig_ex5_5_magnetic_dipole():
-    """問題5: 電流ループと磁気双極子"""
+    """問題5: 電流ループと磁気双極子
+    右ねじの法則: xy平面で反時計回りの電流 → 磁気双極子モーメントは +z 方向
+    """
     fig = plt.figure(figsize=(10, 8))
     ax = fig.add_subplot(111, projection='3d')
     
-    # 円形電流ループ
+    # 円形電流ループ（反時計回り: φ 増加で (1,0,0)→(0,1,0)→(-1,0,0)→(0,-1,0)）
+    # 右ねじの法則で m は +z を向く
     phi = np.linspace(0, 2*np.pi, 100)
     a = 1.0
     x_circle = a * np.cos(phi)
@@ -153,7 +156,7 @@ def fig_ex5_5_magnetic_dipole():
     z_circle = np.zeros_like(phi)
     ax.plot(x_circle, y_circle, z_circle, 'b-', linewidth=3, label='電流ループ')
     
-    # 磁気双極子モーメント
+    # 磁気双極子モーメント（右ねじの法則: 反時計回り電流 → m は +z）
     ax.quiver(0, 0, 0, 0, 0, 1, color='r', arrow_length_ratio=0.3, linewidth=3, label='$\\boldsymbol{m}$')
     
     ax.set_xlabel('$x$', fontsize=12)
@@ -169,28 +172,37 @@ def fig_ex5_5_magnetic_dipole():
     print(f"生成: {OUTPUT_DIR}/ex5_5_magnetic_dipole.png")
 
 def fig_ex5_4_magnetic_field():
-    """問題4: 磁気双極子が作る磁場"""
+    """問題4: 磁気双極子が作る磁場
+    B = (1/4π)[3(m·r)r/r^5 - m/r^3], m=(0,0,1). 赤道面(z=0)では B は -z 方向。
+    """
     fig = plt.figure(figsize=(10, 8))
     ax = fig.add_subplot(111, projection='3d')
     
-    # 磁気双極子
+    # 磁気双極子 m = (0, 0, 1)
     ax.quiver(0, 0, 0, 0, 0, 1, color='r', arrow_length_ratio=0.3, linewidth=3, label='$\\boldsymbol{m}$')
     
-    # 磁力線（概念的に）
+    # 磁力線（赤道面 z=0 のみ。理論: m が +z のとき赤道面では B は常に -z 方向）
     theta = np.linspace(0, 2*np.pi, 20)
-    r = np.linspace(0.5, 2, 10)
-    Theta, R = np.meshgrid(theta, r)
+    r_cyl = np.linspace(0.6, 2, 10)  # 原点を避ける（r≥0.6）
+    Theta, R_cyl = np.meshgrid(theta, r_cyl)
     
-    X = R * np.sin(Theta)
-    Y = R * np.cos(Theta)
+    X = R_cyl * np.sin(Theta)
+    Y = R_cyl * np.cos(Theta)
     Z = np.zeros_like(X)
     
-    # 磁場の方向（概念的に）
-    Bx = 3 * X * Z / (R**5)
-    By = 3 * Y * Z / (R**5)
-    Bz = (3 * Z**2 - R**2) / (R**5)
+    r_sph = np.sqrt(X**2 + Y**2 + Z**2)
+    r_sph = np.maximum(r_sph, 0.01)
     
-    ax.quiver(X, Y, Z, Bx, By, Bz, length=0.3, alpha=0.5, color='b')
+    # B = (1/4π)[3(m·r)r/r^5 - m/r^3], m=(0,0,1). 赤道面では Bx=By=0, Bz = -1/r^3 < 0
+    Bx = 3 * X * Z / (r_sph**5)
+    By = 3 * Y * Z / (r_sph**5)
+    Bz = (3 * Z**2 - r_sph**2) / (r_sph**5)
+    
+    # 向きのみ表示（単位ベクトル）にしてスケールの影響を除き、下向きであることを明確に
+    B_norm = np.sqrt(Bx**2 + By**2 + Bz**2)
+    B_norm = np.maximum(B_norm, 1e-10)
+    u, v, w = Bx/B_norm, By/B_norm, Bz/B_norm
+    ax.quiver(X, Y, Z, u, v, w, length=0.25, normalize=True, alpha=0.7, color='b')
     
     ax.set_xlabel('$x$', fontsize=12)
     ax.set_ylabel('$y$', fontsize=12)
